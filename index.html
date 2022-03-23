@@ -201,7 +201,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        
+                        <a href="/tags/%E7%BD%91%E7%AB%99%E6%94%BB%E9%98%B2/" style="font-size: 10px;">网站攻防</a>
                     </div>
                 </section>
                 
@@ -279,6 +279,73 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-csrf攻击" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2022/03/23/csrf%E6%94%BB%E5%87%BB/" class="article-date">
+      <time datetime="2022-03-23T14:47:37.000Z" itemprop="datePublished">2022-03-23</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2022/03/23/csrf%E6%94%BB%E5%87%BB/">csrf攻击</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Cross-Site request forgery：称为跨站请求伪造，用户登录到一个网站A，登录成功服务器返回给用户cookie，此时用户又打开一个页面请求另外一个网站B，网站B返回给用户一些攻击性代码携带携带A网站返回给用户的cookie请求A网站，网站A能够验证该请求是来自于用户的浏览器，却不能验证该请求是否是用户的真实意愿还是恶意攻击性请求<br><em><strong>防御方法</strong></em></p>
+<ol>
+<li>验证http referer字段</li>
+<li>在请求地址中添加token并验证</li>
+<li>在http头中自定义属性并验证</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%AB%99%E6%94%BB%E9%98%B2/" rel="tag">网站攻防</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-my-first-blog" class="article article-type-post" itemscope itemprop="blogPost">
   
