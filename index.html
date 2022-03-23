@@ -309,12 +309,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Cross-Site request forgery：称为跨站请求伪造，用户登录到一个网站A，登录成功服务器返回给用户cookie，此时用户又打开一个页面请求另外一个网站B，网站B返回给用户一些攻击性代码携带携带A网站返回给用户的cookie请求A网站，网站A能够验证该请求是来自于用户的浏览器，却不能验证该请求是否是用户的真实意愿还是恶意攻击性请求<br><em><strong>防御方法</strong></em></p>
-<ol>
+        <h2 id="csrf攻击"><a href="#csrf攻击" class="headerlink" title="csrf攻击"></a>csrf攻击</h2><p>Cross-Site request forgery：称为跨站请求伪造，用户登录到一个网站A，登录成功服务器返回给用户cookie，此时用户又打开一个页面请求另外一个网站B，网站B返回给用户一些攻击性代码携带携带A网站返回给用户的cookie请求A网站，网站A能够验证该请求是来自于用户的浏览器，却不能验证该请求是否是用户的真实意愿还是恶意攻击性请求</p>
+<hr>
+<h3 id="防御方法"><a href="#防御方法" class="headerlink" title="防御方法"></a>防御方法</h3><ol>
 <li>验证http referer字段</li>
 <li>在请求地址中添加token并验证</li>
 <li>在http头中自定义属性并验证</li>
 </ol>
+<h2 id="java何时必须处理异常，何时可以不管任它自动往上抛？"><a href="#java何时必须处理异常，何时可以不管任它自动往上抛？" class="headerlink" title="java何时必须处理异常，何时可以不管任它自动往上抛？"></a>java何时必须处理异常，何时可以不管任它自动往上抛？</h2><p>java处理异常有两种方法，第一种是使用throws在方法后声明表示该异常交给调用者处理，另一种是使用try-catch进行处理。<br><em><strong>当抛出的是非运行时异常时，则必须处理，即要么使用throws，要么使用try-catch。但是如果抛出的是运行时异常，可以不对其进行处理，它会自动向上抛，当然也可以对其处理</strong></em></p>
 
       
     </div>
