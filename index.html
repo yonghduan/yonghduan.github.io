@@ -298,7 +298,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2022/03/23/csrf%E6%94%BB%E5%87%BB/">csrf攻击</a>
+      <a  class="article-title" href="/2022/03/23/csrf%E6%94%BB%E5%87%BB/">csrf攻击 &amp; java何时必须进行异常处理</a>
     </h1>
   
 
@@ -309,7 +309,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="csrf攻击-amp-java何时必须处理异常"><a href="#csrf攻击-amp-java何时必须处理异常" class="headerlink" title="csrf攻击 &amp; java何时必须处理异常"></a>csrf攻击 &amp; java何时必须处理异常</h2><p>Cross-Site request forgery：称为跨站请求伪造，用户登录到一个网站A，登录成功服务器返回给用户cookie，此时用户又打开一个页面请求另外一个网站B，网站B返回给用户一些攻击性代码携带携带A网站返回给用户的cookie请求A网站，网站A能够验证该请求是来自于用户的浏览器，却不能验证该请求是否是用户的真实意愿还是恶意攻击性请求</p>
+        <h2 id="csrf攻击"><a href="#csrf攻击" class="headerlink" title="csrf攻击"></a>csrf攻击</h2><p>Cross-Site request forgery：称为跨站请求伪造，用户登录到一个网站A，登录成功服务器返回给用户cookie，此时用户又打开一个页面请求另外一个网站B，网站B返回给用户一些攻击性代码携带携带A网站返回给用户的cookie请求A网站，网站A能够验证该请求是来自于用户的浏览器，却不能验证该请求是否是用户的真实意愿还是恶意攻击性请求</p>
 <hr>
 <h3 id="防御方法"><a href="#防御方法" class="headerlink" title="防御方法"></a>防御方法</h3><ol>
 <li>验证http referer字段</li>
