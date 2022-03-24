@@ -7,19 +7,19 @@
   
   
   
-  <title>Hello World | SaltFish的博客</title>
+  <title>使用接口的原因 &amp; try catch finally &amp; spring-boot配置文件中的on和off | SaltFish的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="使用接口的原因 有利于代码的规范，服务的规范 有利于后续代码的运行维护修改  try catch finally块中不含return的情况 try中没有异常：则执行完try中的内容后执行finally里的内容 try中含有异常，catch中无异常：捕获try中的异常之后，跳转到catch里面执行，执行完后执行finally里的内容 try中含异常，catch中也含有异常：跳转到catch之后，ca">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2022/03/20/hello-world/index.html">
+<meta property="og:title" content="使用接口的原因 &amp; try catch finally &amp; spring-boot配置文件中的on和off">
+<meta property="og:url" content="http://example.com/2022/03/24/trycatchfinally/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="使用接口的原因 有利于代码的规范，服务的规范 有利于后续代码的运行维护修改  try catch finally块中不含return的情况 try中没有异常：则执行完try中的内容后执行finally里的内容 try中含有异常，catch中无异常：捕获try中的异常之后，跳转到catch里面执行，执行完后执行finally里的内容 try中含异常，catch中也含有异常：跳转到catch之后，ca">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-03-20T03:49:13.458Z">
-<meta property="article:modified_time" content="2022-03-20T03:49:13.459Z">
+<meta property="article:published_time" content="2022-03-24T04:32:51.000Z">
+<meta property="article:modified_time" content="2022-03-24T04:36:07.372Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="java c++">
+<meta property="article:tag" content="learning notes">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="SaltFish的博客" type="application/atom+xml">
@@ -277,11 +277,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-trycatchfinally" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2022/03/20/hello-world/" class="article-date">
-      <time datetime="2022-03-20T03:49:13.458Z" itemprop="datePublished">2022-03-20</time>
+      <a  href="/2022/03/24/trycatchfinally/" class="article-date">
+      <time datetime="2022-03-24T04:32:51.000Z" itemprop="datePublished">2022-03-24</time>
 </a>
 
     </div>
@@ -295,7 +295,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      使用接口的原因 &amp; try catch finally &amp; spring-boot配置文件中的on和off
     </h1>
   
 
@@ -306,6 +306,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -313,19 +317,20 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <h2 id="使用接口的原因"><a href="#使用接口的原因" class="headerlink" title="使用接口的原因"></a>使用接口的原因</h2><ul>
+<li>有利于代码的规范，服务的规范</li>
+<li>有利于后续代码的运行维护修改</li>
+</ul>
+<h2 id="try-catch-finally"><a href="#try-catch-finally" class="headerlink" title="try catch finally"></a>try catch finally</h2><h3 id="块中不含return的情况"><a href="#块中不含return的情况" class="headerlink" title="块中不含return的情况"></a>块中不含return的情况</h3><ul>
+<li>try中没有异常：则执行完try中的内容后执行finally里的内容</li>
+<li>try中含有异常，catch中无异常：捕获try中的异常之后，跳转到catch里面执行，执行完后执行finally里的内容</li>
+<li>try中含异常，catch中也含有异常：跳转到catch之后，catch也出现异常，然后跳转到finally里执行完后抛出异常</li>
+</ul>
+<h3 id="块中含有return的情况"><a href="#块中含有return的情况" class="headerlink" title="块中含有return的情况"></a>块中含有return的情况</h3><ul>
+<li>finally中含有return时会覆盖try-catch里面的return值，并且会覆盖catch中抛出的异常信息</li>
+<li>如果catch中有return语句，并不是函数直接返回，而是执行完finally里的内容后再返回</li>
+</ul>
+<h2 id="springboot配置文件中的on和off"><a href="#springboot配置文件中的on和off" class="headerlink" title="springboot配置文件中的on和off"></a>springboot配置文件中的on和off</h2><p>在其配置文件中，on和off被默认读出来是true和false，而带单引号的on和off才会被读成原始字符串，其他字符串均被读出原始字符串</p>
 
       
     </div>
@@ -334,13 +339,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2022/03/20/hello-world/">Hello World</a></p>
+        <p><span>本文标题:</span><a  href="/2022/03/24/trycatchfinally/">使用接口的原因 &amp; try catch finally &amp; spring-boot配置文件中的on和off</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问  的个人博客"></a></p>
-        <p><span>发布时间:</span>2022年03月20日 - 11时49分</p>
-        <p><span>最后更新:</span>2022年03月20日 - 11时49分</p>
+        <p><span>发布时间:</span>2022年03月24日 - 12时32分</p>
+        <p><span>最后更新:</span>2022年03月24日 - 12时36分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2022/03/20/hello-world/" title="Hello World">http://example.com/2022/03/20/hello-world/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/03/20/hello-world/　　作者: " title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2022/03/24/trycatchfinally/" title="使用接口的原因 &amp; try catch finally &amp; spring-boot配置文件中的on和off">http://example.com/2022/03/24/trycatchfinally/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/03/24/trycatchfinally/　　作者: " title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -351,15 +356,20 @@
 
 <nav id="article-nav">
   
-    <a  href="/2022/03/23/csrf%E6%94%BB%E5%87%BB/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a  href="/2022/03/24/StringBuilder%E7%B1%BB/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          csrf攻击 &amp; java何时必须进行异常处理
+          StringBuilder类 &amp; final用法
         
       </div>
     </a>
   
+  
+    <a  href="/2022/03/24/spring-bean/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">spring bean单多例和生命周期 &amp; java枚举 &amp; java默认访问权限</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -369,7 +379,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.</span> <span class="toc-text">使用接口的原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#try-catch-finally"><span class="toc-number">2.</span> <span class="toc-text">try catch finally</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%97%E4%B8%AD%E4%B8%8D%E5%90%ABreturn%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">2.1.</span> <span class="toc-text">块中不含return的情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%97%E4%B8%AD%E5%90%AB%E6%9C%89return%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">2.2.</span> <span class="toc-text">块中含有return的情况</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#springboot%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84on%E5%92%8Coff"><span class="toc-number">3.</span> <span class="toc-text">springboot配置文件中的on和off</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -442,13 +452,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2022/03/23/csrf%E6%94%BB%E5%87%BB/" title="上一篇: csrf攻击 &amp; java何时必须进行异常处理">
+            <a  href="/2022/03/24/StringBuilder%E7%B1%BB/" title="上一篇: StringBuilder类 &amp; final用法">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a  href="/2022/03/24/spring-bean/" title="下一篇: spring bean单多例和生命周期 &amp; java枚举 &amp; java默认访问权限">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/StringBuilder%E7%B1%BB/">StringBuilder类 & final用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/trycatchfinally/">使用接口的原因 & try catch finally & spring-boot配置文件中的on和off</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/spring-bean/">spring bean单多例和生命周期 & java枚举 & java默认访问权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/haspMap/">haspMap查找键值原理以及key值重复问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/threadpool/">threadpool</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/23/spring-security/">spring security & 为什么前后端分离项目不能使用cookie-session机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/23/csrf%E6%94%BB%E5%87%BB/">csrf攻击 & java何时必须进行异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/20/hello-world/">Hello World</a></li></ul>
