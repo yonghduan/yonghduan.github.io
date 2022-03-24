@@ -9,15 +9,15 @@
   
   <title>threadpool | SaltFish的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为什么创建线程池 每次new Thread新建对象的性能差 线程缺乏统一的管理，可以无限制的创建线程，相互之间竞争，极可能占用过多的资源导致死机 缺乏更多的功能，如定期执行，定时执行等  线程池优点 重复利用存在的线程，减少线程对象的创建，消亡的开销，提高性能，降低资源的消耗，提高响应速度 可以有效控制最大并发线程数，避免过多的资源竞争，堵塞，提高线程的管理性  daemon thread 它叫做">
+  <meta name="description" content="为什么创建线程池 每次new Thread新建对象的性能差 线程缺乏统一的管理，可以无限制的创建线程，相互之间竞争，极可能占用过多的资源导致死机 缺乏更多的功能，如定期执行，定时执行等">
 <meta property="og:type" content="article">
 <meta property="og:title" content="threadpool">
 <meta property="og:url" content="http://example.com/2022/03/24/threadpool/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="为什么创建线程池 每次new Thread新建对象的性能差 线程缺乏统一的管理，可以无限制的创建线程，相互之间竞争，极可能占用过多的资源导致死机 缺乏更多的功能，如定期执行，定时执行等  线程池优点 重复利用存在的线程，减少线程对象的创建，消亡的开销，提高性能，降低资源的消耗，提高响应速度 可以有效控制最大并发线程数，避免过多的资源竞争，堵塞，提高线程的管理性  daemon thread 它叫做">
+<meta property="og:description" content="为什么创建线程池 每次new Thread新建对象的性能差 线程缺乏统一的管理，可以无限制的创建线程，相互之间竞争，极可能占用过多的资源导致死机 缺乏更多的功能，如定期执行，定时执行等">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-24T03:53:56.000Z">
-<meta property="article:modified_time" content="2022-03-24T03:57:05.246Z">
+<meta property="article:modified_time" content="2022-03-24T06:07:14.554Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="learning notes">
 <meta name="twitter:card" content="summary">
@@ -320,7 +320,7 @@
         <h2 id="为什么创建线程池"><a href="#为什么创建线程池" class="headerlink" title="为什么创建线程池"></a>为什么创建线程池</h2><ul>
 <li>每次new Thread新建对象的性能差</li>
 <li>线程缺乏统一的管理，可以无限制的创建线程，相互之间竞争，极可能占用过多的资源导致死机</li>
-<li>缺乏更多的功能，如定期执行，定时执行等</li>
+<li>缺乏更多的功能，如定期执行，定时执行等<span id="more"></span></li>
 </ul>
 <h2 id="线程池优点"><a href="#线程池优点" class="headerlink" title="线程池优点"></a>线程池优点</h2><ul>
 <li>重复利用存在的线程，减少线程对象的创建，消亡的开销，提高性能，降低资源的消耗，提高响应速度</li>
@@ -341,7 +341,7 @@
         <p><span>本文标题:</span><a  href="/2022/03/24/threadpool/">threadpool</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问  的个人博客"></a></p>
         <p><span>发布时间:</span>2022年03月24日 - 11时53分</p>
-        <p><span>最后更新:</span>2022年03月24日 - 11时57分</p>
+        <p><span>最后更新:</span>2022年03月24日 - 14时07分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2022/03/24/threadpool/" title="threadpool">http://example.com/2022/03/24/threadpool/</a>
             <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/03/24/threadpool/　　作者: " title=""></span>

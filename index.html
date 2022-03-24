@@ -376,23 +376,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="常见注解"><a href="#常见注解" class="headerlink" title="常见注解"></a>常见注解</h2><h3 id="Bean注解"><a href="#Bean注解" class="headerlink" title="@Bean注解"></a>@Bean注解</h3><p>此注解在于告诉一个方法，产生一个bean对象，并且这个对象交给spring管理，添加的bean的id为方法名</p>
-<h3 id="Configuration注解"><a href="#Configuration注解" class="headerlink" title="@Configuration注解"></a>@Configuration注解</h3><p>这是一个用于定义配置类的注解，它内部含有一个或者多个带有@Bean注解的方法，这些方法会被扫描，构建bean的定义，初始化spring容器</p>
-<h3 id="RequestParam注解"><a href="#RequestParam注解" class="headerlink" title="@RequestParam注解"></a>@RequestParam注解</h3><p>用于映射请求参数，它含有value，required，defaultValue等属性，是用于映射get请求方法</p>
-<h3 id="Component注解"><a href="#Component注解" class="headerlink" title="@Component注解"></a>@Component注解</h3><ul>
-<li>sping工程中，分别用@Controller，@Service，@Respository注解分别用于控制层（web层），业务层和数据持久层，而对于那些不好区分是那个层面的bean，比较中立的bean使用此注解，相当于给spring管理的对象容器中配置一个bean</li>
-</ul>
-<h2 id="Stringutils里的isBlank（）和isEmpty（）的区别"><a href="#Stringutils里的isBlank（）和isEmpty（）的区别" class="headerlink" title="Stringutils里的isBlank（）和isEmpty（）的区别"></a>Stringutils里的isBlank（）和isEmpty（）的区别</h2><p>在用于判断字符串是否为空时两者可以相互替换，但当字符串为空格，或者&#x2F;t&#x2F;r&#x2F;n这种默认为空的字符时，isEmpty（）为false，isBlank（）为真。要注意字符串为null的情况，这个时候即没有为字符串分配空间，它是一个空指针，不能调用String类的任何方法。</p>
-<h2 id="继承中父类和子类拥有相同的成员变量名"><a href="#继承中父类和子类拥有相同的成员变量名" class="headerlink" title="继承中父类和子类拥有相同的成员变量名"></a>继承中父类和子类拥有相同的成员变量名</h2><ul>
-<li>当对该变量操作的方法是继承于父类的话，操作的变量是属于父类的，若该方法是子类独有或者是重写了父类的方法，则操作的变量是属于子类的</li>
-</ul>
-<h2 id="java中Throwable类"><a href="#java中Throwable类" class="headerlink" title="java中Throwable类"></a>java中Throwable类</h2><ul>
-<li>java中Throwable是Error和Exception的父类，用来定义所有可以作为异常被抛出来的类，而Exception又分为其他Exception和RunTimeException，其他Exception为受检查异常，必须要通过开发者解决后才能编译通过，而RunTimeException又称为不受检查异常，即不处理它也能够编译通过，但是真正执行的时候会出错，比如1&#x2F;0，空指针等运行时异常</li>
-</ul>
-<h2 id="pom-xml文件中的标签"><a href="#pom-xml文件中的标签" class="headerlink" title="pom.xml文件中的标签"></a>pom.xml文件中的<optional>标签</h2><ul>
-<li>当此标签的值为true值时，表示当其他项目通过maven引入该项目时，不会把这个依赖传入到其他项目中，是为了防止依赖冲突</li>
-</ul>
-
+              <h2 id="常见注解"><a href="#常见注解" class="headerlink" title="常见注解"></a>常见注解</h2><h3 id="Bean注解"><a href="#Bean注解" class="headerlink" title="@Bean注解"></a>@Bean注解</h3><p>此注解在于告诉一个方法，产生一个bean对象，并且这个对象交给spring管理，添加的bean的id为方法名</p>
+<h3 id="Configuration注解"><a href="#Configuration注解" class="headerlink" title="@Configuration注解"></a>@Configuration注解</h3><p>这是一个用于定义配置类的注解，它内部含有一个或者多个带有@Bean注解的方法，这些方法会被扫描，构建bean的定义，初始化spring容器
+          
       
     </div>
     
@@ -405,6 +391,10 @@
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a   href="/2022/03/24/Bean/#more">查看更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -453,49 +443,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="java抽象类"><a href="#java抽象类" class="headerlink" title="java抽象类"></a>java抽象类</h2><hr>
+              <h2 id="java抽象类"><a href="#java抽象类" class="headerlink" title="java抽象类"></a>java抽象类</h2><hr>
 <ol>
 <li>java抽象类表示的一种继承关系，一个类只能继承一个抽象类，但是能实现多个接口。</li>
 <li>抽象类不一定含有抽象方法，但是含有抽象方法的类一定是抽象类，抽象方法即有方法声明但是没有方法定义的方法</li>
-<li>抽象类不能实例化对象，因此只有被继承才能使用抽象类</li>
-</ol>
-<h2 id="java内部类"><a href="#java内部类" class="headerlink" title="java内部类"></a>java内部类</h2><hr>
-<ul>
-<li>成员内部类：可以直接访问外部类的属性，方法，即使是私有的。但是不能含静态变量和方法</li>
-<li>局部内部类：定义在一个方法或者作用域里面，不能有权限和静态修饰词，可以直接访问外部类的属性方法等，即使是私有的</li>
-<li>匿名内部类：它没有名字和构造方法，用于继承其他类或者是实现接口，并不需要增加额外的方法，只是多继承方法的实现或者重写</li>
-<li>静态内部类：静态内部类不能访问外部类的非静态变量和方法，静态内部类是属于外部类所有，而非外部类的实例对象所有</li>
-</ul>
-<p><strong>为什么使用内部类？</strong></p>
-<p>当一个类存在的价值仅仅是为某一个类服务时，可以将其设为内部类，方便将具有一定关系的类组织在一起，由可以对外界隐藏</p>
-<p><em><strong>内部类加载时机</strong></em></p>
-<p>内部类的加载时机与外部类没有必然的联系，只有当使用到内部类时，内部类才会加载，但是当内部类与外部类有联系时（比如内部类中使用了外部类中的变量），在加载内部类的时候如果发现外部类没有加载，则会先加载外部类然后加载内部类</p>
-<h2 id="java-synchronized关键字"><a href="#java-synchronized关键字" class="headerlink" title="java synchronized关键字"></a>java synchronized关键字</h2><hr>
-<p><strong>用在方法上</strong></p>
-<p>锁住的是当前对象的当前方法或者代码块，其他线程访问synchronized方法或者代码块时阻塞，但非synchronized方法或者代码块不会受到阻塞</p>
-<p><strong>synchronized（this）</strong></p>
-<p>锁住的是当前对象，在同步块里面的内容执行完毕之后，释放当前对象的锁，当多个线程访问改对象时，会受到阻塞</p>
-<p><strong>synchronized（object）</strong></p>
-<p>锁住的当前object对象，注意括号里面必须是Object对象才能保证代码块实现互斥访问，相比于方法同步锁这个锁住部分代码块让并发更加高效</p>
-<ul>
-<li>注意锁分为对象锁和类锁，这两个是完全不同的锁，互相之间不会影响。当使用对象锁时，只会对本对象作用，而不会对本类的其他对象作用。但是类锁作用的是本类的所有实例</li>
-</ul>
-<h2 id="java接口中的抽象方法"><a href="#java接口中的抽象方法" class="headerlink" title="java接口中的抽象方法"></a>java接口中的抽象方法</h2><blockquote>
-<ol>
-<li>java接口中的方法默认是public &amp; abstract 的，这两个关键字可以任意省略</li>
-<li>如果实现类没有实现接口中的所有方法，那么当前类一定是抽象类</li>
-</ol>
-</blockquote>
-<h2 id="java-set集合"><a href="#java-set集合" class="headerlink" title="java set集合"></a>java set集合</h2><hr>
-<p>set集合时一种集合，程序可以把多个元素放入set集合，但是set集合不能记住元素的添加顺序，并且set集合不允许添加两个完全相同的元素，HashSet是set接口的最常用的一个实现，集合元素值可以是null</p>
-<ul>
-<li>HashSet的实现是基于HashMap的，对HashMap做了一层封装实现了set接口，并且存储只是使用了HashMap的key存储部分，value部分都指向同一个Object对象，没有使用Object对象</li>
-<li>HashMap底层是使用了链表数组的方法，key值经过哈希函数得到数组中的位置，然后得到目标对象存储的位置，当超过两个元素哈希后得到同一个数组位置时，采用链表的方法存储</li>
-</ul>
-<p>set接口addAll（）方法用于将数组放入set集合并且自动去掉数组中重复的部分</p>
-<h2 id="跨域产生的原因"><a href="#跨域产生的原因" class="headerlink" title="跨域产生的原因"></a>跨域产生的原因</h2><p>跨域产生的原因是浏览器的同源策略限制，是一种浏览器的一种安全机制，服务端之间不存在跨域</p>
-<p>浏览器的同源策略是指两个页面的协议，主机，端口相同，如果三者之间有一项不同，便会产生跨域问题</p>
-
+<li>抽象类不能实例化对象，因此只有被继承才能使用抽象类
+          
       
     </div>
     
@@ -508,6 +461,10 @@
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a   href="/2022/03/24/abstract-class/#more">查看更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -556,19 +513,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="前后端分离项目中的请求过程"><a href="#前后端分离项目中的请求过程" class="headerlink" title="前后端分离项目中的请求过程"></a>前后端分离项目中的请求过程</h2><p><strong>过程</strong>：在前后端分离项目中，浏览器先请求前端服务器，前端服务器返回html页面给浏览器，浏览器在进行渲染的时候渲染到有ajax请求时去请求后端服务器，后端服务器返回json数据给浏览器，浏览器然后完成后面的渲染</p>
-<p><strong>ajax请求：</strong>Asynchronous  JavaScript And  XML，是指一种创建交互式，快速动态网页应用的网页开发技术，在无需更新整个页面的情况下（即浏览器请求栏的地址不变），能够更新部分网页内容的技术。同步按照代码顺序执行，而异步不会按照代码顺序执行，异步的效率更高。*<strong>ajax是一种浏览器通过js异步发起请求，局部更新页面的技术*</strong></p>
-<p>常用的响应数据类型有：text，xml，json等</p>
-<p><strong>前后端分离项目中的跨域问题</strong>：</p>
-<p>可以使用在前端项目中配置代理的方式解决</p>
-<h2 id="Spring-Security中静态资源放行"><a href="#Spring-Security中静态资源放行" class="headerlink" title="Spring Security中静态资源放行"></a>Spring Security中静态资源放行</h2><ul>
-<li>spring security会拦截所有请求，包括静态资源，所以需要放行静态资源</li>
-</ul>
-<h2 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h2><ul>
-<li>DispatcherServlet：前端控制器，所有的请求都要经过这个servlet统一进行处理分发，相当于一个中央处理器，控制整个流程的执行，它把请求分发给HandlerMapping查找执行链，然后把执行链返回给dispatcherServlet</li>
-<li>HandlerAdapter：处理器适配器，dispatcherServlet把执行链然后发送给处理器适配器，适配出相应的处理器，交给处理器执行</li>
-</ul>
-
+              <h2 id="前后端分离项目中的请求过程"><a href="#前后端分离项目中的请求过程" class="headerlink" title="前后端分离项目中的请求过程"></a>前后端分离项目中的请求过程</h2><p><strong>过程</strong>：在前后端分离项目中，浏览器先请求前端服务器，前端服务器返回html页面给浏览器，浏览器在进行渲染的时候渲染到有ajax请求时去请求后端服务器，后端服务器返回json数据给浏览器，浏览器然后完成后面的渲染
+          
       
     </div>
     
@@ -581,6 +527,10 @@
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a   href="/2022/03/24/springmvc/#more">查看更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -629,35 +579,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="Arrays-asList"><a href="#Arrays-asList" class="headerlink" title="Arrays.asList()"></a>Arrays.asList()</h2><p>该方法是将数组转换成list集合的方法，有以下四点需要注意：</p>
+              <h2 id="Arrays-asList"><a href="#Arrays-asList" class="headerlink" title="Arrays.asList()"></a>Arrays.asList()</h2><p>该方法是将数组转换成list集合的方法，有以下四点需要注意：</p>
 <ul>
 <li>该方法适用于对象型的数组，不建议使用基本类型的数组</li>
 <li>该方法将list集合和数组联结起来，一个更新，另一个自动更新</li>
-<li>得到的list集合长度固定，不支持add，remove，clear方法</li>
-</ul>
-<h2 id="数组和集合的区别"><a href="#数组和集合的区别" class="headerlink" title="数组和集合的区别"></a>数组和集合的区别</h2><ul>
-<li>数组是java语言内置的数据类型，是静态的，一旦创建就不允许改变长度和预先定义要存储的数据类型，只能存储一种数据类型，因为是内置的，所以查询速度都是最快的</li>
-<li>集合是动态的，可以动态改变容量，并且可以不声明存储类型，默认为Object类型，存储对象时放进集合即可，而不用关注对象是什么类型，取出使用时将其转换为相应的类型即可</li>
-</ul>
-<h2 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h2><p><strong>对称加密和非对称加密</strong></p>
-<ul>
-<li>对称加密：加密密匙和解密密匙相同</li>
-<li>非对称加密：加密密匙和解密密匙不同</li>
-</ul>
-<blockquote>
-<ol>
-<li>MD5算法：这是一种信息摘要算法，使用的哈希函数，具有不可逆性，无论多长的输入，算法都会产生输出长度为128bits的一串（通常用16进制表示为32个字符）</li>
-<li>SHA:英文为secure hash algorithm，即安全散列算法，散列又称为哈希。也是一种不可逆的消息摘要算法，对于一定长度的输入能够产生固定长度的输出。sha包含5个算法，分别是sha-1，sha-224，sha-256，sha-384，sha-512，后面四个统称为sha-2算法，后面的数字实则是产生固定长度的bits的位数</li>
-</ol>
-</blockquote>
-<p>base64并不是一种加密算法，而是一种编码方式，是基于64个可打印字符表示二进制数据的方法，常用方式为将图片用base64算法编码成一串字符串进行传输</p>
-<h2 id="SpringSecurity-antMathchers匹配原则"><a href="#SpringSecurity-antMathchers匹配原则" class="headerlink" title="SpringSecurity antMathchers匹配原则"></a>SpringSecurity antMathchers匹配原则</h2><ul>
-<li>？：匹配任何单字符</li>
-<li>*：匹配0或者任意数量的单字符</li>
-<li>**：匹配0或者更多的目录</li>
-</ul>
-<hr>
-
+<li>得到的list集合长度固定，不支持add，remove，clear方法
+          
       
     </div>
     
@@ -670,6 +597,10 @@
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a   href="/2022/03/24/array/#more">查看更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -718,19 +649,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="StringBuilder类"><a href="#StringBuilder类" class="headerlink" title="StringBuilder类"></a>StringBuilder类</h2><p>程序开发过程中，经常碰到字符串需要连接的情况，常用的方法是使用 + 号，但是这种方法每加一次就新创建了一个String对象，而且连接效率比较低，并且比较费空间，使用StringBuilder类，即可变长字符序列，可以避免这种问题的产生。</p>
+              <h2 id="StringBuilder类"><a href="#StringBuilder类" class="headerlink" title="StringBuilder类"></a>StringBuilder类</h2><p>程序开发过程中，经常碰到字符串需要连接的情况，常用的方法是使用 + 号，但是这种方法每加一次就新创建了一个String对象，而且连接效率比较低，并且比较费空间，使用StringBuilder类，即可变长字符序列，可以避免这种问题的产生。</p>
 <ul>
 <li>append（）：字符串连接</li>
-<li>toString（）：返回一个与构建器或缓冲器内容相同的字符串</li>
-</ul>
-<h2 id="final用法"><a href="#final用法" class="headerlink" title="final用法"></a>final用法</h2><ul>
-<li>修饰基本数据类型：表示该数据是个常量，不能被修改</li>
-<li>修饰对象的引用：表示该引用不可被重新赋值，即该引用一直指向该对象，但是对象仍然可以被修改</li>
-<li>修饰类：表示该类不可被继承</li>
-<li>修饰方法：说明当前方法已经满足要求，不允许继承的类来重写此方法进行扩展</li>
-</ul>
-<hr>
-
+<li>toString（）：返回一个与构建器或缓冲器内容相同的字符串
+          
       
     </div>
     
@@ -743,6 +666,10 @@
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a   href="/2022/03/24/StringBuilder%E7%B1%BB/#more">查看更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -791,21 +718,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="使用接口的原因"><a href="#使用接口的原因" class="headerlink" title="使用接口的原因"></a>使用接口的原因</h2><ul>
+              <h2 id="使用接口的原因"><a href="#使用接口的原因" class="headerlink" title="使用接口的原因"></a>使用接口的原因</h2><ul>
 <li>有利于代码的规范，服务的规范</li>
-<li>有利于后续代码的运行维护修改</li>
-</ul>
-<h2 id="try-catch-finally"><a href="#try-catch-finally" class="headerlink" title="try catch finally"></a>try catch finally</h2><h3 id="块中不含return的情况"><a href="#块中不含return的情况" class="headerlink" title="块中不含return的情况"></a>块中不含return的情况</h3><ul>
-<li>try中没有异常：则执行完try中的内容后执行finally里的内容</li>
-<li>try中含有异常，catch中无异常：捕获try中的异常之后，跳转到catch里面执行，执行完后执行finally里的内容</li>
-<li>try中含异常，catch中也含有异常：跳转到catch之后，catch也出现异常，然后跳转到finally里执行完后抛出异常</li>
-</ul>
-<h3 id="块中含有return的情况"><a href="#块中含有return的情况" class="headerlink" title="块中含有return的情况"></a>块中含有return的情况</h3><ul>
-<li>finally中含有return时会覆盖try-catch里面的return值，并且会覆盖catch中抛出的异常信息</li>
-<li>如果catch中有return语句，并不是函数直接返回，而是执行完finally里的内容后再返回</li>
-</ul>
-<h2 id="springboot配置文件中的on和off"><a href="#springboot配置文件中的on和off" class="headerlink" title="springboot配置文件中的on和off"></a>springboot配置文件中的on和off</h2><p>在其配置文件中，on和off被默认读出来是true和false，而带单引号的on和off才会被读成原始字符串，其他字符串均被读出原始字符串</p>
-
+<li>有利于后续代码的运行维护修改
+          
       
     </div>
     
@@ -818,6 +734,10 @@
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a   href="/2022/03/24/trycatchfinally/#more">查看更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -866,19 +786,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="spring-bean单多例和生命周期"><a href="#spring-bean单多例和生命周期" class="headerlink" title="spring bean单多例和生命周期"></a>spring bean单多例和生命周期</h2><p>spring中，bean可以被定义为两种模式，分别为singleton和prototype模式，默认是单例模式，即只有一个共享实例存在，每次请求这个bean都会返回这个唯一的实例。而多例模式每次请求bean都会返回一个新的bean实例，相当于每次请求都new一个实例。</p>
-<h3 id="配置单例多例的方法"><a href="#配置单例多例的方法" class="headerlink" title="配置单例多例的方法"></a><strong>配置单例多例的方法</strong></h3><p>在bean上面加注解@scope（）注解可以配置单例和多例模式</p>
-<h3 id="bean生命周期"><a href="#bean生命周期" class="headerlink" title="bean生命周期"></a>bean生命周期</h3><ul>
-<li>spring只会帮我们管理单例模式bean完整的生命周期，而多例模式的bean spring创建好后把它交给使用者之后便不会再管理</li>
-<li>对于Beanfactory容器，bean在第一次被调用的时候在被真正的创建，但是对于ApplicationContext容器，在第一次加载容器的时候就创建所有bean，等容器关闭的时候销毁所有对象</li>
-</ul>
-<h2 id="java枚举"><a href="#java枚举" class="headerlink" title="java枚举"></a>java枚举</h2><p>枚举除了不能继承，基本上可以把枚举当做一个类来看待</p>
-<ul>
-<li>枚举内可以添加任何方法，甚至是构造方法，但是声明枚举常量时不允许使用赋值运算符为枚举常量赋值，但是可以通过方法来实现间接赋值</li>
-<li>枚举常量不需要任何修饰符</li>
-</ul>
-<h2 id="java默认访问权限"><a href="#java默认访问权限" class="headerlink" title="java默认访问权限"></a>java默认访问权限</h2><p>不论是类，方法，还是变量，当不加任何权限修饰词时，访问权限都是包访问权限</p>
-
+              <h2 id="spring-bean单多例和生命周期"><a href="#spring-bean单多例和生命周期" class="headerlink" title="spring bean单多例和生命周期"></a>spring bean单多例和生命周期</h2><p>spring中，bean可以被定义为两种模式，分别为singleton和prototype模式，默认是单例模式，即只有一个共享实例存在，每次请求这个bean都会返回这个唯一的实例。而多例模式每次请求bean都会返回一个新的bean实例，相当于每次请求都new一个实例。
+          
       
     </div>
     
@@ -891,6 +800,10 @@
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a   href="/2022/03/24/spring-bean/#more">查看更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -939,17 +852,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="查找键值原理"><a href="#查找键值原理" class="headerlink" title="查找键值原理"></a>查找键值原理</h2><ul>
+              <h2 id="查找键值原理"><a href="#查找键值原理" class="headerlink" title="查找键值原理"></a>查找键值原理</h2><ul>
 <li>hashmap底层维护了一个数组，当输入一个key值时，求这个key值的哈希值，这个哈希值实际上就是数组的下标，数组里面存储了一个Entry类，这个类分别有三个域，分别为key，value和next。next指向另一个键值不同但键值的哈希值相同的节点。</li>
-<li>hashmap允许null值和null键</li>
-</ul>
-<h2 id="key值重复问题"><a href="#key值重复问题" class="headerlink" title="key值重复问题"></a>key值重复问题</h2><ul>
-<li>当key值重复时，hashmap存储元素时会直接覆盖掉此key值的value，并且把旧的value返回</li>
-</ul>
-<h2 id="多线程问题"><a href="#多线程问题" class="headerlink" title="多线程问题"></a>多线程问题</h2><ul>
-<li>hashmap是线程不安全的，hashtable是线程安全的。hashmap在两个线程都试图调整map大小时会产生线程不安全问题</li>
-</ul>
-
+<li>hashmap允许null值和null键
+          
       
     </div>
     
@@ -962,6 +868,10 @@
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a   href="/2022/03/24/haspMap/#more">查看更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -1010,20 +920,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="为什么创建线程池"><a href="#为什么创建线程池" class="headerlink" title="为什么创建线程池"></a>为什么创建线程池</h2><ul>
+              <h2 id="为什么创建线程池"><a href="#为什么创建线程池" class="headerlink" title="为什么创建线程池"></a>为什么创建线程池</h2><ul>
 <li>每次new Thread新建对象的性能差</li>
 <li>线程缺乏统一的管理，可以无限制的创建线程，相互之间竞争，极可能占用过多的资源导致死机</li>
-<li>缺乏更多的功能，如定期执行，定时执行等</li>
-</ul>
-<h2 id="线程池优点"><a href="#线程池优点" class="headerlink" title="线程池优点"></a>线程池优点</h2><ul>
-<li>重复利用存在的线程，减少线程对象的创建，消亡的开销，提高性能，降低资源的消耗，提高响应速度</li>
-<li>可以有效控制最大并发线程数，避免过多的资源竞争，堵塞，提高线程的管理性</li>
-</ul>
-<h2 id="daemon-thread"><a href="#daemon-thread" class="headerlink" title="daemon thread"></a>daemon thread</h2><ul>
-<li>它叫做守护线程，程序的主线程不会是守护线程</li>
-<li>当程序主线程结束的时候，如果其他还在运行的程序是守护线程，则进程直接退出。如果是非守护线程，则必须等所有非守护线程结束了，进程才能退出</li>
-</ul>
-
+<li>缺乏更多的功能，如定期执行，定时执行等
+          
       
     </div>
     
@@ -1036,6 +937,10 @@
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a   href="/2022/03/24/threadpool/#more">查看更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

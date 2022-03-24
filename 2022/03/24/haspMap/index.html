@@ -9,15 +9,15 @@
   
   <title>haspMap查找键值原理以及key值重复问题 | SaltFish的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="查找键值原理 hashmap底层维护了一个数组，当输入一个key值时，求这个key值的哈希值，这个哈希值实际上就是数组的下标，数组里面存储了一个Entry类，这个类分别有三个域，分别为key，value和next。next指向另一个键值不同但键值的哈希值相同的节点。 hashmap允许null值和null键  key值重复问题 当key值重复时，hashmap存储元素时会直接覆盖掉此key值的va">
+  <meta name="description" content="查找键值原理 hashmap底层维护了一个数组，当输入一个key值时，求这个key值的哈希值，这个哈希值实际上就是数组的下标，数组里面存储了一个Entry类，这个类分别有三个域，分别为key，value和next。next指向另一个键值不同但键值的哈希值相同的节点。 hashmap允许null值和null键">
 <meta property="og:type" content="article">
 <meta property="og:title" content="haspMap查找键值原理以及key值重复问题">
 <meta property="og:url" content="http://example.com/2022/03/24/haspMap/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="查找键值原理 hashmap底层维护了一个数组，当输入一个key值时，求这个key值的哈希值，这个哈希值实际上就是数组的下标，数组里面存储了一个Entry类，这个类分别有三个域，分别为key，value和next。next指向另一个键值不同但键值的哈希值相同的节点。 hashmap允许null值和null键  key值重复问题 当key值重复时，hashmap存储元素时会直接覆盖掉此key值的va">
+<meta property="og:description" content="查找键值原理 hashmap底层维护了一个数组，当输入一个key值时，求这个key值的哈希值，这个哈希值实际上就是数组的下标，数组里面存储了一个Entry类，这个类分别有三个域，分别为key，value和next。next指向另一个键值不同但键值的哈希值相同的节点。 hashmap允许null值和null键">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-24T04:24:13.000Z">
-<meta property="article:modified_time" content="2022-03-24T04:26:28.043Z">
+<meta property="article:modified_time" content="2022-03-24T06:05:37.131Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="learning notes">
 <meta name="twitter:card" content="summary">
@@ -319,7 +319,7 @@
           
         <h2 id="查找键值原理"><a href="#查找键值原理" class="headerlink" title="查找键值原理"></a>查找键值原理</h2><ul>
 <li>hashmap底层维护了一个数组，当输入一个key值时，求这个key值的哈希值，这个哈希值实际上就是数组的下标，数组里面存储了一个Entry类，这个类分别有三个域，分别为key，value和next。next指向另一个键值不同但键值的哈希值相同的节点。</li>
-<li>hashmap允许null值和null键</li>
+<li>hashmap允许null值和null键<span id="more"></span></li>
 </ul>
 <h2 id="key值重复问题"><a href="#key值重复问题" class="headerlink" title="key值重复问题"></a>key值重复问题</h2><ul>
 <li>当key值重复时，hashmap存储元素时会直接覆盖掉此key值的value，并且把旧的value返回</li>
@@ -338,7 +338,7 @@
         <p><span>本文标题:</span><a  href="/2022/03/24/haspMap/">haspMap查找键值原理以及key值重复问题</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问  的个人博客"></a></p>
         <p><span>发布时间:</span>2022年03月24日 - 12时24分</p>
-        <p><span>最后更新:</span>2022年03月24日 - 12时26分</p>
+        <p><span>最后更新:</span>2022年03月24日 - 14时05分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2022/03/24/haspMap/" title="haspMap查找键值原理以及key值重复问题">http://example.com/2022/03/24/haspMap/</a>
             <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/03/24/haspMap/　　作者: " title=""></span>
