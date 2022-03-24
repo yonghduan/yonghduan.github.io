@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220324233417181.png">
 <meta property="article:published_time" content="2022-03-24T15:22:10.000Z">
-<meta property="article:modified_time" content="2022-03-24T15:34:41.752Z">
+<meta property="article:modified_time" content="2022-03-24T15:43:32.279Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="learning notes">
 <meta name="twitter:card" content="summary">
@@ -319,9 +319,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>由于java没有指针，那么java在函数传参的过程中，到底传递的是一个值呢还是对象的地址呢？<span id="more"></span></p>
-<meta name="referred" content="no-referred" />
+        <meta name="referrer" content="no-referrer" />
 
+<p>由于java没有指针，那么java在函数传参的过程中，到底传递的是一个值呢还是对象的地址呢？<span id="more"></span></p>
 <h2 id="基本类型的参数和引用类型的参数"><a href="#基本类型的参数和引用类型的参数" class="headerlink" title="基本类型的参数和引用类型的参数"></a>基本类型的参数和引用类型的参数</h2><h3 id="基本类型参数"><a href="#基本类型参数" class="headerlink" title="基本类型参数"></a>基本类型参数</h3><p>对于基本类型数据来说，函数传参传递的仅仅是个值而已，即传递过去，就赋值给函数局部变量，与原始值再没关系了</p>
 <h3 id="引用类型数据参数"><a href="#引用类型数据参数" class="headerlink" title="引用类型数据参数"></a>引用类型数据参数</h3><p>对于引用类型来说，函数传参传递的实则是对象地址的传递，在传参的过程中将对象的地址赋值给函数局部变量，因此这个函数局部变量也是指向这个对象的</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Person person  = new Person;</span><br><span class="line">change(person);</span><br><span class="line"></span><br><span class="line">void change(Person p)&#123;...&#125;</span><br></pre></td></tr></table></figure>
@@ -339,7 +339,7 @@
         <p><span>本文标题:</span><a  href="/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/">java函数传参详细分析</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问  的个人博客"></a></p>
         <p><span>发布时间:</span>2022年03月24日 - 23时22分</p>
-        <p><span>最后更新:</span>2022年03月24日 - 23时34分</p>
+        <p><span>最后更新:</span>2022年03月24日 - 23时43分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/" title="java函数传参详细分析">http://example.com/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/</a>
             <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/　　作者: " title=""></span>
