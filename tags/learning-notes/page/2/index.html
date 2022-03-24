@@ -4,22 +4,22 @@
   <meta charset="utf-8">
   <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
   
+   
+    <meta name="keywords" content="learning notes" />
   
   
   
-  <title>spring bean单多例和生命周期 &amp; java枚举 &amp; java默认访问权限 | SaltFish的博客</title>
+  <title>Tag: learning notes | SaltFish的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="spring bean单多例和生命周期spring中，bean可以被定义为两种模式，分别为singleton和prototype模式，默认是单例模式，即只有一个共享实例存在，每次请求这个bean都会返回这个唯一的实例。而多例模式每次请求bean都会返回一个新的bean实例，相当于每次请求都new一个实例。 配置单例多例的方法在bean上面加注解@scope（）注解可以配置单例和多例模式 bean生">
-<meta property="og:type" content="article">
-<meta property="og:title" content="spring bean单多例和生命周期 &amp; java枚举 &amp; java默认访问权限">
-<meta property="og:url" content="http://example.com/2022/03/24/spring-bean/index.html">
+  <meta name="description" content="菜狗一枚，坐标西安电子科技大学">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SaltFish的博客">
+<meta property="og:url" content="http://example.com/tags/learning-notes/page/2/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="spring bean单多例和生命周期spring中，bean可以被定义为两种模式，分别为singleton和prototype模式，默认是单例模式，即只有一个共享实例存在，每次请求这个bean都会返回这个唯一的实例。而多例模式每次请求bean都会返回一个新的bean实例，相当于每次请求都new一个实例。 配置单例多例的方法在bean上面加注解@scope（）注解可以配置单例和多例模式 bean生">
+<meta property="og:description" content="菜狗一枚，坐标西安电子科技大学">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-03-24T04:27:41.000Z">
-<meta property="article:modified_time" content="2022-03-24T04:32:26.801Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="learning notes">
+<meta property="article:tag" content="java c++">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="SaltFish的博客" type="application/atom+xml">
@@ -49,9 +49,9 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: true,
+          isPost: false,
           isArchive: false,
-          isTag: false,
+          isTag: true,
           isCategory: false,
           open_in_new: false
       }
@@ -277,220 +277,93 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-spring-bean" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a  href="/2022/03/24/spring-bean/" class="article-date">
-      <time datetime="2022-03-24T04:27:41.000Z" itemprop="datePublished">2022-03-24</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a  href="/archives/2022" class="archive-year">2022</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a  href="/2022/03/23/spring-security/" class="archive-article-date">
+      <time datetime="2022-03-23T15:23:43.000Z" itemprop="datePublished">03-23</time>
 </a>
 
-    </div>
+        </div>
+         
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      spring bean单多例和生命周期 &amp; java枚举 &amp; java默认访问权限
+    <h1 itemprop="name">
+      <a  class="archive-article-title" href="/2022/03/23/spring-security/">spring security &amp; 为什么前后端分离项目不能使用cookie-session机制</a>
     </h1>
   
 
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        <div class="article-info info-on-archive">
+          
 
-        
+          
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
     </div>
 
+        </div>
         <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="spring-bean单多例和生命周期"><a href="#spring-bean单多例和生命周期" class="headerlink" title="spring bean单多例和生命周期"></a>spring bean单多例和生命周期</h2><p>spring中，bean可以被定义为两种模式，分别为singleton和prototype模式，默认是单例模式，即只有一个共享实例存在，每次请求这个bean都会返回这个唯一的实例。而多例模式每次请求bean都会返回一个新的bean实例，相当于每次请求都new一个实例。</p>
-<h3 id="配置单例多例的方法"><a href="#配置单例多例的方法" class="headerlink" title="配置单例多例的方法"></a><strong>配置单例多例的方法</strong></h3><p>在bean上面加注解@scope（）注解可以配置单例和多例模式</p>
-<h3 id="bean生命周期"><a href="#bean生命周期" class="headerlink" title="bean生命周期"></a>bean生命周期</h3><ul>
-<li>spring只会帮我们管理单例模式bean完整的生命周期，而多例模式的bean spring创建好后把它交给使用者之后便不会再管理</li>
-<li>对于Beanfactory容器，bean在第一次被调用的时候在被真正的创建，但是对于ApplicationContext容器，在第一次加载容器的时候就创建所有bean，等容器关闭的时候销毁所有对象</li>
-</ul>
-<h2 id="java枚举"><a href="#java枚举" class="headerlink" title="java枚举"></a>java枚举</h2><p>枚举除了不能继承，基本上可以把枚举当做一个类来看待</p>
-<ul>
-<li>枚举内可以添加任何方法，甚至是构造方法，但是声明枚举常量时不允许使用赋值运算符为枚举常量赋值，但是可以通过方法来实现间接赋值</li>
-<li>枚举常量不需要任何修饰符</li>
-</ul>
-<h2 id="java默认访问权限"><a href="#java默认访问权限" class="headerlink" title="java默认访问权限"></a>java默认访问权限</h2><p>不论是类，方法，还是变量，当不加任何权限修饰词时，访问权限都是包访问权限</p>
-
-      
-    </div>
-    
+    </header>
   </div>
-  
-    
-    <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2022/03/24/spring-bean/">spring bean单多例和生命周期 &amp; java枚举 &amp; java默认访问权限</a></p>
-        <p><span>文章作者:</span><a  href="/" title="访问  的个人博客"></a></p>
-        <p><span>发布时间:</span>2022年03月24日 - 12时27分</p>
-        <p><span>最后更新:</span>2022年03月24日 - 12时32分</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2022/03/24/spring-bean/" title="spring bean单多例和生命周期 &amp; java枚举 &amp; java默认访问权限">http://example.com/2022/03/24/spring-bean/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/03/24/spring-bean/　　作者: " title=""></span>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
-        </p>
-    </div>
-
-
-
-<nav id="article-nav">
-  
-    <a  href="/2022/03/24/trycatchfinally/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          使用接口的原因 &amp; try catch finally &amp; spring-boot配置文件中的on和off
-        
-      </div>
-    </a>
-  
-  
-    <a  href="/2022/03/24/haspMap/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">haspMap查找键值原理以及key值重复问题</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-
-  
 </article>
-
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#spring-bean%E5%8D%95%E5%A4%9A%E4%BE%8B%E5%92%8C%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.</span> <span class="toc-text">spring bean单多例和生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%8D%95%E4%BE%8B%E5%A4%9A%E4%BE%8B%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">配置单例多例的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.2.</span> <span class="toc-text">bean生命周期</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E6%9E%9A%E4%B8%BE"><span class="toc-number">2.</span> <span class="toc-text">java枚举</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E9%BB%98%E8%AE%A4%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90"><span class="toc-number">3.</span> <span class="toc-text">java默认访问权限</span></a></li></ol>
-</div>
-<style>
-    .left-col .switch-btn {
-        display: none;
-    }
-    .left-col .switch-area {
-        display: none;
-    }
-</style>
-<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-
-<script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
-    if ($(".left-col").is(":hidden")) {
-        $("#tocButton").attr("value", valueShow);
-    }
-    $("#tocButton").click(function() {
-        if ($("#toc").is(":hidden")) {
-            $("#tocButton").attr("value", valueHide);
-            $("#toc").slideDown(320);
-            $(".switch-btn, .switch-area").fadeOut(300);
-        }
-        else {
-            $("#tocButton").attr("value", valueShow);
-            $("#toc").slideUp(350);
-            $(".switch-btn, .switch-area").fadeIn(500);
-        }
-    })
-    if ($(".toc").length < 1) {
-        $("#toc, #tocButton").hide();
-        $(".switch-btn, .switch-area").show();
-    }
-</script>
-
-
-
-
-<div class="bdsharebuttonbox">
-	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
-	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
-	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
-	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
-</div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-
-
-
-
+  
     
-        <section class="changyan" id="comments">
-  <!--<div id="uyan_frame"></div>-->
-  <div id="SOHUCS"></div>
-  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
-  <script type="text/javascript">
-    window.changyan.api.config({
-      appid: '',
-      conf: ''
-    });
-  </script>
-</section>
     
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a  href="/2022/03/23/csrf%E6%94%BB%E5%87%BB/" class="archive-article-date">
+      <time datetime="2022-03-23T14:47:37.000Z" itemprop="datePublished">03-23</time>
+</a>
+
+        </div>
+         
+  
+    <h1 itemprop="name">
+      <a  class="archive-article-title" href="/2022/03/23/csrf%E6%94%BB%E5%87%BB/">csrf攻击 &amp; java何时必须进行异常处理</a>
+    </h1>
+  
 
 
+        <div class="article-info info-on-archive">
+          
 
-    <div class="scroll" id="post-nav-button">
-        
-            <a  href="/2022/03/24/trycatchfinally/" title="上一篇: 使用接口的原因 &amp; try catch finally &amp; spring-boot配置文件中的on和off">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-        
-            <a  href="/2022/03/24/haspMap/" title="下一篇: haspMap查找键值原理以及key值重复问题">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
+          
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/classforname/">class.forname() & 数据库unique约束 & @Resouce和@Autowired & @RestController & maven父子项目 & throw和throws & interface域</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/Bean/">常见注解 & isBlank和isEmpty的区别 & 继承中父类和子类拥有相同的成员变量名 & Throwable类 & pom.xml中的<optional>标签</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/abstract-class/">java abstract class & java internal class & synchronized关键字 & 接口中的抽象方法 & set集合 & 跨域产生的原因</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/springmvc/">spring-mvc & 前后端分离项目中的请求过程 & spring-security中静态资源放行</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/array/">Arary.asList() & 数组和集合的区别 & 加密算法 & spring-security antMathchers匹配原则</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/StringBuilder%E7%B1%BB/">StringBuilder类 & final用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/trycatchfinally/">使用接口的原因 & try catch finally & spring-boot配置文件中的on和off</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/spring-bean/">spring bean单多例和生命周期 & java枚举 & java默认访问权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/haspMap/">haspMap查找键值原理以及key值重复问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/threadpool/">threadpool</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/23/spring-security/">spring security & 为什么前后端分离项目不能使用cookie-session机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/23/csrf%E6%94%BB%E5%87%BB/">csrf攻击 & java何时必须进行异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/20/hello-world/">Hello World</a></li></ul>
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
+
     
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/tags/learning-notes/">&amp;laquo; Prev</a><a class="page-number" href="/tags/learning-notes/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 
-    <script>
-        $(".post-list").addClass("toc-article");
-        // $(".post-list-item a").attr("target","_blank");
-        $("#post-nav-button > a:nth-child(2)").click(function() {
-            $(".fa-bars, .fa-times").toggle();
-            $(".post-list").toggle(300);
-            if ($(".toc").length > 0) {
-                $("#toc, #tocButton").toggle(200, function() {
-                    if ($(".switch-area").is(":visible")) {
-                        $("#toc, .switch-btn, .switch-area").toggle();
-                        $("#tocButton").attr("value", valueHide);
-                        }
-                    })
-            }
-            else {
-                $(".switch-btn, .switch-area").fadeToggle(300);
-            }
-        })
-    </script>
-
-
-
-
-    <script>
-        
-    </script>
 
 </div>
       <footer id="footer">
@@ -561,6 +434,18 @@
         };
     })
 </script>
+
+    <button class="hide-labels">TAG 开关</button>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                $(".article-info").toggle(200);
+            });
+        });
+    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>

@@ -280,6 +280,428 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-classforname" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2022/03/24/classforname/" class="article-date">
+      <time datetime="2022-03-24T05:16:58.000Z" itemprop="datePublished">2022-03-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2022/03/24/classforname/">class.forname() &amp; 数据库unique约束 &amp; @Resouce和@Autowired &amp; @RestController &amp; maven父子项目 &amp; throw和throws &amp; interface域</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="Class-forName"><a href="#Class-forName" class="headerlink" title="Class.forName()"></a>Class.forName()</h2><ul>
+<li>java类加载器负责把java字节码文件读取，然后加载到jvm中，并且转换成一个Class类的实例，每一个java类都有一个对应Class类的实例，这个类负责描述如何创建这个类的实例，比如该类包含哪些成员变量和成员方法等。在第一次使用这个类的时候，类加载器会检查是否加载此类的Class对像，如果没有加载到jvm中，则会把这个Class对象加载到jvm中。</li>
+<li>java也提供了手动加载类的接口，Class.forName()和xxx.class 可以把该类的Class对象加载到jvm中。在jvm中加载了Class对象之后，还要经过类初始化才能正常使用此类，初始化就是执行一遍静态变量的声明和执行一遍静态代码块。而上述两种接口的不同之处是前者会加载Class对象并且初始化类，但是后者只会加载Class对象不会初始化类</li>
+</ul>
+<h2 id="mysql中字段unique约束"><a href="#mysql中字段unique约束" class="headerlink" title="mysql中字段unique约束"></a>mysql中字段unique约束</h2><p>为了防止非主键字段中两个值完全一样的情况，可以对其添加unique约束，强制其唯一</p>
+<h2 id="Resource和-Autowired的区别"><a href="#Resource和-Autowired的区别" class="headerlink" title="@Resource和@Autowired的区别"></a>@Resource和@Autowired的区别</h2><ul>
+<li>@Resource是默认自动按照byName实现依赖注入，而后者则是按照byType来实现依赖注入。如果既没有指定前者的name属性，也没有指定type属性，则按照byName查找bean，如果按照byName找不到，则按照byType找，找到一个类型匹配的直接注入</li>
+<li>@Autowired是按照类型先查找bean，如果查找的bean唯一，则注入，如果查找到多个，则按照byName查找，如果没有找到，则抛出异常，可以把其属性设为required &#x3D; false来避免此问题</li>
+</ul>
+<h2 id="RestController和-Controller"><a href="#RestController和-Controller" class="headerlink" title="@RestController和@Controller"></a>@RestController和@Controller</h2><ul>
+<li>后者是标注方法return返回的是一个页面，如html页面或者jsp页面，若要返回 json 等内容到页面，需要加@ResponseBody注解</li>
+<li>前者是@Controller注解和@ResponseBody注解的结合</li>
+</ul>
+<h2 id="maven中的子模块"><a href="#maven中的子模块" class="headerlink" title="maven中的子模块"></a>maven中的子模块</h2><p><parent>可以方便引入父项目中所有的依赖，不必每个子模块都引入共有的依赖</p>
+<ul>
+<li>项目模块化可以提取出项目中共有的部分，方便重用，并且修改一部分代码可以只用build代码所在模块，不用build整个项目，缩短了build时间。父项目中要通过modules将所有的子项目引进来，在build时，会根据子模块之间的依赖关系，整理出一个build顺序。pom打包方式一般用于父项目中，用来在jar包的版本控制，子模块默认打包方式为jar包</li>
+</ul>
+<h2 id="throw和throws"><a href="#throw和throws" class="headerlink" title="throw和throws"></a>throw和throws</h2><p>throw用在方法体内，表示抛出一个异常对象。throws用在方法声明后面，表示这个方法可能抛出某个类型的异常，并把它交给调用它的调用者来处理。throws和try catch是处理异常的两种方法，前者表示把该方法抛出的异常交给它的调用者处理，在方法体内不需对它进行处理。而后者是对于方法体内的异常自己 进行处理。</p>
+<h2 id="Java中Interface的域"><a href="#Java中Interface的域" class="headerlink" title="Java中Interface的域"></a>Java中Interface的域</h2><p>interface也可以包含域，但这些域默认是static和final的</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Bean" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2022/03/24/Bean/" class="article-date">
+      <time datetime="2022-03-24T05:09:44.000Z" itemprop="datePublished">2022-03-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2022/03/24/Bean/">常见注解 &amp; isBlank和isEmpty的区别 &amp; 继承中父类和子类拥有相同的成员变量名 &amp; Throwable类 &amp; pom.xml中的&lt;optional&gt;标签</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="常见注解"><a href="#常见注解" class="headerlink" title="常见注解"></a>常见注解</h2><h3 id="Bean注解"><a href="#Bean注解" class="headerlink" title="@Bean注解"></a>@Bean注解</h3><p>此注解在于告诉一个方法，产生一个bean对象，并且这个对象交给spring管理，添加的bean的id为方法名</p>
+<h3 id="Configuration注解"><a href="#Configuration注解" class="headerlink" title="@Configuration注解"></a>@Configuration注解</h3><p>这是一个用于定义配置类的注解，它内部含有一个或者多个带有@Bean注解的方法，这些方法会被扫描，构建bean的定义，初始化spring容器</p>
+<h3 id="RequestParam注解"><a href="#RequestParam注解" class="headerlink" title="@RequestParam注解"></a>@RequestParam注解</h3><p>用于映射请求参数，它含有value，required，defaultValue等属性，是用于映射get请求方法</p>
+<h3 id="Component注解"><a href="#Component注解" class="headerlink" title="@Component注解"></a>@Component注解</h3><ul>
+<li>sping工程中，分别用@Controller，@Service，@Respository注解分别用于控制层（web层），业务层和数据持久层，而对于那些不好区分是那个层面的bean，比较中立的bean使用此注解，相当于给spring管理的对象容器中配置一个bean</li>
+</ul>
+<h2 id="Stringutils里的isBlank（）和isEmpty（）的区别"><a href="#Stringutils里的isBlank（）和isEmpty（）的区别" class="headerlink" title="Stringutils里的isBlank（）和isEmpty（）的区别"></a>Stringutils里的isBlank（）和isEmpty（）的区别</h2><p>在用于判断字符串是否为空时两者可以相互替换，但当字符串为空格，或者&#x2F;t&#x2F;r&#x2F;n这种默认为空的字符时，isEmpty（）为false，isBlank（）为真。要注意字符串为null的情况，这个时候即没有为字符串分配空间，它是一个空指针，不能调用String类的任何方法。</p>
+<h2 id="继承中父类和子类拥有相同的成员变量名"><a href="#继承中父类和子类拥有相同的成员变量名" class="headerlink" title="继承中父类和子类拥有相同的成员变量名"></a>继承中父类和子类拥有相同的成员变量名</h2><ul>
+<li>当对该变量操作的方法是继承于父类的话，操作的变量是属于父类的，若该方法是子类独有或者是重写了父类的方法，则操作的变量是属于子类的</li>
+</ul>
+<h2 id="java中Throwable类"><a href="#java中Throwable类" class="headerlink" title="java中Throwable类"></a>java中Throwable类</h2><ul>
+<li>java中Throwable是Error和Exception的父类，用来定义所有可以作为异常被抛出来的类，而Exception又分为其他Exception和RunTimeException，其他Exception为受检查异常，必须要通过开发者解决后才能编译通过，而RunTimeException又称为不受检查异常，即不处理它也能够编译通过，但是真正执行的时候会出错，比如1&#x2F;0，空指针等运行时异常</li>
+</ul>
+<h2 id="pom-xml文件中的标签"><a href="#pom-xml文件中的标签" class="headerlink" title="pom.xml文件中的标签"></a>pom.xml文件中的<optional>标签</h2><ul>
+<li>当此标签的值为true值时，表示当其他项目通过maven引入该项目时，不会把这个依赖传入到其他项目中，是为了防止依赖冲突</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-abstract-class" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2022/03/24/abstract-class/" class="article-date">
+      <time datetime="2022-03-24T05:04:33.000Z" itemprop="datePublished">2022-03-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2022/03/24/abstract-class/">java abstract class &amp; java internal class &amp; synchronized关键字 &amp; 接口中的抽象方法 &amp; set集合 &amp; 跨域产生的原因</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="java抽象类"><a href="#java抽象类" class="headerlink" title="java抽象类"></a>java抽象类</h2><hr>
+<ol>
+<li>java抽象类表示的一种继承关系，一个类只能继承一个抽象类，但是能实现多个接口。</li>
+<li>抽象类不一定含有抽象方法，但是含有抽象方法的类一定是抽象类，抽象方法即有方法声明但是没有方法定义的方法</li>
+<li>抽象类不能实例化对象，因此只有被继承才能使用抽象类</li>
+</ol>
+<h2 id="java内部类"><a href="#java内部类" class="headerlink" title="java内部类"></a>java内部类</h2><hr>
+<ul>
+<li>成员内部类：可以直接访问外部类的属性，方法，即使是私有的。但是不能含静态变量和方法</li>
+<li>局部内部类：定义在一个方法或者作用域里面，不能有权限和静态修饰词，可以直接访问外部类的属性方法等，即使是私有的</li>
+<li>匿名内部类：它没有名字和构造方法，用于继承其他类或者是实现接口，并不需要增加额外的方法，只是多继承方法的实现或者重写</li>
+<li>静态内部类：静态内部类不能访问外部类的非静态变量和方法，静态内部类是属于外部类所有，而非外部类的实例对象所有</li>
+</ul>
+<p><strong>为什么使用内部类？</strong></p>
+<p>当一个类存在的价值仅仅是为某一个类服务时，可以将其设为内部类，方便将具有一定关系的类组织在一起，由可以对外界隐藏</p>
+<p><em><strong>内部类加载时机</strong></em></p>
+<p>内部类的加载时机与外部类没有必然的联系，只有当使用到内部类时，内部类才会加载，但是当内部类与外部类有联系时（比如内部类中使用了外部类中的变量），在加载内部类的时候如果发现外部类没有加载，则会先加载外部类然后加载内部类</p>
+<h2 id="java-synchronized关键字"><a href="#java-synchronized关键字" class="headerlink" title="java synchronized关键字"></a>java synchronized关键字</h2><hr>
+<p><strong>用在方法上</strong></p>
+<p>锁住的是当前对象的当前方法或者代码块，其他线程访问synchronized方法或者代码块时阻塞，但非synchronized方法或者代码块不会受到阻塞</p>
+<p><strong>synchronized（this）</strong></p>
+<p>锁住的是当前对象，在同步块里面的内容执行完毕之后，释放当前对象的锁，当多个线程访问改对象时，会受到阻塞</p>
+<p><strong>synchronized（object）</strong></p>
+<p>锁住的当前object对象，注意括号里面必须是Object对象才能保证代码块实现互斥访问，相比于方法同步锁这个锁住部分代码块让并发更加高效</p>
+<ul>
+<li>注意锁分为对象锁和类锁，这两个是完全不同的锁，互相之间不会影响。当使用对象锁时，只会对本对象作用，而不会对本类的其他对象作用。但是类锁作用的是本类的所有实例</li>
+</ul>
+<h2 id="java接口中的抽象方法"><a href="#java接口中的抽象方法" class="headerlink" title="java接口中的抽象方法"></a>java接口中的抽象方法</h2><blockquote>
+<ol>
+<li>java接口中的方法默认是public &amp; abstract 的，这两个关键字可以任意省略</li>
+<li>如果实现类没有实现接口中的所有方法，那么当前类一定是抽象类</li>
+</ol>
+</blockquote>
+<h2 id="java-set集合"><a href="#java-set集合" class="headerlink" title="java set集合"></a>java set集合</h2><hr>
+<p>set集合时一种集合，程序可以把多个元素放入set集合，但是set集合不能记住元素的添加顺序，并且set集合不允许添加两个完全相同的元素，HashSet是set接口的最常用的一个实现，集合元素值可以是null</p>
+<ul>
+<li>HashSet的实现是基于HashMap的，对HashMap做了一层封装实现了set接口，并且存储只是使用了HashMap的key存储部分，value部分都指向同一个Object对象，没有使用Object对象</li>
+<li>HashMap底层是使用了链表数组的方法，key值经过哈希函数得到数组中的位置，然后得到目标对象存储的位置，当超过两个元素哈希后得到同一个数组位置时，采用链表的方法存储</li>
+</ul>
+<p>set接口addAll（）方法用于将数组放入set集合并且自动去掉数组中重复的部分</p>
+<h2 id="跨域产生的原因"><a href="#跨域产生的原因" class="headerlink" title="跨域产生的原因"></a>跨域产生的原因</h2><p>跨域产生的原因是浏览器的同源策略限制，是一种浏览器的一种安全机制，服务端之间不存在跨域</p>
+<p>浏览器的同源策略是指两个页面的协议，主机，端口相同，如果三者之间有一项不同，便会产生跨域问题</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-springmvc" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2022/03/24/springmvc/" class="article-date">
+      <time datetime="2022-03-24T05:00:24.000Z" itemprop="datePublished">2022-03-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2022/03/24/springmvc/">spring-mvc &amp; 前后端分离项目中的请求过程 &amp; spring-security中静态资源放行</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="前后端分离项目中的请求过程"><a href="#前后端分离项目中的请求过程" class="headerlink" title="前后端分离项目中的请求过程"></a>前后端分离项目中的请求过程</h2><p><strong>过程</strong>：在前后端分离项目中，浏览器先请求前端服务器，前端服务器返回html页面给浏览器，浏览器在进行渲染的时候渲染到有ajax请求时去请求后端服务器，后端服务器返回json数据给浏览器，浏览器然后完成后面的渲染</p>
+<p><strong>ajax请求：</strong>Asynchronous  JavaScript And  XML，是指一种创建交互式，快速动态网页应用的网页开发技术，在无需更新整个页面的情况下（即浏览器请求栏的地址不变），能够更新部分网页内容的技术。同步按照代码顺序执行，而异步不会按照代码顺序执行，异步的效率更高。*<strong>ajax是一种浏览器通过js异步发起请求，局部更新页面的技术*</strong></p>
+<p>常用的响应数据类型有：text，xml，json等</p>
+<p><strong>前后端分离项目中的跨域问题</strong>：</p>
+<p>可以使用在前端项目中配置代理的方式解决</p>
+<h2 id="Spring-Security中静态资源放行"><a href="#Spring-Security中静态资源放行" class="headerlink" title="Spring Security中静态资源放行"></a>Spring Security中静态资源放行</h2><ul>
+<li>spring security会拦截所有请求，包括静态资源，所以需要放行静态资源</li>
+</ul>
+<h2 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h2><ul>
+<li>DispatcherServlet：前端控制器，所有的请求都要经过这个servlet统一进行处理分发，相当于一个中央处理器，控制整个流程的执行，它把请求分发给HandlerMapping查找执行链，然后把执行链返回给dispatcherServlet</li>
+<li>HandlerAdapter：处理器适配器，dispatcherServlet把执行链然后发送给处理器适配器，适配出相应的处理器，交给处理器执行</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-array" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2022/03/24/array/" class="article-date">
+      <time datetime="2022-03-24T04:51:37.000Z" itemprop="datePublished">2022-03-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2022/03/24/array/">Arary.asList() &amp; 数组和集合的区别 &amp; 加密算法 &amp; spring-security antMathchers匹配原则</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="Arrays-asList"><a href="#Arrays-asList" class="headerlink" title="Arrays.asList()"></a>Arrays.asList()</h2><p>该方法是将数组转换成list集合的方法，有以下四点需要注意：</p>
+<ul>
+<li>该方法适用于对象型的数组，不建议使用基本类型的数组</li>
+<li>该方法将list集合和数组联结起来，一个更新，另一个自动更新</li>
+<li>得到的list集合长度固定，不支持add，remove，clear方法</li>
+</ul>
+<h2 id="数组和集合的区别"><a href="#数组和集合的区别" class="headerlink" title="数组和集合的区别"></a>数组和集合的区别</h2><ul>
+<li>数组是java语言内置的数据类型，是静态的，一旦创建就不允许改变长度和预先定义要存储的数据类型，只能存储一种数据类型，因为是内置的，所以查询速度都是最快的</li>
+<li>集合是动态的，可以动态改变容量，并且可以不声明存储类型，默认为Object类型，存储对象时放进集合即可，而不用关注对象是什么类型，取出使用时将其转换为相应的类型即可</li>
+</ul>
+<h2 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h2><p><strong>对称加密和非对称加密</strong></p>
+<ul>
+<li>对称加密：加密密匙和解密密匙相同</li>
+<li>非对称加密：加密密匙和解密密匙不同</li>
+</ul>
+<blockquote>
+<ol>
+<li>MD5算法：这是一种信息摘要算法，使用的哈希函数，具有不可逆性，无论多长的输入，算法都会产生输出长度为128bits的一串（通常用16进制表示为32个字符）</li>
+<li>SHA:英文为secure hash algorithm，即安全散列算法，散列又称为哈希。也是一种不可逆的消息摘要算法，对于一定长度的输入能够产生固定长度的输出。sha包含5个算法，分别是sha-1，sha-224，sha-256，sha-384，sha-512，后面四个统称为sha-2算法，后面的数字实则是产生固定长度的bits的位数</li>
+</ol>
+</blockquote>
+<p>base64并不是一种加密算法，而是一种编码方式，是基于64个可打印字符表示二进制数据的方法，常用方式为将图片用base64算法编码成一串字符串进行传输</p>
+<h2 id="SpringSecurity-antMathchers匹配原则"><a href="#SpringSecurity-antMathchers匹配原则" class="headerlink" title="SpringSecurity antMathchers匹配原则"></a>SpringSecurity antMathchers匹配原则</h2><ul>
+<li>？：匹配任何单字符</li>
+<li>*：匹配0或者任意数量的单字符</li>
+<li>**：匹配0或者更多的目录</li>
+</ul>
+<hr>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-StringBuilder类" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -646,223 +1068,10 @@
 
 
   
-    <article id="post-spring-security" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a  href="/2022/03/23/spring-security/" class="article-date">
-      <time datetime="2022-03-23T15:23:43.000Z" itemprop="datePublished">2022-03-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2022/03/23/spring-security/">spring security &amp; 为什么前后端分离项目不能使用cookie-session机制</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <meta name="referrer" content="no-referrer" />
-
-<h2 id="Spring-Security流程"><a href="#Spring-Security流程" class="headerlink" title="Spring Security流程"></a>Spring Security流程</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>spring security的原理其实就是一个过滤器链，内部包含了提供各种功能的过滤器</p>
-<h3 id="主要过滤器"><a href="#主要过滤器" class="headerlink" title="主要过滤器"></a>主要过滤器</h3><p>主要三个过滤器，他们顺序是：</p>
-<ol>
-<li>UsernamePasswordAutenticationFilter（负责处理登录请求，验证密码和用户）</li>
-<li>ExceptionTranslationFilter（处理过滤器中抛出的任何AccessDeniedException和AuthenticationException）</li>
-<li>FilterSecurityInterceptor（负责权限校验的过滤器）</li>
-</ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/27577247-6b92f5242652e29f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="过滤器.png"></p>
-<h2 id="为什么前后端分离项目不能使用cookie-session机制"><a href="#为什么前后端分离项目不能使用cookie-session机制" class="headerlink" title="为什么前后端分离项目不能使用cookie-session机制"></a>为什么前后端分离项目不能使用cookie-session机制</h2><h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><ul>
-<li>前后端分离项目中，在a域的页面下请求b域的数据时，无法携带b域的cookie。在a域的页面请求b域的服务时，b域也无法设置cookie</li>
-</ul>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ul>
-<li>jsonp</li>
-<li>cors解决跨域</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-csrf攻击" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2022/03/23/csrf%E6%94%BB%E5%87%BB/" class="article-date">
-      <time datetime="2022-03-23T14:47:37.000Z" itemprop="datePublished">2022-03-23</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2022/03/23/csrf%E6%94%BB%E5%87%BB/">csrf攻击 &amp; java何时必须进行异常处理</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="csrf攻击"><a href="#csrf攻击" class="headerlink" title="csrf攻击"></a>csrf攻击</h2><p>Cross-Site request forgery：称为跨站请求伪造，用户登录到一个网站A，登录成功服务器返回给用户cookie，此时用户又打开一个页面请求另外一个网站B，网站B返回给用户一些攻击性代码携带携带A网站返回给用户的cookie请求A网站，网站A能够验证该请求是来自于用户的浏览器，却不能验证该请求是否是用户的真实意愿还是恶意攻击性请求</p>
-<hr>
-<h3 id="防御方法"><a href="#防御方法" class="headerlink" title="防御方法"></a>防御方法</h3><ol>
-<li>验证http referer字段</li>
-<li>在请求地址中添加token并验证</li>
-<li>在http头中自定义属性并验证</li>
-</ol>
-<h2 id="java何时必须处理异常，何时可以不管任它自动往上抛？"><a href="#java何时必须处理异常，何时可以不管任它自动往上抛？" class="headerlink" title="java何时必须处理异常，何时可以不管任它自动往上抛？"></a>java何时必须处理异常，何时可以不管任它自动往上抛？</h2><p>java处理异常有两种方法，第一种是使用throws在方法后声明表示该异常交给调用者处理，另一种是使用try-catch进行处理。<br><em><strong>当抛出的是非运行时异常时，则必须处理，即要么使用throws，要么使用try-catch。但是如果抛出的是运行时异常，可以不对其进行处理，它会自动向上抛，当然也可以对其处理</strong></em></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2022/03/20/hello-world/" class="article-date">
-      <time datetime="2022-03-20T03:49:13.458Z" itemprop="datePublished">2022-03-20</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2022/03/20/hello-world/">Hello World</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 </div>
