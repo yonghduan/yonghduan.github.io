@@ -9,15 +9,15 @@
   
   <title>class.forname() &amp; 数据库unique约束 &amp; @Resouce和@Autowired &amp; @RestController &amp; maven父子项目 | SaltFish的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Class.forName() java类加载器负责把java字节码文件读取，然后加载到jvm中，并且转换成一个Class类的实例，每一个java类都有一个对应Class类的实例，这个类负责描述如何创建这个类的实例，比如该类包含哪些成员变量和成员方法等。在第一次使用这个类的时候，类加载器会检查是否加载此类的Class对像，如果没有加载到jvm中，则会把这个Class对象加载到jvm中。 java也">
+  <meta name="description" content="Class.forName() java类加载器负责把java字节码文件读取，然后加载到jvm中，并且转换成一个Class类的实例，每一个java类都有一个对应Class类的实例，这个类负责描述如何创建这个类的实例，比如该类包含哪些成员变量和成员方法等。在第一次使用这个类的时候，类加载器会检查是否加载此类的Class对像，如果没有加载到jvm中，则会把这个Class对象加载到jvm中。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="class.forname() &amp; 数据库unique约束 &amp; @Resouce和@Autowired &amp; @RestController &amp; maven父子项目">
 <meta property="og:url" content="http://example.com/2022/03/24/classforname/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="Class.forName() java类加载器负责把java字节码文件读取，然后加载到jvm中，并且转换成一个Class类的实例，每一个java类都有一个对应Class类的实例，这个类负责描述如何创建这个类的实例，比如该类包含哪些成员变量和成员方法等。在第一次使用这个类的时候，类加载器会检查是否加载此类的Class对像，如果没有加载到jvm中，则会把这个Class对象加载到jvm中。 java也">
+<meta property="og:description" content="Class.forName() java类加载器负责把java字节码文件读取，然后加载到jvm中，并且转换成一个Class类的实例，每一个java类都有一个对应Class类的实例，这个类负责描述如何创建这个类的实例，比如该类包含哪些成员变量和成员方法等。在第一次使用这个类的时候，类加载器会检查是否加载此类的Class对像，如果没有加载到jvm中，则会把这个Class对象加载到jvm中。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-24T05:16:58.000Z">
-<meta property="article:modified_time" content="2022-03-24T05:28:46.524Z">
+<meta property="article:modified_time" content="2022-03-24T06:01:04.840Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="learning notes">
 <meta name="twitter:card" content="summary">
@@ -318,7 +318,7 @@
       
           
         <h2 id="Class-forName"><a href="#Class-forName" class="headerlink" title="Class.forName()"></a>Class.forName()</h2><ul>
-<li>java类加载器负责把java字节码文件读取，然后加载到jvm中，并且转换成一个Class类的实例，每一个java类都有一个对应Class类的实例，这个类负责描述如何创建这个类的实例，比如该类包含哪些成员变量和成员方法等。在第一次使用这个类的时候，类加载器会检查是否加载此类的Class对像，如果没有加载到jvm中，则会把这个Class对象加载到jvm中。</li>
+<li>java类加载器负责把java字节码文件读取，然后加载到jvm中，并且转换成一个Class类的实例，每一个java类都有一个对应Class类的实例，这个类负责描述如何创建这个类的实例，比如该类包含哪些成员变量和成员方法等。在第一次使用这个类的时候，类加载器会检查是否加载此类的Class对像，如果没有加载到jvm中，则会把这个Class对象加载到jvm中。<span id="more"></span></li>
 <li>java也提供了手动加载类的接口，Class.forName()和xxx.class 可以把该类的Class对象加载到jvm中。在jvm中加载了Class对象之后，还要经过类初始化才能正常使用此类，初始化就是执行一遍静态变量的声明和执行一遍静态代码块。而上述两种接口的不同之处是前者会加载Class对象并且初始化类，但是后者只会加载Class对象不会初始化类</li>
 </ul>
 <h2 id="mysql中字段unique约束"><a href="#mysql中字段unique约束" class="headerlink" title="mysql中字段unique约束"></a>mysql中字段unique约束</h2><p>为了防止非主键字段中两个值完全一样的情况，可以对其添加unique约束，强制其唯一</p>
@@ -347,7 +347,7 @@
         <p><span>本文标题:</span><a  href="/2022/03/24/classforname/">class.forname() &amp; 数据库unique约束 &amp; @Resouce和@Autowired &amp; @RestController &amp; maven父子项目</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问  的个人博客"></a></p>
         <p><span>发布时间:</span>2022年03月24日 - 13时16分</p>
-        <p><span>最后更新:</span>2022年03月24日 - 13时28分</p>
+        <p><span>最后更新:</span>2022年03月24日 - 14时01分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2022/03/24/classforname/" title="class.forname() &amp; 数据库unique约束 &amp; @Resouce和@Autowired &amp; @RestController &amp; maven父子项目">http://example.com/2022/03/24/classforname/</a>
             <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/03/24/classforname/　　作者: " title=""></span>
