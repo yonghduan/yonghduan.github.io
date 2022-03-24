@@ -309,7 +309,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="Spring-Security流程"><a href="#Spring-Security流程" class="headerlink" title="Spring Security流程"></a>Spring Security流程</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>spring security的原理其实就是一个过滤器链，内部包含了提供各种功能的过滤器</p>
+        <meta name="referrer" content="no-referrer" />
+
+<h2 id="Spring-Security流程"><a href="#Spring-Security流程" class="headerlink" title="Spring Security流程"></a>Spring Security流程</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>spring security的原理其实就是一个过滤器链，内部包含了提供各种功能的过滤器</p>
 <h3 id="主要过滤器"><a href="#主要过滤器" class="headerlink" title="主要过滤器"></a>主要过滤器</h3><p>主要三个过滤器，他们顺序是：UsernamePasswordAutenticationFilter（负责处理登录请求，验证密码和用户），ExceptionTranslationFilter（处理过滤器中抛出的任何AccessDeniedException和AuthenticationException），FilterSecurityInterceptor（负责权限校验的过滤器）<br><img src="https://upload-images.jianshu.io/upload_images/27577247-6b92f5242652e29f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="过滤器.png"></p>
 <h2 id="为什么前后端分离项目不能使用cookie-session机制"><a href="#为什么前后端分离项目不能使用cookie-session机制" class="headerlink" title="为什么前后端分离项目不能使用cookie-session机制"></a>为什么前后端分离项目不能使用cookie-session机制</h2><h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><ul>
 <li>前后端分离项目中，在a域的页面下请求b域的数据时，无法携带b域的cookie。在a域的页面请求b域的服务时，b域也无法设置cookie</li>
