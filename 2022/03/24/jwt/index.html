@@ -7,20 +7,22 @@
   
   
   
-  <title>class.forname() &amp; 数据库unique约束 &amp; @Resouce和@Autowired &amp; @RestController &amp; maven父子项目 | SaltFish的博客</title>
+  <title>JWT | SaltFish的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Class.forName() java类加载器负责把java字节码文件读取，然后加载到jvm中，并且转换成一个Class类的实例，每一个java类都有一个对应Class类的实例，这个类负责描述如何创建这个类的实例，比如该类包含哪些成员变量和成员方法等。在第一次使用这个类的时候，类加载器会检查是否加载此类的Class对像，如果没有加载到jvm中，则会把这个Class对象加载到jvm中。">
+  <meta name="description" content="jwt本质是一个字符串，它可以将用户信息保存到一个json格式字符串中，然后加上头部以及secret key编码后得到jwt token，并且这个token带有签名信息，可以验证信息是否被篡改">
 <meta property="og:type" content="article">
-<meta property="og:title" content="class.forname() &amp; 数据库unique约束 &amp; @Resouce和@Autowired &amp; @RestController &amp; maven父子项目">
-<meta property="og:url" content="http://example.com/2022/03/24/classforname/index.html">
+<meta property="og:title" content="JWT">
+<meta property="og:url" content="http://example.com/2022/03/24/jwt/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="Class.forName() java类加载器负责把java字节码文件读取，然后加载到jvm中，并且转换成一个Class类的实例，每一个java类都有一个对应Class类的实例，这个类负责描述如何创建这个类的实例，比如该类包含哪些成员变量和成员方法等。在第一次使用这个类的时候，类加载器会检查是否加载此类的Class对像，如果没有加载到jvm中，则会把这个Class对象加载到jvm中。">
+<meta property="og:description" content="jwt本质是一个字符串，它可以将用户信息保存到一个json格式字符串中，然后加上头部以及secret key编码后得到jwt token，并且这个token带有签名信息，可以验证信息是否被篡改">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-03-24T05:16:58.000Z">
-<meta property="article:modified_time" content="2022-03-24T06:01:04.840Z">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220324231943599.png">
+<meta property="article:published_time" content="2022-03-24T13:31:20.000Z">
+<meta property="article:modified_time" content="2022-03-24T15:22:21.387Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="learning notes">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220324231943599.png">
   
     <link rel="alternative" href="/atom.xml" title="SaltFish的博客" type="application/atom+xml">
   
@@ -277,11 +279,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-classforname" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-jwt" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2022/03/24/classforname/" class="article-date">
-      <time datetime="2022-03-24T05:16:58.000Z" itemprop="datePublished">2022-03-24</time>
+      <a  href="/2022/03/24/jwt/" class="article-date">
+      <time datetime="2022-03-24T13:31:20.000Z" itemprop="datePublished">2022-03-24</time>
 </a>
 
     </div>
@@ -295,7 +297,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      class.forname() &amp; 数据库unique约束 &amp; @Resouce和@Autowired &amp; @RestController &amp; maven父子项目
+      JWT
     </h1>
   
 
@@ -317,25 +319,37 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="Class-forName"><a href="#Class-forName" class="headerlink" title="Class.forName()"></a>Class.forName()</h2><ul>
-<li>java类加载器负责把java字节码文件读取，然后加载到jvm中，并且转换成一个Class类的实例，每一个java类都有一个对应Class类的实例，这个类负责描述如何创建这个类的实例，比如该类包含哪些成员变量和成员方法等。在第一次使用这个类的时候，类加载器会检查是否加载此类的Class对像，如果没有加载到jvm中，则会把这个Class对象加载到jvm中。<span id="more"></span></li>
-<li>java也提供了手动加载类的接口，Class.forName()和xxx.class 可以把该类的Class对象加载到jvm中。在jvm中加载了Class对象之后，还要经过类初始化才能正常使用此类，初始化就是执行一遍静态变量的声明和执行一遍静态代码块。而上述两种接口的不同之处是前者会加载Class对象并且初始化类，但是后者只会加载Class对象不会初始化类</li>
-</ul>
-<h2 id="mysql中字段unique约束"><a href="#mysql中字段unique约束" class="headerlink" title="mysql中字段unique约束"></a>mysql中字段unique约束</h2><p>为了防止非主键字段中两个值完全一样的情况，可以对其添加unique约束，强制其唯一</p>
-<h2 id="Resource和-Autowired的区别"><a href="#Resource和-Autowired的区别" class="headerlink" title="@Resource和@Autowired的区别"></a>@Resource和@Autowired的区别</h2><ul>
-<li>@Resource是默认自动按照byName实现依赖注入，而后者则是按照byType来实现依赖注入。如果既没有指定前者的name属性，也没有指定type属性，则按照byName查找bean，如果按照byName找不到，则按照byType找，找到一个类型匹配的直接注入</li>
-<li>@Autowired是按照类型先查找bean，如果查找的bean唯一，则注入，如果查找到多个，则按照byName查找，如果没有找到，则抛出异常，可以把其属性设为required &#x3D; false来避免此问题</li>
-</ul>
-<h2 id="RestController和-Controller"><a href="#RestController和-Controller" class="headerlink" title="@RestController和@Controller"></a>@RestController和@Controller</h2><ul>
-<li>后者是标注方法return返回的是一个页面，如html页面或者jsp页面，若要返回 json 等内容到页面，需要加@ResponseBody注解</li>
-<li>前者是@Controller注解和@ResponseBody注解的结合</li>
-</ul>
-<h2 id="maven中的子模块"><a href="#maven中的子模块" class="headerlink" title="maven中的子模块"></a>maven中的子模块</h2><p><parent>可以方便引入父项目中所有的依赖，不必每个子模块都引入共有的依赖</p>
+        <meta name="referrer" content="no-referrer" />
+
+<p>jwt本质是一个字符串，它可以将用户信息保存到一个json格式字符串中，然后加上头部以及secret key编码后得到jwt token，并且这个token带有签名信息，可以验证信息是否被篡改<span id="more"></span></p>
+<h2 id="JWT介绍以及与传统cookie-session验证方式比较"><a href="#JWT介绍以及与传统cookie-session验证方式比较" class="headerlink" title="JWT介绍以及与传统cookie-session验证方式比较"></a>JWT介绍以及与传统cookie-session验证方式比较</h2><h3 id="jwt结构"><a href="#jwt结构" class="headerlink" title="jwt结构"></a>jwt结构</h3><p>jwt由三部分组成，分别为标头（Header）、有效载荷（Playload）和签名（Signature）。在传输的时候，会将jwt的这三部分进行Base64编码后用 . 连接形成最后的字符串</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JWTString = Base64(Header).Base64(Playload).SHA256(Base64(header)+Base64(playload)+secret key);</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>项目模块化可以提取出项目中共有的部分，方便重用，并且修改一部分代码可以只用build代码所在模块，不用build整个项目，缩短了build时间。父项目中要通过modules将所有的子项目引进来，在build时，会根据子模块之间的依赖关系，整理出一个build顺序。pom打包方式一般用于父项目中，用来在jar包的版本控制，子模块默认打包方式为jar包</li>
+<li>Header：包括签名使用的算法和令牌类型，令牌类型为JWT</li>
+<li>Playload：是一个json对象，包含到期时间，用户等等信息，除了这些默认字段外，还可以建立自己的私有字段</li>
 </ul>
-<h2 id="throw和throws"><a href="#throw和throws" class="headerlink" title="throw和throws"></a>throw和throws</h2><p>throw用在方法体内，表示抛出一个异常对象。throws用在方法声明后面，表示这个方法可能抛出某个类型的异常，并把它交给调用它的调用者来处理。throws和try catch是处理异常的两种方法，前者表示把该方法抛出的异常交给它的调用者处理，在方法体内不需对它进行处理。而后者是对于方法体内的异常自己 进行处理。</p>
-<h2 id="Java中Interface的域"><a href="#Java中Interface的域" class="headerlink" title="Java中Interface的域"></a>Java中Interface的域</h2><p>interface也可以包含域，但这些域默认是static和final的</p>
+<h4 id="为什么jwt字符串一定要包含签名？（独立思考）"><a href="#为什么jwt字符串一定要包含签名？（独立思考）" class="headerlink" title="为什么jwt字符串一定要包含签名？（独立思考）"></a>为什么jwt字符串一定要包含签名？（独立思考）</h4><blockquote>
+<ol>
+<li>jwt字符串中包含签名，无疑是给用户伪造证书提供了一丝丝机会，因为他想要改变载荷部分，然后又想生成改变载荷后与secret key做哈希后对应的签名，这种几率很小，但还是有机会。那断绝这个机会的方法是jwt字符串中不包含签名，签名存在服务器端，这样根本毫无机会篡改字符串，虽然这样会消耗服务器的内存来为用户存储签名，但提高了防篡改的能力。</li>
+<li>但是为什么jwt字符串中一定要包含签名呢？如果仅仅是为了防篡改当然可以如前述那样做，但是这样却提高了伪造jwt字符串的风险，任何一个用户只要知道了别人的载荷信息就可以伪造jwt字符串访问别人的网页。但是增加了签名之后，它虽然可以伪造出载荷部分，但是由于不知道secret key，伪造出签名部分的几率却很小，所以jwt字符串中一定要包含签名</li>
+</ol>
+</blockquote>
+<h3 id="传统的cookie-session验证方式存在的问题"><a href="#传统的cookie-session验证方式存在的问题" class="headerlink" title="传统的cookie-session验证方式存在的问题"></a>传统的cookie-session验证方式存在的问题</h3><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220324231943599.png" alt="cookie-session验证过程"></p>
+<ul>
+<li>每个用户的登陆信息保存到服务器session中，用户增多，服务器开销增大</li>
+<li>session是存与服务器内存中，所以在分布式系统中，会失效，虽然也可以将其存于redis中，但却增加了复杂性</li>
+<li>对于非浏览器的客户端，手机移动端不适用，因为session依赖cookie，而移动端经常没有cookie</li>
+<li>如果cookie被截获，很容易形成csrf，浏览器禁用cookie，这种验证方式也会失效</li>
+<li>cookie无法跨域，所以对于单点登录来说不适用</li>
+</ul>
+<blockquote>
+<p>单点登录：用户只需登录一次，就可以访问所有相互信任的系统</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>对称加密：加密和解密使用同样的密码，非对称加密反之</p>
+</blockquote>
 
       
     </div>
@@ -344,13 +358,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2022/03/24/classforname/">class.forname() &amp; 数据库unique约束 &amp; @Resouce和@Autowired &amp; @RestController &amp; maven父子项目</a></p>
+        <p><span>本文标题:</span><a  href="/2022/03/24/jwt/">JWT</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问  的个人博客"></a></p>
-        <p><span>发布时间:</span>2022年03月24日 - 13时16分</p>
-        <p><span>最后更新:</span>2022年03月24日 - 14时01分</p>
+        <p><span>发布时间:</span>2022年03月24日 - 21时31分</p>
+        <p><span>最后更新:</span>2022年03月24日 - 23时22分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2022/03/24/classforname/" title="class.forname() &amp; 数据库unique约束 &amp; @Resouce和@Autowired &amp; @RestController &amp; maven父子项目">http://example.com/2022/03/24/classforname/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/03/24/classforname/　　作者: " title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2022/03/24/jwt/" title="JWT">http://example.com/2022/03/24/jwt/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/03/24/jwt/　　作者: " title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -361,18 +375,18 @@
 
 <nav id="article-nav">
   
-    <a  href="/2022/03/24/jwt/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a  href="/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          JWT
+          java函数传参详细分析
         
       </div>
     </a>
   
   
-    <a  href="/2022/03/24/Bean/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">常见注解 &amp; isBlank和isEmpty的区别 &amp; 继承中父类和子类拥有相同的成员变量名 &amp; Throwable类</div>
+    <a  href="/2022/03/24/classforname/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">class.forname() &amp; 数据库unique约束 &amp; @Resouce和@Autowired &amp; @RestController &amp; maven父子项目</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -384,7 +398,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Class-forName"><span class="toc-number">1.</span> <span class="toc-text">Class.forName()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql%E4%B8%AD%E5%AD%97%E6%AE%B5unique%E7%BA%A6%E6%9D%9F"><span class="toc-number">2.</span> <span class="toc-text">mysql中字段unique约束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Resource%E5%92%8C-Autowired%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">3.</span> <span class="toc-text">@Resource和@Autowired的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RestController%E5%92%8C-Controller"><span class="toc-number">4.</span> <span class="toc-text">@RestController和@Controller</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#maven%E4%B8%AD%E7%9A%84%E5%AD%90%E6%A8%A1%E5%9D%97"><span class="toc-number">5.</span> <span class="toc-text">maven中的子模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#throw%E5%92%8Cthrows"><span class="toc-number">6.</span> <span class="toc-text">throw和throws</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E4%B8%ADInterface%E7%9A%84%E5%9F%9F"><span class="toc-number">7.</span> <span class="toc-text">Java中Interface的域</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JWT%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E4%B8%8E%E4%BC%A0%E7%BB%9Fcookie-session%E9%AA%8C%E8%AF%81%E6%96%B9%E5%BC%8F%E6%AF%94%E8%BE%83"><span class="toc-number">1.</span> <span class="toc-text">JWT介绍以及与传统cookie-session验证方式比较</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jwt%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">jwt结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88jwt%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%80%E5%AE%9A%E8%A6%81%E5%8C%85%E5%90%AB%E7%AD%BE%E5%90%8D%EF%BC%9F%EF%BC%88%E7%8B%AC%E7%AB%8B%E6%80%9D%E8%80%83%EF%BC%89"><span class="toc-number">1.1.1.</span> <span class="toc-text">为什么jwt字符串一定要包含签名？（独立思考）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E7%BB%9F%E7%9A%84cookie-session%E9%AA%8C%E8%AF%81%E6%96%B9%E5%BC%8F%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.2.</span> <span class="toc-text">传统的cookie-session验证方式存在的问题</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -457,13 +471,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2022/03/24/jwt/" title="上一篇: JWT">
+            <a  href="/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/" title="上一篇: java函数传参详细分析">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2022/03/24/Bean/" title="下一篇: 常见注解 &amp; isBlank和isEmpty的区别 &amp; 继承中父类和子类拥有相同的成员变量名 &amp; Throwable类">
+            <a  href="/2022/03/24/classforname/" title="下一篇: class.forname() &amp; 数据库unique约束 &amp; @Resouce和@Autowired &amp; @RestController &amp; maven父子项目">
                 <i class="fa fa-angle-right"></i>
             </a>
         

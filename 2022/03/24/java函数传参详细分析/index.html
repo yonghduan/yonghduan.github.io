@@ -4,23 +4,25 @@
   <meta charset="utf-8">
   <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
   
-   
-    <meta name="keywords" content="learning notes" />
   
   
   
-  <title>Tag: learning notes | SaltFish的博客</title>
+  <title>java函数传参详细分析 | SaltFish的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="菜狗一枚，坐标西安电子科技大学">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SaltFish的博客">
-<meta property="og:url" content="http://example.com/tags/learning-notes/page/2/index.html">
+  <meta name="description" content="由于java没有指针，那么java在函数传参的过程中，到底传递的是一个值呢还是对象的地址呢？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java函数传参详细分析">
+<meta property="og:url" content="http://example.com/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="菜狗一枚，坐标西安电子科技大学">
+<meta property="og:description" content="由于java没有指针，那么java在函数传参的过程中，到底传递的是一个值呢还是对象的地址呢？">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220324233417181.png">
+<meta property="article:published_time" content="2022-03-24T15:22:10.000Z">
+<meta property="article:modified_time" content="2022-03-24T15:34:41.752Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="java c++">
+<meta property="article:tag" content="learning notes">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20220324233417181.png">
   
     <link rel="alternative" href="/atom.xml" title="SaltFish的博客" type="application/atom+xml">
   
@@ -49,9 +51,9 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
+          isPost: true,
           isArchive: false,
-          isTag: true,
+          isTag: false,
           isCategory: false,
           open_in_new: false
       }
@@ -277,159 +279,206 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-java函数传参详细分析" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a  href="/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/" class="article-date">
+      <time datetime="2022-03-24T15:22:10.000Z" itemprop="datePublished">2022-03-24</time>
+</a>
+
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java函数传参详细分析
+    </h1>
+  
+
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a  href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/2022/03/24/haspMap/" class="archive-article-date">
-      <time datetime="2022-03-24T04:24:13.000Z" itemprop="datePublished">03-24</time>
-</a>
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/2022/03/24/haspMap/">haspMap查找键值原理以及key值重复问题</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-archive">
+    <div class="article-entry" itemprop="articleBody">
+      
           
+        <p>由于java没有指针，那么java在函数传参的过程中，到底传递的是一个值呢还是对象的地址呢？<span id="more"></span></p>
+<meta name="referred" content="no-referred" />
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
+<h2 id="基本类型的参数和引用类型的参数"><a href="#基本类型的参数和引用类型的参数" class="headerlink" title="基本类型的参数和引用类型的参数"></a>基本类型的参数和引用类型的参数</h2><h3 id="基本类型参数"><a href="#基本类型参数" class="headerlink" title="基本类型参数"></a>基本类型参数</h3><p>对于基本类型数据来说，函数传参传递的仅仅是个值而已，即传递过去，就赋值给函数局部变量，与原始值再没关系了</p>
+<h3 id="引用类型数据参数"><a href="#引用类型数据参数" class="headerlink" title="引用类型数据参数"></a>引用类型数据参数</h3><p>对于引用类型来说，函数传参传递的实则是对象地址的传递，在传参的过程中将对象的地址赋值给函数局部变量，因此这个函数局部变量也是指向这个对象的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Person person  = new Person;</span><br><span class="line">change(person);</span><br><span class="line"></span><br><span class="line">void change(Person p)&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个过程中，函数执行栈中有个引用变量person首先指向新建的Person对象，此Person对象在堆内存中，当调用change函数时，实则又是在栈中建立了个变量p，把person的值，即Person对象的堆内存地址赋值给它，所以他们指向的是同一个对象</p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220324233417181.png" alt="image-20220324233417181"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/">java函数传参详细分析</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问  的个人博客"></a></p>
+        <p><span>发布时间:</span>2022年03月24日 - 23时22分</p>
+        <p><span>最后更新:</span>2022年03月24日 - 23时34分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/" title="java函数传参详细分析">http://example.com/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/　　作者: " title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
+
+
+<nav id="article-nav">
+  
+  
+    <a  href="/2022/03/24/jwt/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JWT</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
 </article>
-  
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8F%82%E6%95%B0%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8F%82%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">基本类型的参数和引用类型的参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">基本类型参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%8F%82%E6%95%B0"><span class="toc-number">1.2.</span> <span class="toc-text">引用类型数据参数</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
     
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: '',
+      conf: ''
+    });
+  </script>
+</section>
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/2022/03/24/threadpool/" class="archive-article-date">
-      <time datetime="2022-03-24T03:53:56.000Z" itemprop="datePublished">03-24</time>
-</a>
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/2022/03/24/threadpool/">threadpool</a>
-    </h1>
-  
 
 
-        <div class="article-info info-on-archive">
-          
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2022/03/24/jwt/" title="下一篇: JWT">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
     </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/">java函数传参详细分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/jwt/">JWT</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/classforname/">class.forname() & 数据库unique约束 & @Resouce和@Autowired & @RestController & maven父子项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/Bean/">常见注解 & isBlank和isEmpty的区别 & 继承中父类和子类拥有相同的成员变量名 & Throwable类</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/abstract-class/">java abstract class & java internal class & synchronized关键字 & 接口中的抽象方法 & set集合 & 跨域产生的原因</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/springmvc/">spring-mvc & 前后端分离项目中的请求过程 & spring-security中静态资源放行</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/array/">Arary.asList() & 数组和集合的区别 & 加密算法 & spring-security antMathchers匹配原则</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/StringBuilder%E7%B1%BB/">StringBuilder类 & final用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/trycatchfinally/">使用接口的原因 & try catch finally & spring-boot配置文件中的on和off</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/spring-bean/">spring bean单多例和生命周期 & java枚举 & java默认访问权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/haspMap/">haspMap查找键值原理以及key值重复问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/24/threadpool/">threadpool</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/23/spring-security/">spring security & 为什么前后端分离项目不能使用cookie-session机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/23/csrf%E6%94%BB%E5%87%BB/">csrf攻击 & java何时必须进行异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/20/hello-world/">Hello World</a></li></ul>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/2022/03/23/spring-security/" class="archive-article-date">
-      <time datetime="2022-03-23T15:23:43.000Z" itemprop="datePublished">03-23</time>
-</a>
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/2022/03/23/spring-security/">spring security &amp; 为什么前后端分离项目不能使用cookie-session机制</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/2022/03/23/csrf%E6%94%BB%E5%87%BB/" class="archive-article-date">
-      <time datetime="2022-03-23T14:47:37.000Z" itemprop="datePublished">03-23</time>
-</a>
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/2022/03/23/csrf%E6%94%BB%E5%87%BB/">csrf攻击 &amp; java何时必须进行异常处理</a>
-    </h1>
-  
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
 
 
-        <div class="article-info info-on-archive">
-          
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
-    </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/learning-notes/">&amp;laquo; Prev</a><a class="page-number" href="/tags/learning-notes/">1</a><span class="page-number current">2</span>
-    </nav>
-  
-
+    <script>
+        
+    </script>
 
 </div>
       <footer id="footer">
@@ -500,18 +549,6 @@
         };
     })
 </script>
-
-    <button class="hide-labels">TAG 开关</button>
-    
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            $("button").click(function() {
-                $(".article-info").toggle(200);
-            });
-        });
-    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>

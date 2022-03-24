@@ -280,6 +280,143 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-haspMap" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2022/03/24/haspMap/" class="article-date">
+      <time datetime="2022-03-24T04:24:13.000Z" itemprop="datePublished">2022-03-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2022/03/24/haspMap/">haspMap查找键值原理以及key值重复问题</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="查找键值原理"><a href="#查找键值原理" class="headerlink" title="查找键值原理"></a>查找键值原理</h2><ul>
+<li>hashmap底层维护了一个数组，当输入一个key值时，求这个key值的哈希值，这个哈希值实际上就是数组的下标，数组里面存储了一个Entry类，这个类分别有三个域，分别为key，value和next。next指向另一个键值不同但键值的哈希值相同的节点。</li>
+<li>hashmap允许null值和null键
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a   href="/2022/03/24/haspMap/#more">查看更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-threadpool" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2022/03/24/threadpool/" class="article-date">
+      <time datetime="2022-03-24T03:53:56.000Z" itemprop="datePublished">2022-03-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2022/03/24/threadpool/">threadpool</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="为什么创建线程池"><a href="#为什么创建线程池" class="headerlink" title="为什么创建线程池"></a>为什么创建线程池</h2><ul>
+<li>每次new Thread新建对象的性能差</li>
+<li>线程缺乏统一的管理，可以无限制的创建线程，相互之间竞争，极可能占用过多的资源导致死机</li>
+<li>缺乏更多的功能，如定期执行，定时执行等
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a   href="/2022/03/24/threadpool/#more">查看更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-spring-security" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
