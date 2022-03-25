@@ -9,15 +9,15 @@
   
   <title>Serializable接口 | SaltFish的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="要缓存的对象必须先实现Serializable接口，因为Spring会将对象先序列化再存入redis，所以到底什么是序列化？又为什么要序列化呢？ 什么是序列化，它的作用是什么？Serializable这个接口中一个成员函数或者成员变量也没有，这个接口的作用实则就是实现序列化  序列化：对象的寿命通常随着生成该对象的程序的终止而终止，但是有时候需要把生成的对象的状态保存下来，并且可以在需要时再恢">
+  <meta name="description" content="要缓存的对象必须先实现Serializable接口，因为Spring会将对象先序列化再存入redis，所以到底什么是序列化？又为什么要序列化呢？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Serializable接口">
 <meta property="og:url" content="http://example.com/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="要缓存的对象必须先实现Serializable接口，因为Spring会将对象先序列化再存入redis，所以到底什么是序列化？又为什么要序列化呢？ 什么是序列化，它的作用是什么？Serializable这个接口中一个成员函数或者成员变量也没有，这个接口的作用实则就是实现序列化  序列化：对象的寿命通常随着生成该对象的程序的终止而终止，但是有时候需要把生成的对象的状态保存下来，并且可以在需要时再恢">
+<meta property="og:description" content="要缓存的对象必须先实现Serializable接口，因为Spring会将对象先序列化再存入redis，所以到底什么是序列化？又为什么要序列化呢？">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-25T03:55:45.000Z">
-<meta property="article:modified_time" content="2022-03-25T05:18:58.744Z">
+<meta property="article:modified_time" content="2022-03-25T05:21:13.742Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="learning notes">
 <meta name="twitter:card" content="summary">
@@ -319,7 +319,7 @@
           
         <meta name="referrer" content="no-referrer">
 
-<p>要缓存的对象必须先实现Serializable接口，因为Spring会将对象先序列化再存入redis，所以到底什么是序列化？又为什么要序列化呢？</p>
+<p>要缓存的对象必须先实现Serializable接口，因为Spring会将对象先序列化再存入redis，所以到底什么是序列化？又为什么要序列化呢？<span id="more"></span></p>
 <h3 id="什么是序列化，它的作用是什么？"><a href="#什么是序列化，它的作用是什么？" class="headerlink" title="什么是序列化，它的作用是什么？"></a>什么是序列化，它的作用是什么？</h3><p>Serializable这个接口中一个成员函数或者成员变量也没有，这个接口的作用实则就是实现序列化</p>
 <ul>
 <li>序列化：对象的寿命通常随着生成该对象的程序的终止而终止，但是有时候需要把生成的对象的状态保存下来，并且可以在需要时再恢复。java给你提供了一种保存对象状态的机制，这就是序列化。</li>
@@ -363,7 +363,7 @@
         <p><span>本文标题:</span><a  href="/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/">Serializable接口</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问  的个人博客"></a></p>
         <p><span>发布时间:</span>2022年03月25日 - 11时55分</p>
-        <p><span>最后更新:</span>2022年03月25日 - 13时18分</p>
+        <p><span>最后更新:</span>2022年03月25日 - 13时21分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/" title="Serializable接口">http://example.com/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/</a>
             <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/　　作者: " title=""></span>
