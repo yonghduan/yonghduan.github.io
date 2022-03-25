@@ -7,17 +7,17 @@
   
   
   
-  <title>常见注解 &amp; isBlank和isEmpty的区别 &amp; 继承中父类和子类拥有相同的成员变量名 &amp; Throwable类 | SaltFish的博客</title>
+  <title>Serializable接口 | SaltFish的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="常见注解@Bean注解此注解在于告诉一个方法，产生一个bean对象，并且这个对象交给spring管理，添加的bean的id为方法名 @Configuration注解这是一个用于定义配置类的注解，它内部含有一个或者多个带有@Bean注解的方法，这些方法会被扫描，构建bean的定义，初始化spring容器">
+  <meta name="description" content="要缓存的对象必须先实现Serializable接口，因为Spring会将对象先序列化再存入redis，所以到底什么是序列化？又为什么要序列化呢？ 什么是序列化，它的作用是什么？Serializable这个接口中一个成员函数或者成员变量也没有，这个接口的作用实则就是实现序列化  序列化：对象的寿命通常随着生成该对象的程序的终止而终止，但是有时候需要把生成的对象的状态保存下来，并且可以在需要时再恢">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常见注解 &amp; isBlank和isEmpty的区别 &amp; 继承中父类和子类拥有相同的成员变量名 &amp; Throwable类">
-<meta property="og:url" content="http://example.com/2022/03/24/Bean/index.html">
+<meta property="og:title" content="Serializable接口">
+<meta property="og:url" content="http://example.com/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="常见注解@Bean注解此注解在于告诉一个方法，产生一个bean对象，并且这个对象交给spring管理，添加的bean的id为方法名 @Configuration注解这是一个用于定义配置类的注解，它内部含有一个或者多个带有@Bean注解的方法，这些方法会被扫描，构建bean的定义，初始化spring容器">
+<meta property="og:description" content="要缓存的对象必须先实现Serializable接口，因为Spring会将对象先序列化再存入redis，所以到底什么是序列化？又为什么要序列化呢？ 什么是序列化，它的作用是什么？Serializable这个接口中一个成员函数或者成员变量也没有，这个接口的作用实则就是实现序列化  序列化：对象的寿命通常随着生成该对象的程序的终止而终止，但是有时候需要把生成的对象的状态保存下来，并且可以在需要时再恢">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-03-24T05:09:44.000Z">
-<meta property="article:modified_time" content="2022-03-24T06:04:59.031Z">
+<meta property="article:published_time" content="2022-03-25T03:55:45.000Z">
+<meta property="article:modified_time" content="2022-03-25T05:18:58.744Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="learning notes">
 <meta name="twitter:card" content="summary">
@@ -277,11 +277,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Bean" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Serializable接口" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2022/03/24/Bean/" class="article-date">
-      <time datetime="2022-03-24T05:09:44.000Z" itemprop="datePublished">2022-03-24</time>
+      <a  href="/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/" class="article-date">
+      <time datetime="2022-03-25T03:55:45.000Z" itemprop="datePublished">2022-03-25</time>
 </a>
 
     </div>
@@ -295,7 +295,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      常见注解 &amp; isBlank和isEmpty的区别 &amp; 继承中父类和子类拥有相同的成员变量名 &amp; Throwable类
+      Serializable接口
     </h1>
   
 
@@ -317,22 +317,41 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="常见注解"><a href="#常见注解" class="headerlink" title="常见注解"></a>常见注解</h2><h3 id="Bean注解"><a href="#Bean注解" class="headerlink" title="@Bean注解"></a>@Bean注解</h3><p>此注解在于告诉一个方法，产生一个bean对象，并且这个对象交给spring管理，添加的bean的id为方法名</p>
-<h3 id="Configuration注解"><a href="#Configuration注解" class="headerlink" title="@Configuration注解"></a>@Configuration注解</h3><p>这是一个用于定义配置类的注解，它内部含有一个或者多个带有@Bean注解的方法，这些方法会被扫描，构建bean的定义，初始化spring容器<span id="more"></span></p>
-<h3 id="RequestParam注解"><a href="#RequestParam注解" class="headerlink" title="@RequestParam注解"></a>@RequestParam注解</h3><p>用于映射请求参数，它含有value，required，defaultValue等属性，是用于映射get请求方法</p>
-<h3 id="Component注解"><a href="#Component注解" class="headerlink" title="@Component注解"></a>@Component注解</h3><ul>
-<li>sping工程中，分别用@Controller，@Service，@Respository注解分别用于控制层（web层），业务层和数据持久层，而对于那些不好区分是那个层面的bean，比较中立的bean使用此注解，相当于给spring管理的对象容器中配置一个bean</li>
+        <meta name="referrer" content="no-referrer">
+
+<p>要缓存的对象必须先实现Serializable接口，因为Spring会将对象先序列化再存入redis，所以到底什么是序列化？又为什么要序列化呢？</p>
+<h3 id="什么是序列化，它的作用是什么？"><a href="#什么是序列化，它的作用是什么？" class="headerlink" title="什么是序列化，它的作用是什么？"></a>什么是序列化，它的作用是什么？</h3><p>Serializable这个接口中一个成员函数或者成员变量也没有，这个接口的作用实则就是实现序列化</p>
+<ul>
+<li>序列化：对象的寿命通常随着生成该对象的程序的终止而终止，但是有时候需要把生成的对象的状态保存下来，并且可以在需要时再恢复。java给你提供了一种保存对象状态的机制，这就是序列化。</li>
+<li>机制：序列化技术可以使你将一个对象的状态写入一个字节流里（序列化），并且可以从其他地方把该字节流里的数据读取出来（反序列化）</li>
 </ul>
-<h2 id="Stringutils里的isBlank（）和isEmpty（）的区别"><a href="#Stringutils里的isBlank（）和isEmpty（）的区别" class="headerlink" title="Stringutils里的isBlank（）和isEmpty（）的区别"></a>Stringutils里的isBlank（）和isEmpty（）的区别</h2><p>在用于判断字符串是否为空时两者可以相互替换，但当字符串为空格，或者&#x2F;t&#x2F;r&#x2F;n这种默认为空的字符时，isEmpty（）为false，isBlank（）为真。要注意字符串为null的情况，这个时候即没有为字符串分配空间，它是一个空指针，不能调用String类的任何方法。</p>
-<h2 id="继承中父类和子类拥有相同的成员变量名"><a href="#继承中父类和子类拥有相同的成员变量名" class="headerlink" title="继承中父类和子类拥有相同的成员变量名"></a>继承中父类和子类拥有相同的成员变量名</h2><ul>
-<li>当对该变量操作的方法是继承于父类的话，操作的变量是属于父类的，若该方法是子类独有或者是重写了父类的方法，则操作的变量是属于子类的</li>
+<h4 id="序列化用途"><a href="#序列化用途" class="headerlink" title="序列化用途"></a>序列化用途</h4><ul>
+<li>当想把内存中的对象状态保存到一个文件或者数据库中的时候</li>
+<li>想把对象通过网络进行传播的时候</li>
 </ul>
-<h2 id="java中Throwable类"><a href="#java中Throwable类" class="headerlink" title="java中Throwable类"></a>java中Throwable类</h2><ul>
-<li>java中Throwable是Error和Exception的父类，用来定义所有可以作为异常被抛出来的类，而Exception又分为其他Exception和RunTimeException，其他Exception为受检查异常，必须要通过开发者解决后才能编译通过，而RunTimeException又称为不受检查异常，即不处理它也能够编译通过，但是真正执行的时候会出错，比如1&#x2F;0，空指针等运行时异常</li>
-</ul>
-<h2 id="pom-xml文件中的标签"><a href="#pom-xml文件中的标签" class="headerlink" title="pom.xml文件中的标签"></a>pom.xml文件中的<optional>标签</optional></h2><ul>
-<li>当此标签的值为true值时，表示当其他项目通过maven引入该项目时，不会把这个依赖传入到其他项目中，是为了防止依赖冲突</li>
-</ul>
+<h3 id="如何实现序列化？"><a href="#如何实现序列化？" class="headerlink" title="如何实现序列化？"></a>如何实现序列化？</h3><p>只要一个类实现Serializable接口，那么这个类就可以序列化了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Person implements SErializable</span><br><span class="line">&#123;</span><br><span class="line">	private static final long serialVersionUID = 1L;</span><br><span class="line">	String name;</span><br><span class="line">	int age;</span><br><span class="line">	//constructor</span><br><span class="line">	//toString()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过ObjectOutputStream的writeObject（）方法可以把这个类写到一个文件中，然后再通过ObjectInputStream的readObject（）方法可以把这个对象读出来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">File file = new File(&quot;file&quot; + File.spearator + &quot;out.txt&quot;);</span><br><span class="line">FileOutputStream fos = new FileOutputStream(file);</span><br><span class="line">ObjectOutputStream oos = new ObjectOutputStream(fos);</span><br><span class="line">Person person = new Person(&quot;Tom&quot;,22);</span><br><span class="line">System.out.println(person);</span><br><span class="line"></span><br><span class="line">oos.writeObject(person);	//写入对象</span><br><span class="line"></span><br><span class="line">FileInputStream fis = new FileInputStream(file);</span><br><span class="line">ObjectInputStream ois = new ObjectInputStream(fis);</span><br><span class="line">Person person = (Person)ois.readObject();</span><br><span class="line">System.out.println(person);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name:Tom	age:22</span><br><span class="line">name:Tom	age:22</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果Person类不实现Serializable接口，那么上述程序就会报java.io.NotSerializableException异常</strong></p>
+<h4 id="serialVersinUID"><a href="#serialVersinUID" class="headerlink" title="serialVersinUID"></a>serialVersinUID</h4><p>上述程序有此成员变量，如果不增加这个成员变量当然也可以，程序依然能够照常运行。</p>
+<p>序列化ID生成的两种方法：</p>
+<ol>
+<li>一个是固定的1L</li>
+<li>一个是随机生成一个不重复的long类型的数据</li>
+</ol>
+<p>上述程序中，写入和读出使用的是同一个peron类，他们的版本ID值一样，所以可以反序列化成功。但是如果是通过网络传输，客户端a和客户端b的person类的ID值不一样，那么会反序列化失败，不能重构这个person对象。会报java.io.InvalidClassExceptin异常。有些时候，可以通过此ID值来限制一些用户的使用</p>
+<h3 id="静态变量无法序列化"><a href="#静态变量无法序列化" class="headerlink" title="静态变量无法序列化"></a>静态变量无法序列化</h3><p>序列化只能保存对象的状态，而静态成员属于类，所以不会保存它的值。如果将name设为static的，那么读出它的值就为null。序列化不能保存任何的成员方法和静态成员变量。而且对于任何的变量修饰符也不会保存。</p>
+<h3 id="transient关键字"><a href="#transient关键字" class="headerlink" title="transient关键字"></a>transient关键字</h3><p>此关键字的作用是，阻止实例中那些用此关键字声明的变量持久化。那么在反序列化的时候，这些属性变量值不会被恢复。</p>
+<p><strong>对于一些不适合生命为static又不需要持久化的变量，可以用此关键字声明</strong></p>
+<blockquote>
+<p>对于某些类型的属性，其状态是瞬时的，这样是属性是无法保存其状态的，因此需要用此关键字修饰。例如一个线程属性等</p>
+</blockquote>
 
       
     </div>
@@ -341,13 +360,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2022/03/24/Bean/">常见注解 &amp; isBlank和isEmpty的区别 &amp; 继承中父类和子类拥有相同的成员变量名 &amp; Throwable类</a></p>
+        <p><span>本文标题:</span><a  href="/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/">Serializable接口</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问  的个人博客"></a></p>
-        <p><span>发布时间:</span>2022年03月24日 - 13时09分</p>
-        <p><span>最后更新:</span>2022年03月24日 - 14时04分</p>
+        <p><span>发布时间:</span>2022年03月25日 - 11时55分</p>
+        <p><span>最后更新:</span>2022年03月25日 - 13时18分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2022/03/24/Bean/" title="常见注解 &amp; isBlank和isEmpty的区别 &amp; 继承中父类和子类拥有相同的成员变量名 &amp; Throwable类">http://example.com/2022/03/24/Bean/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/03/24/Bean/　　作者: " title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/" title="Serializable接口">http://example.com/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/　　作者: " title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -358,18 +377,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2022/03/24/classforname/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          class.forname() &amp; 数据库unique约束 &amp; @Resouce和@Autowired &amp; @RestController &amp; maven父子项目
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2022/03/24/abstract-class/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java abstract class &amp; java internal class &amp; synchronized关键字 &amp; 接口中的抽象方法 &amp; set集合 &amp; 跨域产生的原因</div>
+    <a  href="/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java函数传参详细分析</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -381,7 +391,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%B3%A8%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">常见注解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bean%E6%B3%A8%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">@Bean注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Configuration%E6%B3%A8%E8%A7%A3"><span class="toc-number">1.2.</span> <span class="toc-text">@Configuration注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RequestParam%E6%B3%A8%E8%A7%A3"><span class="toc-number">1.3.</span> <span class="toc-text">@RequestParam注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Component%E6%B3%A8%E8%A7%A3"><span class="toc-number">1.4.</span> <span class="toc-text">@Component注解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stringutils%E9%87%8C%E7%9A%84isBlank%EF%BC%88%EF%BC%89%E5%92%8CisEmpty%EF%BC%88%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.</span> <span class="toc-text">Stringutils里的isBlank（）和isEmpty（）的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF%E4%B8%AD%E7%88%B6%E7%B1%BB%E5%92%8C%E5%AD%90%E7%B1%BB%E6%8B%A5%E6%9C%89%E7%9B%B8%E5%90%8C%E7%9A%84%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%90%8D"><span class="toc-number">3.</span> <span class="toc-text">继承中父类和子类拥有相同的成员变量名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E4%B8%ADThrowable%E7%B1%BB"><span class="toc-number">4.</span> <span class="toc-text">java中Throwable类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pom-xml%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E6%A0%87%E7%AD%BE"><span class="toc-number">5.</span> <span class="toc-text">pom.xml文件中的标签</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%8C%E5%AE%83%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">什么是序列化，它的作用是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E7%94%A8%E9%80%94"><span class="toc-number">1.1.</span> <span class="toc-text">序列化用途</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">如何实现序列化？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#serialVersinUID"><span class="toc-number">2.1.</span> <span class="toc-text">serialVersinUID</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F%E6%97%A0%E6%B3%95%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">静态变量无法序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#transient%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">4.</span> <span class="toc-text">transient关键字</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -454,13 +464,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2022/03/24/classforname/" title="上一篇: class.forname() &amp; 数据库unique约束 &amp; @Resouce和@Autowired &amp; @RestController &amp; maven父子项目">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2022/03/24/abstract-class/" title="下一篇: java abstract class &amp; java internal class &amp; synchronized关键字 &amp; 接口中的抽象方法 &amp; set集合 &amp; 跨域产生的原因">
+            <a  href="/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/" title="下一篇: java函数传参详细分析">
                 <i class="fa fa-angle-right"></i>
             </a>
         
