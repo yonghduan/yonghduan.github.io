@@ -311,7 +311,7 @@
           
               <h2 id="查找键值原理"><a href="#查找键值原理" class="headerlink" title="查找键值原理"></a>查找键值原理</h2><ul>
 <li>hashmap底层维护了一个数组，当输入一个key值时，求这个key值的哈希值，这个哈希值实际上就是数组的下标，数组里面存储了一个Entry类，这个类分别有三个域，分别为key，value和next。next指向另一个键值不同但键值的哈希值相同的节点。</li>
-<li>hashmap允许null值和null键
+<li>hashmap允许null值和null键</li></ul>
           
       
     </div>
@@ -380,7 +380,7 @@
               <h2 id="为什么创建线程池"><a href="#为什么创建线程池" class="headerlink" title="为什么创建线程池"></a>为什么创建线程池</h2><ul>
 <li>每次new Thread新建对象的性能差</li>
 <li>线程缺乏统一的管理，可以无限制的创建线程，相互之间竞争，极可能占用过多的资源导致死机</li>
-<li>缺乏更多的功能，如定期执行，定时执行等
+<li>缺乏更多的功能，如定期执行，定时执行等</li></ul>
           
       
     </div>
@@ -446,13 +446,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <meta name="referrer" content="no-referrer" />
+              <meta name="referrer" content="no-referrer">
 
 <h2 id="Spring-Security流程"><a href="#Spring-Security流程" class="headerlink" title="Spring Security流程"></a>Spring Security流程</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>spring security的原理其实就是一个过滤器链，内部包含了提供各种功能的过滤器</p>
 <h3 id="主要过滤器"><a href="#主要过滤器" class="headerlink" title="主要过滤器"></a>主要过滤器</h3><p>主要三个过滤器，他们顺序是：</p>
 <ol>
 <li>UsernamePasswordAutenticationFilter（负责处理登录请求，验证密码和用户）</li>
-<li>ExceptionTranslationFilter（处理过滤器中抛出的任何AccessDeniedException和AuthenticationException）
+<li>ExceptionTranslationFilter（处理过滤器中抛出的任何AccessDeniedException和AuthenticationException）</li></ol>
           
       
     </div>
@@ -518,7 +518,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h2 id="csrf攻击"><a href="#csrf攻击" class="headerlink" title="csrf攻击"></a>csrf攻击</h2><p>Cross-Site request forgery：称为跨站请求伪造，用户登录到一个网站A，登录成功服务器返回给用户cookie，此时用户又打开一个页面请求另外一个网站B，网站B返回给用户一些攻击性代码携带携带A网站返回给用户的cookie请求A网站，网站A能够验证该请求是来自于用户的浏览器，却不能验证该请求是否是用户的真实意愿还是恶意攻击性请求
+              <h2 id="csrf攻击"><a href="#csrf攻击" class="headerlink" title="csrf攻击"></a>csrf攻击</h2><p>Cross-Site request forgery：称为跨站请求伪造，用户登录到一个网站A，登录成功服务器返回给用户cookie，此时用户又打开一个页面请求另外一个网站B，网站B返回给用户一些攻击性代码携带携带A网站返回给用户的cookie请求A网站，网站A能够验证该请求是来自于用户的浏览器，却不能验证该请求是否是用户的真实意愿还是恶意攻击性请求</p>
           
       
     </div>

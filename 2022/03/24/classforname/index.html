@@ -330,7 +330,7 @@
 <li>后者是标注方法return返回的是一个页面，如html页面或者jsp页面，若要返回 json 等内容到页面，需要加@ResponseBody注解</li>
 <li>前者是@Controller注解和@ResponseBody注解的结合</li>
 </ul>
-<h2 id="maven中的子模块"><a href="#maven中的子模块" class="headerlink" title="maven中的子模块"></a>maven中的子模块</h2><p><parent>可以方便引入父项目中所有的依赖，不必每个子模块都引入共有的依赖</p>
+<h2 id="maven中的子模块"><a href="#maven中的子模块" class="headerlink" title="maven中的子模块"></a>maven中的子模块</h2><p><parent>可以方便引入父项目中所有的依赖，不必每个子模块都引入共有的依赖</parent></p>
 <ul>
 <li>项目模块化可以提取出项目中共有的部分，方便重用，并且修改一部分代码可以只用build代码所在模块，不用build整个项目，缩短了build时间。父项目中要通过modules将所有的子项目引进来，在build时，会根据子模块之间的依赖关系，整理出一个build顺序。pom打包方式一般用于父项目中，用来在jar包的版本控制，子模块默认打包方式为jar包</li>
 </ul>
