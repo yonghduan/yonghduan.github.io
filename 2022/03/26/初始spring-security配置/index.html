@@ -7,20 +7,22 @@
   
   
   
-  <title>StringBuilder类 &amp; final用法 | SaltFish的博客</title>
+  <title>初始spring-security配置(一) | SaltFish的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="StringBuilder类程序开发过程中，经常碰到字符串需要连接的情况，常用的方法是使用 + 号，但是这种方法每加一次就新创建了一个String对象，而且连接效率比较低，并且比较费空间，使用StringBuilder类，即可变长字符序列，可以避免这种问题的产生。  append（）：字符串连接 toString（）：返回一个与构建器或缓冲器内容相同的字符串">
+  <meta name="description" content="在刚开始学习一个框架时，最为重要的就是学会如何配置这个框架，怎么配置它才能利用框架实现我们需要的功能，学习配置框架其实是一件非常花费精力的事情，所以写一篇博客记录我现在对于spring-security框架配置的浅显认识">
 <meta property="og:type" content="article">
-<meta property="og:title" content="StringBuilder类 &amp; final用法">
-<meta property="og:url" content="http://example.com/2022/03/24/StringBuilder%E7%B1%BB/index.html">
+<meta property="og:title" content="初始spring-security配置(一)">
+<meta property="og:url" content="http://example.com/2022/03/26/%E5%88%9D%E5%A7%8Bspring-security%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="StringBuilder类程序开发过程中，经常碰到字符串需要连接的情况，常用的方法是使用 + 号，但是这种方法每加一次就新创建了一个String对象，而且连接效率比较低，并且比较费空间，使用StringBuilder类，即可变长字符序列，可以避免这种问题的产生。  append（）：字符串连接 toString（）：返回一个与构建器或缓冲器内容相同的字符串">
+<meta property="og:description" content="在刚开始学习一个框架时，最为重要的就是学会如何配置这个框架，怎么配置它才能利用框架实现我们需要的功能，学习配置框架其实是一件非常花费精力的事情，所以写一篇博客记录我现在对于spring-security框架配置的浅显认识">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-03-24T04:36:37.000Z">
-<meta property="article:modified_time" content="2022-03-24T06:07:02.744Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/27577247-6b92f5242652e29f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="article:published_time" content="2022-03-26T09:22:29.000Z">
+<meta property="article:modified_time" content="2022-03-26T09:56:00.850Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="learning notes">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/27577247-6b92f5242652e29f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="SaltFish的博客" type="application/atom+xml">
   
@@ -277,11 +279,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-StringBuilder类" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-初始spring-security配置" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2022/03/24/StringBuilder%E7%B1%BB/" class="article-date">
-      <time datetime="2022-03-24T04:36:37.000Z" itemprop="datePublished">2022-03-24</time>
+      <a  href="/2022/03/26/%E5%88%9D%E5%A7%8Bspring-security%E9%85%8D%E7%BD%AE/" class="article-date">
+      <time datetime="2022-03-26T09:22:29.000Z" itemprop="datePublished">2022-03-26</time>
 </a>
 
     </div>
@@ -295,7 +297,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      StringBuilder类 &amp; final用法
+      初始spring-security配置(一)
     </h1>
   
 
@@ -317,18 +319,35 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="StringBuilder类"><a href="#StringBuilder类" class="headerlink" title="StringBuilder类"></a>StringBuilder类</h2><p>程序开发过程中，经常碰到字符串需要连接的情况，常用的方法是使用 + 号，但是这种方法每加一次就新创建了一个String对象，而且连接效率比较低，并且比较费空间，使用StringBuilder类，即可变长字符序列，可以避免这种问题的产生。</p>
-<ul>
-<li>append（）：字符串连接</li>
-<li>toString（）：返回一个与构建器或缓冲器内容相同的字符串<span id="more"></span></li>
-</ul>
-<h2 id="final用法"><a href="#final用法" class="headerlink" title="final用法"></a>final用法</h2><ul>
-<li>修饰基本数据类型：表示该数据是个常量，不能被修改</li>
-<li>修饰对象的引用：表示该引用不可被重新赋值，即该引用一直指向该对象，但是对象仍然可以被修改</li>
-<li>修饰类：表示该类不可被继承</li>
-<li>修饰方法：说明当前方法已经满足要求，不允许继承的类来重写此方法进行扩展</li>
-</ul>
-<hr>
+        <meta name="referrer" content="no-referrer">
+
+<p>在刚开始学习一个框架时，最为重要的就是学会如何配置这个框架，怎么配置它才能利用框架实现我们需要的功能，学习配置框架其实是一件非常花费精力的事情，所以写一篇博客记录我现在对于spring-security框架配置的浅显认识<span id="more"></span></p>
+<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>在引入spring-security依赖时，默认访问任何url spring-security都会拦截，返回给你一个登录页面让你登录，临时生成的密码会给你在控制台打印出来，你通过登录就就可以访问controller了，当然这是在我们完全没有对spring-security进行任何配置的情况</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">public class SecurityConfig extends WebSecurityConfigureAdapter</span><br><span class="line">&#123;</span><br><span class="line">	@Override</span><br><span class="line">	protected void configure(HttpSecurity httpSecurity) throws Exception</span><br><span class="line">	&#123;</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过继承这个父类，重写里面的configure方法，就可以对其进行配置了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">httpSecurity</span><br><span class="line">     .csrf().disable()</span><br><span class="line">     .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()</span><br><span class="line">     .authorizeRequests()</span><br><span class="line">     .antMatchers(&quot;/login&quot;,&quot;/captchaImage&quot;).anonymous()</span><br><span class="line">     .anyRequest().authenticated();</span><br></pre></td></tr></table></figure>
+
+<p>如果不使用基于cookie-session认证方式的话，就可以将csrf禁用，并且将session设为无状态。</p>
+<blockquote>
+<p>只有基于cookie-session机制的认知方式，才有可能产生csrf攻击</p>
+</blockquote>
+<p>然后开始对url进行授权，一般登录、注册和验证码设为匿名既可以访问，而其他url则需要认证才能访问</p>
+<blockquote>
+<p>在对其进行如此配置之后，访问除了匿名的url的时候，会直接返回forbidden，没有认证，默认的登录页面不会再出现</p>
+</blockquote>
+<h3 id="认证配置"><a href="#认证配置" class="headerlink" title="认证配置"></a>认证配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception</span><br><span class="line">&#123;</span><br><span class="line">	authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(new 					BCryptPasswordEncoder());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>配置一个认证管理类，其中的UserDetailsService这个接口需要自己实现，自定义自己的认证逻辑。并且需要配置密码加密的方式，因为在对登录用户输入的密码和数据库的密码进行比较的时候，数据库存储的是经过加密的密码，所以需要对用户输入的密码经过相同的方式加密后进行比较，因此配置密码加密的方式也是比不可少的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">@Override</span><br><span class="line">public AuthenticationManager authenticationManagerBean() throws Exception</span><br><span class="line">&#123;</span><br><span class="line">return super.authenticationManagerBean();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将AuthenticationManagerBean配置到spring容器中，因为后面定义认证逻辑的时候需要在登录service层里注入这个类</p>
+<h3 id="登录成功后访问其他页面时的证书确认配置"><a href="#登录成功后访问其他页面时的证书确认配置" class="headerlink" title="登录成功后访问其他页面时的证书确认配置"></a>登录成功后访问其他页面时的证书确认配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/27577247-6b92f5242652e29f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="过滤器.png"></p>
+<p>在spring过滤器链中增加一个过滤器，进行证书确认，通过则在securityContextHolder中设置证书，确保在这个线程的执行到任何地方都可以获取这个证书，如果没有证书，则还是返回forbidden，如果在校验证书的时候发生异常，则需要配置一个校验证书失败异常处理类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">httpSecurity</span><br><span class="line">.exceptionHandling().authenticationEntryPoint(unauthorizedHandle).and()</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -337,13 +356,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2022/03/24/StringBuilder%E7%B1%BB/">StringBuilder类 &amp; final用法</a></p>
+        <p><span>本文标题:</span><a  href="/2022/03/26/%E5%88%9D%E5%A7%8Bspring-security%E9%85%8D%E7%BD%AE/">初始spring-security配置(一)</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问  的个人博客"></a></p>
-        <p><span>发布时间:</span>2022年03月24日 - 12时36分</p>
-        <p><span>最后更新:</span>2022年03月24日 - 14时07分</p>
+        <p><span>发布时间:</span>2022年03月26日 - 17时22分</p>
+        <p><span>最后更新:</span>2022年03月26日 - 17时56分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2022/03/24/StringBuilder%E7%B1%BB/" title="StringBuilder类 &amp; final用法">http://example.com/2022/03/24/StringBuilder%E7%B1%BB/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/03/24/StringBuilder%E7%B1%BB/　　作者: " title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2022/03/26/%E5%88%9D%E5%A7%8Bspring-security%E9%85%8D%E7%BD%AE/" title="初始spring-security配置(一)">http://example.com/2022/03/26/%E5%88%9D%E5%A7%8Bspring-security%E9%85%8D%E7%BD%AE/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/03/26/%E5%88%9D%E5%A7%8Bspring-security%E9%85%8D%E7%BD%AE/　　作者: " title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -354,18 +373,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2022/03/24/array/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Arary.asList() &amp; 数组和集合的区别 &amp; 加密算法 &amp; spring-security antMathchers匹配原则
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2022/03/24/trycatchfinally/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">使用接口的原因 &amp; try catch finally &amp; spring-boot配置文件中的on和off</div>
+    <a  href="/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Serializable接口</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -377,7 +387,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#StringBuilder%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">StringBuilder类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#final%E7%94%A8%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">final用法</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">基本配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A4%E8%AF%81%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">认证配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BB%E5%BD%95%E6%88%90%E5%8A%9F%E5%90%8E%E8%AE%BF%E9%97%AE%E5%85%B6%E4%BB%96%E9%A1%B5%E9%9D%A2%E6%97%B6%E7%9A%84%E8%AF%81%E4%B9%A6%E7%A1%AE%E8%AE%A4%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">登录成功后访问其他页面时的证书确认配置</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -450,13 +460,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2022/03/24/array/" title="上一篇: Arary.asList() &amp; 数组和集合的区别 &amp; 加密算法 &amp; spring-security antMathchers匹配原则">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2022/03/24/trycatchfinally/" title="下一篇: 使用接口的原因 &amp; try catch finally &amp; spring-boot配置文件中的on和off">
+            <a  href="/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/" title="下一篇: Serializable接口">
                 <i class="fa fa-angle-right"></i>
             </a>
         
