@@ -17,7 +17,7 @@
 <meta property="og:description" content="这次也是被迫接触了一次人工智能领域的机器学习（认知计算实验课作业），以前对这一方面是0基础，神经网络机器学习一概不知，训练调参虽然这种词经常听到，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-28T15:19:14.000Z">
-<meta property="article:modified_time" content="2022-04-08T05:10:21.490Z">
+<meta property="article:modified_time" content="2022-04-14T06:54:25.459Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="sharing">
 <meta name="twitter:card" content="summary">
@@ -319,7 +319,7 @@
           
         <p>这次也是被迫接触了一次人工智能领域的机器学习（认知计算实验课作业），以前对这一方面是0基础，神经网络机器学习一概不知，训练调参虽然这种词经常听到，<span id="more"></span>但其实并不知道是在做什么，也没有想探索的动力，因为毕竟自己用不到。但是经过这次做实验课的结课作业，我入门确实花了一点时间，虽然只学到点皮毛，但是大小是有点收获的，算是对人工智能领域有了一个大体的认知，知道了训练调参是在做什么，为什么要训练调参，以及人工智能领域常规操作流程。下面就以我的这次作业为依托，谈一下我在做这个作业的过程中对于人工智能领域认知的提升历程</p>
 <h3 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h3><blockquote>
-<p>构建朴素贝叶斯分类器，从UCI机器学习库（<a target="_blank" rel="noopener" href="http://archive.ics.uci.edu/ml/%EF%BC%89%E4%B8%AD%E9%80%89%E5%8F%96%E6%95%B0%E6%8D%AE%E7%BB%B4%E5%BA%A6%E5%A4%A7%E4%BA%8E8%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BD%9C%E4%B8%BA%E5%AE%9E%E9%AA%8C%E6%95%B0%E6%8D%AE%E9%9B%86%E3%80%82%E5%88%86%E5%88%AB%E5%88%A9%E7%94%A8MLE%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1%E6%B3%95%E5%92%8CEM%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E5%88%86%E7%B1%BB%E5%99%A8%E5%8F%82%E6%95%B0%EF%BC%8CMLE%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1%E6%B3%95%E6%98%AF%E5%9C%A8%E5%AE%8C%E6%95%B4%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E8%BF%9B%E8%A1%8C%E5%AE%9E%E9%AA%8C%EF%BC%8C%E8%80%8CEM%E7%AE%97%E6%B3%95%E5%88%99%E5%88%86%E5%88%AB%E6%98%AF%E5%9C%A8%E6%95%B0%E6%8D%AE%E7%BC%BA%E5%A4%B1%E7%8E%87%E4%B8%BA10%%E5%92%8C20%%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E8%BF%9B%E8%A1%8C%E5%AE%9E%E9%AA%8C%EF%BC%8C%E7%BB%99%E5%87%BA%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%9C%E7%9A%84%E5%87%86%E7%A1%AE%E7%8E%87%E3%80%82">http://archive.ics.uci.edu/ml/）中选取数据维度大于8的数据集作为实验数据集。分别利用MLE参数估计法和EM算法学习分类器参数，MLE参数估计法是在完整数据集的情况下进行实验，而EM算法则分别是在数据缺失率为10%和20%的情况下进行实验，给出分类结果的准确率。</a></p>
+<p>构建朴素贝叶斯分类器，从UCI机器学习库 <a target="_blank" rel="noopener" href="http://archive.ics.uci.edu/ml/">http://archive.ics.uci.edu/ml/</a>    中选取数据维度大于8的数据集作为实验数据集。分别利用MLE参数估计法和EM算法学习分类器参数，MLE参数估计法是在完整数据集的情况下进行实验，而EM算法则分别是在数据缺失率为10%和20%的情况下进行实验，给出分类结果的准确率。</p>
 </blockquote>
 <h3 id="什么是分类"><a href="#什么是分类" class="headerlink" title="什么是分类"></a>什么是分类</h3><p>题目中提到构建朴素贝叶斯分类器，暂且不管朴素贝叶斯分类器是什么，朴素贝叶斯分类器也是分类器的一种，那首先第一个问题是什么是分类？为什么要进行分类？</p>
 <blockquote>
@@ -341,7 +341,7 @@
         <p><span>本文标题:</span><a  href="/2022/03/28/%E5%88%9D%E6%AC%A1%E6%8E%A5%E8%A7%A6%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">初次接触机器学习</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问  的个人博客"></a></p>
         <p><span>发布时间:</span>2022年03月28日 - 23时19分</p>
-        <p><span>最后更新:</span>2022年04月08日 - 13时10分</p>
+        <p><span>最后更新:</span>2022年04月14日 - 14时54分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2022/03/28/%E5%88%9D%E6%AC%A1%E6%8E%A5%E8%A7%A6%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="初次接触机器学习">http://example.com/2022/03/28/%E5%88%9D%E6%AC%A1%E6%8E%A5%E8%A7%A6%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</a>
             <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/03/28/%E5%88%9D%E6%AC%A1%E6%8E%A5%E8%A7%A6%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/　　作者: " title=""></span>
