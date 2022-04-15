@@ -7,22 +7,20 @@
   
   
   
-  <title>JWT | SaltFish的博客</title>
+  <title>自动装箱和自动拆箱 | SaltFish的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="jwt本质是一个字符串，它可以将用户信息保存到一个json格式字符串中，然后加上头部以及secret key编码后得到jwt token，并且这个token带有签名信息，可以验证信息是否被篡改">
+  <meta name="description" content="java提供了8中基本数据类型，这8中类型数据不会在堆中存储，因此它们不需要new关键字来创建，而是直接在栈内存中存储，因而更加高效">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JWT">
-<meta property="og:url" content="http://example.com/2022/03/24/jwt/index.html">
+<meta property="og:title" content="自动装箱和自动拆箱">
+<meta property="og:url" content="http://example.com/2022/04/15/%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E5%92%8C%E8%87%AA%E5%8A%A8%E6%8B%86%E7%AE%B1/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="jwt本质是一个字符串，它可以将用户信息保存到一个json格式字符串中，然后加上头部以及secret key编码后得到jwt token，并且这个token带有签名信息，可以验证信息是否被篡改">
+<meta property="og:description" content="java提供了8中基本数据类型，这8中类型数据不会在堆中存储，因此它们不需要new关键字来创建，而是直接在栈内存中存储，因而更加高效">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/29cfe2cc7bd13bc659227e62c3e89063.png">
-<meta property="article:published_time" content="2022-03-24T13:31:20.000Z">
-<meta property="article:modified_time" content="2022-03-25T14:52:00.116Z">
+<meta property="article:published_time" content="2022-04-15T12:04:31.000Z">
+<meta property="article:modified_time" content="2022-04-15T12:47:15.844Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="learning notes">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/29cfe2cc7bd13bc659227e62c3e89063.png">
   
     <link rel="alternative" href="/atom.xml" title="SaltFish的博客" type="application/atom+xml">
   
@@ -279,11 +277,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-jwt" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-自动装箱和自动拆箱" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2022/03/24/jwt/" class="article-date">
-      <time datetime="2022-03-24T13:31:20.000Z" itemprop="datePublished">2022-03-24</time>
+      <a  href="/2022/04/15/%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E5%92%8C%E8%87%AA%E5%8A%A8%E6%8B%86%E7%AE%B1/" class="article-date">
+      <time datetime="2022-04-15T12:04:31.000Z" itemprop="datePublished">2022-04-15</time>
 </a>
 
     </div>
@@ -297,7 +295,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JWT
+      自动装箱和自动拆箱
     </h1>
   
 
@@ -319,48 +317,72 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <meta name="referrer" content="no-referrer">
+        <p>java提供了8中基本数据类型，这8中类型数据不会在堆中存储，因此它们不需要new关键字来创建，而是直接在栈内存中存储，因而更加高效<span id="more"></span></p>
+<h3 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h3><p>有时候需要用到基本数据类型的引用类型，因此8种基本类型都有相对应的引用类型，并称它们为基本数据类型的包装类</p>
+<table>
+<thead>
+<tr>
+<th align="center">基本数据类型</th>
+<th align="center">包装类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">byte</td>
+<td align="center">Byte</td>
+</tr>
+<tr>
+<td align="center">short</td>
+<td align="center">Short</td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="center">Integer</td>
+</tr>
+<tr>
+<td align="center">long</td>
+<td align="center">Long</td>
+</tr>
+<tr>
+<td align="center">char</td>
+<td align="center">Character</td>
+</tr>
+<tr>
+<td align="center">float</td>
+<td align="center">Float</td>
+</tr>
+<tr>
+<td align="center">double</td>
+<td align="center">Double</td>
+</tr>
+<tr>
+<td align="center">boolean</td>
+<td align="center">Boolean</td>
+</tr>
+</tbody></table>
+<h3 id="自动拆箱和装箱"><a href="#自动拆箱和装箱" class="headerlink" title="自动拆箱和装箱"></a>自动拆箱和装箱</h3><p>在java SE5之前，基本数据类型和包装类之间的转换需要调用特定的方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//基本类型转换成包装类需要调用包装类的构造器</span><br><span class="line">Integer i = new Integer(10);</span><br><span class="line">//包装类转换成基本数据类型</span><br><span class="line">int a = i.intValue();</span><br></pre></td></tr></table></figure>
 
-<p>jwt本质是一个字符串，它可以将用户信息保存到一个json格式字符串中，然后加上头部以及secret key编码后得到jwt token，并且这个token带有签名信息，可以验证信息是否被篡改<span id="more"></span></p>
-<h3 id="jwt结构"><a href="#jwt结构" class="headerlink" title="jwt结构"></a>jwt结构</h3><p>jwt由三部分组成，分别为标头（Header）、有效载荷（Playload）和签名（Signature）。在传输的时候，会将jwt的这三部分进行Base64编码后用 . 连接形成最后的字符串</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JWTString = Base64(Header).Base64(Playload).SHA256(Base64(header)+Base64(playload)+secret key);</span><br></pre></td></tr></table></figure>
+<p>在java SE5之后，上述之间的转换有点繁琐，为了简化开发，提供了自动装箱和拆箱功能：</p>
+<p>自动装箱，就是自动将基本数据类型转换成包装器类型，自动拆箱则反之</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//自动装箱</span><br><span class="line">Integer i = 10;</span><br><span class="line">//自动拆箱</span><br><span class="line">int a = i;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>Header：包括签名使用的算法和令牌类型，令牌类型为JWT</li>
-<li>Playload：是一个json对象，包含到期时间，用户等等信息，除了这些默认字段外，还可以建立自己的私有字段</li>
-</ul>
-<h4 id="为什么jwt字符串一定要包含签名？（独立思考）"><a href="#为什么jwt字符串一定要包含签名？（独立思考）" class="headerlink" title="为什么jwt字符串一定要包含签名？（独立思考）"></a>为什么jwt字符串一定要包含签名？（独立思考）</h4><blockquote>
-<ol>
-<li>jwt字符串中包含签名，无疑是给用户伪造证书提供了一丝丝机会，因为他想要改变载荷部分，然后又想生成改变载荷后与secret key做哈希后对应的签名，这种几率很小，但还是有机会。那断绝这个机会的方法是jwt字符串中不包含签名，签名存在服务器端，这样根本毫无机会篡改字符串，虽然这样会消耗服务器的内存来为用户存储签名，但提高了防篡改的能力。</li>
-<li>但是为什么jwt字符串中一定要包含签名呢？如果仅仅是为了防篡改当然可以如前述那样做，但是这样却提高了伪造jwt字符串的风险，任何一个用户只要知道了别人的载荷信息就可以伪造jwt字符串访问别人的网页。但是增加了签名之后，它虽然可以伪造出载荷部分，但是由于不知道secret key，伪造出签名部分的几率却很小，所以jwt字符串中一定要包含签名</li>
-</ol>
-</blockquote>
-<h3 id="传统的cookie-session验证方式存在的问题"><a href="#传统的cookie-session验证方式存在的问题" class="headerlink" title="传统的cookie-session验证方式存在的问题"></a>传统的cookie-session验证方式存在的问题</h3><p><img src="https://img-blog.csdnimg.cn/img_convert/29cfe2cc7bd13bc659227e62c3e89063.png" alt="cookie-session验证过程"></p>
-<ul>
-<li>每个用户的登陆信息保存到服务器session中，用户增多，服务器开销增大</li>
-<li>session是存与服务器内存中，所以在分布式系统中，会失效，虽然也可以将其存于redis中，但却增加了复杂性</li>
-<li>对于非浏览器的客户端，手机移动端不适用，因为session依赖cookie，而移动端经常没有cookie</li>
-<li>如果cookie被截获，很容易形成csrf，浏览器禁用cookie，这种验证方式也会失效</li>
-<li>cookie无法跨域，所以对于单点登录来说不适用</li>
-</ul>
+<p><strong>自动装箱的原理是调用包装类的valueOf（）方法实现，自动拆箱是调用包装类对象的xxxValue（）方法来实现</strong></p>
+<h3 id="Integer的缓存机制"><a href="#Integer的缓存机制" class="headerlink" title="Integer的缓存机制"></a>Integer的缓存机制</h3><p>java中使用&#x3D;&#x3D;来比较两个对象时，实则比较的是它们两个对象的地址，相同则返回true</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Integer a = 1;</span><br><span class="line">Integer b = 1;</span><br><span class="line">a == b //true</span><br><span class="line">Integer c = 128;</span><br><span class="line">Integer d = 128;</span><br><span class="line">c == d //false</span><br></pre></td></tr></table></figure>
+
+<p>如果比较时发生了自动拆箱，那两者都应该返回true；如果比较的是对象地址，那两者都应该返回false，为什么结果却是这样？</p>
 <blockquote>
-<p>单点登录：用户只需登录一次，就可以访问所有相互信任的系统</p>
+<p>IntegerCache是Integer类中定义的一个private static内部类，它维护了一个Integer数组cache</p>
+</blockquote>
+<p>Integer类初始化时，会把一个-128 ~ 127之间的Integer的对象放入cache数组中缓存起来，当每次把一个在这个范围之内的int型数据自动装箱时，实则是引用cache数组中的对象。但当不在这个范围之内时，则每次都new一个Integer对象</p>
+<blockquote>
+<p>Byte、Short、Long、Character也有相同的缓存机制，但是Double、Float是没有缓存机制的</p>
 </blockquote>
 <hr>
 <blockquote>
-<p>对称加密：加密和解密使用同样的密码，非对称加密反之</p>
+<p>缓存是一种特别优秀的设计模式，主要目的是提高系统性能，在很多地方都有重要的应用</p>
 </blockquote>
-<h3 id="jwt使用"><a href="#jwt使用" class="headerlink" title="jwt使用"></a>jwt使用</h3><p>以java-jwt为例</p>
-<ol>
-<li>生成jwt字符串</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String token = JWT.create()</span><br><span class="line">                .withClaim(Constants.LOGIN_USER_KEY,uuid)</span><br><span class="line">                .sign(Algorithm.HMAC256(secretKey));</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>解析jwt字符串</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(secretKey)).build();</span><br><span class="line">DecodedJWT decodedJWT = jwtVerifier.verify(authentication);</span><br><span class="line">Claim uuid = decodedJWT.getClaim(Constants.LOGIN_USER_KEY);</span><br></pre></td></tr></table></figure>
-
+<hr>
 
       
     </div>
@@ -369,13 +391,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2022/03/24/jwt/">JWT</a></p>
+        <p><span>本文标题:</span><a  href="/2022/04/15/%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E5%92%8C%E8%87%AA%E5%8A%A8%E6%8B%86%E7%AE%B1/">自动装箱和自动拆箱</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问  的个人博客"></a></p>
-        <p><span>发布时间:</span>2022年03月24日 - 21时31分</p>
-        <p><span>最后更新:</span>2022年03月25日 - 22时52分</p>
+        <p><span>发布时间:</span>2022年04月15日 - 20时04分</p>
+        <p><span>最后更新:</span>2022年04月15日 - 20时47分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2022/03/24/jwt/" title="JWT">http://example.com/2022/03/24/jwt/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/03/24/jwt/　　作者: " title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2022/04/15/%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E5%92%8C%E8%87%AA%E5%8A%A8%E6%8B%86%E7%AE%B1/" title="自动装箱和自动拆箱">http://example.com/2022/04/15/%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E5%92%8C%E8%87%AA%E5%8A%A8%E6%8B%86%E7%AE%B1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/04/15/%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E5%92%8C%E8%87%AA%E5%8A%A8%E6%8B%86%E7%AE%B1/　　作者: " title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -386,18 +408,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          java函数传参详细分析
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2022/03/24/classforname/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">class.forname() &amp; 数据库unique约束 &amp; @Resouce和@Autowired &amp; @RestController &amp; maven父子项目</div>
+    <a  href="/2022/04/14/MyIsam%E5%92%8CInnoDB%E7%9A%84%E5%8C%BA%E5%88%AB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MyIsam和InnoDB的区别</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -409,7 +422,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#jwt%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">jwt结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88jwt%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%80%E5%AE%9A%E8%A6%81%E5%8C%85%E5%90%AB%E7%AD%BE%E5%90%8D%EF%BC%9F%EF%BC%88%E7%8B%AC%E7%AB%8B%E6%80%9D%E8%80%83%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">为什么jwt字符串一定要包含签名？（独立思考）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E7%BB%9F%E7%9A%84cookie-session%E9%AA%8C%E8%AF%81%E6%96%B9%E5%BC%8F%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">传统的cookie-session验证方式存在的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jwt%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">jwt使用</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%85%E8%A3%85%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">包装类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E6%8B%86%E7%AE%B1%E5%92%8C%E8%A3%85%E7%AE%B1"><span class="toc-number">2.</span> <span class="toc-text">自动拆箱和装箱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Integer%E7%9A%84%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6"><span class="toc-number">3.</span> <span class="toc-text">Integer的缓存机制</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -482,13 +495,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/" title="上一篇: java函数传参详细分析">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2022/03/24/classforname/" title="下一篇: class.forname() &amp; 数据库unique约束 &amp; @Resouce和@Autowired &amp; @RestController &amp; maven父子项目">
+            <a  href="/2022/04/14/MyIsam%E5%92%8CInnoDB%E7%9A%84%E5%8C%BA%E5%88%AB/" title="下一篇: MyIsam和InnoDB的区别">
                 <i class="fa fa-angle-right"></i>
             </a>
         
