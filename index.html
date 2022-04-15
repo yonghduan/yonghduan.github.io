@@ -280,6 +280,93 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-mybatis-plus中使用自定义方法配置" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2022/04/15/mybatis-plus%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95%E9%85%8D%E7%BD%AE/" class="article-date">
+      <time datetime="2022-04-15T15:42:32.000Z" itemprop="datePublished">2022-04-15</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2022/04/15/mybatis-plus%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95%E9%85%8D%E7%BD%AE/">mybatis-plus中使用自定义方法配置</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>使用mybatis-plus框架，对于一些简单的curd操作，使用其提供的方法即可，但是对于一些复杂操作，还是需要自己写sql语句，那么使用自定义方法时如何进行配置呢？</p>
+<h3 id="配置过程"><a href="#配置过程" class="headerlink" title="配置过程"></a>配置过程</h3><ol>
+<li>建立Mapper接口，自定义方法</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public interface SysMenuMapper extends BaseMapper&lt;SysMenu&gt;</span><br><span class="line">&#123;</span><br><span class="line">    List&lt;String&gt; selectMenuPermByUserId(@Param(&quot;userId&quot;) Long userId);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在resources目录下建立对应的xml文件，自定义curd逻辑</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="line">&lt;!DOCTYPE mapper</span><br><span class="line">        PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span><br><span class="line">        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;</span><br><span class="line">&lt;mapper namespace=&quot;com.ruoli.mapper.SysMenuMapper&quot;&gt;</span><br><span class="line">    &lt;select id=&quot;selectMenuPermByUserId&quot; parameterType=&quot;Long&quot; resultType=&quot;String&quot;&gt;</span><br><span class="line">		select distinct m.perms</span><br><span class="line">        from sys_menu m</span><br><span class="line">			 left join sys_role_menu rm on m.menu_id = rm.menu_id</span><br><span class="line">			 left join sys_user_role ur on rm.role_id = ur.role_id</span><br><span class="line">			 left join sys_role r on r.role_id = ur.role_id</span><br><span class="line">		where m.status = &#x27;0&#x27; and r.status = &#x27;0&#x27; and ur.user_id = #&#123;userId&#125;</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line">&lt;/mapper&gt;</span><br></pre></td></tr></table></figure>
+
+<p>有两点需要注意：</p>
+<blockquote>
+<ul>
+<li>namespace的路径一定要和刚才建立的mapper接口的路径完全一致</li>
+<li>xml文件名一定要和mapper接口名完全一致</li>
+<li>接口中的方法名和sql中的id值要完全对应</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>在application.yml文件中配置xml文件加载路径</li>
+</ol>
+<p>如在resources目录下建立mapper.system文件夹存放xml映射文件，则路径可以这样配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mybatis-plus:</span><br><span class="line">  mapperLocations: mapper.system/*.xml</span><br></pre></td></tr></table></figure>
+
+<p>配置全部完成，当然要配置MapperScan或者Mapper注解扫描到Mapper接口，此时就可以注入这些mapper在类中调用自定义方法了</p>
+<h3 id="需要注意的地方"><a href="#需要注意的地方" class="headerlink" title="需要注意的地方"></a>需要注意的地方</h3><h4 id="Param注解"><a href="#Param注解" class="headerlink" title="@Param注解"></a>@Param注解</h4>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-自动装箱和自动拆箱" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -884,79 +971,9 @@
 
 
   
-    <article id="post-abstract-class" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2022/03/24/abstract-class/" class="article-date">
-      <time datetime="2022-03-24T05:04:33.000Z" itemprop="datePublished">2022-03-24</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2022/03/24/abstract-class/">java abstract class &amp; java internal class &amp; synchronized关键字 &amp; 接口中的抽象方法 &amp; set集合 &amp; 跨域产生的原因</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="java抽象类"><a href="#java抽象类" class="headerlink" title="java抽象类"></a>java抽象类</h2><hr>
-<ol>
-<li>java抽象类表示的一种继承关系，一个类只能继承一个抽象类，但是能实现多个接口。</li>
-<li>抽象类不一定含有抽象方法，但是含有抽象方法的类一定是抽象类，抽象方法即有方法声明但是没有方法定义的方法</li>
-<li>抽象类不能实例化对象，因此只有被继承才能使用抽象类</li></ol>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/learning-notes/" rel="tag">learning notes</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a   href="/2022/03/24/abstract-class/#more">查看更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
