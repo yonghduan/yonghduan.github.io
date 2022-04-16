@@ -335,7 +335,39 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mybatis-plus:</span><br><span class="line">  mapperLocations: mapper.system/*.xml</span><br></pre></td></tr></table></figure>
 
 <p>配置全部完成，当然要配置MapperScan或者Mapper注解扫描到Mapper接口，此时就可以注入这些mapper在类中调用自定义方法了</p>
-<h3 id="需要注意的地方"><a href="#需要注意的地方" class="headerlink" title="需要注意的地方"></a>需要注意的地方</h3><h4 id="Param注解"><a href="#Param注解" class="headerlink" title="@Param注解"></a>@Param注解</h4>
+<p>还可以通过一个配置给类注册别名，配置一个别名包扫描路径，注册后在Mapper对应的xml文件中用到实体类时可以直接使用类名，不同写全限定的类名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mybatis-plus:</span><br><span class="line">	type-aliases-package=com.ruoli.entity</span><br></pre></td></tr></table></figure>
+
+<p>在xml中可以直接这样使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;&quot; resultType=&quot;User&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="需要注意的地方"><a href="#需要注意的地方" class="headerlink" title="需要注意的地方"></a>需要注意的地方</h3><h4 id="Param注解"><a href="#Param注解" class="headerlink" title="@Param注解"></a>@Param注解</h4><ol>
+<li>注解基本类型的参数</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public User selectUser(@Param(&quot;userName&quot;) String name,@Param(&quot;password&quot;) String pwd)</span><br></pre></td></tr></table></figure>
+
+<p>映射到xml中的select标签</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;selectUser&quot; resultMap=&quot;User&quot;&gt;  </span><br><span class="line">   select * from user  where user_name = #&#123;userName&#125; and user_password=#&#123;password&#125;  </span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+
+<p>sql语句中的userName和password都是从注解Param中取出来的，它们的值是形参name和pwd的值</p>
+<ol start="2">
+<li>注解对象</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public List&lt;User&gt; getAllUser(@Param(&quot;user&quot;) User u);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;getAllUser&quot; parameterType=&quot;com.vo.User&quot; resultMap=&quot;userMapper&quot;&gt;  </span><br><span class="line">        select   </span><br><span class="line">        from user t where 1=1  </span><br><span class="line">             and   t.user_name = #&#123;user.userName&#125;  </span><br><span class="line">             and   t.user_age = #&#123;user.userAge&#125;  </span><br><span class="line">&lt;/select&gt;  </span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>注意事项</li>
+</ol>
+<blockquote>
+<ul>
+<li>当使用了该注解的时候，sql语句使用#{} 或 ${} 来取值都可以</li>
+<li>不使用该注解的时候，必须使用#{} 来取值</li>
+<li>不使用该注解，则参数只能有一个，并且是对象</li>
+</ul>
+</blockquote>
+
       
     </div>
     
