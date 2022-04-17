@@ -7,20 +7,28 @@
   
   
   
-  <title>csrf攻击 &amp; java何时必须进行异常处理 | SaltFish的博客</title>
+  <title>sql中的left join和right join | SaltFish的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="csrf攻击Cross-Site request forgery：称为跨站请求伪造，用户登录到一个网站A，登录成功服务器返回给用户cookie，此时用户又打开一个页面请求另外一个网站B，网站B返回给用户一些攻击性代码携带携带A网站返回给用户的cookie请求A网站，网站A能够验证该请求是来自于用户的浏览器，却不能验证该请求是否是用户的真实意愿还是恶意攻击性请求">
+  <meta name="description" content="sql中的左连接（left join）和右连接（right join）的作用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="csrf攻击 &amp; java何时必须进行异常处理">
-<meta property="og:url" content="http://example.com/2022/03/23/csrf%E6%94%BB%E5%87%BB/index.html">
+<meta property="og:title" content="sql中的left join和right join">
+<meta property="og:url" content="http://example.com/2022/04/17/sql%E4%B8%AD%E7%9A%84left-join%E5%92%8Cright-join/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="csrf攻击Cross-Site request forgery：称为跨站请求伪造，用户登录到一个网站A，登录成功服务器返回给用户cookie，此时用户又打开一个页面请求另外一个网站B，网站B返回给用户一些攻击性代码携带携带A网站返回给用户的cookie请求A网站，网站A能够验证该请求是来自于用户的浏览器，却不能验证该请求是否是用户的真实意愿还是恶意攻击性请求">
+<meta property="og:description" content="sql中的左连接（left join）和右连接（right join）的作用">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-03-23T14:47:37.000Z">
-<meta property="article:modified_time" content="2022-03-24T06:05:08.301Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019021317160671.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190213171845573.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190213171724249.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190213172311894.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190213172338928.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190213172515143.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3doZXJlZGF0YQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190213172635946.png">
+<meta property="article:published_time" content="2022-04-17T05:15:58.000Z">
+<meta property="article:modified_time" content="2022-04-17T05:51:37.344Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="learning notes">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2019021317160671.png">
   
     <link rel="alternative" href="/atom.xml" title="SaltFish的博客" type="application/atom+xml">
   
@@ -277,11 +285,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-csrf攻击" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-sql中的left-join和right-join" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2022/03/23/csrf%E6%94%BB%E5%87%BB/" class="article-date">
-      <time datetime="2022-03-23T14:47:37.000Z" itemprop="datePublished">2022-03-23</time>
+      <a  href="/2022/04/17/sql%E4%B8%AD%E7%9A%84left-join%E5%92%8Cright-join/" class="article-date">
+      <time datetime="2022-04-17T05:15:58.000Z" itemprop="datePublished">2022-04-17</time>
 </a>
 
     </div>
@@ -295,7 +303,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      csrf攻击 &amp; java何时必须进行异常处理
+      sql中的left join和right join
     </h1>
   
 
@@ -317,14 +325,28 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="csrf攻击"><a href="#csrf攻击" class="headerlink" title="csrf攻击"></a>csrf攻击</h2><p>Cross-Site request forgery：称为跨站请求伪造，用户登录到一个网站A，登录成功服务器返回给用户cookie，此时用户又打开一个页面请求另外一个网站B，网站B返回给用户一些攻击性代码携带携带A网站返回给用户的cookie请求A网站，网站A能够验证该请求是来自于用户的浏览器，却不能验证该请求是否是用户的真实意愿还是恶意攻击性请求<span id="more"></span></p>
-<hr>
-<h3 id="防御方法"><a href="#防御方法" class="headerlink" title="防御方法"></a>防御方法</h3><ol>
-<li>验证http referer字段</li>
-<li>在请求地址中添加token并验证</li>
-<li>在http头中自定义属性并验证</li>
-</ol>
-<h2 id="java何时必须处理异常，何时可以不管任它自动往上抛？"><a href="#java何时必须处理异常，何时可以不管任它自动往上抛？" class="headerlink" title="java何时必须处理异常，何时可以不管任它自动往上抛？"></a>java何时必须处理异常，何时可以不管任它自动往上抛？</h2><p>java处理异常有两种方法，第一种是使用throws在方法后声明表示该异常交给调用者处理，另一种是使用try-catch进行处理。<br><em><strong>当抛出的是非运行时异常时，则必须处理，即要么使用throws，要么使用try-catch。但是如果抛出的是运行时异常，可以不对其进行处理，它会自动向上抛，当然也可以对其处理</strong></em></p>
+        <meta name="referrer" content="no-referrer">
+
+<p>sql中的左连接（left join）和右连接（right join）的作用<span id="more"></span></p>
+<h3 id="left-join"><a href="#left-join" class="headerlink" title="left join"></a>left join</h3><p>左连接，即把左边的全部查出来，右边有的则匹配，没有的则为null</p>
+<p><img src="https://img-blog.csdnimg.cn/2019021317160671.png" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/20190213171845573.png" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/20190213171724249.png" alt="img"></p>
+<p>以上三张表分别为temp1、temp2和temp3</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from temp1 t1 left join temp2 t2 on t1.aid=t2.bid ;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190213172311894.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from temp2 t2 left join temp1 t1 on t2.bid=t1.aid ;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190213172338928.png" alt="img"></p>
+<p>通过三张表，通过两个left join来连接，则把前面两张表先left join之后当做一张表，然后再与第三张表left join，同理，多张表的left join以此类推</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from temp1 t1 left join temp2 t2 on t1.aid=t2.bid left join temp3 t3 on t2.bid=t3.cid ;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190213172515143.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3doZXJlZGF0YQ==,size_16,color_FFFFFF,t_70" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from temp3 t3 left join temp1 t1 on t3.cid=t1.aid left join temp2 t2 on t3.cid=t2.bid;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190213172635946.png" alt="img"></p>
+<h3 id="right-join"><a href="#right-join" class="headerlink" title="right join"></a>right join</h3><p>与left join相对应，会将右边的数据全部查出来</p>
 
       
     </div>
@@ -333,13 +355,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2022/03/23/csrf%E6%94%BB%E5%87%BB/">csrf攻击 &amp; java何时必须进行异常处理</a></p>
+        <p><span>本文标题:</span><a  href="/2022/04/17/sql%E4%B8%AD%E7%9A%84left-join%E5%92%8Cright-join/">sql中的left join和right join</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问  的个人博客"></a></p>
-        <p><span>发布时间:</span>2022年03月23日 - 22时47分</p>
-        <p><span>最后更新:</span>2022年03月24日 - 14时05分</p>
+        <p><span>发布时间:</span>2022年04月17日 - 13时15分</p>
+        <p><span>最后更新:</span>2022年04月17日 - 13时51分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2022/03/23/csrf%E6%94%BB%E5%87%BB/" title="csrf攻击 &amp; java何时必须进行异常处理">http://example.com/2022/03/23/csrf%E6%94%BB%E5%87%BB/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/03/23/csrf%E6%94%BB%E5%87%BB/　　作者: " title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2022/04/17/sql%E4%B8%AD%E7%9A%84left-join%E5%92%8Cright-join/" title="sql中的left join和right join">http://example.com/2022/04/17/sql%E4%B8%AD%E7%9A%84left-join%E5%92%8Cright-join/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/04/17/sql%E4%B8%AD%E7%9A%84left-join%E5%92%8Cright-join/　　作者: " title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -350,18 +372,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2022/03/23/spring-security/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          spring security &amp; 为什么前后端分离项目不能使用cookie-session机制
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2022/03/20/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a  href="/2022/04/15/mybatis-plus%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95%E9%85%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mybatis-plus中使用自定义方法配置</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -373,7 +386,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#csrf%E6%94%BB%E5%87%BB"><span class="toc-number">1.</span> <span class="toc-text">csrf攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E5%BE%A1%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">防御方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E4%BD%95%E6%97%B6%E5%BF%85%E9%A1%BB%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8%EF%BC%8C%E4%BD%95%E6%97%B6%E5%8F%AF%E4%BB%A5%E4%B8%8D%E7%AE%A1%E4%BB%BB%E5%AE%83%E8%87%AA%E5%8A%A8%E5%BE%80%E4%B8%8A%E6%8A%9B%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">java何时必须处理异常，何时可以不管任它自动往上抛？</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#left-join"><span class="toc-number">1.</span> <span class="toc-text">left join</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#right-join"><span class="toc-number">2.</span> <span class="toc-text">right join</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -446,13 +459,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2022/03/23/spring-security/" title="上一篇: spring security &amp; 为什么前后端分离项目不能使用cookie-session机制">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2022/03/20/hello-world/" title="下一篇: Hello World">
+            <a  href="/2022/04/15/mybatis-plus%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95%E9%85%8D%E7%BD%AE/" title="下一篇: mybatis-plus中使用自定义方法配置">
                 <i class="fa fa-angle-right"></i>
             </a>
         
