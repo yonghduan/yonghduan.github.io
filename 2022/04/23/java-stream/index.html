@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/03/25/serializable接口/"/>
+  <link rel="canonical" href="http://example.com/2022/04/23/java-stream/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,21 +31,19 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>Serializable接口 - SaltFish的博客</title>
+  <title>java-stream - SaltFish的博客</title>
   <meta name="keywords" content="learning notes,java c++">
-  <meta desc name="description" content="
-
-要缓存的对象必须先实现Serializable接口，因为Spring会将对象先序列化再存入redis，所以到底什么是序列化？又为什么要序列化呢？ - SaltFish - SaltFish的博客">
+  <meta desc name="description" content="流是从支持数据处理操作的源生成的元素序列，源可以是数组，文件，集合，函数文件等。流不是集合元素，它不是数据结构并不保存数据，它的主要目的在于计算 - SaltFish - SaltFish的博客">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="Serializable接口">
-<meta property="og:url" content="http://example.com/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/index.html">
+<meta property="og:title" content="java-stream">
+<meta property="og:url" content="http://example.com/2022/04/23/java-stream/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="要缓存的对象必须先实现Serializable接口，因为Spring会将对象先序列化再存入redis，所以到底什么是序列化？又为什么要序列化呢？">
+<meta property="og:description" content="流是从支持数据处理操作的源生成的元素序列，源可以是数组，文件，集合，函数文件等。流不是集合元素，它不是数据结构并不保存数据，它的主要目的在于计算">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-03-25T03:55:45.000Z">
-<meta property="article:modified_time" content="2022-03-25T05:21:13.742Z">
+<meta property="article:published_time" content="2022-04-23T13:49:58.000Z">
+<meta property="article:modified_time" content="2022-04-23T14:00:25.030Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="learning notes">
 <meta name="twitter:card" content="summary">
@@ -2502,7 +2500,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/23/java-stream/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2523,7 +2521,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        Serializable接口
+        java-stream
       </h1>
       <div class='new-meta-box'>
         
@@ -2544,10 +2542,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-03-25T11:55:45+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-04-23T21:49:58+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年3月25日</p>
+    <p>发布于：2022年4月23日</p>
   </a>
 </div>
 
@@ -2568,40 +2566,34 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer">
-
-<p>要缓存的对象必须先实现Serializable接口，因为Spring会将对象先序列化再存入redis，所以到底什么是序列化？又为什么要序列化呢？<span id="more"></span></p>
-<h3 id="什么是序列化，它的作用是什么？"><a href="#什么是序列化，它的作用是什么？" class="headerlink" title="什么是序列化，它的作用是什么？"></a>什么是序列化，它的作用是什么？</h3><p>Serializable这个接口中一个成员函数或者成员变量也没有，这个接口的作用实则就是实现序列化</p>
-<ul>
-<li>序列化：对象的寿命通常随着生成该对象的程序的终止而终止，但是有时候需要把生成的对象的状态保存下来，并且可以在需要时再恢复。java给你提供了一种保存对象状态的机制，这就是序列化。</li>
-<li>机制：序列化技术可以使你将一个对象的状态写入一个字节流里（序列化），并且可以从其他地方把该字节流里的数据读取出来（反序列化）</li>
-</ul>
-<h4 id="序列化用途"><a href="#序列化用途" class="headerlink" title="序列化用途"></a>序列化用途</h4><ul>
-<li>当想把内存中的对象状态保存到一个文件或者数据库中的时候</li>
-<li>想把对象通过网络进行传播的时候</li>
-</ul>
-<h3 id="如何实现序列化？"><a href="#如何实现序列化？" class="headerlink" title="如何实现序列化？"></a>如何实现序列化？</h3><p>只要一个类实现Serializable接口，那么这个类就可以序列化了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Person implements SErializable</span><br><span class="line">&#123;</span><br><span class="line">	private static final long serialVersionUID = 1L;</span><br><span class="line">	String name;</span><br><span class="line">	int age;</span><br><span class="line">	//constructor</span><br><span class="line">	//toString()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>通过ObjectOutputStream的writeObject（）方法可以把这个类写到一个文件中，然后再通过ObjectInputStream的readObject（）方法可以把这个对象读出来</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">File file = new File(&quot;file&quot; + File.spearator + &quot;out.txt&quot;);</span><br><span class="line">FileOutputStream fos = new FileOutputStream(file);</span><br><span class="line">ObjectOutputStream oos = new ObjectOutputStream(fos);</span><br><span class="line">Person person = new Person(&quot;Tom&quot;,22);</span><br><span class="line">System.out.println(person);</span><br><span class="line"></span><br><span class="line">oos.writeObject(person);	//写入对象</span><br><span class="line"></span><br><span class="line">FileInputStream fis = new FileInputStream(file);</span><br><span class="line">ObjectInputStream ois = new ObjectInputStream(fis);</span><br><span class="line">Person person = (Person)ois.readObject();</span><br><span class="line">System.out.println(person);</span><br></pre></td></tr></table></figure>
-
-<p>输出结果为：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name:Tom	age:22</span><br><span class="line">name:Tom	age:22</span><br></pre></td></tr></table></figure>
-
-<p><strong>如果Person类不实现Serializable接口，那么上述程序就会报java.io.NotSerializableException异常</strong></p>
-<h4 id="serialVersinUID"><a href="#serialVersinUID" class="headerlink" title="serialVersinUID"></a>serialVersinUID</h4><p>上述程序有此成员变量，如果不增加这个成员变量当然也可以，程序依然能够照常运行。</p>
-<p>序列化ID生成的两种方法：</p>
-<ol>
-<li>一个是固定的1L</li>
-<li>一个是随机生成一个不重复的long类型的数据</li>
+    <p>流是从支持数据处理操作的源生成的元素序列，源可以是数组，文件，集合，函数文件等。流不是集合元素，它不是数据结构并不保存数据，它的主要目的在于计算<span id="more"></span></p>
+<h3 id="如何生成流"><a href="#如何生成流" class="headerlink" title="如何生成流"></a>如何生成流</h3><ol>
+<li>通过集合生成，应用中最常见的一种</li>
 </ol>
-<p>上述程序中，写入和读出使用的是同一个peron类，他们的版本ID值一样，所以可以反序列化成功。但是如果是通过网络传输，客户端a和客户端b的person类的ID值不一样，那么会反序列化失败，不能重构这个person对象。会报java.io.InvalidClassExceptin异常。有些时候，可以通过此ID值来限制一些用户的使用</p>
-<h3 id="静态变量无法序列化"><a href="#静态变量无法序列化" class="headerlink" title="静态变量无法序列化"></a>静态变量无法序列化</h3><p>序列化只能保存对象的状态，而静态成员属于类，所以不会保存它的值。如果将name设为static的，那么读出它的值就为null。序列化不能保存任何的成员方法和静态成员变量。而且对于任何的变量修饰符也不会保存。</p>
-<h3 id="transient关键字"><a href="#transient关键字" class="headerlink" title="transient关键字"></a>transient关键字</h3><p>此关键字的作用是，阻止实例中那些用此关键字声明的变量持久化。那么在反序列化的时候，这些属性变量值不会被恢复。</p>
-<p><strong>对于一些不适合生命为static又不需要持久化的变量，可以用此关键字声明</strong></p>
-<blockquote>
-<p>对于某些类型的属性，其状态是瞬时的，这样是属性是无法保存其状态的，因此需要用此关键字修饰。例如一个线程属性等</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; integerList = Arrays.asList(1, 2, 3, 4, 5, 6);</span><br><span class="line">Stream&lt;Integer&gt; stream = integerList.stream();</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>通过数组生成</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int[] intArr = &#123;1, 2, 3, 4, 5, 6&#125;;</span><br><span class="line">IntStream stream = Arrays.stream(intArr);</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>通过值生成</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;Integer&gt; stream = Stream.of(1, 2, 3, 4, 5, 6);</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>通过函数生成</li>
+<li>通过文件生成</li>
+</ol>
+<h3 id="为什么使用流"><a href="#为什么使用流" class="headerlink" title="为什么使用流"></a>为什么使用流</h3><p>通过将集合数组转换为一种叫做stream的元素序列，通过声明性方式，能够对集合中的每个元素实现一系列并行或串行的流水线操作，从而能够提高数据处理效率</p>
+<h3 id="流的基本使用"><a href="#流的基本使用" class="headerlink" title="流的基本使用"></a>流的基本使用</h3><blockquote>
+<ol>
+<li>stream（）或parallelStream（）方法，能够将集合转换为流或者并行流，并行流能够实现对集合元素的并行操作</li>
+<li>collect（toList）方法可以将流转换为集合</li>
+<li>map（T -&gt; R）将流中每一个元素T映射成R，类似类型转换</li>
+<li>flatMap（T -&gt; Stream（R））：将流中的每一个元素T映射成一个流，再把每一个流连接成另外一个流，如flatMap（Arrays：：stream)首先Arrays：：stream（）将string[ ] 元素变成string流，然后flatMap将其连成一个新流</li>
+</ol>
 </blockquote>
 
 
@@ -2622,7 +2614,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/>http://example.com/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/04/23/java-stream/>http://example.com/2022/04/23/java-stream/</a></p>
               
             
           </blockquote>
@@ -2639,10 +2631,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-03-25T13:21:13+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-04-23T22:00:25+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年3月25日</p>
+    <p>更新于：2022年4月23日</p>
   </a>
 </div>
 
@@ -2665,9 +2657,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/&title=Serializable接口 - SaltFish的博客&summary=
-
-要缓存的对象必须先实现Serializable接口，因为Spring会将对象先序列化再存入redis，所以到底什么是序列化？又为什么要序列化呢？"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/04/23/java-stream/&title=java-stream - SaltFish的博客&summary=流是从支持数据处理操作的源生成的元素序列，源可以是数组，文件，集合，函数文件等。流不是集合元素，它不是数据结构并不保存数据，它的主要目的在于计算"
           
           >
           
@@ -2679,9 +2669,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/&title=Serializable接口 - SaltFish的博客&summary=
-
-要缓存的对象必须先实现Serializable接口，因为Spring会将对象先序列化再存入redis，所以到底什么是序列化？又为什么要序列化呢？"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/04/23/java-stream/&title=java-stream - SaltFish的博客&summary=流是从支持数据处理操作的源生成的元素序列，源可以是数组，文件，集合，函数文件等。流不是集合元素，它不是数据结构并不保存数据，它的主要目的在于计算"
           
           >
           
@@ -2693,9 +2681,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/&title=Serializable接口 - SaltFish的博客&summary=
-
-要缓存的对象必须先实现Serializable接口，因为Spring会将对象先序列化再存入redis，所以到底什么是序列化？又为什么要序列化呢？"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/04/23/java-stream/&title=java-stream - SaltFish的博客&summary=流是从支持数据处理操作的源生成的元素序列，源可以是数组，文件，集合，函数文件等。流不是集合元素，它不是数据结构并不保存数据，它的主要目的在于计算"
           
           >
           
@@ -2728,20 +2714,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/03/26/%E5%88%9D%E5%A7%8Bspring-security%E9%85%8D%E7%BD%AE/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>初识spring-security配置(一)</p>
-          <p class='content'>
-
-在刚开始学习一个框架时，最为重要的就是学会如何配置这个框架，怎么配置它才能利用框架实现我们需要的功能，学习配置框架其实是一件非常花费精力的事情，所以写一篇博客记录我现在对于spring-se...</p>
-        </a>
       
-      
-        <a class='next' href='/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/'>
-          <p class='title'>java函数传参详细分析<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>
-
-由于java没有指针，那么java在函数传参的过程中，到底传递的是一个值呢还是对象的地址呢？
-基本类型参数对于基本类型数据来说，函数传参传递的仅仅是个值而已，即传递过去，就赋值给函数局部变量...</p>
+        <a class='next' href='/2022/04/23/java%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E9%99%B7%E9%98%B1/'>
+          <p class='title'>java自动装箱陷阱<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>在java SE5之后，提供了自动装箱和拆箱功能，为基本类型与引用类型之间的转换带来了很大的方便，同样也有弊处
+自动装箱的弊处我们都知道，java函数传参中如果参数为基本类型，则传的是一个值，如...</p>
         </a>
       
     </div>
@@ -2757,7 +2734,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <article class="post white-box reveal shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/04/23/java-stream/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2790,7 +2767,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%8C%E5%AE%83%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">什么是序列化，它的作用是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E7%94%A8%E9%80%94"><span class="toc-text">序列化用途</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%9F"><span class="toc-text">如何实现序列化？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#serialVersinUID"><span class="toc-text">serialVersinUID</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F%E6%97%A0%E6%B3%95%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">静态变量无法序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#transient%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">transient关键字</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90%E6%B5%81"><span class="toc-text">如何生成流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E6%B5%81"><span class="toc-text">为什么使用流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-text">流的基本使用</span></a></li></ol>
     </div>
   </section>
 
@@ -3806,7 +3783,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/03/25/Serializable接口/","name":"Serializable接口"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Serializable接口","description":"\n\n要缓存的对象必须先实现Serializable接口，因为Spring会将对象先序列化再存入redis，所以到底什么是序列化？又为什么要序列化呢？","datePublished":"2022-03-25T03:55:45.000Z","dateModified":"2022-03-25T05:21:13.742Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/","wordCount":74,"keywords":"learning notes","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/04/23/java-stream/","name":"java-stream"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"java-stream","description":"流是从支持数据处理操作的源生成的元素序列，源可以是数组，文件，集合，函数文件等。流不是集合元素，它不是数据结构并不保存数据，它的主要目的在于计算","datePublished":"2022-04-23T13:49:58.000Z","dateModified":"2022-04-23T14:00:25.030Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/04/23/java-stream/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/04/23/java-stream/","wordCount":72,"keywords":"learning notes","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
