@@ -4,8 +4,8 @@
   <meta name="generator" content="Hexo 6.1.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="http://example.com/archives/page/3/"/>
+  
+  <link rel="canonical" href="http://example.com/2022/04/29/pathvariable和requestparam注解/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,19 +31,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>归档 - SaltFish的博客</title>
-  <meta name="keywords" content="java c++">
-  <meta desc name="description" content="菜狗一枚，坐标西安电子科技大学 - SaltFish - SaltFish的博客">
+  <title>pathvariable和requestparam注解 - SaltFish的博客</title>
+  <meta name="keywords" content="learning notes,java c++">
+  <meta desc name="description" content="@PathVariable和@RequestParam都表示url中的参数映射，它们的具体用法和区别是什么呢 - SaltFish - SaltFish的博客">
   
-<meta property="og:type" content="website">
-<meta property="og:title" content="SaltFish的博客">
-<meta property="og:url" content="http://example.com/archives/page/3/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pathvariable和requestparam注解">
+<meta property="og:url" content="http://example.com/2022/04/29/pathvariable%E5%92%8Crequestparam%E6%B3%A8%E8%A7%A3/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="菜狗一枚，坐标西安电子科技大学">
+<meta property="og:description" content="@PathVariable和@RequestParam都表示url中的参数映射，它们的具体用法和区别是什么呢">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2022-04-29T02:31:46.000Z">
+<meta property="article:modified_time" content="2022-04-29T03:00:45.565Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="java c++">
+<meta property="article:tag" content="learning notes">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2153,7 +2155,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <!-- Custom Files bodyBegin begin-->
     
     <!-- Custom Files bodyBegin end-->
-    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur " style='opacity: 0' >
+    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -2422,7 +2424,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="half" class='cover-wrapper  dock' style="display: ;">
+      <div id="none" class='cover-wrapper post dock' style="display: none;">
         
   <div class='cover-bg lazyload placeholder' data-bg="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture"></div>
 
@@ -2497,495 +2499,237 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper">
           
 <div id="l_main" class=''>
-	
-	  <article id="arc" class="post article white-box reveal shadow floatable blur">
-			
-			
-				
-				
-					
-						
-						<h2>2022</h2>
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/29/pathvariable%E5%92%8Crequestparam%E6%B3%A8%E8%A7%A3/">
-									<time>04-29</time>
-									
-										pathvariable和requestparam注解
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/27/mybatis-plus%E6%9F%A5%E8%AF%A2%E8%AE%A1%E6%95%B0%E5%AE%9E%E7%8E%B0/">
-									<time>04-27</time>
-									
-										mybatis-plus查询计数实现
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/26/mybatis-plus-update%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/">
-									<time>04-26</time>
-									
-										mybatis-plus:update的三种方式
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/">
-									<time>04-24</time>
-									
-										kubeedge部署
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/24/ubuntu%E6%8D%A2%E6%BA%90/">
-									<time>04-24</time>
-									
-										ubuntu换源
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/23/java-stream/">
-									<time>04-23</time>
-									
-										java-stream
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/23/java%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E9%99%B7%E9%98%B1/">
-									<time>04-23</time>
-									
-										java自动装箱陷阱
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/18/%E2%80%9Csql%E8%AF%AD%E5%8F%A5%E4%B9%8Border-by%E2%80%9D/">
-									<time>04-18</time>
-									
-										sql语句之order_by
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/17/sql%E4%B8%AD%E7%9A%84left-join%E5%92%8Cright-join/">
-									<time>04-17</time>
-									
-										sql中的left join和right join
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/15/mybatis-plus%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95%E9%85%8D%E7%BD%AE/">
-									<time>04-15</time>
-									
-										mybatis-plus中使用自定义方法配置
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/15/%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E5%92%8C%E8%87%AA%E5%8A%A8%E6%8B%86%E7%AE%B1/">
-									<time>04-15</time>
-									
-										自动装箱和自动拆箱
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/14/MyIsam%E5%92%8CInnoDB%E7%9A%84%E5%8C%BA%E5%88%AB/">
-									<time>04-14</time>
-									
-										MyIsam和InnoDB的区别
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/28/%E5%88%9D%E6%AC%A1%E6%8E%A5%E8%A7%A6%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-									<time>03-28</time>
-									
-										初次接触机器学习
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/26/%E5%88%9D%E5%A7%8Bspring-security%E9%85%8D%E7%BD%AE/">
-									<time>03-26</time>
-									
-										初识spring-security配置(一)
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/">
-									<time>03-25</time>
-									
-										Serializable接口
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/">
-									<time>03-24</time>
-									
-										java函数传参详细分析
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/jwt/">
-									<time>03-24</time>
-									
-										JWT
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/classforname/">
-									<time>03-24</time>
-									
-										class.forname() & 数据库unique约束 & @Resouce和@Autowired & @RestController & maven父子项目
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/Bean/">
-									<time>03-24</time>
-									
-										常见注解 & isBlank和isEmpty的区别 & 继承中父类和子类拥有相同的成员变量名 & Throwable类
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/abstract-class/">
-									<time>03-24</time>
-									
-										java abstract class & java internal class & synchronized关键字 & 接口中的抽象方法 & set集合 & 跨域产生的原因
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/springmvc/">
-									<time>03-24</time>
-									
-										spring-mvc & 前后端分离项目中的请求过程 & spring-security中静态资源放行
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/array/">
-									<time>03-24</time>
-									
-										Arary.asList() & 数组和集合的区别 & 加密算法 & spring-security antMathchers匹配原则
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/StringBuilder%E7%B1%BB/">
-									<time>03-24</time>
-									
-										StringBuilder类 & final用法
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/trycatchfinally/">
-									<time>03-24</time>
-									
-										使用接口的原因 & try catch finally & spring-boot配置文件中的on和off
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/spring-bean/">
-									<time>03-24</time>
-									
-										spring bean单多例和生命周期 & java枚举 & java默认访问权限
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/haspMap/">
-									<time>03-24</time>
-									
-										haspMap查找键值原理以及key值重复问题
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/threadpool/">
-									<time>03-24</time>
-									
-										threadpool
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/23/spring-security/">
-									<time>03-23</time>
-									
-										spring security & 为什么前后端分离项目不能使用cookie-session机制
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/23/csrf%E6%94%BB%E5%87%BB/">
-									<time>03-23</time>
-									
-										csrf攻击 & java何时必须进行异常处理
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/20/hello-world/">
-									<time>03-20</time>
-									
-										Hello World
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-	  </article>
-	
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/29/pathvariable%E5%92%8Crequestparam%E6%B3%A8%E8%A7%A3/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SaltFish的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="SaltFish的博客">
+    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
+  </span>
+  
+
+
+  
+    <span hidden>
+      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title" itemprop="name headline">
+        pathvariable和requestparam注解
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/apple-touch-icon.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/apple-touch-icon.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">请设置文章作者</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-04-29T10:31:46+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年4月29日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <p>@PathVariable和@RequestParam都表示url中的参数映射，它们的具体用法和区别是什么呢<span id="more"></span></p>
+<h3 id="PathVariable用法"><a href="#PathVariable用法" class="headerlink" title="@PathVariable用法"></a>@PathVariable用法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(value=&quot;/user/&#123;username&#125;&quot;)</span><br><span class="line">public String userProfile(@PathVariable(value=&quot;username&quot;) String username) &#123;</span><br><span class="line">	return &quot;user&quot;+username;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参数与url用 &#x2F; 连接，例如url可以为 &#x2F;user&#x2F;Tony,Tony将会赋给占位符username变量</p>
+<h3 id="RequestParam用法"><a href="#RequestParam用法" class="headerlink" title="@RequestParam用法"></a>@RequestParam用法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(value=&quot;/user&quot;)</span><br><span class="line">public String getUserBlog(@RequestParam(value=&quot;id&quot;) int blogId) &#123;</span><br><span class="line">	return &quot;blogId=&quot;+blogId;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>表示请求中携带的参数，例如访问 &#x2F;user&#x2F;?id&#x3D;123时，123将会赋值给blogId，url之中的参数可以使用&amp;来连接</p>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ul>
+<li>当url指向的是某一具体业务资源或资源列表时，使用@PathVariable</li>
+<li>当url指向需要对资源或者资源列表进行过滤筛选时，用@RequestParam</li>
+</ul>
+
+
+  </div>
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://example.com/2022/04/29/pathvariable%E5%92%8Crequestparam%E6%B3%A8%E8%A7%A3/>http://example.com/2022/04/29/pathvariable%E5%92%8Crequestparam%E6%B3%A8%E8%A7%A3/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-04-29T11:00:45+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年4月29日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/learning-notes/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>learning notes</p></a></div>
+  <span hidden itemprop="keywords">learning notes</span>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/04/29/pathvariable%E5%92%8Crequestparam%E6%B3%A8%E8%A7%A3/&title=pathvariable和requestparam注解 - SaltFish的博客&summary=@PathVariable和@RequestParam都表示url中的参数映射，它们的具体用法和区别是什么呢"
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/04/29/pathvariable%E5%92%8Crequestparam%E6%B3%A8%E8%A7%A3/&title=pathvariable和requestparam注解 - SaltFish的博客&summary=@PathVariable和@RequestParam都表示url中的参数映射，它们的具体用法和区别是什么呢"
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/04/29/pathvariable%E5%92%8Crequestparam%E6%B3%A8%E8%A7%A3/&title=pathvariable和requestparam注解 - SaltFish的博客&summary=@PathVariable和@RequestParam都表示url中的参数映射，它们的具体用法和区别是什么呢"
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2022/04/27/mybatis-plus%E6%9F%A5%E8%AF%A2%E8%AE%A1%E6%95%B0%E5%AE%9E%E7%8E%B0/'>
+          <p class='title'>mybatis-plus查询计数实现<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>有这样一个业务需求，在更新用户名时，需要检查更新的用户名是否和别人有重复，常规方法我们可以调用sql中的count函数实现
+sql实现123&lt;select id=&quot;checkUs...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+  
+  <article class="post white-box reveal shadow floatable blur" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/2022/04/29/pathvariable%E5%92%8Crequestparam%E6%B3%A8%E8%A7%A3/index.html#comments">
+    </span>
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
+    
+    
+    <div id="layoutHelper-comments"></div>
+
+  </article>
+  
+
+
+
+
+
 </div>
 <aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
   
@@ -2993,103 +2737,34 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow floatable blur desktop mobile pjax">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">SaltFish的博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fa-solid fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fa-solid fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fa-solid fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow floatable blur desktop mobile pjax">
+  <section class="widget toc-wrapper shadow floatable blur desktop mobile pjax" id="toc-div" >
     
   <header>
     
-      <a href='/blog/tags/'><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <a href="/tags/learning-notes/" style="font-size: 24px; color: #555">learning notes</a> <a href="/tags/sharing/" style="font-size: 14px; color: #999">sharing</a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#PathVariable%E7%94%A8%E6%B3%95"><span class="toc-text">@PathVariable用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RequestParam%E7%94%A8%E6%B3%95"><span class="toc-text">@RequestParam用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BA%E5%88%AB"><span class="toc-text">区别</span></a></li></ol>
     </div>
   </section>
-
-
-  
 
   
 
 
 <!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   <div class="pjax">
     <!-- pjax占位 -->
@@ -3118,13 +2793,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+
           <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <pjax>
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -3133,14 +2809,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     // header
     var l_header=document.getElementById("l_header");
     
-    l_header.classList.remove("show");
+    l_header.classList.add("show");
     
     
       // cover
       var cover_wrapper=document.querySelector('#l_cover .cover-wrapper');
       var scroll_down=document.getElementById('scroll-down');
-      cover_wrapper.id="half";
-      cover_wrapper.style.display="";
+      cover_wrapper.id="none";
+      cover_wrapper.style.display="none";
       scroll_down.style.display="none";
     
   
@@ -4089,7 +3765,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/archives/","name":"Archive"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SaltFish的博客","url":"http://example.com/","keywords":"java c++","description":"菜狗一枚，坐标西安电子科技大学","author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"菜狗一枚，坐标西安电子科技大学"},"publisher":{"@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/04/29/pathvariable和requestparam注解/","name":"pathvariable和requestparam注解"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"pathvariable和requestparam注解","description":"@PathVariable和@RequestParam都表示url中的参数映射，它们的具体用法和区别是什么呢","datePublished":"2022-04-29T02:31:46.000Z","dateModified":"2022-04-29T03:00:45.565Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/04/29/pathvariable%E5%92%8Crequestparam%E6%B3%A8%E8%A7%A3/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/04/29/pathvariable%E5%92%8Crequestparam%E6%B3%A8%E8%A7%A3/","wordCount":54,"keywords":"learning notes","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
