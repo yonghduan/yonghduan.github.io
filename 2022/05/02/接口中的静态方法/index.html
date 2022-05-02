@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/04/24/kubeedge部署/"/>
+  <link rel="canonical" href="http://example.com/2022/05/02/接口中的静态方法/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,21 +31,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>kubeedge部署 - SaltFish的博客</title>
-  <meta name="keywords" content="sharing,java c++">
-  <meta desc name="description" content="kubeedge：多领域、多场景通用云原生边缘计算平台 - SaltFish - SaltFish的博客">
+  <title>接口中的静态方法 - SaltFish的博客</title>
+  <meta name="keywords" content="learning notes,java c++">
+  <meta desc name="description" content="在jdk8之前，interface中可以定义变量和方法，变量必须是staic、public、final的，方法必须是public、abstract的，并且这些修饰符都是默认的，即意味着你写不写这些修饰符，对应的变量和方法都具有各自的默认属性。在jdk8之后，允许我们在接口中定义static方法和default方法 - SaltFish - SaltFish的博客">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="kubeedge部署">
-<meta property="og:url" content="http://example.com/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:title" content="接口中的静态方法">
+<meta property="og:url" content="http://example.com/2022/05/02/%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="kubeedge：多领域、多场景通用云原生边缘计算平台">
+<meta property="og:description" content="在jdk8之前，interface中可以定义变量和方法，变量必须是staic、public、final的，方法必须是public、abstract的，并且这些修饰符都是默认的，即意味着你写不写这些修饰符，对应的变量和方法都具有各自的默认属性。在jdk8之后，允许我们在接口中定义static方法和default方法">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-04-24T13:38:13.000Z">
-<meta property="article:modified_time" content="2022-04-24T13:43:17.404Z">
+<meta property="article:published_time" content="2022-05-02T13:19:00.000Z">
+<meta property="article:modified_time" content="2022-05-02T13:27:07.670Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="sharing">
+<meta property="article:tag" content="learning notes">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2500,7 +2500,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/02/%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2521,7 +2521,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        kubeedge部署
+        接口中的静态方法
       </h1>
       <div class='new-meta-box'>
         
@@ -2542,10 +2542,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-04-24T21:38:13+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-05-02T21:19:00+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年4月24日</p>
+    <p>发布于：2022年5月2日</p>
   </a>
 </div>
 
@@ -2566,66 +2566,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>kubeedge：多领域、多场景通用云原生边缘计算平台<span id="more"></span></p>
-<div class="story post-story"><h2 id="KubeEdge部署（ubuntu20）"><a href="#KubeEdge部署（ubuntu20）" class="headerlink" title="KubeEdge部署（ubuntu20）"></a>KubeEdge部署（ubuntu20）</h2><h3 id="Cloud节点配置"><a href="#Cloud节点配置" class="headerlink" title="Cloud节点配置"></a>Cloud节点配置</h3><ol>
-<li>禁用防火墙</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw disable   #关闭并永久关闭</span><br></pre></td></tr></table></figure>
+    <p>在jdk8之前，interface中可以定义变量和方法，变量必须是staic、public、final的，方法必须是public、abstract的，并且这些修饰符都是默认的，即意味着你写不写这些修饰符，对应的变量和方法都具有各自的默认属性。在jdk8之后，允许我们在接口中定义static方法和default方法<span id="more"></span></p>
+<h3 id="static方法"><a href="#static方法" class="headerlink" title="static方法"></a>static方法</h3><p>在接口中用static关键词修饰。并且必须在接口就实现，实现类不能重写。接口中的静态方法必须是由接口名调用，不能使用实现类的类名或者实现类对象实例进行调用</p>
+<h3 id="default方法"><a href="#default方法" class="headerlink" title="default方法"></a>default方法</h3><p>默认方法也必须在接口中就给出实现，并且默认方法是必须由实现类对象实例调用，不能通过接口调用。如果默认方法在接口中的实现不能满足需要，可以在实现类中重写</p>
 
-<ol start="2">
-<li>关闭swap分区</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo swapoff -a     #临时关闭</span><br><span class="line">sudo vi /etc/fstab  #永久关闭，注释掉带有swap的一行</span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>安装docker</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install curl //install curl</span><br><span class="line">sudo curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br><span class="line">systemctl start docker&amp;&amp;systemctl enable docker</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>安装golang-go与gcc(安装时先换源，否则可能下载过慢)</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install golang-go</span><br><span class="line">sudo apt-get install gcc</span><br><span class="line">sudo go version &amp;&amp;gcc -v   #查看版本</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>查看本机IP地址</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br><span class="line">ip addr show</span><br><span class="line">ip -a</span><br><span class="line">hostname -I</span><br></pre></td></tr></table></figure>
-
-<p>上述四种方式中的任意一种都可以</p>
-<ol start="6">
-<li>修改&#x2F;etc&#x2F;hosts</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/hosts   #在该文件中添加以下信息.</span><br><span class="line"></span><br><span class="line">172.16.0.114 master</span><br><span class="line">172.16.0.113 edge</span><br></pre></td></tr></table></figure>
-
-<ol start="7">
-<li>更新时区</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#校准时间</span><br><span class="line">sudo tzselect</span><br><span class="line">#首先选择亚洲Asia，继续选择中国China，最后选择北京Beijing。.</span><br><span class="line">sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br><span class="line">#可以使用date查看时间</span><br></pre></td></tr></table></figure>
-
-<ol start="8">
-<li>安装keadm</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm kubeedge/installation-package:v1.10.0 cat /usr/local/bin/keadm &gt; /usr/local/bin/keadm &amp;&amp; chmod +x /usr/local/bin/keadm</span><br></pre></td></tr></table></figure>
-
-<p>keadm用于安装KubeEdge的云端和边缘组件。它不负责k8s的安装和运行</p>
-<ol start="9">
-<li>安装cloudcore</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keadm init --advertise-address=&quot;192.168.88.129&quot;</span><br></pre></td></tr></table></figure>
-
-<p>它将安装cloudcore，生成证书并安装CRD，它还有一个命令行参数，用于设置特定的版本。默认情况下，边缘节点需要访问cloudcore中10000,10002</p>
-<p>执行这个命令后，我遇到了以下问题：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">execute keadm command failed:  failed to build config, err: stat /root/.kube/config: no such file or directory</span><br></pre></td></tr></table></figure>
-
-<p>解决尝试：</p>
-<blockquote>
-<ol>
-<li>gedit &#x2F;etc&#x2F;hostname   改为master，然后reboot</li>
-</ol>
-</blockquote>
-
-</div>
   </div>
   
   
@@ -2643,7 +2588,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/>http://example.com/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/05/02/%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/>http://example.com/2022/05/02/%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/</a></p>
               
             
           </blockquote>
@@ -2660,10 +2605,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-04-24T21:43:17+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-02T21:27:07+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年4月24日</p>
+    <p>更新于：2022年5月2日</p>
   </a>
 </div>
 
@@ -2672,8 +2617,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/sharing/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>sharing</p></a></div>
-  <span hidden itemprop="keywords">sharing</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/learning-notes/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>learning notes</p></a></div>
+  <span hidden itemprop="keywords">learning notes</span>
 
 
         
@@ -2686,7 +2631,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/&title=kubeedge部署 - SaltFish的博客&summary=kubeedge：多领域、多场景通用云原生边缘计算平台"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/05/02/%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/&title=接口中的静态方法 - SaltFish的博客&summary=在jdk8之前，interface中可以定义变量和方法，变量必须是staic、public、final的，方法必须是public、abstract的，并且这些修饰符都是默认的，即意味着你写不写这些修饰符，对应的变量和方法都具有各自的默认属性。在jdk8之后，允许我们在接口中定义static方法和default方法"
           
           >
           
@@ -2698,7 +2643,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/&title=kubeedge部署 - SaltFish的博客&summary=kubeedge：多领域、多场景通用云原生边缘计算平台"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/05/02/%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/&title=接口中的静态方法 - SaltFish的博客&summary=在jdk8之前，interface中可以定义变量和方法，变量必须是staic、public、final的，方法必须是public、abstract的，并且这些修饰符都是默认的，即意味着你写不写这些修饰符，对应的变量和方法都具有各自的默认属性。在jdk8之后，允许我们在接口中定义static方法和default方法"
           
           >
           
@@ -2710,7 +2655,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/&title=kubeedge部署 - SaltFish的博客&summary=kubeedge：多领域、多场景通用云原生边缘计算平台"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/05/02/%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/&title=接口中的静态方法 - SaltFish的博客&summary=在jdk8之前，interface中可以定义变量和方法，变量必须是staic、public、final的，方法必须是public、abstract的，并且这些修饰符都是默认的，即意味着你写不写这些修饰符，对应的变量和方法都具有各自的默认属性。在jdk8之后，允许我们在接口中定义static方法和default方法"
           
           >
           
@@ -2743,28 +2688,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/04/26/mybatis-plus-update%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>mybatis-plus:update的三种方式</p>
-          <p class='content'>熟练的运用mabatis-plus这个框架，可以避免写很多简单的sql语句并配置繁琐的xml文件
-update的三种方式
-根据id更新
-
-1234User user = new User();u...</p>
-        </a>
       
-      
-        <a class='next' href='/2022/04/24/ubuntu%E6%8D%A2%E6%BA%90/'>
-          <p class='title'>ubuntu换源<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>ubuntu换国内源教程，亲测非常有效
-
-备份原来的源
-
-1sudo cp /etc/apt/sources.list /etc/apt/sources_init.list
-
-
-更换源
-
-1su...</p>
+        <a class='next' href='/2022/04/29/pathvariable%E5%92%8Crequestparam%E6%B3%A8%E8%A7%A3/'>
+          <p class='title'>pathvariable和requestparam注解<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>@PathVariable和@RequestParam都表示url中的参数映射，它们的具体用法和区别是什么呢
+@PathVariable用法1234@RequestMapping(value=&...</p>
         </a>
       
     </div>
@@ -2780,7 +2708,7 @@ update的三种方式
   
   <article class="post white-box reveal shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/05/02/%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2813,7 +2741,7 @@ update的三种方式
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#KubeEdge%E9%83%A8%E7%BD%B2%EF%BC%88ubuntu20%EF%BC%89"><span class="toc-text">KubeEdge部署（ubuntu20）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cloud%E8%8A%82%E7%82%B9%E9%85%8D%E7%BD%AE"><span class="toc-text">Cloud节点配置</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#static%E6%96%B9%E6%B3%95"><span class="toc-text">static方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#default%E6%96%B9%E6%B3%95"><span class="toc-text">default方法</span></a></li></ol>
     </div>
   </section>
 
@@ -3829,7 +3757,7 @@ update的三种方式
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/04/24/kubeedge部署/","name":"kubeedge部署"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"kubeedge部署","description":"kubeedge：多领域、多场景通用云原生边缘计算平台","datePublished":"2022-04-24T13:38:13.000Z","dateModified":"2022-04-24T13:43:17.404Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/","wordCount":27,"keywords":"sharing","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/05/02/接口中的静态方法/","name":"接口中的静态方法"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"接口中的静态方法","description":"在jdk8之前，interface中可以定义变量和方法，变量必须是staic、public、final的，方法必须是public、abstract的，并且这些修饰符都是默认的，即意味着你写不写这些修饰符，对应的变量和方法都具有各自的默认属性。在jdk8之后，允许我们在接口中定义static方法和default方法","datePublished":"2022-05-02T13:19:00.000Z","dateModified":"2022-05-02T13:27:07.670Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/05/02/%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/05/02/%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/","wordCount":157,"keywords":"learning notes","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
