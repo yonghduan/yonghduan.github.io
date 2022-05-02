@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/03/26/初始spring-security配置/"/>
+  <link rel="canonical" href="http://example.com/2022/05/02/spring-security自定义权限认证/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,21 +31,19 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>初识spring-security配置(一) - SaltFish的博客</title>
+  <title>spring-security自定义权限认证 - SaltFish的博客</title>
   <meta name="keywords" content="learning notes,java c++">
-  <meta desc name="description" content="
-
-在刚开始学习一个框架时，最为重要的就是学会如何配置这个框架，怎么配置它才能利用框架实现我们需要的功能，学习配置框架其实是一件非常花费精力的事情，所以写一篇博客记录我现在对于spring-security框架配置的浅显认识 - SaltFish - SaltFish的博客">
+  <meta desc name="description" content="利用spring-security框架，利用自定义的方法，实现权限验证 - SaltFish - SaltFish的博客">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="初识spring-security配置(一)">
-<meta property="og:url" content="http://example.com/2022/03/26/%E5%88%9D%E5%A7%8Bspring-security%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:title" content="spring-security自定义权限认证">
+<meta property="og:url" content="http://example.com/2022/05/02/spring-security%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="在刚开始学习一个框架时，最为重要的就是学会如何配置这个框架，怎么配置它才能利用框架实现我们需要的功能，学习配置框架其实是一件非常花费精力的事情，所以写一篇博客记录我现在对于spring-security框架配置的浅显认识">
+<meta property="og:description" content="利用spring-security框架，利用自定义的方法，实现权限验证">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-03-26T09:22:29.000Z">
-<meta property="article:modified_time" content="2022-05-02T14:45:01.145Z">
+<meta property="article:published_time" content="2022-05-02T14:45:40.000Z">
+<meta property="article:modified_time" content="2022-05-02T14:55:31.094Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="learning notes">
 <meta name="twitter:card" content="summary">
@@ -2502,7 +2500,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/26/%E5%88%9D%E5%A7%8Bspring-security%E9%85%8D%E7%BD%AE/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/02/spring-security%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2523,7 +2521,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        初识spring-security配置(一)
+        spring-security自定义权限认证
       </h1>
       <div class='new-meta-box'>
         
@@ -2544,10 +2542,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-03-26T17:22:29+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-05-02T22:45:40+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年3月26日</p>
+    <p>发布于：2022年5月2日</p>
   </a>
 </div>
 
@@ -2568,39 +2566,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer">
+    <p>利用spring-security框架，利用自定义的方法，实现权限验证<span id="more"></span></p>
+<h3 id="配置框架"><a href="#配置框架" class="headerlink" title="配置框架"></a>配置框架</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)</span><br><span class="line">public class SecurityConfig extends WebSecurityConfigurerAdapter</span><br><span class="line">&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>在刚开始学习一个框架时，最为重要的就是学会如何配置这个框架，怎么配置它才能利用框架实现我们需要的功能，学习配置框架其实是一件非常花费精力的事情，所以写一篇博客记录我现在对于spring-security框架配置的浅显认识<span id="more"></span></p>
-<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>在引入spring-security依赖时，默认访问任何url spring-security都会拦截，返回给你一个登录页面让你登录，临时生成的密码会给你在控制台打印出来，你通过登录就就可以访问controller了，当然这是在我们完全没有对spring-security进行任何配置的情况</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">public class SecurityConfig extends WebSecurityConfigureAdapter</span><br><span class="line">&#123;</span><br><span class="line">	@Override</span><br><span class="line">	protected void configure(HttpSecurity httpSecurity) throws Exception</span><br><span class="line">	&#123;</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>通过继承这个父类，重写里面的configure方法，就可以对其进行配置了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">httpSecurity</span><br><span class="line">     .csrf().disable()</span><br><span class="line">     .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()</span><br><span class="line">     .authorizeRequests()</span><br><span class="line">     .antMatchers(&quot;/login&quot;,&quot;/captchaImage&quot;).anonymous()</span><br><span class="line">     .anyRequest().authenticated();</span><br></pre></td></tr></table></figure>
-
-<p>如果不使用基于cookie-session认证方式的话，就可以将csrf禁用，并且将session设为无状态。</p>
+<p>开启权限校验的注解，这样在进入controller层的时候，会进行权限校验</p>
+<p>spring security默认是关闭注解的，要开启spring security注解，需要在继承WebSecurityConfigAdapter的类上加上上述注解，它有以下三个参数：</p>
+<ol>
+<li>securedEnabled &#x3D; true：表示开启@Secured注解过滤权限</li>
+<li>jsr250Enabled &#x3D; true：表示开启@RolesAllowed注解过滤权限</li>
+<li>prePostEnabled &#x3D; true：表示四个方法级的安全注解可用，四个分别为：</li>
+</ol>
 <blockquote>
-<p>只有基于cookie-session机制的认证方式，才有可能产生csrf攻击</p>
+<ul>
+<li>@PreAuthorize:在方法调用之前，基于表达式的计算结果来限制对方法的访问，自定义权限表达式的类使可用@注解的方式</li>
+<li>@PostAuthorize：允许方法调用，但是如果按照表达式计算结果为false，将抛出一个安全异常</li>
+<li>@PostFilter：允许方法调用，但必须按照表达式来过滤方法的结果</li>
+<li>@PreFilter：允许方法调用，但是必须在进入该方法之前过滤输入值</li>
+</ul>
 </blockquote>
-<p>然后开始对url进行授权，一般登录、注册和验证码设为匿名既可以访问，而其他url则需要认证才能访问</p>
-<blockquote>
-<p>在对其进行如此配置之后，访问除了匿名的url的时候，会直接返回forbidden，没有认证，默认的登录页面不会再出现</p>
-</blockquote>
-<h3 id="认证配置"><a href="#认证配置" class="headerlink" title="认证配置"></a>认证配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception</span><br><span class="line">&#123;</span><br><span class="line">	authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用注解"><a href="#使用注解" class="headerlink" title="使用注解"></a>使用注解</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@RestController</span><br><span class="line">@RequestMapping(&quot;/system/user&quot;)</span><br><span class="line">public class SysUserController</span><br><span class="line">&#123;</span><br><span class="line">    @GetMapping(&quot;/list&quot;)</span><br><span class="line">    @PreAuthorize(&quot;@ss.hasPerm(&#x27;system:user:list&#x27;)&quot;)</span><br><span class="line">    public AjaxResult list()</span><br><span class="line">    &#123;</span><br><span class="line">        return AjaxResult.success();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>配置一个认证管理类，其中的UserDetailsService这个接口需要自己实现，自定义自己的认证逻辑。并且需要配置密码加密的方式，因为在对登录用户输入的密码和数据库的密码进行比较的时候，数据库存储的是经过加密的密码，所以需要对用户输入的密码经过相同的方式加密后进行比较，因此配置密码加密的方式也是比不可少的</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">@Override</span><br><span class="line">public AuthenticationManager authenticationManagerBean() throws Exception</span><br><span class="line">&#123;</span><br><span class="line">return super.authenticationManagerBean();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>将AuthenticationManagerBean配置到spring容器中，因为后面定义认证逻辑的时候需要在登录service层里注入这个类</p>
-<h3 id="登录成功后访问其他页面时的证书确认配置"><a href="#登录成功后访问其他页面时的证书确认配置" class="headerlink" title="登录成功后访问其他页面时的证书确认配置"></a>登录成功后访问其他页面时的证书确认配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://upload-images.jianshu.io/upload_images/27577247-6b92f5242652e29f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="lazyload" data-srcset="https://upload-images.jianshu.io/upload_images/27577247-6b92f5242652e29f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="过滤器.png"></p>
-<p>在spring过滤器链中增加一个过滤器，进行证书确认，通过则在securityContextHolder中设置证书，确保在这个线程的执行到任何地方都可以获取这个证书，如果没有证书，则还是返回forbidden，如果在校验证书的时候发生异常，则需要配置一个校验证书失败异常处理类</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">httpSecurity</span><br><span class="line">.exceptionHandling().authenticationEntryPoint(unauthorizedHandle).and()</span><br></pre></td></tr></table></figure>
-
-<p>unauthorizeHandle为AuthenEntryPointImpl自定义类型，它可以这样实现</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class AuthenticationEntryPointImpl implements AuthenticationEntryPoint, Serializable</span><br><span class="line">&#123;</span><br><span class="line">    private static final long serialVersionUID = -8970718410437077606L;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException e)</span><br><span class="line">            throws IOException</span><br><span class="line">    &#123;</span><br><span class="line">        int code = HttpStatus.UNAUTHORIZED;</span><br><span class="line">        String msg = StringUtils.format(&quot;请求访问：&#123;&#125;，认证失败，无法访问系统资源&quot;, request.getRequestURI());</span><br><span class="line">        ServletUtils.renderString(response, JSON.toJSONString(AjaxResult.error(code, msg)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static void renderString(HttpServletResponse response, String string)</span><br><span class="line">&#123;</span><br><span class="line">    try</span><br><span class="line">    &#123;</span><br><span class="line">        response.setStatus(200);</span><br><span class="line">        response.setContentType(&quot;application/json&quot;);</span><br><span class="line">        response.setCharacterEncoding(&quot;utf-8&quot;);</span><br><span class="line">        response.getWriter().print(string);</span><br><span class="line">    &#125;</span><br><span class="line">    catch (IOException e)</span><br><span class="line">    &#123;</span><br><span class="line">   		 e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在进入&#x2F;list url的时候，会进行自定义的权限校验</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Service(&quot;ss&quot;)</span><br><span class="line">public class PermissionService implements IPermissionService</span><br><span class="line">&#123;</span><br><span class="line">	 public static boolean hasPerm(String perm)</span><br><span class="line">    &#123;</span><br><span class="line">        //自定义权限校验逻辑</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -2621,7 +2608,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/03/26/%E5%88%9D%E5%A7%8Bspring-security%E9%85%8D%E7%BD%AE/>http://example.com/2022/03/26/%E5%88%9D%E5%A7%8Bspring-security%E9%85%8D%E7%BD%AE/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/05/02/spring-security%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/>http://example.com/2022/05/02/spring-security%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/</a></p>
               
             
           </blockquote>
@@ -2638,7 +2625,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-02T22:45:01+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-02T22:55:31+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2022年5月2日</p>
@@ -2664,9 +2651,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/03/26/%E5%88%9D%E5%A7%8Bspring-security%E9%85%8D%E7%BD%AE/&title=初识spring-security配置(一) - SaltFish的博客&summary=
-
-在刚开始学习一个框架时，最为重要的就是学会如何配置这个框架，怎么配置它才能利用框架实现我们需要的功能，学习配置框架其实是一件非常花费精力的事情，所以写一篇博客记录我现在对于spring-security框架配置的浅显认识"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/05/02/spring-security%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/&title=spring-security自定义权限认证 - SaltFish的博客&summary=利用spring-security框架，利用自定义的方法，实现权限验证"
           
           >
           
@@ -2678,9 +2663,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/03/26/%E5%88%9D%E5%A7%8Bspring-security%E9%85%8D%E7%BD%AE/&title=初识spring-security配置(一) - SaltFish的博客&summary=
-
-在刚开始学习一个框架时，最为重要的就是学会如何配置这个框架，怎么配置它才能利用框架实现我们需要的功能，学习配置框架其实是一件非常花费精力的事情，所以写一篇博客记录我现在对于spring-security框架配置的浅显认识"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/05/02/spring-security%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/&title=spring-security自定义权限认证 - SaltFish的博客&summary=利用spring-security框架，利用自定义的方法，实现权限验证"
           
           >
           
@@ -2692,9 +2675,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/03/26/%E5%88%9D%E5%A7%8Bspring-security%E9%85%8D%E7%BD%AE/&title=初识spring-security配置(一) - SaltFish的博客&summary=
-
-在刚开始学习一个框架时，最为重要的就是学会如何配置这个框架，怎么配置它才能利用框架实现我们需要的功能，学习配置框架其实是一件非常花费精力的事情，所以写一篇博客记录我现在对于spring-security框架配置的浅显认识"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/05/02/spring-security%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/&title=spring-security自定义权限认证 - SaltFish的博客&summary=利用spring-security框架，利用自定义的方法，实现权限验证"
           
           >
           
@@ -2727,18 +2708,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/03/28/%E5%88%9D%E6%AC%A1%E6%8E%A5%E8%A7%A6%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>初次接触机器学习</p>
-          <p class='content'>这次也是被迫接触了一次人工智能领域的机器学习（认知计算实验课作业），以前对这一方面是0基础，神经网络机器学习一概不知，训练调参虽然这种词经常听到，但其实并不知道是在做什么，也没有想探索的动力，因...</p>
-        </a>
       
-      
-        <a class='next' href='/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/'>
-          <p class='title'>Serializable接口<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>
-
-要缓存的对象必须先实现Serializable接口，因为Spring会将对象先序列化再存入redis，所以到底什么是序列化？又为什么要序列化呢？
-什么是序列化，它的作用是什么？Seriali...</p>
+        <a class='next' href='/2022/05/02/%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/'>
+          <p class='title'>接口中的静态方法<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>在jdk8之前，interface中可以定义变量和方法，变量必须是staic、public、final的，方法必须是public、abstract的，并且这些修饰符都是默认的，即意味着你写不写这...</p>
         </a>
       
     </div>
@@ -2754,7 +2727,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <article class="post white-box reveal shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/03/26/%E5%88%9D%E5%A7%8Bspring-security%E9%85%8D%E7%BD%AE/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/05/02/spring-security%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2787,7 +2760,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="toc-text">基本配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A4%E8%AF%81%E9%85%8D%E7%BD%AE"><span class="toc-text">认证配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BB%E5%BD%95%E6%88%90%E5%8A%9F%E5%90%8E%E8%AE%BF%E9%97%AE%E5%85%B6%E4%BB%96%E9%A1%B5%E9%9D%A2%E6%97%B6%E7%9A%84%E8%AF%81%E4%B9%A6%E7%A1%AE%E8%AE%A4%E9%85%8D%E7%BD%AE"><span class="toc-text">登录成功后访问其他页面时的证书确认配置</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%A1%86%E6%9E%B6"><span class="toc-text">配置框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3"><span class="toc-text">使用注解</span></a></li></ol>
     </div>
   </section>
 
@@ -3803,7 +3776,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/03/26/初始spring-security配置/","name":"初识spring-security配置(一)"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"初识spring-security配置(一)","description":"\n\n在刚开始学习一个框架时，最为重要的就是学会如何配置这个框架，怎么配置它才能利用框架实现我们需要的功能，学习配置框架其实是一件非常花费精力的事情，所以写一篇博客记录我现在对于spring-security框架配置的浅显认识","datePublished":"2022-03-26T09:22:29.000Z","dateModified":"2022-05-02T14:45:01.145Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/03/26/%E5%88%9D%E5%A7%8Bspring-security%E9%85%8D%E7%BD%AE/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/03/26/%E5%88%9D%E5%A7%8Bspring-security%E9%85%8D%E7%BD%AE/","wordCount":112,"keywords":"learning notes","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/05/02/spring-security自定义权限认证/","name":"spring-security自定义权限认证"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"spring-security自定义权限认证","description":"利用spring-security框架，利用自定义的方法，实现权限验证","datePublished":"2022-05-02T14:45:40.000Z","dateModified":"2022-05-02T14:55:31.094Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/05/02/spring-security%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/05/02/spring-security%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/","wordCount":35,"keywords":"learning notes","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
