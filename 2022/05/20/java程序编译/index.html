@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/04/24/kubeedge部署/"/>
+  <link rel="canonical" href="http://example.com/2022/05/20/java程序编译/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,21 +31,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>kubeedge部署 - SaltFish的博客</title>
-  <meta name="keywords" content="sharing,java c++">
-  <meta desc name="description" content="kubeedge：多领域、多场景通用云原生边缘计算平台 - SaltFish - SaltFish的博客">
+  <title>java程序编译 - SaltFish的博客</title>
+  <meta name="keywords" content="learning notes,java c++">
+  <meta desc name="description" content="在java技术上谈编译期而没有具体的上下文环境，是一个很含糊的表达 - SaltFish - SaltFish的博客">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="kubeedge部署">
-<meta property="og:url" content="http://example.com/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:title" content="java程序编译">
+<meta property="og:url" content="http://example.com/2022/05/20/java%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="kubeedge：多领域、多场景通用云原生边缘计算平台">
+<meta property="og:description" content="在java技术上谈编译期而没有具体的上下文环境，是一个很含糊的表达">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-04-24T13:38:13.000Z">
-<meta property="article:modified_time" content="2022-05-16T05:09:20.113Z">
+<meta property="article:published_time" content="2022-05-20T01:12:56.000Z">
+<meta property="article:modified_time" content="2022-05-20T05:13:19.894Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="sharing">
+<meta property="article:tag" content="learning notes">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2500,7 +2500,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/20/java%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2521,7 +2521,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        kubeedge部署
+        java程序编译
       </h1>
       <div class='new-meta-box'>
         
@@ -2542,10 +2542,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-04-24T21:38:13+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-05-20T09:12:56+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年4月24日</p>
+    <p>发布于：2022年5月20日</p>
   </a>
 </div>
 
@@ -2566,157 +2566,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>kubeedge：多领域、多场景通用云原生边缘计算平台<span id="more"></span></p>
-<div class="story post-story"><h2 id="KubeEdge部署（ubuntu20）"><a href="#KubeEdge部署（ubuntu20）" class="headerlink" title="KubeEdge部署（ubuntu20）"></a>KubeEdge部署（ubuntu20）</h2><h3 id="Cloud节点配置"><a href="#Cloud节点配置" class="headerlink" title="Cloud节点配置"></a>Cloud节点配置</h3><ol>
-<li>禁用防火墙</li>
+    <p>在java技术上谈编译期而没有具体的上下文环境，是一个很含糊的表达<span id="more"></span></p>
+<h3 id="三类编译器"><a href="#三类编译器" class="headerlink" title="三类编译器"></a>三类编译器</h3><ol>
+<li>前端编译器：它是指将源码（java）文件转变成字节码（class）文件的过程，比如jdk的javac编译器</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw disable   #关闭并永久关闭</span><br></pre></td></tr></table></figure>
-
+<blockquote>
+<p>程序需要被编译成机器码（二进制指令）才能被计算机识别执行。机器码往往和操作系统和机器指令集相关，因而一次编译之后，不能在不同操作系统或不同指令集会不同平台上执行。</p>
+<p>虚拟机以及大量建立在虚拟机之上的程序需要蓬勃发展，我们把编写的程序编译成机器码已不再是唯一的选择。越来越多的语言选择了与操作系统和指令集无关，平台中立的格式作为程序编译后的存储格式。字节码就是其中的典型代表。</p>
+<p>java虚拟机不与包括java语言在内的任何语言所绑定，它只与Class文件这种特定的二进制文件格式所关联。Class文件中包含了虚拟机的指令集，符号表以及若干其他辅助信息</p>
+</blockquote>
 <ol start="2">
-<li>关闭swap分区</li>
+<li><p>即时编译器：常称JIT编译器（Just In Time Compiler），运行期间将字节码变成本地机器码的过程，如HotSpot虚拟机的c1，c2编译器</p>
+</li>
+<li><p>提前编译器：常称AOT编译器（Ahead Of Time Compiler），直接把程序编译成目标机器指令相关的二进制代码过程，比如jdk的jaotc</p>
+</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo swapoff -a     #临时关闭</span><br><span class="line">sudo vi /etc/fstab  #永久关闭，注释掉带有swap的一行</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>安装docker</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install curl //install curl</span><br><span class="line">sudo curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br><span class="line">systemctl start docker&amp;&amp;systemctl enable docker</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>安装golang-go与gcc(安装时先换源，否则可能下载过慢)</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install golang-go</span><br><span class="line">sudo apt-get install gcc</span><br><span class="line">sudo go version &amp;&amp;gcc -v   #查看版本</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>查看本机IP地址</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br><span class="line">ip addr show</span><br><span class="line">ip -a</span><br><span class="line">hostname -I</span><br></pre></td></tr></table></figure>
-
-<p>上述四种方式中的任意一种都可以</p>
-<ol start="6">
-<li>修改&#x2F;etc&#x2F;hosts</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/hosts   #在该文件中添加以下信息.</span><br><span class="line"></span><br><span class="line">172.16.0.114 master</span><br><span class="line">172.16.0.113 edge</span><br></pre></td></tr></table></figure>
-
-<ol start="7">
-<li>更新时区</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#校准时间</span><br><span class="line">sudo tzselect</span><br><span class="line">#首先选择亚洲Asia，继续选择中国China，最后选择北京Beijing。.</span><br><span class="line">sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br><span class="line">#可以使用date查看时间</span><br></pre></td></tr></table></figure>
-
-<ol start="8">
-<li>安装keadm</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm kubeedge/installation-package:v1.10.0 cat /usr/local/bin/keadm &gt; /usr/local/bin/keadm &amp;&amp; chmod +x /usr/local/bin/keadm</span><br></pre></td></tr></table></figure>
-
-<p>keadm用于安装KubeEdge的云端和边缘组件。它不负责k8s的安装和运行</p>
-<ol start="9">
-<li>安装cloudcore</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keadm init --advertise-address=&quot;192.168.88.129&quot;</span><br></pre></td></tr></table></figure>
-
-<p>它将安装cloudcore，生成证书并安装CRD，它还有一个命令行参数，用于设置特定的版本。默认情况下，边缘节点需要访问cloudcore中10000,10002</p>
-<p>执行这个命令后，我遇到了以下问题：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">execute keadm command failed:  failed to build config, err: stat /root/.kube/config: no such file or directory</span><br></pre></td></tr></table></figure>
-
-<p>解决尝试：</p>
-<ol>
-<li>gedit &#x2F;etc&#x2F;hostname   改为master，然后reboot(没用)</li>
-<li>安装kubeadm,kubectl,kubelet(没用)</li>
-</ol>
-<blockquote>
-<ul>
-<li>添加相应的源</li>
+<h3 id="HotSpot采用解释器和编译器并存的架构"><a href="#HotSpot采用解释器和编译器并存的架构" class="headerlink" title="HotSpot采用解释器和编译器并存的架构"></a>HotSpot采用解释器和编译器并存的架构</h3><h4 id="各自的优点："><a href="#各自的优点：" class="headerlink" title="各自的优点："></a>各自的优点：</h4><ul>
+<li>解释器：当程序需要迅速启动的时候，解释器可以首先发挥作用，省去编译的时间，立即运行</li>
+<li>编译器：程序启动后，随着时间的推移，编译器逐渐发挥作用，把越来越多的代码编译成本地代码，这样可以省去解释器需要解释的中间消耗，获得更高的执行效率</li>
 </ul>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;EOF &gt; /etc/apt/sources.list.d/kubernetes.list</span><br><span class="line">deb http://mirrors.aliyun.com/kubernetes/apt kubernetes-xenial main</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<p>当程序运行环境中内存资源消耗过大时，可以使用解释执行节约内存</p>
 
-<ul>
-<li>安装</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install -y kubeadm kubelet kubectl</span><br></pre></td></tr></table></figure>
 
-<p>安装中会出现为满足的依赖问题，可以按照提示下载相应的依赖，有的依赖需要特定的版本，可以使用这种语法下载</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install iptables=1.6.1</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol start="3">
-<li>原因可能是未部署kubernetes（k8s），因为keadm可能依赖于k8s，所以接下来首先部署k8s</li>
-</ol>
-<blockquote>
-<ul>
-<li><strong>因为docker和kubelet都使用cgroup驱动，但是默认情况下它们使用的驱动不同，在初始化kubeadm时会导致kubelet启动失败，所以要先配置它们的驱动一致</strong>。</li>
-</ul>
-<p>修改docker的Cgroup Driver：修改&#x2F;etc&#x2F;docker&#x2F;daemon.json文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>重启docker</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart docker</span><br><span class="line"></span><br><span class="line">如果重启后docker损坏，尝试卸载docker重新安装，然后先写入cgroup driver文件，然后启动docker</span><br><span class="line">sudo apt-get autoremove docker-ce-*</span><br></pre></td></tr></table></figure>
-
-<p>修改kubelet的Cgroup Driver：修改&#x2F;etc&#x2F;systemd&#x2F;system&#x2F;kubelet.service.d&#x2F;10-kubeadm.conf文件，增加一行：cgroup-driver&#x3D;systemd (官方推荐用systemd)</p>
-<p>重启kubelet</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart kubelet</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>关闭防火墙，禁用swap，改主机名，修改&#x2F;etc&#x2F;hosts,时间同步（与上述步骤相同）</li>
-<li>将桥接的ipv4流量传递到iptables的链：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; /etc/sysctl.d/k8s.conf &lt;&lt; EOF</span><br><span class="line">net.bridge.bridge-nf-call-ip6tables = 1</span><br><span class="line">net.bridge.bridge-nf-call-iptables = 1</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl --system    # 生效</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>安装docker，kubeadm，kubectl，kubelet</li>
-<li>在master中执行初始化命令</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm init --apiserver-advertise-address=172.16.0.114 --image-repository registry.aliyuncs.com/google_containers --kubernetes-version v1.17.0 --service-cidr=10.96.0.0/12 --pod-network-cidr=10.244.0.0/16</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>使用kubectl工具</li>
-</ul>
-<p>普通用户</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p $HOME/.kube</span><br><span class="line">sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</span><br><span class="line">sudo chown $(id -u):$(id -g) $HOME/.kube/config</span><br></pre></td></tr></table></figure>
-
-<p>root用户(推荐)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export KUBECONFIG=/etc/kubernetes/admin.conf</span><br><span class="line"></span><br><span class="line">一般来说，到这一步之后等几分钟之后状态便会变成ready状态，不用安装以下两个插件。以下两个插件安装时会出现非常多的问题   </span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>安装pod插件</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.bridge.bridge-nf-call-iptables=1</span><br><span class="line">kubectl apply -f &quot;https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d &#x27;\n&#x27;)&quot;</span><br></pre></td></tr></table></figure>
-
-<p>安装kube-flannel网络插件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f kube-flannel.yml</span><br><span class="line"></span><br><span class="line">文件链接：https://blog.csdn.net/lianyua/article/details/122241893</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>查看master节点是否处于ready状态（ready状态表示k8s环境已经部署好）</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl get nodes</span><br><span class="line">kubectl get pods -n kube-system</span><br><span class="line">kubectl get svc</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>部署完k8s，还是解决不了这个问题。然后又重新下载了一个现成版本的keadm，发现还是缺少这个文件。</p>
-<p>最终发现了问题所在，就是在执行使用kubectl工具相关指令时，是以普通用户身份执行的，所以config配置文件被放在了&#x2F;home&#x2F;dyh&#x2F;下，而执行keadm init又是以root身份执行，所以它会去&#x2F;root&#x2F;.kube下找config配置文件，所以导致了这个问题</p>
-<hr>
-<p>执行keadm init不会报错了，但是在下载kubeedge时还是会报错，因为有几个网站不能访问，解决方案是在&#x2F;etc&#x2F;hosts文件中加入以下内容</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">185.199.109.133 raw.githubusercontent.com</span><br><span class="line">185.199.108.133 raw.githubusercontent.com</span><br><span class="line">185.199.111.133 raw.githubusercontent.com</span><br><span class="line">185.199.110.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure>
-
-<p>修改完这个文件以后，发现执行keadm还是会遇到不能下载的问题，接下来尝试使用连接外网的方法来执行这个程序</p>
-<p>经过尝试，发现连接外网后并不能解决这个问题</p>
-<blockquote>
-<p>查看apt包里软件的可选安装版本，比如g++</p>
-<p>sudo apt update<br>sudo apt-cache madison g++</p>
-</blockquote>
-<hr>
-<hr>
-<hr>
-<p>在最终使用keadm部署kubeedge时，要注意k8s与kubeedge版本兼容的问题，如果k8s与kubeedge的版本不兼容，则部署会失败。版本兼容表见<a target="_blank" rel="noopener" href="https://github.com/kubeedge/kubeedge#kubernetes-compatibility">https://github.com/kubeedge/kubeedge#kubernetes-compatibility</a></p>
-<p>在使用keadm部署时，需要注意的第二个问题是使用离线部署的方式，因为如果使用在线部署方式，则因为连接的是github服务器，网络不稳定，网速非常慢，导致经常出现因为连接失败部署失败问题。离线部署的方式为：</p>
-<blockquote>
-<ol>
-<li>从官网（<a target="_blank" rel="noopener" href="https://github.com/kubeedge/kubeedge/releases%EF%BC%89%E4%B8%8B%E8%BD%BDkubeedge%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%89%88%E6%9C%AC%E5%8E%8B%E7%BC%A9%E5%8C%85%E5%92%8C%E6%BA%90%E7%A0%81%E5%8E%8B%E7%BC%A9%E5%8C%85">https://github.com/kubeedge/kubeedge/releases）下载kubeedge二进制版本压缩包和源码压缩包</a> </li>
-<li>将kubeedge二进制版本压缩包和解压后的文件夹复制到 &#x2F;etc&#x2F;kubeedge文件夹下</li>
-<li>解压kubeedge源码压缩包，将build文件夹下的crds文件夹和tool文件夹下的cloud.service文件复制到  &#x2F;etc&#x2F;kubeedge文件夹下</li>
-<li>执行keadm init指令，加上 –kubeedge-version&#x3D;版本 这个参数，否则它会自动下载最新版本的kubeedge，而不会使用你已经下载好的离线版本。要注意，最好保证使用的keadm版本和你下载的kubeedge版本一致</li>
-</ol>
-</blockquote>
-
-</div>
   </div>
   
   
@@ -2734,7 +2605,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/>http://example.com/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/05/20/java%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91/>http://example.com/2022/05/20/java%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91/</a></p>
               
             
           </blockquote>
@@ -2751,10 +2622,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-16T13:09:20+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-20T13:13:19+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年5月16日</p>
+    <p>更新于：2022年5月20日</p>
   </a>
 </div>
 
@@ -2763,8 +2634,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/sharing/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>sharing</p></a></div>
-  <span hidden itemprop="keywords">sharing</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/learning-notes/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>learning notes</p></a></div>
+  <span hidden itemprop="keywords">learning notes</span>
 
 
         
@@ -2777,7 +2648,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/&title=kubeedge部署 - SaltFish的博客&summary=kubeedge：多领域、多场景通用云原生边缘计算平台"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/05/20/java%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91/&title=java程序编译 - SaltFish的博客&summary=在java技术上谈编译期而没有具体的上下文环境，是一个很含糊的表达"
           
           >
           
@@ -2789,7 +2660,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/&title=kubeedge部署 - SaltFish的博客&summary=kubeedge：多领域、多场景通用云原生边缘计算平台"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/05/20/java%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91/&title=java程序编译 - SaltFish的博客&summary=在java技术上谈编译期而没有具体的上下文环境，是一个很含糊的表达"
           
           >
           
@@ -2801,7 +2672,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/&title=kubeedge部署 - SaltFish的博客&summary=kubeedge：多领域、多场景通用云原生边缘计算平台"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/05/20/java%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91/&title=java程序编译 - SaltFish的博客&summary=在java技术上谈编译期而没有具体的上下文环境，是一个很含糊的表达"
           
           >
           
@@ -2834,28 +2705,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/04/26/mybatis-plus-update%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>mybatis-plus:update的三种方式</p>
-          <p class='content'>熟练的运用mabatis-plus这个框架，可以避免写很多简单的sql语句并配置繁琐的xml文件
-update的三种方式
-根据id更新
-
-1234User user = new User();u...</p>
-        </a>
       
-      
-        <a class='next' href='/2022/04/24/ubuntu%E6%8D%A2%E6%BA%90/'>
-          <p class='title'>ubuntu换源<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>ubuntu换国内源教程，亲测非常有效
-
-备份原来的源
-
-1sudo cp /etc/apt/sources.list /etc/apt/sources_init.list
-
-
-更换源
-
-1su...</p>
+        <a class='next' href='/2022/05/19/field-setAccessible/'>
+          <p class='title'>field.setAccessible()<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>Accessible属性是继承自AccessibleObject类，功能是启用或者禁用安全检查
+在反射对象中设置accessible属性标志允许一些程序（如java object seriali...</p>
         </a>
       
     </div>
@@ -2871,7 +2725,7 @@ update的三种方式
   
   <article class="post white-box reveal shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/05/20/java%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2904,7 +2758,7 @@ update的三种方式
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#KubeEdge%E9%83%A8%E7%BD%B2%EF%BC%88ubuntu20%EF%BC%89"><span class="toc-text">KubeEdge部署（ubuntu20）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cloud%E8%8A%82%E7%82%B9%E9%85%8D%E7%BD%AE"><span class="toc-text">Cloud节点配置</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%B1%BB%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-text">三类编译器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HotSpot%E9%87%87%E7%94%A8%E8%A7%A3%E9%87%8A%E5%99%A8%E5%92%8C%E7%BC%96%E8%AF%91%E5%99%A8%E5%B9%B6%E5%AD%98%E7%9A%84%E6%9E%B6%E6%9E%84"><span class="toc-text">HotSpot采用解释器和编译器并存的架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%84%E8%87%AA%E7%9A%84%E4%BC%98%E7%82%B9%EF%BC%9A"><span class="toc-text">各自的优点：</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -3920,7 +3774,7 @@ update的三种方式
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/04/24/kubeedge部署/","name":"kubeedge部署"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"kubeedge部署","description":"kubeedge：多领域、多场景通用云原生边缘计算平台","datePublished":"2022-04-24T13:38:13.000Z","dateModified":"2022-05-16T05:09:20.113Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/","wordCount":27,"keywords":"sharing","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/05/20/java程序编译/","name":"java程序编译"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"java程序编译","description":"在java技术上谈编译期而没有具体的上下文环境，是一个很含糊的表达","datePublished":"2022-05-20T01:12:56.000Z","dateModified":"2022-05-20T05:13:19.894Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/05/20/java%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/05/20/java%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91/","wordCount":33,"keywords":"learning notes","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
