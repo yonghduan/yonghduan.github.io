@@ -43,7 +43,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-05-21T12:32:31.000Z">
-<meta property="article:modified_time" content="2022-05-21T14:44:47.365Z">
+<meta property="article:modified_time" content="2022-05-21T14:49:35.979Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="learning notes">
 <meta name="twitter:card" content="summary">
@@ -1752,7 +1752,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.8a038721.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1653144320343),
+    lastupdate: new Date(1653144596341),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2567,9 +2567,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
     <p>字节码（Class）文件中描述了各类的信息，这些class文件最终都需要加载到虚拟机中才能被运行和使用，虚拟机如何加载这些class文件，我们知道class文件具有特定的结构，那么class文件载入虚拟机之后会发生什么变化呢？<span id="more"></span></p>
-<h1 id="类加载机制"><a href="#类加载机制" class="headerlink" title="类加载机制"></a>类加载机制</h1><p>java虚拟机把描述类的数据从class文件加载到内存，并对数据进行校验，转换解析和初始化，最终形成可以被虚拟机直接使用的java类型，这个过程可以称作虚拟机的类加载机制</p>
+<h3 id="类加载机制"><a href="#类加载机制" class="headerlink" title="类加载机制"></a>类加载机制</h3><p>java虚拟机把描述类的数据从class文件加载到内存，并对数据进行校验，转换解析和初始化，最终形成可以被虚拟机直接使用的java类型，这个过程可以称作虚拟机的类加载机制</p>
 <p><strong>与那些在编译时需要连接的语言不同，java语言类型的加载，连接和初始化都是在程序运行期间完成的，这种策略让程序运行期间会增加一些额外的性能开销，但是却为java应用提供了极高的扩展性和灵活性。java天生可以动态扩展的语言特点就是依赖程序运行期间动态加载和动态连接这个特点实现的</strong></p>
-<div class="story post-story"><h2 id="类加载时机"><a href="#类加载时机" class="headerlink" title="类加载时机"></a>类加载时机</h2><p>类加载过程：加载，验证，准备，解析，初始化，使用，卸载七个阶段</p>
+<h4 id="类加载时机"><a href="#类加载时机" class="headerlink" title="类加载时机"></a>类加载时机</h4><p>类加载过程：加载，验证，准备，解析，初始化，使用，卸载七个阶段</p>
 <p>在什么情况下开始类加载第一过程的加载阶段，并没有强制性约束，但是对于初始化阶段，《Java虚拟机规范》却有严格的规定，有且只有六中情况必须立即对类进行初始化</p>
 <ol>
 <li>使用new关键字；读取或设置一个类型的静态字段（被final修饰，已在编译器把结果放在常量池的静态字段除外）；调用一个类型的静态方法的时候</li>
@@ -2582,7 +2582,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <blockquote>
 <p>可以使用反射的方法手动加载类，主要有Class.forName()和xxx.class 这两个接口，两者区别是前者会加载类并初始化类，但是后者只会加载而不会进行初始化</p>
 </blockquote>
-</div><div class="story post-story"><h2 id="类加载的过程"><a href="#类加载的过程" class="headerlink" title="类加载的过程"></a>类加载的过程</h2><ol>
+<h4 id="类加载的过程"><a href="#类加载的过程" class="headerlink" title="类加载的过程"></a>类加载的过程</h4><ol>
 <li>加载</li>
 </ol>
 <p>第一阶段，它需要完成以下三件事情</p>
@@ -2626,7 +2626,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ol>
 <p>类的初始化是类加载过程中的最后一个步骤。在进行准备阶段时，变量已赋值过一次系统要求的初始零值，而在初始化阶段，则会根据程序员通过程序代码去初始化类变量和其他资源，即执行一遍程序定义的静态变量的赋值和执行类中静态代码块</p>
 
-</div>
+
   </div>
   
   
@@ -2661,7 +2661,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-21T22:44:47+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-21T22:49:35+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2022年5月21日</p>
@@ -2801,7 +2801,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%97%B6%E6%9C%BA"><span class="toc-text">类加载时机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text">类加载的过程</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="toc-text">类加载机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%97%B6%E6%9C%BA"><span class="toc-text">类加载时机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text">类加载的过程</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -3817,7 +3817,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/05/21/虚拟机类加载/","name":"虚拟机类加载"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"虚拟机类加载","description":"字节码（Class）文件中描述了各类的信息，这些class文件最终都需要加载到虚拟机中才能被运行和使用，虚拟机如何加载这些class文件，我们知道class文件具有特定的结构，那么class文件载入虚拟机之后会发生什么变化呢？","datePublished":"2022-05-21T12:32:31.000Z","dateModified":"2022-05-21T14:44:47.365Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/05/21/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/05/21/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD/","wordCount":113,"keywords":"learning notes","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/05/21/虚拟机类加载/","name":"虚拟机类加载"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"虚拟机类加载","description":"字节码（Class）文件中描述了各类的信息，这些class文件最终都需要加载到虚拟机中才能被运行和使用，虚拟机如何加载这些class文件，我们知道class文件具有特定的结构，那么class文件载入虚拟机之后会发生什么变化呢？","datePublished":"2022-05-21T12:32:31.000Z","dateModified":"2022-05-21T14:49:35.979Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/05/21/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/05/21/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD/","wordCount":113,"keywords":"learning notes","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
