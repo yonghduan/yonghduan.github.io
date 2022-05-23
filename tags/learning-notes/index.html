@@ -1750,7 +1750,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.8a038721.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1653233903228),
+    lastupdate: new Date(1653273174328),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2532,7 +2532,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/22/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/24/classforname/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2550,26 +2550,27 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/05/22/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/"  itemprop="url">
-        类加载器
+      <a href="/2022/03/24/classforname/"  itemprop="url">
+        class.forname() & 数据库unique约束 & @Resouce和@Autowired & @RestController & maven父子项目
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
-      <p>类加载器虽然只用于实现类的加载动作，但它在java程序中起到的作用却远超类加载阶段</p>
+      <h2 id="Class-forName"><a href="#Class-forName" class="headerlink" title="Class.forName()"></a>Class.forName()</h2><ul>
+<li>java类加载器负责把java字节码文件读取，然后加载到jvm中，并且转换成一个Class类的实例，每一个java类都有一个对应Class类的实例，这个类负责描述如何创建这个类的实例，比如该类包含哪些成员变量和成员方法等。在第一次使用这个类的时候，类加载器会检查是否加载此类的Class对像，如果没有加载到jvm中，则会把这个Class对象加载到jvm中。</li></ul>
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time itemprop="dateCreated datePublished" datetime="2022-05-22T15:10:33+08:00">2022-05-22</time>
+        <time itemprop="dateCreated datePublished" datetime="2022-03-24T13:16:58+08:00">2022-03-24</time>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2022/05/22/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/' itemprop="url">
+          <a class='readmore' href='/2022/03/24/classforname/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -2585,7 +2586,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/22/new%E5%92%8CnewInstance%EF%BC%88%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/24/Bean/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2603,26 +2604,27 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/05/22/new%E5%92%8CnewInstance%EF%BC%88%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB/"  itemprop="url">
-        new和newInstance（）的区别
+      <a href="/2022/03/24/Bean/"  itemprop="url">
+        常见注解 & isBlank和isEmpty的区别 & 继承中父类和子类拥有相同的成员变量名 & Throwable类
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
-      <p>java中new关键字和newInstance（）方法都可以创建对象实例，它们的区别是什么呢？</p>
+      <h2 id="常见注解"><a href="#常见注解" class="headerlink" title="常见注解"></a>常见注解</h2><h3 id="Bean注解"><a href="#Bean注解" class="headerlink" title="@Bean注解"></a>@Bean注解</h3><p>此注解在于告诉一个方法，产生一个bean对象，并且这个对象交给spring管理，添加的bean的id为方法名</p>
+<h3 id="Configuration注解"><a href="#Configuration注解" class="headerlink" title="@Configuration注解"></a>@Configuration注解</h3><p>这是一个用于定义配置类的注解，它内部含有一个或者多个带有@Bean注解的方法，这些方法会被扫描，构建bean的定义，初始化spring容器</p>
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time itemprop="dateCreated datePublished" datetime="2022-05-22T14:36:19+08:00">2022-05-22</time>
+        <time itemprop="dateCreated datePublished" datetime="2022-03-24T13:09:44+08:00">2022-03-24</time>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2022/05/22/new%E5%92%8CnewInstance%EF%BC%88%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB/' itemprop="url">
+          <a class='readmore' href='/2022/03/24/Bean/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -2638,7 +2640,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/21/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/24/abstract-class/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2656,26 +2658,30 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/05/21/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD/"  itemprop="url">
-        虚拟机类加载
+      <a href="/2022/03/24/abstract-class/"  itemprop="url">
+        java abstract class & java internal class & synchronized关键字 & 接口中的抽象方法 & set集合 & 跨域产生的原因
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
-      <p>字节码（Class）文件中描述了各类的信息，这些class文件最终都需要加载到虚拟机中才能被运行和使用，虚拟机如何加载这些class文件，我们知道class文件具有特定的结构，那么class文件载入虚拟机之后会发生什么变化呢？</p>
+      <h2 id="java抽象类"><a href="#java抽象类" class="headerlink" title="java抽象类"></a>java抽象类</h2><hr>
+<ol>
+<li>java抽象类表示的一种继承关系，一个类只能继承一个抽象类，但是能实现多个接口。</li>
+<li>抽象类不一定含有抽象方法，但是含有抽象方法的类一定是抽象类，抽象方法即有方法声明但是没有方法定义的方法</li>
+<li>抽象类不能实例化对象，因此只有被继承才能使用抽象类</li></ol>
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time itemprop="dateCreated datePublished" datetime="2022-05-21T20:32:31+08:00">2022-05-21</time>
+        <time itemprop="dateCreated datePublished" datetime="2022-03-24T13:04:33+08:00">2022-03-24</time>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2022/05/21/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD/' itemprop="url">
+          <a class='readmore' href='/2022/03/24/abstract-class/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -2691,7 +2697,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/20/java%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/24/springmvc/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2709,26 +2715,26 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/05/20/java%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91/"  itemprop="url">
-        java程序编译
+      <a href="/2022/03/24/springmvc/"  itemprop="url">
+        spring-mvc & 前后端分离项目中的请求过程 & spring-security中静态资源放行
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
-      <p>在java技术上谈编译期而没有具体的上下文环境，是一个很含糊的表达</p>
+      <h2 id="前后端分离项目中的请求过程"><a href="#前后端分离项目中的请求过程" class="headerlink" title="前后端分离项目中的请求过程"></a>前后端分离项目中的请求过程</h2><p><strong>过程</strong>：在前后端分离项目中，浏览器先请求前端服务器，前端服务器返回html页面给浏览器，浏览器在进行渲染的时候渲染到有ajax请求时去请求后端服务器，后端服务器返回json数据给浏览器，浏览器然后完成后面的渲染</p>
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time itemprop="dateCreated datePublished" datetime="2022-05-20T09:12:56+08:00">2022-05-20</time>
+        <time itemprop="dateCreated datePublished" datetime="2022-03-24T13:00:24+08:00">2022-03-24</time>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2022/05/20/java%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91/' itemprop="url">
+          <a class='readmore' href='/2022/03/24/springmvc/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -2744,7 +2750,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/19/field-setAccessible/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/24/array/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2762,26 +2768,30 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/05/19/field-setAccessible/"  itemprop="url">
-        field.setAccessible()
+      <a href="/2022/03/24/array/"  itemprop="url">
+        Arary.asList() & 数组和集合的区别 & 加密算法 & spring-security antMathchers匹配原则
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
-      <p>Accessible属性是继承自AccessibleObject类，功能是启用或者禁用安全检查</p>
+      <h2 id="Arrays-asList"><a href="#Arrays-asList" class="headerlink" title="Arrays.asList()"></a>Arrays.asList()</h2><p>该方法是将数组转换成list集合的方法，有以下四点需要注意：</p>
+<ul>
+<li>该方法适用于对象型的数组，不建议使用基本类型的数组</li>
+<li>该方法将list集合和数组联结起来，一个更新，另一个自动更新</li>
+<li>得到的list集合长度固定，不支持add，remove，clear方法</li></ul>
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time itemprop="dateCreated datePublished" datetime="2022-05-19T10:00:40+08:00">2022-05-19</time>
+        <time itemprop="dateCreated datePublished" datetime="2022-03-24T12:51:37+08:00">2022-03-24</time>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2022/05/19/field-setAccessible/' itemprop="url">
+          <a class='readmore' href='/2022/03/24/array/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -2797,7 +2807,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/15/java%E6%B3%A8%E8%A7%A3/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/24/StringBuilder%E7%B1%BB/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2815,26 +2825,29 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/05/15/java%E6%B3%A8%E8%A7%A3/"  itemprop="url">
-        java注解
+      <a href="/2022/03/24/StringBuilder%E7%B1%BB/"  itemprop="url">
+        StringBuilder类 & final用法
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
-      <p>注解是众多引入到java se5中的重要语言变化之一</p>
+      <h2 id="StringBuilder类"><a href="#StringBuilder类" class="headerlink" title="StringBuilder类"></a>StringBuilder类</h2><p>程序开发过程中，经常碰到字符串需要连接的情况，常用的方法是使用 + 号，但是这种方法每加一次就新创建了一个String对象，而且连接效率比较低，并且比较费空间，使用StringBuilder类，即可变长字符序列，可以避免这种问题的产生。</p>
+<ul>
+<li>append（）：字符串连接</li>
+<li>toString（）：返回一个与构建器或缓冲器内容相同的字符串</li></ul>
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time itemprop="dateCreated datePublished" datetime="2022-05-15T20:05:44+08:00">2022-05-15</time>
+        <time itemprop="dateCreated datePublished" datetime="2022-03-24T12:36:37+08:00">2022-03-24</time>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2022/05/15/java%E6%B3%A8%E8%A7%A3/' itemprop="url">
+          <a class='readmore' href='/2022/03/24/StringBuilder%E7%B1%BB/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -2850,7 +2863,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/02/spring-security%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/24/trycatchfinally/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2868,26 +2881,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/05/02/spring-security%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/"  itemprop="url">
-        spring-security自定义权限认证
+      <a href="/2022/03/24/trycatchfinally/"  itemprop="url">
+        使用接口的原因 & try catch finally & spring-boot配置文件中的on和off
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
-      <p>利用spring-security框架，利用自定义的方法，实现权限验证</p>
+      <h2 id="使用接口的原因"><a href="#使用接口的原因" class="headerlink" title="使用接口的原因"></a>使用接口的原因</h2><ul>
+<li>有利于代码的规范，服务的规范</li>
+<li>有利于后续代码的运行维护修改</li></ul>
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time itemprop="dateCreated datePublished" datetime="2022-05-02T22:45:40+08:00">2022-05-02</time>
+        <time itemprop="dateCreated datePublished" datetime="2022-03-24T12:32:51+08:00">2022-03-24</time>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2022/05/02/spring-security%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/' itemprop="url">
+          <a class='readmore' href='/2022/03/24/trycatchfinally/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -2903,7 +2918,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/02/%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/24/spring-bean/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2921,26 +2936,26 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/05/02/%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/"  itemprop="url">
-        接口中的静态方法
+      <a href="/2022/03/24/spring-bean/"  itemprop="url">
+        spring bean单多例和生命周期 & java枚举 & java默认访问权限
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
-      <p>在jdk8之前，interface中可以定义变量和方法，变量必须是staic、public、final的，方法必须是public、abstract的，并且这些修饰符都是默认的，即意味着你写不写这些修饰符，对应的变量和方法都具有各自的默认属性。在jdk8之后，允许我们在接口中定义static方法和default方法</p>
+      <h2 id="spring-bean单多例和生命周期"><a href="#spring-bean单多例和生命周期" class="headerlink" title="spring bean单多例和生命周期"></a>spring bean单多例和生命周期</h2><p>spring中，bean可以被定义为两种模式，分别为singleton和prototype模式，默认是单例模式，即只有一个共享实例存在，每次请求这个bean都会返回这个唯一的实例。而多例模式每次请求bean都会返回一个新的bean实例，相当于每次请求都new一个实例。</p>
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time itemprop="dateCreated datePublished" datetime="2022-05-02T21:19:00+08:00">2022-05-02</time>
+        <time itemprop="dateCreated datePublished" datetime="2022-03-24T12:27:41+08:00">2022-03-24</time>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2022/05/02/%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/' itemprop="url">
+          <a class='readmore' href='/2022/03/24/spring-bean/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -2956,7 +2971,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/29/pathvariable%E5%92%8Crequestparam%E6%B3%A8%E8%A7%A3/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/24/threadpool/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2974,26 +2989,29 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/04/29/pathvariable%E5%92%8Crequestparam%E6%B3%A8%E8%A7%A3/"  itemprop="url">
-        pathvariable和requestparam注解
+      <a href="/2022/03/24/threadpool/"  itemprop="url">
+        threadpool
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
-      <p>@PathVariable和@RequestParam都表示url中的参数映射，它们的具体用法和区别是什么呢</p>
+      <h2 id="为什么创建线程池"><a href="#为什么创建线程池" class="headerlink" title="为什么创建线程池"></a>为什么创建线程池</h2><ul>
+<li>每次new Thread新建对象的性能差</li>
+<li>线程缺乏统一的管理，可以无限制的创建线程，相互之间竞争，极可能占用过多的资源导致死机</li>
+<li>缺乏更多的功能，如定期执行，定时执行等</li></ul>
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time itemprop="dateCreated datePublished" datetime="2022-04-29T10:31:46+08:00">2022-04-29</time>
+        <time itemprop="dateCreated datePublished" datetime="2022-03-24T11:53:56+08:00">2022-03-24</time>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2022/04/29/pathvariable%E5%92%8Crequestparam%E6%B3%A8%E8%A7%A3/' itemprop="url">
+          <a class='readmore' href='/2022/03/24/threadpool/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -3009,7 +3027,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/27/mybatis-plus%E6%9F%A5%E8%AF%A2%E8%AE%A1%E6%95%B0%E5%AE%9E%E7%8E%B0/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/23/spring-security/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -3027,26 +3045,32 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/04/27/mybatis-plus%E6%9F%A5%E8%AF%A2%E8%AE%A1%E6%95%B0%E5%AE%9E%E7%8E%B0/"  itemprop="url">
-        mybatis-plus查询计数实现
+      <a href="/2022/03/23/spring-security/"  itemprop="url">
+        spring security & 为什么前后端分离项目不能使用cookie-session机制
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
-      <p>有这样一个业务需求，在更新用户名时，需要检查更新的用户名是否和别人有重复，常规方法我们可以调用sql中的count函数实现</p>
+      <meta name="referrer" content="no-referrer">
+
+<h2 id="Spring-Security流程"><a href="#Spring-Security流程" class="headerlink" title="Spring Security流程"></a>Spring Security流程</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>spring security的原理其实就是一个过滤器链，内部包含了提供各种功能的过滤器</p>
+<h3 id="主要过滤器"><a href="#主要过滤器" class="headerlink" title="主要过滤器"></a>主要过滤器</h3><p>主要三个过滤器，他们顺序是：</p>
+<ol>
+<li>UsernamePasswordAutenticationFilter（负责处理登录请求，验证密码和用户）</li>
+<li>ExceptionTranslationFilter（处理过滤器中抛出的任何AccessDeniedException和AuthenticationException）</li></ol>
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time itemprop="dateCreated datePublished" datetime="2022-04-27T10:29:43+08:00">2022-04-27</time>
+        <time itemprop="dateCreated datePublished" datetime="2022-03-23T23:23:43+08:00">2022-03-23</time>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2022/04/27/mybatis-plus%E6%9F%A5%E8%AF%A2%E8%AE%A1%E6%95%B0%E5%AE%9E%E7%8E%B0/' itemprop="url">
+          <a class='readmore' href='/2022/03/23/spring-security/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -3067,7 +3091,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div class="prev-next">
         
         <p class="current">
-          1 / 4
+          1 / 2
         </p>
         
           <a class="next" rel="next" href="/tags/learning-notes/page/2/">
@@ -3176,7 +3200,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-      <a href="/tags/learning-notes/" style="font-size: 24px; color: #555">learning notes</a> <a href="/tags/leetcode/" style="font-size: 14px; color: #999">leetcode</a> <a href="/tags/sharing/" style="font-size: 19px; color: #777">sharing</a>
+      <a href="/tags/c-c/" style="font-size: 14px; color: #999">c/c++</a> <a href="/tags/java/" style="font-size: 21.5px; color: #666">java</a> <a href="/tags/java%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 19px; color: #777">java虚拟机</a> <a href="/tags/learning-notes/" style="font-size: 24px; color: #555">learning notes</a> <a href="/tags/leetcode/" style="font-size: 14px; color: #999">leetcode</a> <a href="/tags/mybatis-plus/" style="font-size: 19px; color: #777">mybatis-plus</a> <a href="/tags/mysql/" style="font-size: 19px; color: #777">mysql</a> <a href="/tags/sharing/" style="font-size: 19px; color: #777">sharing</a> <a href="/tags/spring-boot/" style="font-size: 14px; color: #999">spring-boot</a> <a href="/tags/spring-security/" style="font-size: 16.5px; color: #888">spring-security</a> <a href="/tags/web/" style="font-size: 14px; color: #999">web</a>
     </div>
   </section>
 
