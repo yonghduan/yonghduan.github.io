@@ -43,7 +43,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-05-23T00:48:01.000Z">
-<meta property="article:modified_time" content="2022-05-26T05:39:21.238Z">
+<meta property="article:modified_time" content="2022-05-28T08:00:22.641Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="java虚拟机">
 <meta name="twitter:card" content="summary">
@@ -1752,7 +1752,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.8a038721.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1653657605146),
+    lastupdate: new Date(1653724871135),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2581,7 +2581,31 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Human &#123;...&#125;</span><br><span class="line">class Man extends Human &#123;...&#125;</span><br><span class="line">class Woman extends Human &#123;...&#125;</span><br><span class="line"></span><br><span class="line">void say(Human guy) &#123;...&#125;</span><br><span class="line">void say(Man guy) &#123;...&#125;</span><br><span class="line">void say(Woman guy) &#123;...&#125;</span><br><span class="line"></span><br><span class="line">Human man = new Man();</span><br><span class="line">Human woman = new Woman();</span><br><span class="line">say(man);</span><br><span class="line">say(woman);</span><br></pre></td></tr></table></figure>
 
-<p>上述代码中say函数会调用重载函数的第一个版本，即Human类型参数的版本</p>
+<p>上述代码中两个say函数会调用重载函数的第一个版本，即Human类型参数的版本。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Human man = new Man();</span><br></pre></td></tr></table></figure>
+
+<p>上述代码中Human称为变量的静态类型，或叫外观类型；后面的Man则称为实际类型，或称为运行时类型。静态类型是编译器可知的，即时它可能被强转为其子类类型，但强转也是在编译器可知的；但是运行时类型是在编译期不可知的，只要到了程序运行到这个地方，才能够知道它是什么类型。</p>
+<p>重载时是通过静态类型而不是实际类型作为判断依据的。因此在编译的时候，say函数就根据静态类型决定了会使用哪个方法的重载版本。<strong>所有根据静态类型来决定使用方法的哪个重载版本的，都称为静态分派。</strong>静态分派发生在编译阶段，因此确定静态分派的动作实际上不是由虚拟机来执行的，这点也是一些资料把它归入解析而不是分派的原因</p>
+<ol start="2">
+<li>动态分派</li>
+</ol>
+<p>动态分派是java多态性的重要体现——重写的重要支撑技术</p>
+<p>依然是上述代码，只是在子类中重写say方法，那么在建立子类对象，使用父类作为静态类型接收这个对象，在调用say方法的手调用的实则是子类中重写的方法。那么问题来了，java虚拟机是如何判断该调用哪个方法的？</p>
+<p>设计字节码指令invokevirtual的执行。它的执行分为以下几步：</p>
+<ul>
+<li>找到操作数栈顶的第一个元素所指向的对象的实际类型，记作C</li>
+<li>如果在类型C中找到与常量中的描述符和简单名称都相符的方法，则进行访问权限校验，如果通过则返回这个方法的直接引用，查过过程结束；不通过则返回IllegalAccessError异常</li>
+<li>否则，按照继承关系从下往上依次对C的各个父类进行第二步的搜索和验证过程</li>
+<li>如果始终没有找到合适的方法，则抛出AbstractMethodError异常</li>
+</ul>
+<p>正因为invokevirtual指令执行第一步就是在运行期间确定接受者的实际类型，所以它不只是把常量池中的符号引用解析到直接引用上就结束了，还会根据方法接受者的实际类型选择方法版本，这是java方法中方法重写的本质。<strong>我们把这种在运行期间根据世界类型确定方法执行版本的分派过程称为动态分派</strong></p>
+<blockquote>
+<p>多态只对于方法有效，而对于字段是无效的。换言之，字段永远不可能是虚的，字段永远不参与多态。那个类的方法访问某个名字的字段时，改名字指的就是这个类能看到的字段。当子类声明了与父类同名的字段时，虽然在子类内存中两个字段都会存在，但是子类的字段会遮蔽父类的同名字段</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">public class FieldHasNoPolymorphic</span><br><span class="line">&#123;</span><br><span class="line">	static class Father&#123;</span><br><span class="line">		public int monry = 1;</span><br><span class="line">		</span><br><span class="line">		public Fathert()&#123;</span><br><span class="line">			money = 2;</span><br><span class="line">			showMeMoney();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		public void showMeMoney()&#123;</span><br><span class="line">			System.out.println(&quot;I am father,i have $&quot; + money);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	static class Son extends Father&#123;</span><br><span class="line">		public int money = 3;</span><br><span class="line">		</span><br><span class="line">		public Son()&#123;</span><br><span class="line">			money = 4;</span><br><span class="line">			shwoMeMoney();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		public void showMeMoney()&#123;</span><br><span class="line">			System.out.println(&quot;I am son,i have $&quot; + money);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		Father gay = new Son();</span><br><span class="line">		System.out.println(&quot;This gay has $&quot; + gay.money);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">result:</span><br><span class="line">I am son,i have $0</span><br><span class="line">I am son,i have $4</span><br><span class="line">This gay has $2</span><br></pre></td></tr></table></figure>
+
+<p>在创建son对象是时候，会隐式调用father的构造函数，但是father的构造函数中调用的函数showMeMoney在子类重写了，所以调用子类中的这个函数，由于字段没有多态性，此时子类中的money值由于没有执行构造函数所以没有执行字段赋值和构造函数初始化，所以它此时还为0。 执行完父类构造函数之后，执行子类构造函数，输出4，然后输出语句是根据静态类型输出钱数，而不是根据实际类型，所一最后输出的钱数是2</p>
+<h4 id="虚拟机动态分派的实现"><a href="#虚拟机动态分派的实现" class="headerlink" title="虚拟机动态分派的实现"></a>虚拟机动态分派的实现</h4><p>基于性能的考虑，实现策略是在方法区中建立一张虚方法表。虚方法中存储着一个类中各个方法 的实际入口地址。如果某个方法在子类中没有被重写，则子类虚方法表中和父类虚方法表中的函数入口地址是是一样的，都指向父类的实现入口。但是如果重写了，在子类虚方法表中的地址会被替换，指向子类方法实现版本的入口地址</p>
 
 
   </div>
@@ -2618,10 +2642,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-26T13:39:21+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-28T16:00:22+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年5月26日</p>
+    <p>更新于：2022年5月28日</p>
   </a>
 </div>
 
@@ -2771,7 +2795,7 @@ https://leetcode.cn/problems/longest-substring...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8"><span class="toc-text">方法调用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E8%A7%A3%E6%9E%90"><span class="toc-text">静态解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%BF%9E%E6%8E%A5"><span class="toc-text">动态连接</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8"><span class="toc-text">方法调用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E8%A7%A3%E6%9E%90"><span class="toc-text">静态解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%BF%9E%E6%8E%A5"><span class="toc-text">动态连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%8A%A8%E6%80%81%E5%88%86%E6%B4%BE%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">虚拟机动态分派的实现</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -3787,7 +3811,7 @@ https://leetcode.cn/problems/longest-substring...</p>
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/05/23/虚拟机字节码执行引擎/","name":"虚拟机字节码执行引擎"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"虚拟机字节码执行引擎","description":"代码编译的结果从本地机器码变成字节码，是存储格式发展的一小步，却是编程语言发展的一大步","datePublished":"2022-05-23T00:48:01.000Z","dateModified":"2022-05-26T05:39:21.238Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/05/23/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/05/23/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/","wordCount":43,"keywords":"java虚拟机","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/05/23/虚拟机字节码执行引擎/","name":"虚拟机字节码执行引擎"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"虚拟机字节码执行引擎","description":"代码编译的结果从本地机器码变成字节码，是存储格式发展的一小步，却是编程语言发展的一大步","datePublished":"2022-05-23T00:48:01.000Z","dateModified":"2022-05-28T08:00:22.641Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/05/23/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/05/23/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/","wordCount":43,"keywords":"java虚拟机","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
