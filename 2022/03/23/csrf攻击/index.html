@@ -43,7 +43,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-03-23T14:47:37.000Z">
-<meta property="article:modified_time" content="2022-03-24T06:05:08.301Z">
+<meta property="article:modified_time" content="2022-05-28T14:42:41.249Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="learning notes">
 <meta name="twitter:card" content="summary">
@@ -1752,7 +1752,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.8a038721.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1653724871135),
+    lastupdate: new Date(1653817748950),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2573,7 +2573,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>在请求地址中添加token并验证</li>
 <li>在http头中自定义属性并验证</li>
 </ol>
-</div><div class="story post-story"><h2 id="java何时必须处理异常，何时可以不管任它自动往上抛？"><a href="#java何时必须处理异常，何时可以不管任它自动往上抛？" class="headerlink" title="java何时必须处理异常，何时可以不管任它自动往上抛？"></a>java何时必须处理异常，何时可以不管任它自动往上抛？</h2><p>java处理异常有两种方法，第一种是使用throws在方法后声明表示该异常交给调用者处理，另一种是使用try-catch进行处理。<br><em><strong>当抛出的是非运行时异常时，则必须处理，即要么使用throws，要么使用try-catch。但是如果抛出的是运行时异常，可以不对其进行处理，它会自动向上抛，当然也可以对其处理</strong></em></p>
+</div><div class="story post-story"><h2 id="java何时必须处理异常，何时可以不管任它自动往上抛？"><a href="#java何时必须处理异常，何时可以不管任它自动往上抛？" class="headerlink" title="java何时必须处理异常，何时可以不管任它自动往上抛？"></a>java何时必须处理异常，何时可以不管任它自动往上抛？</h2><p>java处理异常有两种方法，第一种是使用throws在方法后声明表示该异常交给调用者处理，另一种是使用try-catch进行处理。<br><em><strong>当抛出的是非运行时异常（被检查异常）时，则必须处理，即要么使用throws，要么使用try-catch。但是如果抛出的是运行时异常，可以不对其进行处理，它会自动向上抛，当然也可以对其处理</strong></em></p>
+<p>运行时异常一般包括：</p>
+<ul>
+<li>类转换异常</li>
+<li>数组越界</li>
+<li>空指针异常</li>
+<li>数据存储异常</li>
+<li>buffer溢出异常</li>
+</ul>
+<p>被检查异常一般包括：</p>
+<ul>
+<li>IOException</li>
+<li>FileNotFoundException</li>
+<li>SQLException</li>
+</ul>
+<p>那么区分运行时异常和被检查异常的标准是：通过被检查异常不是因为程序引起的错误情况。而不被检查的异常通常都是由于糟糕的编程引起的</p>
 
 </div>
   </div>
@@ -2610,10 +2625,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-03-24T14:05:08+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-28T22:42:41+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年3月24日</p>
+    <p>更新于：2022年5月28日</p>
   </a>
 </div>
 
@@ -3771,7 +3786,7 @@ UsernamePa...</p>
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/03/23/csrf攻击/","name":"csrf攻击 & java何时必须进行异常处理"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"csrf攻击 & java何时必须进行异常处理","description":"csrf攻击Cross-Site request forgery：称为跨站请求伪造，用户登录到一个网站A，登录成功服务器返回给用户cookie，此时用户又打开一个页面请求另外一个网站B，网站B返回给用户一些攻击性代码携带携带A网站返回给用户的cookie请求A网站，网站A能够验证该请求是来自于用户的浏览器，却不能验证该请求是否是用户的真实意愿还是恶意攻击性请求","datePublished":"2022-03-23T14:47:37.000Z","dateModified":"2022-03-24T06:05:08.301Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/03/23/csrf%E6%94%BB%E5%87%BB/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/03/23/csrf%E6%94%BB%E5%87%BB/","wordCount":181,"keywords":"learning notes","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/03/23/csrf攻击/","name":"csrf攻击 & java何时必须进行异常处理"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"csrf攻击 & java何时必须进行异常处理","description":"csrf攻击Cross-Site request forgery：称为跨站请求伪造，用户登录到一个网站A，登录成功服务器返回给用户cookie，此时用户又打开一个页面请求另外一个网站B，网站B返回给用户一些攻击性代码携带携带A网站返回给用户的cookie请求A网站，网站A能够验证该请求是来自于用户的浏览器，却不能验证该请求是否是用户的真实意愿还是恶意攻击性请求","datePublished":"2022-03-23T14:47:37.000Z","dateModified":"2022-05-28T14:42:41.249Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/03/23/csrf%E6%94%BB%E5%87%BB/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/03/23/csrf%E6%94%BB%E5%87%BB/","wordCount":181,"keywords":"learning notes","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
