@@ -4,8 +4,8 @@
   <meta name="generator" content="Hexo 6.1.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="http://example.com/tags/mybatis-plus/"/>
+  
+  <link rel="canonical" href="http://example.com/2022/05/31/string类字面常量相关/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,19 +31,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>标签：mybatis-plus - SaltFish的博客</title>
-  <meta name="keywords" content="java c++">
-  <meta desc name="description" content="菜狗一枚，坐标西安电子科技大学 - SaltFish - SaltFish的博客">
+  <title>String类字面常量相关 - SaltFish的博客</title>
+  <meta name="keywords" content="java面试,java c++">
+  <meta desc name="description" content="了解与字符串字面常量相关的东西 - SaltFish - SaltFish的博客">
   
-<meta property="og:type" content="website">
-<meta property="og:title" content="SaltFish的博客">
-<meta property="og:url" content="http://example.com/tags/mybatis-plus/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="String类字面常量相关">
+<meta property="og:url" content="http://example.com/2022/05/31/String%E7%B1%BB%E5%AD%97%E9%9D%A2%E5%B8%B8%E9%87%8F%E7%9B%B8%E5%85%B3/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="菜狗一枚，坐标西安电子科技大学">
+<meta property="og:description" content="了解与字符串字面常量相关的东西">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2022-05-31T11:55:51.000Z">
+<meta property="article:modified_time" content="2022-05-31T12:31:56.536Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="java c++">
+<meta property="article:tag" content="java面试">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2422,7 +2424,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="none" class='cover-wrapper  dock' style="display: none;">
+      <div id="none" class='cover-wrapper post dock' style="display: none;">
         
   <div class='cover-bg lazyload placeholder' data-bg="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture"></div>
 
@@ -2496,29 +2498,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="safearea">
         <div class="body-wrapper">
           
-
 <div id="l_main" class=''>
-  
-    
-      
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/27/mybatis-plus%E6%9F%A5%E8%AF%A2%E8%AE%A1%E6%95%B0%E5%AE%9E%E7%8E%B0/">
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/31/String%E7%B1%BB%E5%AD%97%E9%9D%A2%E5%B8%B8%E9%87%8F%E7%9B%B8%E5%85%B3/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2527,162 +2509,238 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
   </span>
   
-  
+
+
   
     <span hidden>
       <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
     </span>
   
-  
+  <div class="article-meta" id="top">
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/04/27/mybatis-plus%E6%9F%A5%E8%AF%A2%E8%AE%A1%E6%95%B0%E5%AE%9E%E7%8E%B0/"  itemprop="url">
-        mybatis-plus查询计数实现
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
     
-      <p>有这样一个业务需求，在更新用户名时，需要检查更新的用户名是否和别人有重复，常规方法我们可以调用sql中的count函数实现</p>
+    
+      <h1 class="title" itemprop="name headline">
+        String类字面常量相关
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/apple-touch-icon.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/apple-touch-icon.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">请设置文章作者</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-05-31T19:55:51+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年5月31日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
     
   </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <p>了解与字符串字面常量相关的东西<span id="more"></span></p>
+<h3 id="String-str-x3D-“i”-与String-str-x3D-new-String（“i”）一样吗？"><a href="#String-str-x3D-“i”-与String-str-x3D-new-String（“i”）一样吗？" class="headerlink" title="String str &#x3D; “i” 与String str &#x3D; new String（“i”）一样吗？"></a>String str &#x3D; “i” 与String str &#x3D; new String（“i”）一样吗？</h3><p>不一样，内存的分配方式不一样。前者，虚拟机会将其分配到常量池中，而后者则是被分配到堆内存中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String x = &quot;123&quot;;</span><br><span class="line">String y = &quot;123&quot;;</span><br><span class="line">String z = new String(&quot;123&quot;);</span><br><span class="line">System.out.println(x == y);	//true</span><br><span class="line">System.out.println(x == z); //false</span><br></pre></td></tr></table></figure>
+
+<p>第一行代码将会在常量池中分配一个字符串123，第二行代码则将常量池中已经存在的字符串的地址赋值给y。可见当常量池中存在想要创建的字符串时，会分配已经存在的地址。第三行代码则是在堆内存中分配字符串空间</p>
+<h3 id="String-s-x3D-new-String-“xyz”-创建了几个StringObject-String类是否可以继承？"><a href="#String-s-x3D-new-String-“xyz”-创建了几个StringObject-String类是否可以继承？" class="headerlink" title="String s &#x3D; new String(“xyz”)创建了几个StringObject?String类是否可以继承？"></a>String s &#x3D; new String(“xyz”)创建了几个StringObject?String类是否可以继承？</h3><p>创建一个或者两个都有可能</p>
+<p>首先“xyz”对应一个对象，它存放在字符串常量缓冲区，常量“xyz”不管出现多少次，都是缓冲区中的那一个。每一次new，会在堆内存中创建一个对象，它使用字符串常量缓冲区中的常量来创建。因此，如果字符串常量缓冲区中已经存在了该常量，则会直接拿过来使用创建对象；如果没有，则会首先在常量缓冲区中创建，因此该过程创建一个或者两个都有可能</p>
+<h3 id="String-s-x3D-“a”-“b”-“c”-“d”；这条语句创建了多少个对象？"><a href="#String-s-x3D-“a”-“b”-“c”-“d”；这条语句创建了多少个对象？" class="headerlink" title="String s &#x3D; “a” + “b” + “c” + “d”；这条语句创建了多少个对象？"></a>String s &#x3D; “a” + “b” + “c” + “d”；这条语句创建了多少个对象？</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String s1 = &quot;a&quot;;</span><br><span class="line">String s2 = s1 + &quot;b&quot;;</span><br><span class="line">String s3 = &quot;a&quot; + &quot;b&quot;;</span><br><span class="line">System.out.println(s2 == &quot;ab&quot;);	//false</span><br><span class="line">System.out.println(s3 == &quot;ab&quot;);	//true</span><br></pre></td></tr></table></figure>
+
+<p>javac在编译时会对字符串常量直接相加的表达式进行优化，不必等到运行期再去进行加法运算处理，而是在编译时去掉其中的加号，直接将其编译成一个常量的结果。</p>
+<p>所以题目中应该是只创建了一个对象，因为有编译优化</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String s = &quot;a&quot; + &quot;b&quot; + &quot;c&quot; + &quot;d&quot;;</span><br><span class="line">System.out.println(s == &quot;abcd&quot;); //true</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+  </div>
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-04-27T10:29:43+08:00">2022-04-27</time>
-        
-      </div>
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2022/04/27/mybatis-plus%E6%9F%A5%E8%AF%A2%E8%AE%A1%E6%95%B0%E5%AE%9E%E7%8E%B0/' itemprop="url">
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://example.com/2022/05/31/String%E7%B1%BB%E5%AD%97%E9%9D%A2%E5%B8%B8%E9%87%8F%E7%9B%B8%E5%85%B3/>http://example.com/2022/05/31/String%E7%B1%BB%E5%AD%97%E9%9D%A2%E5%B8%B8%E9%87%8F%E7%9B%B8%E5%85%B3/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-31T20:31:56+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年5月31日</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/26/mybatis-plus-update%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java%E9%9D%A2%E8%AF%95/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>java面试</p></a></div>
+  <span hidden itemprop="keywords">java面试</span>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/05/31/String%E7%B1%BB%E5%AD%97%E9%9D%A2%E5%B8%B8%E9%87%8F%E7%9B%B8%E5%85%B3/&title=String类字面常量相关 - SaltFish的博客&summary=了解与字符串字面常量相关的东西"
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/05/31/String%E7%B1%BB%E5%AD%97%E9%9D%A2%E5%B8%B8%E9%87%8F%E7%9B%B8%E5%85%B3/&title=String类字面常量相关 - SaltFish的博客&summary=了解与字符串字面常量相关的东西"
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/05/31/String%E7%B1%BB%E5%AD%97%E9%9D%A2%E5%B8%B8%E9%87%8F%E7%9B%B8%E5%85%B3/&title=String类字面常量相关 - SaltFish的博客&summary=了解与字符串字面常量相关的东西"
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
   
   
+
   
+    <div class="prev-next">
+      
+        <a class='prev' href='/2022/05/31/%E5%90%8C%E6%AD%A5%E9%9B%86%E5%90%88%E5%92%8C%E5%B9%B6%E5%8F%91%E9%9B%86%E5%90%88/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>同步集合和并发集合</p>
+          <p class='content'>java中的同步集合和并发集合有什么区别？
+不管是同步集合或者并发集合它们都是支持线程安全的，它们之间的主要区别主要体现在性能和可扩展性上
+同步集合如Collections.synchorize...</p>
+        </a>
+      
+      
+        <a class='next' href='/2022/05/28/ConcurrentModificationException%E5%BC%82%E5%B8%B8/'>
+          <p class='title'>ConcurrentModificationException异常<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>中文名叫做并发修改异常，它出现的原因和解决办法是什么呢？
+出现原因1234567891011121314List&lt;Integer&gt; list = new ArrayList&lt;I...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+  
+  <article class="post white-box reveal shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+      <meta itemprop="discussionUrl" content="/2022/05/31/String%E7%B1%BB%E5%AD%97%E9%9D%A2%E5%B8%B8%E9%87%8F%E7%9B%B8%E5%85%B3/index.html#comments">
     </span>
-  
-  
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/04/26/mybatis-plus-update%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/"  itemprop="url">
-        mybatis-plus:update的三种方式
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
     
-      <p>熟练的运用mabatis-plus这个框架，可以避免写很多简单的sql语句并配置繁琐的xml文件</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-04-26T22:05:06+08:00">2022-04-26</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/04/26/mybatis-plus-update%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
+    <div id="layoutHelper-comments"></div>
 
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/15/mybatis-plus%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95%E9%85%8D%E7%BD%AE/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/04/15/mybatis-plus%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95%E9%85%8D%E7%BD%AE/"  itemprop="url">
-        mybatis-plus中使用自定义方法配置
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>使用mybatis-plus框架，对于一些简单的curd操作，使用其提供的方法即可，但是对于一些复杂操作，还是需要自己写sql语句，那么使用自定义方法时如何进行配置呢？</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-04-15T23:42:32+08:00">2022-04-15</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/04/15/mybatis-plus%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95%E9%85%8D%E7%BD%AE/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
+  </article>
   
 
 
-    
-  
+
+
+
 </div>
 <aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
   
@@ -2690,103 +2748,34 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow floatable blur desktop mobile pjax">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">SaltFish的博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fa-solid fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fa-solid fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fa-solid fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow floatable blur desktop mobile pjax">
+  <section class="widget toc-wrapper shadow floatable blur desktop mobile pjax" id="toc-div" >
     
   <header>
     
-      <a href='/blog/tags/'><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <a href="/tags/c-c/" style="font-size: 14px; color: #999">c/c++</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/java%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 20px; color: #707070">java虚拟机</a> <a href="/tags/java%E9%9D%A2%E8%AF%95/" style="font-size: 16px; color: #8b8b8b">java面试</a> <a href="/tags/learning-notes/" style="font-size: 22px; color: #636363">learning notes</a> <a href="/tags/leetcode/" style="font-size: 14px; color: #999">leetcode</a> <a href="/tags/mybatis-plus/" style="font-size: 18px; color: #7e7e7e">mybatis-plus</a> <a href="/tags/mysql/" style="font-size: 18px; color: #7e7e7e">mysql</a> <a href="/tags/sharing/" style="font-size: 18px; color: #7e7e7e">sharing</a> <a href="/tags/spring-boot/" style="font-size: 14px; color: #999">spring-boot</a> <a href="/tags/spring-security/" style="font-size: 16px; color: #8b8b8b">spring-security</a> <a href="/tags/thinking/" style="font-size: 14px; color: #999">thinking</a> <a href="/tags/web/" style="font-size: 14px; color: #999">web</a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#String-str-x3D-%E2%80%9Ci%E2%80%9D-%E4%B8%8EString-str-x3D-new-String%EF%BC%88%E2%80%9Ci%E2%80%9D%EF%BC%89%E4%B8%80%E6%A0%B7%E5%90%97%EF%BC%9F"><span class="toc-text">String str &#x3D; “i” 与String str &#x3D; new String（“i”）一样吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String-s-x3D-new-String-%E2%80%9Cxyz%E2%80%9D-%E5%88%9B%E5%BB%BA%E4%BA%86%E5%87%A0%E4%B8%AAStringObject-String%E7%B1%BB%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF%EF%BC%9F"><span class="toc-text">String s &#x3D; new String(“xyz”)创建了几个StringObject?String类是否可以继承？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String-s-x3D-%E2%80%9Ca%E2%80%9D-%E2%80%9Cb%E2%80%9D-%E2%80%9Cc%E2%80%9D-%E2%80%9Cd%E2%80%9D%EF%BC%9B%E8%BF%99%E6%9D%A1%E8%AF%AD%E5%8F%A5%E5%88%9B%E5%BB%BA%E4%BA%86%E5%A4%9A%E5%B0%91%E4%B8%AA%E5%AF%B9%E8%B1%A1%EF%BC%9F"><span class="toc-text">String s &#x3D; “a” + “b” + “c” + “d”；这条语句创建了多少个对象？</span></a></li></ol>
     </div>
   </section>
-
-
-  
 
   
 
 
 <!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   <div class="pjax">
     <!-- pjax占位 -->
@@ -2815,13 +2804,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+
           <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <pjax>
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -3786,7 +3776,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/tags/mybatis-plus/","name":"mybatis-plus"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SaltFish的博客","url":"http://example.com/","keywords":"java c++","description":"菜狗一枚，坐标西安电子科技大学","author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"菜狗一枚，坐标西安电子科技大学"},"publisher":{"@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/05/31/String类字面常量相关/","name":"String类字面常量相关"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"String类字面常量相关","description":"了解与字符串字面常量相关的东西","datePublished":"2022-05-31T11:55:51.000Z","dateModified":"2022-05-31T12:31:56.536Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/05/31/String%E7%B1%BB%E5%AD%97%E9%9D%A2%E5%B8%B8%E9%87%8F%E7%9B%B8%E5%85%B3/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/05/31/String%E7%B1%BB%E5%AD%97%E9%9D%A2%E5%B8%B8%E9%87%8F%E7%9B%B8%E5%85%B3/","wordCount":15,"keywords":"java面试","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
