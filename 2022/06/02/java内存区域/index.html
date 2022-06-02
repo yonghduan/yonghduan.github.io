@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/04/23/java自动装箱陷阱/"/>
+  <link rel="canonical" href="http://example.com/2022/06/02/java内存区域/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,21 +31,23 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>java自动装箱陷阱 - SaltFish的博客</title>
-  <meta name="keywords" content="java,java c++">
-  <meta desc name="description" content="在java SE5之后，提供了自动装箱和拆箱功能，为基本类型与引用类型之间的转换带来了很大的方便，同样也有弊处 - SaltFish - SaltFish的博客">
+  <title>java内存区域 - SaltFish的博客</title>
+  <meta name="keywords" content="java虚拟机,java c++">
+  <meta desc name="description" content="
+
+对于java程序员来说，虚拟机自动内存管理帮助他们不需要为每一个new操作写delete&#x2F;free代码，不容易出现内存泄漏和内存溢出问题。但是一旦出现问题，如果不明白java虚拟机是如何使用内存的，那么排查错误，修正问题将会非常艰难 - SaltFish - SaltFish的博客">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="java自动装箱陷阱">
-<meta property="og:url" content="http://example.com/2022/04/23/java%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E9%99%B7%E9%98%B1/index.html">
+<meta property="og:title" content="java内存区域">
+<meta property="og:url" content="http://example.com/2022/06/02/java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="在java SE5之后，提供了自动装箱和拆箱功能，为基本类型与引用类型之间的转换带来了很大的方便，同样也有弊处">
+<meta property="og:description" content="对于java程序员来说，虚拟机自动内存管理帮助他们不需要为每一个new操作写delete&#x2F;free代码，不容易出现内存泄漏和内存溢出问题。但是一旦出现问题，如果不明白java虚拟机是如何使用内存的，那么排查错误，修正问题将会非常艰难">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-04-23T06:54:03.000Z">
-<meta property="article:modified_time" content="2022-05-23T02:27:26.466Z">
+<meta property="article:published_time" content="2022-06-02T01:38:50.000Z">
+<meta property="article:modified_time" content="2022-06-02T05:41:01.831Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="java">
+<meta property="article:tag" content="java虚拟机">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2500,7 +2502,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/23/java%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E9%99%B7%E9%98%B1/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/02/java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2521,7 +2523,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        java自动装箱陷阱
+        java内存区域
       </h1>
       <div class='new-meta-box'>
         
@@ -2542,10 +2544,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-04-23T14:54:03+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-06-02T09:38:50+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年4月23日</p>
+    <p>发布于：2022年6月2日</p>
   </a>
 </div>
 
@@ -2566,13 +2568,31 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>在java SE5之后，提供了自动装箱和拆箱功能，为基本类型与引用类型之间的转换带来了很大的方便，同样也有弊处<span id="more"></span></p>
-<h3 id="自动装箱的弊处"><a href="#自动装箱的弊处" class="headerlink" title="自动装箱的弊处"></a>自动装箱的弊处</h3><p>我们都知道，java函数传参中如果参数为基本类型，则传的是一个值，如果参数是一个引用类型，那么实则传的是一个指针</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public void recursion(Boolean tempFlag)&#123;&#125;</span><br><span class="line"></span><br><span class="line">Boolean flag = true;</span><br><span class="line">recursion(flag);</span><br></pre></td></tr></table></figure>
+    <meta name="referrer" content="no-referrer">
 
-<p>上述代码中，我们的需求是将引用类型为Boolean的flag指针传入recursion函数中，如果没有自动装箱的机制，那么传入的确实是flag的指针，但是因为有了自动装箱的机制，那么情况则发生了变化，上述函数调用中其实并没有将flag的指针传入函数形参中</p>
-<p><strong>真是的情况是：进入recursion函数作用域后，在栈中初始化了一个变量tempFlag，因为自动装箱机制，执行Boolean tempFlag &#x3D; true时是新初始化了一个栈变量，而非将flag的指针传入函数中。所以函数调用完成后对flag的结果没有丝毫影响，只是对形参tempFlag进行了一系列操作，但是随着函数调用完成tempFlag变量也消亡了</strong></p>
+<p>对于java程序员来说，虚拟机自动内存管理帮助他们不需要为每一个new操作写delete&#x2F;free代码，不容易出现内存泄漏和内存溢出问题。但是一旦出现问题，如果不明白java虚拟机是如何使用内存的，那么排查错误，修正问题将会非常艰难<span id="more"></span></p>
+<h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><p>虚拟机在执行java程序的过程中会把它所管理的内存划分为若干个不同的区域。这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而一直存在，有些区域则是依赖用户线程的启动和结束而建立和销毁 </p>
+<p><img src="https://img2020.cnblogs.com/blog/368055/202106/368055-20210620182455976-1205868213.png" class="lazyload" data-srcset="https://img2020.cnblogs.com/blog/368055/202106/368055-20210620182455976-1205868213.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p>
+<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>可以把它看做当前线程所执行的字节码的行号指示器。在虚拟机的概念模型里，字节码解释器就是通过改变这个计数器的值来选取下一条需要执行的字节码指令。它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都依赖这个计数器来完成</p>
+<p>由于java虚拟机的多线程是通过线程轮流切换，分配处理器执行时间的方式来实现的，在任何一个确定的时刻，一个处理器，都会执行一条线程中的指令。因此为了切成切换后能恢复到正确的执行位置，每条线程都需要一个独立的程序计数器，各条线程之间的计数器互不影响，独立存储。这类区域是为线程私有内存区域</p>
+<h4 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h4><p>它也是线程私有的，它的生命周期和线程相同。</p>
+<p>每个方法被执行的时候，java虚拟机都会同步创建一个栈帧用于存储局部变量表、操作数栈、动态连接、方法出口等信息。每一个方法被调用直至执行完毕的过程中，都对应着一个栈帧在虚拟机栈中从入栈到出栈的过程</p>
+<p>局部变量表存储了编译器可知的各种数据类型，这些数据类型在局部变量表中的存储空间以局部变量槽来表示，其中64为的long和double会占用两个变量槽。局部变量表所需的内存空间在编译期间分配，当进入一个方法时，这个方法需要在栈帧中分配多大空间给局部变量表完全是确定的，在方法运行期间不会改变局部变量表的大小</p>
+<h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h4><p>本地方法栈与虚拟机栈所发挥的作用非常相似，其区别只是虚拟机栈为虚拟机执行java方法（也就是字节码）服务，而本地方法栈则是为虚拟机使用到的本地方法服务</p>
+<p>《java虚拟机规范》中对本地方法栈使用的语言，方式与数据结构并没有任何强制性的约束，因此可以根据具体的虚拟机自由的实现它。例如hotspot虚拟机直接将本地方法栈和虚拟机栈合二为一</p>
+<h4 id="Java堆"><a href="#Java堆" class="headerlink" title="Java堆"></a>Java堆</h4><p>对于java应用程序来说，这是虚拟机所管理的内存中最大的一块，是被所有线程共享的一块内存区域，在虚拟机启动时创建，存放的都是对象实例。所有的对象实例和数组都是在堆里分配内存存储</p>
+<p>Java堆是垃圾收集器管理的内存区域，因此一些资料中将它称为“GC堆”（Garbage Collected Heap）</p>
+<p>所有线程共享的Java堆中可以划分出多个线程私有的分配缓冲区（Thread Local Allocation Buffer，TLAB），以提升对象分配时的效率</p>
+<h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h4><p>方法区在中存储的是已经被虚拟机加载的类型信息，常量，静态变量，即时编译器编译后的代码缓存等数据。</p>
+<h5 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h5><p>它是方法区的一部分。Class文件中除了有类的版本，字段，方法，接口等描述信息外，还有一项信息是常量池表（Constant Pool Table），用于存放编译器生成的各种字面量与符号引用，这部分内容将在类加载后存放到方法区的运行时常量池中</p>
+<p>运行时常量池相对于Class文件常量池的另外一个重要特征是具备动态性，java语言并不要求常量一定要在编译器才能产生，也就是说，并非预置入Class文件中的常量池的内容才能进入方法区运行时常量池，运行期间也可以将新的常量放入池中，例如String类的intern（）方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String str2 = new String(&quot;str&quot;) + new String(&quot;01&quot;);</span><br><span class="line">str2.intern();</span><br><span class="line">String str1 = &quot;str01&quot;;</span><br><span class="line">System.out.println(str2 == str1);</span><br><span class="line"></span><br><span class="line">//jdk1.6 result:false</span><br><span class="line">//jdk1.7 result:ture</span><br></pre></td></tr></table></figure>
 
+<p>结果之所以有这种区别是因为在执行intern方法的时候，jdk1.7因为常量池中没有这个字符串，会在常量池中生成一个对堆中“str01”的引用，而jdk1.6则是在常量池中生成原字符串的拷贝。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String str2 = new String(&quot;str&quot;) + new String(&quot;01&quot;);</span><br><span class="line">String str1 = &quot;str01&quot;;</span><br><span class="line">str2.intern();</span><br><span class="line">System.out.println(str2 == str1);</span><br><span class="line"></span><br><span class="line">//result:false</span><br></pre></td></tr></table></figure>
+
+<p>如上代码，一个指向堆中的对象，另一个指向常量池的对象，intern方法因为常量池找字符串已经存在所以不生成引用或者拷贝，因为无论1.6还是1.7都是false</p>
+<h4 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h4>
 
   </div>
   
@@ -2591,7 +2611,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/04/23/java%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E9%99%B7%E9%98%B1/>http://example.com/2022/04/23/java%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E9%99%B7%E9%98%B1/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/06/02/java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/>http://example.com/2022/06/02/java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/</a></p>
               
             
           </blockquote>
@@ -2608,10 +2628,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-23T10:27:26+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-02T13:41:01+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年5月23日</p>
+    <p>更新于：2022年6月2日</p>
   </a>
 </div>
 
@@ -2620,8 +2640,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>java</p></a></div>
-  <span hidden itemprop="keywords">java</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>java虚拟机</p></a></div>
+  <span hidden itemprop="keywords">java虚拟机</span>
 
 
         
@@ -2634,7 +2654,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/04/23/java%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E9%99%B7%E9%98%B1/&title=java自动装箱陷阱 - SaltFish的博客&summary=在java SE5之后，提供了自动装箱和拆箱功能，为基本类型与引用类型之间的转换带来了很大的方便，同样也有弊处"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/06/02/java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/&title=java内存区域 - SaltFish的博客&summary=
+
+对于java程序员来说，虚拟机自动内存管理帮助他们不需要为每一个new操作写delete&#x2F;free代码，不容易出现内存泄漏和内存溢出问题。但是一旦出现问题，如果不明白java虚拟机是如何使用内存的，那么排查错误，修正问题将会非常艰难"
           
           >
           
@@ -2646,7 +2668,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/04/23/java%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E9%99%B7%E9%98%B1/&title=java自动装箱陷阱 - SaltFish的博客&summary=在java SE5之后，提供了自动装箱和拆箱功能，为基本类型与引用类型之间的转换带来了很大的方便，同样也有弊处"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/06/02/java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/&title=java内存区域 - SaltFish的博客&summary=
+
+对于java程序员来说，虚拟机自动内存管理帮助他们不需要为每一个new操作写delete&#x2F;free代码，不容易出现内存泄漏和内存溢出问题。但是一旦出现问题，如果不明白java虚拟机是如何使用内存的，那么排查错误，修正问题将会非常艰难"
           
           >
           
@@ -2658,7 +2682,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/04/23/java%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E9%99%B7%E9%98%B1/&title=java自动装箱陷阱 - SaltFish的博客&summary=在java SE5之后，提供了自动装箱和拆箱功能，为基本类型与引用类型之间的转换带来了很大的方便，同样也有弊处"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/06/02/java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/&title=java内存区域 - SaltFish的博客&summary=
+
+对于java程序员来说，虚拟机自动内存管理帮助他们不需要为每一个new操作写delete&#x2F;free代码，不容易出现内存泄漏和内存溢出问题。但是一旦出现问题，如果不明白java虚拟机是如何使用内存的，那么排查错误，修正问题将会非常艰难"
           
           >
           
@@ -2691,22 +2717,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/04/23/java-stream/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>java-stream</p>
-          <p class='content'>流是从支持数据处理操作的源生成的元素序列，源可以是数组，文件，集合，函数文件等。流不是集合元素，它不是数据结构并不保存数据，它的主要目的在于计算
-如何生成流
-通过集合生成，应用中最常见的一种
-
-...</p>
-        </a>
       
-      
-        <a class='next' href='/2022/04/18/%E2%80%9Csql%E8%AF%AD%E5%8F%A5%E4%B9%8Border-by%E2%80%9D/'>
-          <p class='title'>sql语句之order_by<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>
-
-order by：即对sql查询的结果集进行排序，可以根据数字，日期，字符等对结果进行排序
-使用方法1select * from student order by age;#按照age升序排...</p>
+        <a class='next' href='/2022/05/31/%E5%90%8C%E6%AD%A5%E9%9B%86%E5%90%88%E5%92%8C%E5%B9%B6%E5%8F%91%E9%9B%86%E5%90%88/'>
+          <p class='title'>同步集合和并发集合<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>java中的同步集合和并发集合有什么区别？
+不管是同步集合或者并发集合它们都是支持线程安全的，它们之间的主要区别主要体现在性能和可扩展性上
+同步集合如Collections.synchorize...</p>
         </a>
       
     </div>
@@ -2722,7 +2738,7 @@ order by：即对sql查询的结果集进行排序，可以根据数字，日期
   
   <article class="post white-box reveal shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/04/23/java%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E9%99%B7%E9%98%B1/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/06/02/java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2755,7 +2771,7 @@ order by：即对sql查询的结果集进行排序，可以根据数字，日期
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E7%9A%84%E5%BC%8A%E5%A4%84"><span class="toc-text">自动装箱的弊处</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F"><span class="toc-text">运行时数据区域</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="toc-text">程序计数器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88"><span class="toc-text">虚拟机栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88"><span class="toc-text">本地方法栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java%E5%A0%86"><span class="toc-text">Java堆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="toc-text">方法区</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0"><span class="toc-text">运行时常量池</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98"><span class="toc-text">直接内存</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -3771,7 +3787,7 @@ order by：即对sql查询的结果集进行排序，可以根据数字，日期
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/04/23/java自动装箱陷阱/","name":"java自动装箱陷阱"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"java自动装箱陷阱","description":"在java SE5之后，提供了自动装箱和拆箱功能，为基本类型与引用类型之间的转换带来了很大的方便，同样也有弊处","datePublished":"2022-04-23T06:54:03.000Z","dateModified":"2022-05-23T02:27:26.466Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/04/23/java%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E9%99%B7%E9%98%B1/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/04/23/java%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E9%99%B7%E9%98%B1/","wordCount":55,"keywords":"java","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/02/java内存区域/","name":"java内存区域"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"java内存区域","description":"\n\n对于java程序员来说，虚拟机自动内存管理帮助他们不需要为每一个new操作写delete&#x2F;free代码，不容易出现内存泄漏和内存溢出问题。但是一旦出现问题，如果不明白java虚拟机是如何使用内存的，那么排查错误，修正问题将会非常艰难","datePublished":"2022-06-02T01:38:50.000Z","dateModified":"2022-06-02T05:41:01.831Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/02/java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/02/java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/","wordCount":123,"keywords":"java虚拟机","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
