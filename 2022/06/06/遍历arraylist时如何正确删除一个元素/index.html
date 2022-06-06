@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/04/27/mybatis-plus查询计数实现/"/>
+  <link rel="canonical" href="http://example.com/2022/06/06/遍历arraylist时如何正确删除一个元素/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,21 +31,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>mybatis-plus查询计数实现 - SaltFish的博客</title>
-  <meta name="keywords" content="mybatis-plus,java c++">
-  <meta desc name="description" content="有这样一个业务需求，在更新用户名时，需要检查更新的用户名是否和别人有重复，常规方法我们可以调用sql中的count函数实现 - SaltFish - SaltFish的博客">
+  <title>遍历arraylist时如何正确删除一个元素 - SaltFish的博客</title>
+  <meta name="keywords" content="java面试,java c++">
+  <meta desc name="description" content="在遍历ArrayList集合元素时，如果没有掌握正确的方法，可能会导致漏掉一些元素或者导致错误 - SaltFish - SaltFish的博客">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="mybatis-plus查询计数实现">
-<meta property="og:url" content="http://example.com/2022/04/27/mybatis-plus%E6%9F%A5%E8%AF%A2%E8%AE%A1%E6%95%B0%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:title" content="遍历arraylist时如何正确删除一个元素">
+<meta property="og:url" content="http://example.com/2022/06/06/%E9%81%8D%E5%8E%86arraylist%E6%97%B6%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="有这样一个业务需求，在更新用户名时，需要检查更新的用户名是否和别人有重复，常规方法我们可以调用sql中的count函数实现">
+<meta property="og:description" content="在遍历ArrayList集合元素时，如果没有掌握正确的方法，可能会导致漏掉一些元素或者导致错误">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-04-27T02:29:43.000Z">
-<meta property="article:modified_time" content="2022-05-23T02:28:23.593Z">
+<meta property="article:published_time" content="2022-06-06T00:36:03.000Z">
+<meta property="article:modified_time" content="2022-06-06T00:37:33.002Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="mybatis-plus">
+<meta property="article:tag" content="java面试">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2500,7 +2500,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/27/mybatis-plus%E6%9F%A5%E8%AF%A2%E8%AE%A1%E6%95%B0%E5%AE%9E%E7%8E%B0/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/06/%E9%81%8D%E5%8E%86arraylist%E6%97%B6%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2521,7 +2521,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        mybatis-plus查询计数实现
+        遍历arraylist时如何正确删除一个元素
       </h1>
       <div class='new-meta-box'>
         
@@ -2542,10 +2542,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-04-27T10:29:43+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-06-06T08:36:03+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年4月27日</p>
+    <p>发布于：2022年6月6日</p>
   </a>
 </div>
 
@@ -2566,20 +2566,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>有这样一个业务需求，在更新用户名时，需要检查更新的用户名是否和别人有重复，常规方法我们可以调用sql中的count函数实现<span id="more"></span></p>
-<h3 id="sql实现"><a href="#sql实现" class="headerlink" title="sql实现"></a>sql实现</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;checkUserNameUnique&quot; parameterType=&quot;String&quot; resultType=&quot;int&quot;&gt;</span><br><span class="line">	select count(1) from sys_user where user_name = #&#123;userName&#125; limit 1</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+    <p>在遍历ArrayList集合元素时，如果没有掌握正确的方法，可能会导致漏掉一些元素或者导致错误<span id="more"></span></p>
+<h3 id="第一种错误"><a href="#第一种错误" class="headerlink" title="第一种错误"></a>第一种错误</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void remove(ArrayList&lt;String&gt; list)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i = 0;i &lt; list.size();i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        String s = list.get(i);</span><br><span class="line">        if(s.equals(&quot;bb&quot;))</span><br><span class="line">            list.remove(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<ul>
-<li><p>limit 1的作用主要是当count计数为1时就停止，因为这时候已经达到了是否有重复的目的，没有必需继续查下去</p>
-</li>
-<li><p>count（1） 和count（<em>）返回的结果其实都是条件查询下的数量，只不过它们的实现方式不同，效率因此也不同，一般来说，count（</em> *）的效率更加高一些</p>
-</li>
-</ul>
-</blockquote>
-<h3 id="mybatis-plus实现"><a href="#mybatis-plus实现" class="headerlink" title="mybatis-plus实现"></a>mybatis-plus实现</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">QueryWrapper&lt;SystemUserTable&gt; queryWrapper = new QueryWrapper&lt;SystemUserTable&gt;();</span><br><span class="line">queryWrapper.eq(columnName,fieldValue);</span><br><span class="line">queryWrapper.last(&quot;limit 1&quot;);</span><br><span class="line">int fieldCount = systemUserMapper.selectCount(queryWrapper);</span><br></pre></td></tr></table></figure>
+<p>上述在遍历中删除元素的方法会导致bb后面的元素漏掉遍历。通过查看jdk ArrayList源码可以发现，arraylist在删除一个元素之后，会把该元素之后的全部元素copy到前一个位置，因此在下一次遍历时会漏掉被copy到当前被删除元素的位置的元素</p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>针对这一种情况，解决办法是使用倒序遍历的方法。采用倒序遍历时，删除了元素之后移动的是已经遍历过的元素的位置，对没有遍历过的元素并没有影响</p>
+<h3 id="第二种错误"><a href="#第二种错误" class="headerlink" title="第二种错误"></a>第二种错误</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static void main(ArrayList&lt;String&gt; list)</span><br><span class="line">&#123;</span><br><span class="line">    for(String s : list)</span><br><span class="line">     if(s.equals(&quot;bb&quot;))</span><br><span class="line">        list.remove(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>调用mybatis-plusselectCount函数也可以实现，其中last函数的作用是在sql语句结尾加上limit 1</p>
+<p>这种遍历方式其实是foreach的变式写法，其实内部调用的还是iterator的hasNext（）方法和next（）方法。这种写法的错误是由于fast-fail机制导致的，具体请参见ConcurrentModificationException这篇博客</p>
 
 
   </div>
@@ -2599,7 +2593,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/04/27/mybatis-plus%E6%9F%A5%E8%AF%A2%E8%AE%A1%E6%95%B0%E5%AE%9E%E7%8E%B0/>http://example.com/2022/04/27/mybatis-plus%E6%9F%A5%E8%AF%A2%E8%AE%A1%E6%95%B0%E5%AE%9E%E7%8E%B0/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/06/06/%E9%81%8D%E5%8E%86arraylist%E6%97%B6%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0/>http://example.com/2022/06/06/%E9%81%8D%E5%8E%86arraylist%E6%97%B6%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0/</a></p>
               
             
           </blockquote>
@@ -2616,10 +2610,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-23T10:28:23+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-06T08:37:33+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年5月23日</p>
+    <p>更新于：2022年6月6日</p>
   </a>
 </div>
 
@@ -2628,8 +2622,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/mybatis-plus/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>mybatis-plus</p></a></div>
-  <span hidden itemprop="keywords">mybatis-plus</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java%E9%9D%A2%E8%AF%95/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>java面试</p></a></div>
+  <span hidden itemprop="keywords">java面试</span>
 
 
         
@@ -2642,7 +2636,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/04/27/mybatis-plus%E6%9F%A5%E8%AF%A2%E8%AE%A1%E6%95%B0%E5%AE%9E%E7%8E%B0/&title=mybatis-plus查询计数实现 - SaltFish的博客&summary=有这样一个业务需求，在更新用户名时，需要检查更新的用户名是否和别人有重复，常规方法我们可以调用sql中的count函数实现"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/06/06/%E9%81%8D%E5%8E%86arraylist%E6%97%B6%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0/&title=遍历arraylist时如何正确删除一个元素 - SaltFish的博客&summary=在遍历ArrayList集合元素时，如果没有掌握正确的方法，可能会导致漏掉一些元素或者导致错误"
           
           >
           
@@ -2654,7 +2648,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/04/27/mybatis-plus%E6%9F%A5%E8%AF%A2%E8%AE%A1%E6%95%B0%E5%AE%9E%E7%8E%B0/&title=mybatis-plus查询计数实现 - SaltFish的博客&summary=有这样一个业务需求，在更新用户名时，需要检查更新的用户名是否和别人有重复，常规方法我们可以调用sql中的count函数实现"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/06/06/%E9%81%8D%E5%8E%86arraylist%E6%97%B6%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0/&title=遍历arraylist时如何正确删除一个元素 - SaltFish的博客&summary=在遍历ArrayList集合元素时，如果没有掌握正确的方法，可能会导致漏掉一些元素或者导致错误"
           
           >
           
@@ -2666,7 +2660,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/04/27/mybatis-plus%E6%9F%A5%E8%AF%A2%E8%AE%A1%E6%95%B0%E5%AE%9E%E7%8E%B0/&title=mybatis-plus查询计数实现 - SaltFish的博客&summary=有这样一个业务需求，在更新用户名时，需要检查更新的用户名是否和别人有重复，常规方法我们可以调用sql中的count函数实现"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/06/06/%E9%81%8D%E5%8E%86arraylist%E6%97%B6%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0/&title=遍历arraylist时如何正确删除一个元素 - SaltFish的博客&summary=在遍历ArrayList集合元素时，如果没有掌握正确的方法，可能会导致漏掉一些元素或者导致错误"
           
           >
           
@@ -2699,20 +2693,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/04/29/pathvariable%E5%92%8Crequestparam%E6%B3%A8%E8%A7%A3/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>pathvariable和requestparam注解</p>
-          <p class='content'>@PathVariable和@RequestParam都表示url中的参数映射，它们的具体用法和区别是什么呢
-@PathVariable用法1234@RequestMapping(value=&...</p>
-        </a>
       
-      
-        <a class='next' href='/2022/04/26/mybatis-plus-update%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/'>
-          <p class='title'>mybatis-plus:update的三种方式<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>熟练的运用mabatis-plus这个框架，可以避免写很多简单的sql语句并配置繁琐的xml文件
-update的三种方式
-根据id更新
-
-1234User user = new User();u...</p>
+        <a class='next' href='/2022/06/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/'>
+          <p class='title'>正则表达式<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>为什么使用正则表达式典型的搜索和替换操作要求提供与预期的搜索结果匹配的确切文本。虽然这种技术对于静态文本执行简单的搜索和替换已经足够了，但是缺乏灵活性，若采用这种方式搜索动态文本，即使不是不可能...</p>
         </a>
       
     </div>
@@ -2728,7 +2712,7 @@ update的三种方式
   
   <article class="post white-box reveal shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/04/27/mybatis-plus%E6%9F%A5%E8%AF%A2%E8%AE%A1%E6%95%B0%E5%AE%9E%E7%8E%B0/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/06/06/%E9%81%8D%E5%8E%86arraylist%E6%97%B6%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2761,7 +2745,7 @@ update的三种方式
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#sql%E5%AE%9E%E7%8E%B0"><span class="toc-text">sql实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mybatis-plus%E5%AE%9E%E7%8E%B0"><span class="toc-text">mybatis-plus实现</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%E9%94%99%E8%AF%AF"><span class="toc-text">第一种错误</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">解决方案</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E9%94%99%E8%AF%AF"><span class="toc-text">第二种错误</span></a></li></ol>
     </div>
   </section>
 
@@ -3777,7 +3761,7 @@ update的三种方式
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/04/27/mybatis-plus查询计数实现/","name":"mybatis-plus查询计数实现"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"mybatis-plus查询计数实现","description":"有这样一个业务需求，在更新用户名时，需要检查更新的用户名是否和别人有重复，常规方法我们可以调用sql中的count函数实现","datePublished":"2022-04-27T02:29:43.000Z","dateModified":"2022-05-23T02:28:23.593Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/04/27/mybatis-plus%E6%9F%A5%E8%AF%A2%E8%AE%A1%E6%95%B0%E5%AE%9E%E7%8E%B0/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/04/27/mybatis-plus%E6%9F%A5%E8%AF%A2%E8%AE%A1%E6%95%B0%E5%AE%9E%E7%8E%B0/","wordCount":61,"keywords":"mybatis-plus","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/06/遍历arraylist时如何正确删除一个元素/","name":"遍历arraylist时如何正确删除一个元素"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"遍历arraylist时如何正确删除一个元素","description":"在遍历ArrayList集合元素时，如果没有掌握正确的方法，可能会导致漏掉一些元素或者导致错误","datePublished":"2022-06-06T00:36:03.000Z","dateModified":"2022-06-06T00:37:33.002Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/06/%E9%81%8D%E5%8E%86arraylist%E6%97%B6%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/06/%E9%81%8D%E5%8E%86arraylist%E6%97%B6%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0/","wordCount":47,"keywords":"java面试","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
