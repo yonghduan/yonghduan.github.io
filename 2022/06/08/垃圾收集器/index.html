@@ -31,19 +31,19 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>垃圾收集器 - SaltFish的博客</title>
+  <title>垃圾收集器-判定哪些对象可以回收 - SaltFish的博客</title>
   <meta name="keywords" content="java虚拟机,java c++">
   <meta desc name="description" content="今天的内存动态分配和内存回收技术已经相当成熟，一切看起来已经进入了自动化时代，那为什么我们还要去了解垃圾收集和内存分配？ - SaltFish - SaltFish的博客">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="垃圾收集器">
+<meta property="og:title" content="垃圾收集器-判定哪些对象可以回收">
 <meta property="og:url" content="http://example.com/2022/06/08/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
 <meta property="og:description" content="今天的内存动态分配和内存回收技术已经相当成熟，一切看起来已经进入了自动化时代，那为什么我们还要去了解垃圾收集和内存分配？">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-06-08T03:11:20.000Z">
-<meta property="article:modified_time" content="2022-06-08T04:26:23.203Z">
+<meta property="article:modified_time" content="2022-06-10T12:23:44.803Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="java虚拟机">
 <meta name="twitter:card" content="summary">
@@ -1752,7 +1752,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.8a038721.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1654662398708),
+    lastupdate: new Date(1654872561452),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2521,7 +2521,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        垃圾收集器
+        垃圾收集器-判定哪些对象可以回收
       </h1>
       <div class='new-meta-box'>
         
@@ -2573,7 +2573,30 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="type">Object</span> <span class="variable">instance</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">A</span> <span class="variable">a1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">A</span>();</span><br><span class="line">	<span class="type">A</span> <span class="variable">a2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">A</span>();</span><br><span class="line">	a1.instance = a2;</span><br><span class="line">	a2.instance = a1;</span><br><span class="line">	</span><br><span class="line">	a1 = <span class="literal">null</span>;</span><br><span class="line">	a2 = <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>a1和a2对象的instance字段互相为对方的引用，除此之外两个对象别无其他引用。但是实际上这两个对象已经不可用，但是因为循环依赖导致各自的引用计数不为0，不能够被gc释放</p>
-<h4 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h4>
+<h4 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h4><p>当前主流的商用程序语言都是通过可达性分析（Reachability Analysis）算法来判断对象是否存活的。这个算法的思路就是通过一系列称为“GC Roots”的根对象作为起始节点集，从这些节点开始，根据引用关系向下搜索，搜索过程走过的路径称为引用链。如果某个对象到GC Roots间没有任何引用链相连，或者用图论的话来说就是从GC Roots到这个对象不可达时，则证明此对象是不可能再被使用的</p>
+<p>在java技术体系里，固定可作为GC Roots的对象包括以下几种：</p>
+<ul>
+<li>在虚拟机栈（栈帧中的本地变量表）中引用的对象，譬如各个线程被调用的方法堆栈中使用到的参数，局部变量，临时变量等</li>
+<li>在方法区中类静态属性引用的对象</li>
+<li>在方法区中常量引用的对象，譬如字符串常量池里的引用</li>
+<li>在本地方法栈中JNI（native方法）引用的对象</li>
+<li>java虚拟机内部的引用，如基本数据类型对应的Class对象，一些常驻的异常对象（如NullPointerException，OutOfMemoryError），还有系统类加载器</li>
+<li>所有被同步锁（synchronized关键字）持有的对象</li>
+<li>反映java虚拟机内部情况的JMXbean，JVMTI中注册的回调，本地代码缓存等</li>
+</ul>
+<h3 id="引用分类"><a href="#引用分类" class="headerlink" title="引用分类"></a>引用分类</h3><p>java里面的引用定义：如果reference类型的数据中存储的数值代表的是另外一块内存的地址，就称该reference类型数据代表某块内存，某个对象的引用</p>
+<p>这种定义下描述对象只有被引用和未被引用两种状态，而对于这样一些对象，如当内存空间足够时，保留这些对象，但是如果在GC收集之后，内存空间依然非常紧张，那么就抛弃它们。jdk1.2之后，为了实现这样的效果，将引用进行了分类：</p>
+<ul>
+<li><p>强引用：比如使用了new关键字创建的对象，只有引用关系存在，无论何种情况下，GC永远不回收这些对象</p>
+</li>
+<li><p>软引用：描述一些还有用，但非必须的对象。被软引用关联着的对象，在内存溢出之前，会进行回收，如果这次回收之后还是空间不够，然后才抛出内存溢出异常。可以使用SoftReference实现软引用</p>
+</li>
+<li><p>弱引用：描述那些非必须对象，但是强度比软引用更加弱了一些，被弱引用关联着的对象能够存活到下一次GC回收之前。在GC回收时，无论空间是否足够，都会回收掉这些对象。使用WeakReference能够实现弱引用</p>
+</li>
+<li><p>虚引用：它是最弱的一种引用关系。一个对象是否有虚引用的存在，完全不会对其生存时间构成影响，也无法通过虚引用来获得一个对象实例。为一个对象设置虚引用关联度 唯一目的是为了能够在对象被收集时收到一个系统通知。使用PhantomReference可以实现虚引用</p>
+</li>
+</ul>
+
 
   </div>
   
@@ -2609,10 +2632,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-08T12:26:23+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-10T20:23:44+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年6月8日</p>
+    <p>更新于：2022年6月10日</p>
   </a>
 </div>
 
@@ -2635,7 +2658,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/06/08/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/&title=垃圾收集器 - SaltFish的博客&summary=今天的内存动态分配和内存回收技术已经相当成熟，一切看起来已经进入了自动化时代，那为什么我们还要去了解垃圾收集和内存分配？"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/06/08/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/&title=垃圾收集器-判定哪些对象可以回收 - SaltFish的博客&summary=今天的内存动态分配和内存回收技术已经相当成熟，一切看起来已经进入了自动化时代，那为什么我们还要去了解垃圾收集和内存分配？"
           
           >
           
@@ -2647,7 +2670,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/06/08/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/&title=垃圾收集器 - SaltFish的博客&summary=今天的内存动态分配和内存回收技术已经相当成熟，一切看起来已经进入了自动化时代，那为什么我们还要去了解垃圾收集和内存分配？"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/06/08/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/&title=垃圾收集器-判定哪些对象可以回收 - SaltFish的博客&summary=今天的内存动态分配和内存回收技术已经相当成熟，一切看起来已经进入了自动化时代，那为什么我们还要去了解垃圾收集和内存分配？"
           
           >
           
@@ -2659,7 +2682,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/06/08/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/&title=垃圾收集器 - SaltFish的博客&summary=今天的内存动态分配和内存回收技术已经相当成熟，一切看起来已经进入了自动化时代，那为什么我们还要去了解垃圾收集和内存分配？"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/06/08/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/&title=垃圾收集器-判定哪些对象可以回收 - SaltFish的博客&summary=今天的内存动态分配和内存回收技术已经相当成熟，一切看起来已经进入了自动化时代，那为什么我们还要去了解垃圾收集和内存分配？"
           
           >
           
@@ -2691,6 +2714,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
     <div class="prev-next">
+      
+        <a class='prev' href='/2022/06/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>多线程有什么用</p>
+          <p class='content'>到底为何需要多线程呢？
+发挥多核cpu的优势单核cpu上运行多线程，实则是假的多线程，它是处理器时间分片实现的，在同一个时刻，只是处理一段逻辑。所以一段程序在单核cpu上使用单线程运行，与将程序...</p>
+        </a>
       
       
         <a class='next' href='/2022/06/06/%E9%81%8D%E5%8E%86arraylist%E6%97%B6%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0/'>
@@ -2745,7 +2774,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%B7%B2%E6%AD%BB%EF%BC%9F"><span class="toc-text">对象已死？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E5%AE%9A%E5%AF%B9%E8%B1%A1%E5%B7%B2%E6%AD%BB%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-text">判定对象已死的算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E6%B3%95"><span class="toc-text">引用计数法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95"><span class="toc-text">可达性分析算法</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%B7%B2%E6%AD%BB%EF%BC%9F"><span class="toc-text">对象已死？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E5%AE%9A%E5%AF%B9%E8%B1%A1%E5%B7%B2%E6%AD%BB%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-text">判定对象已死的算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E6%B3%95"><span class="toc-text">引用计数法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95"><span class="toc-text">可达性分析算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E5%88%86%E7%B1%BB"><span class="toc-text">引用分类</span></a></li></ol>
     </div>
   </section>
 
@@ -3761,7 +3790,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/08/垃圾收集器/","name":"垃圾收集器"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"垃圾收集器","description":"今天的内存动态分配和内存回收技术已经相当成熟，一切看起来已经进入了自动化时代，那为什么我们还要去了解垃圾收集和内存分配？","datePublished":"2022-06-08T03:11:20.000Z","dateModified":"2022-06-08T04:26:23.203Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/08/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/08/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/","wordCount":60,"keywords":"java虚拟机","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/08/垃圾收集器/","name":"垃圾收集器-判定哪些对象可以回收"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"垃圾收集器-判定哪些对象可以回收","description":"今天的内存动态分配和内存回收技术已经相当成熟，一切看起来已经进入了自动化时代，那为什么我们还要去了解垃圾收集和内存分配？","datePublished":"2022-06-08T03:11:20.000Z","dateModified":"2022-06-10T12:23:44.803Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/08/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/08/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/","wordCount":60,"keywords":"java虚拟机","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

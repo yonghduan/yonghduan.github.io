@@ -4,8 +4,8 @@
   <meta name="generator" content="Hexo 6.1.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="http://example.com/archives/page/6/"/>
+  
+  <link rel="canonical" href="http://example.com/2022/06/10/多线程有什么用/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,19 +31,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>归档 - SaltFish的博客</title>
-  <meta name="keywords" content="java c++">
-  <meta desc name="description" content="菜狗一枚，坐标西安电子科技大学 - SaltFish - SaltFish的博客">
+  <title>多线程有什么用 - SaltFish的博客</title>
+  <meta name="keywords" content="learning notes,java c++">
+  <meta desc name="description" content="到底为何需要多线程呢？ - SaltFish - SaltFish的博客">
   
-<meta property="og:type" content="website">
-<meta property="og:title" content="SaltFish的博客">
-<meta property="og:url" content="http://example.com/archives/page/6/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多线程有什么用">
+<meta property="og:url" content="http://example.com/2022/06/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="菜狗一枚，坐标西安电子科技大学">
+<meta property="og:description" content="到底为何需要多线程呢？">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2022-06-10T13:16:22.000Z">
+<meta property="article:modified_time" content="2022-06-10T13:41:43.679Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="java c++">
+<meta property="article:tag" content="learning notes">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2153,7 +2155,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <!-- Custom Files bodyBegin begin-->
     
     <!-- Custom Files bodyBegin end-->
-    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur " style='opacity: 0' >
+    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -2422,7 +2424,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="half" class='cover-wrapper  dock' style="display: ;">
+      <div id="none" class='cover-wrapper post dock' style="display: none;">
         
   <div class='cover-bg lazyload placeholder' data-bg="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture"></div>
 
@@ -2497,879 +2499,237 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper">
           
 <div id="l_main" class=''>
-	
-	  <article id="arc" class="post article white-box reveal shadow floatable blur">
-			
-			
-				
-				
-					
-						
-						<h2>2022</h2>
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/06/10/java%E7%BA%BF%E7%A8%8B%E5%88%9B%E5%BB%BA%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">
-									<time>06-10</time>
-									
-										java线程创建的几种方式
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/06/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/">
-									<time>06-10</time>
-									
-										多线程有什么用
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/06/08/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">
-									<time>06-08</time>
-									
-										垃圾收集器-判定哪些对象可以回收
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/06/06/%E9%81%8D%E5%8E%86arraylist%E6%97%B6%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0/">
-									<time>06-06</time>
-									
-										遍历arraylist时如何正确删除一个元素
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/06/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-									<time>06-02</time>
-									
-										正则表达式
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/06/02/java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/">
-									<time>06-02</time>
-									
-										java内存区域
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/05/31/%E5%90%8C%E6%AD%A5%E9%9B%86%E5%90%88%E5%92%8C%E5%B9%B6%E5%8F%91%E9%9B%86%E5%90%88/">
-									<time>05-31</time>
-									
-										同步集合和并发集合
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/05/31/String%E7%B1%BB%E5%AD%97%E9%9D%A2%E5%B8%B8%E9%87%8F%E7%9B%B8%E5%85%B3/">
-									<time>05-31</time>
-									
-										String类字面常量相关
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/05/28/ConcurrentModificationException%E5%BC%82%E5%B8%B8/">
-									<time>05-28</time>
-									
-										ConcurrentModificationException异常
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/05/28/%E5%9F%BA%E4%BA%8E%E6%A0%88%E7%9A%84%E5%AD%97%E8%8A%82%E7%A0%81%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/">
-									<time>05-28</time>
-									
-										基于栈的字节码解释执行引擎
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/05/27/%E5%85%B3%E4%BA%8E%E6%89%BE%E5%B7%A5%E4%BD%9C%E7%9A%84%E6%84%9F%E6%82%9F/">
-									<time>05-27</time>
-									
-										关于找工作的感悟
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/05/26/java%E5%86%85%E9%83%A8%E7%B1%BB/">
-									<time>05-26</time>
-									
-										java内部类
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/05/26/a-a-b%E5%92%8Ca-b%E7%9A%84%E5%8C%BA%E5%88%AB/">
-									<time>05-26</time>
-									
-										a=a+b和a+=b的区别
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/05/23/c-c-%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/">
-									<time>05-23</time>
-									
-										c/c++编译过程
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/05/23/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/">
-									<time>05-23</time>
-									
-										虚拟机字节码执行引擎
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/05/22/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E5%8F%8C%E6%8C%87%E9%92%88/">
-									<time>05-22</time>
-									
-										算法专题：双指针
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/05/22/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/">
-									<time>05-22</time>
-									
-										类加载器
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/05/22/new%E5%92%8CnewInstance%EF%BC%88%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB/">
-									<time>05-22</time>
-									
-										new和newInstance（）的区别
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/05/21/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD/">
-									<time>05-21</time>
-									
-										虚拟机类加载
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/05/20/java%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91/">
-									<time>05-20</time>
-									
-										java程序编译
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/05/19/field-setAccessible/">
-									<time>05-19</time>
-									
-										field.setAccessible()
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/05/15/java%E6%B3%A8%E8%A7%A3/">
-									<time>05-15</time>
-									
-										java注解
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/05/02/spring-security%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81/">
-									<time>05-02</time>
-									
-										spring-security自定义权限认证
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/05/02/%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/">
-									<time>05-02</time>
-									
-										接口中的静态方法
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/29/pathvariable%E5%92%8Crequestparam%E6%B3%A8%E8%A7%A3/">
-									<time>04-29</time>
-									
-										pathvariable和requestparam注解
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/27/mybatis-plus%E6%9F%A5%E8%AF%A2%E8%AE%A1%E6%95%B0%E5%AE%9E%E7%8E%B0/">
-									<time>04-27</time>
-									
-										mybatis-plus查询计数实现
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/26/mybatis-plus-update%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/">
-									<time>04-26</time>
-									
-										mybatis-plus:update的三种方式
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/24/kubeedge%E9%83%A8%E7%BD%B2/">
-									<time>04-24</time>
-									
-										kubeedge部署
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/24/ubuntu%E6%8D%A2%E6%BA%90/">
-									<time>04-24</time>
-									
-										ubuntu换源
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/23/java-stream/">
-									<time>04-23</time>
-									
-										java-stream
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/23/java%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E9%99%B7%E9%98%B1/">
-									<time>04-23</time>
-									
-										java自动装箱陷阱
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/18/%E2%80%9Csql%E8%AF%AD%E5%8F%A5%E4%B9%8Border-by%E2%80%9D/">
-									<time>04-18</time>
-									
-										sql语句之order_by
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/17/sql%E4%B8%AD%E7%9A%84left-join%E5%92%8Cright-join/">
-									<time>04-17</time>
-									
-										sql中的left join和right join
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/15/mybatis-plus%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95%E9%85%8D%E7%BD%AE/">
-									<time>04-15</time>
-									
-										mybatis-plus中使用自定义方法配置
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/15/%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E5%92%8C%E8%87%AA%E5%8A%A8%E6%8B%86%E7%AE%B1/">
-									<time>04-15</time>
-									
-										自动装箱和自动拆箱
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/04/14/MyIsam%E5%92%8CInnoDB%E7%9A%84%E5%8C%BA%E5%88%AB/">
-									<time>04-14</time>
-									
-										MyIsam和InnoDB的区别
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/28/%E5%88%9D%E6%AC%A1%E6%8E%A5%E8%A7%A6%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-									<time>03-28</time>
-									
-										初次接触机器学习
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/26/%E5%88%9D%E5%A7%8Bspring-security%E9%85%8D%E7%BD%AE/">
-									<time>03-26</time>
-									
-										初识spring-security配置(一)
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/">
-									<time>03-25</time>
-									
-										Serializable接口
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/">
-									<time>03-24</time>
-									
-										java函数传参详细分析
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/jwt/">
-									<time>03-24</time>
-									
-										JWT
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/classforname/">
-									<time>03-24</time>
-									
-										class.forname() & 数据库unique约束 & @Resouce和@Autowired & @RestController & maven父子项目
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/Bean/">
-									<time>03-24</time>
-									
-										常见注解 & isBlank和isEmpty的区别 & 继承中父类和子类拥有相同的成员变量名 & Throwable类
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/abstract-class/">
-									<time>03-24</time>
-									
-										java abstract class & java internal class & synchronized关键字 & 接口中的抽象方法 & set集合 & 跨域产生的原因
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/springmvc/">
-									<time>03-24</time>
-									
-										spring-mvc & 前后端分离项目中的请求过程 & spring-security中静态资源放行
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/array/">
-									<time>03-24</time>
-									
-										Arary.asList() & 数组和集合的区别 & 加密算法 & spring-security antMathchers匹配原则
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/StringBuilder%E7%B1%BB/">
-									<time>03-24</time>
-									
-										StringBuilder类 & final用法
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/trycatchfinally/">
-									<time>03-24</time>
-									
-										使用接口的原因 & try catch finally & spring-boot配置文件中的on和off
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/spring-bean/">
-									<time>03-24</time>
-									
-										spring bean单多例和生命周期 & java枚举 & java默认访问权限
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/haspMap/">
-									<time>03-24</time>
-									
-										HashMap
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/24/threadpool/">
-									<time>03-24</time>
-									
-										threadpool
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/23/spring-security/">
-									<time>03-23</time>
-									
-										spring security & 为什么前后端分离项目不能使用cookie-session机制
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/23/csrf%E6%94%BB%E5%87%BB/">
-									<time>03-23</time>
-									
-										csrf攻击 & java何时必须进行异常处理
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/03/20/hello-world/">
-									<time>03-20</time>
-									
-										Hello World
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-	  </article>
-	
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SaltFish的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="SaltFish的博客">
+    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
+  </span>
+  
+
+
+  
+    <span hidden>
+      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title" itemprop="name headline">
+        多线程有什么用
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/apple-touch-icon.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/apple-touch-icon.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">请设置文章作者</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-06-10T21:16:22+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年6月10日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <p>到底为何需要多线程呢？<span id="more"></span></p>
+<h3 id="发挥多核cpu的优势"><a href="#发挥多核cpu的优势" class="headerlink" title="发挥多核cpu的优势"></a>发挥多核cpu的优势</h3><p>单核cpu上运行多线程，实则是假的多线程，它是处理器时间分片实现的，在同一个时刻，只是处理一段逻辑。所以一段程序在单核cpu上使用单线程运行，与将程序分割，使用两个线程运行这个程序，花费的时间理论上来说是一样的，就像让你做做两件事，你先做完第一件事，然后做完第二件事和你先做一点第一件事，再做一点第二件事，然后这样交替执行做完两件事，花费的时间实则是一样的，因为不论以何种方式做这两件事，都是你一个人在做，只是做的方式不同而已。</p>
+<p>但是如果是多核cpu的话，如果不使用多线程工作，那么双核cpu上就浪费了50%的效率，更高核上浪费了更高的效率。多核cpu才能实现真正的多线程，就相当于一个人做两件事和两个人做两件事的区别。因此，使用多线程可以充分发挥多核cpu的目的，有效提高程序执行效率</p>
+<h3 id="防止阻塞"><a href="#防止阻塞" class="headerlink" title="防止阻塞"></a>防止阻塞</h3><p>从程序运行的效率方面来看，单核cpu上使用多线程不但不会发挥出多线程的优势，而且因为上下文的切换，而降低程序执行的效率。那么在单核cpu上为什么要使用多线程机制呢？</p>
+<p>答案就是，防止阻塞。如果仅仅使用单线程的话，一个任务如果因为某些原因停滞或者出错，那么所有的任务都要受到影响。使用多线程机制可以避免这个问题，一个任务受到阻塞，不妨碍其他任务的执行。当然，还有一个重要原因就是减少用户的响应时间，即实现同一个时刻仿佛运行着多个程序的错觉</p>
+<h3 id="便于建模"><a href="#便于建模" class="headerlink" title="便于建模"></a>便于建模</h3><p>建设有一个大任务A，单线程编程，就要考虑很多，建立整个程序模型就比较麻烦，但是使用多线程的话，可以化整为零，分成多个任务建立程序模型，这样就降低了复杂度</p>
+
+
+  </div>
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://example.com/2022/06/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/>http://example.com/2022/06/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-10T21:41:43+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年6月10日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/learning-notes/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>learning notes</p></a></div>
+  <span hidden itemprop="keywords">learning notes</span>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/06/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/&title=多线程有什么用 - SaltFish的博客&summary=到底为何需要多线程呢？"
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/06/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/&title=多线程有什么用 - SaltFish的博客&summary=到底为何需要多线程呢？"
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/06/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/&title=多线程有什么用 - SaltFish的博客&summary=到底为何需要多线程呢？"
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2022/06/10/java%E7%BA%BF%E7%A8%8B%E5%88%9B%E5%BB%BA%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>java线程创建的几种方式</p>
+          <p class='content'>包括普通方法，使用线程池创建，定时任务等
+1.继承Thread类，作为线程对象存在12345678910111213141516171819202122232425public class A ...</p>
+        </a>
+      
+      
+        <a class='next' href='/2022/06/08/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/'>
+          <p class='title'>垃圾收集器-判定哪些对象可以回收<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>今天的内存动态分配和内存回收技术已经相当成熟，一切看起来已经进入了自动化时代，那为什么我们还要去了解垃圾收集和内存分配？答案很简单，当需要去排查各种内存溢出，内存泄漏问题时，当垃圾回收成为系统达...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+  
+  <article class="post white-box reveal shadow floatable blur" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/2022/06/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/index.html#comments">
+    </span>
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
+    
+    
+    <div id="layoutHelper-comments"></div>
+
+  </article>
+  
+
+
+
+
+
 </div>
 <aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
   
@@ -3377,103 +2737,34 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow floatable blur desktop mobile pjax">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">SaltFish的博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fa-solid fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fa-solid fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fa-solid fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow floatable blur desktop mobile pjax">
+  <section class="widget toc-wrapper shadow floatable blur desktop mobile pjax" id="toc-div" >
     
   <header>
     
-      <a href='/blog/tags/'><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <a href="/tags/c-c/" style="font-size: 14px; color: #999">c/c++</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/java%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 20px; color: #707070">java虚拟机</a> <a href="/tags/java%E9%9D%A2%E8%AF%95/" style="font-size: 18px; color: #7e7e7e">java面试</a> <a href="/tags/learning-notes/" style="font-size: 22px; color: #636363">learning notes</a> <a href="/tags/leetcode/" style="font-size: 14px; color: #999">leetcode</a> <a href="/tags/mybatis-plus/" style="font-size: 18px; color: #7e7e7e">mybatis-plus</a> <a href="/tags/mysql/" style="font-size: 18px; color: #7e7e7e">mysql</a> <a href="/tags/sharing/" style="font-size: 18px; color: #7e7e7e">sharing</a> <a href="/tags/spring-boot/" style="font-size: 14px; color: #999">spring-boot</a> <a href="/tags/spring-security/" style="font-size: 16px; color: #8b8b8b">spring-security</a> <a href="/tags/thinking/" style="font-size: 14px; color: #999">thinking</a> <a href="/tags/web/" style="font-size: 14px; color: #999">web</a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E6%8C%A5%E5%A4%9A%E6%A0%B8cpu%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-text">发挥多核cpu的优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E6%AD%A2%E9%98%BB%E5%A1%9E"><span class="toc-text">防止阻塞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%BF%E4%BA%8E%E5%BB%BA%E6%A8%A1"><span class="toc-text">便于建模</span></a></li></ol>
     </div>
   </section>
-
-
-  
 
   
 
 
 <!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   <div class="pjax">
     <!-- pjax占位 -->
@@ -3502,13 +2793,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+
           <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <pjax>
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -3517,14 +2809,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     // header
     var l_header=document.getElementById("l_header");
     
-    l_header.classList.remove("show");
+    l_header.classList.add("show");
     
     
       // cover
       var cover_wrapper=document.querySelector('#l_cover .cover-wrapper');
       var scroll_down=document.getElementById('scroll-down');
-      cover_wrapper.id="half";
-      cover_wrapper.style.display="";
+      cover_wrapper.id="none";
+      cover_wrapper.style.display="none";
       scroll_down.style.display="none";
     
   
@@ -4473,7 +3765,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/archives/","name":"Archive"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SaltFish的博客","url":"http://example.com/","keywords":"java c++","description":"菜狗一枚，坐标西安电子科技大学","author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"菜狗一枚，坐标西安电子科技大学"},"publisher":{"@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/10/多线程有什么用/","name":"多线程有什么用"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"多线程有什么用","description":"到底为何需要多线程呢？","datePublished":"2022-06-10T13:16:22.000Z","dateModified":"2022-06-10T13:41:43.679Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/","wordCount":11,"keywords":"learning notes","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

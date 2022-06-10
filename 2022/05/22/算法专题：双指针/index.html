@@ -43,7 +43,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-05-22T15:16:54.000Z">
-<meta property="article:modified_time" content="2022-06-07T15:17:39.009Z">
+<meta property="article:modified_time" content="2022-06-10T12:49:25.730Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
@@ -1752,7 +1752,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.8a038721.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1654662398708),
+    lastupdate: new Date(1654872561452),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2576,10 +2576,31 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-size-subarray-sum/">https://leetcode.cn/problems/minimum-size-subarray-sum/</a></p>
 <p>注意点：注意左右指针指向的确定性，即当计算子数组的长度时，不论是移动右指针还是移动左指针，左右指针的指向都应该是明确的</p>
 <p>思想精髓：首先移动右指针直到找到一个子数组的和大于等于给定的target值，这时候就说明找到了一个以左指针指向的数组元素为开头的子数组满足要求。然后移动左指针一个单位，找以下一个元素开头的子数组，那此时为什么右指针指向的位置不用移动呢？因为寻找前一个元素的子数组时，右指针指向元素前方的元素之和是小于target的，所以只有右指针处于此时的位置，才有可能找到以下一个元素开头的满足条件的子数组</p>
+<hr>
+<hr>
 <p>424.替换后的最长重复字符</p>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-repeating-character-replacement/">https://leetcode.cn/problems/longest-repeating-character-replacement/</a></p>
 <p>注意点：答案中使用right-left来表示最终结果的原因是当符合要求时，right一直在自增，而当不符合要求时，left和right在同步自增，所以right和left之差其实记录了结果的长度。并且，当记录到一个长度时，下一次要寻找的长度只会比这个长，不会比这个短或者相同；第二个注意点是答案中使用maxn来表示暂时的子串中数量最多的字母，但是不符合要求之后left会自减，有可能自减的就是子串中数量最多的字母，但下一次循环时maxn的数量却并没有自减，经过分析之后发现，这里不需要自减能能够符合if语句判断需求并且是更加高效的做法</p>
 <p>这个题目乍一看着实有点绕，将这个题目翻译成易懂的话其实就是其实就是寻找一个子串，这个子串需要满足的要求就是子串长度减去子串中数量最多的字母的数量要小于等于k。将这个题目翻译之后再使用双指针的做法解决它就并不困难了</p>
+<hr>
+<hr>
+<p>438.找到字符串中所有字母异位词</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-all-anagrams-in-a-string/">https://leetcode.cn/problems/find-all-anagrams-in-a-string/</a></p>
+<p>思想：双指针思想</p>
+<p>答案中给出了两种解法，一种使用双指针滑动窗口的思想。第二种解法是在第一种的基础之上，对其进行优化。引入平衡因子进行子串是否符合要求的判断，大大提高了效率。第一种是要对字符计数数组进行遍历判断，效率比较低。</p>
+<p>567.字符串的排列</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/permutation-in-string/">https://leetcode.cn/problems/permutation-in-string/</a></p>
+<p>此题为上一题的简化版本</p>
+<hr>
+<hr>
+<p>713.乘积小于k的子数组</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/subarray-product-less-than-k/">https://leetcode.cn/problems/subarray-product-less-than-k/</a></p>
+<p>使用双指针滑动窗口的注意点：注意在窗口中确定数量的时候，应该确定left所指元素相关的子数组，因为下一次移动会失去left所指元素，所以保证先把以它为开始的子数组确定完，然后移动指针确定以接下来元素开始的子数组</p>
+<hr>
+<hr>
+<p>763.划分字母区间</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/partition-labels/">https://leetcode.cn/problems/partition-labels/</a></p>
+<p>这一题的难点依然是在题目翻译上。</p>
 
 
   </div>
@@ -2616,10 +2637,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-07T23:17:39+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-10T20:49:25+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年6月7日</p>
+    <p>更新于：2022年6月10日</p>
   </a>
 </div>
 
@@ -3774,7 +3795,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/05/22/算法专题：双指针/","name":"算法专题：双指针"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"算法专题：双指针","description":"leetcode刷题过程中关于two pointer算法相关的题目","datePublished":"2022-05-22T15:16:54.000Z","dateModified":"2022-06-07T15:17:39.009Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/05/22/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E5%8F%8C%E6%8C%87%E9%92%88/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/05/22/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E5%8F%8C%E6%8C%87%E9%92%88/","wordCount":33,"keywords":"leetcode","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/05/22/算法专题：双指针/","name":"算法专题：双指针"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"算法专题：双指针","description":"leetcode刷题过程中关于two pointer算法相关的题目","datePublished":"2022-05-22T15:16:54.000Z","dateModified":"2022-06-10T12:49:25.730Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/05/22/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E5%8F%8C%E6%8C%87%E9%92%88/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/05/22/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E5%8F%8C%E6%8C%87%E9%92%88/","wordCount":33,"keywords":"leetcode","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
