@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/03/24/stringbuilder类/"/>
+  <link rel="canonical" href="http://example.com/2022/06/15/线程中的异常处理/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,24 +31,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>StringBuilder类 & final用法 - SaltFish的博客</title>
-  <meta name="keywords" content="learning notes,java c++">
-  <meta desc name="description" content="StringBuilder类程序开发过程中，经常碰到字符串需要连接的情况，常用的方法是使用 + 号，但是这种方法每加一次就新创建了一个String对象，而且连接效率比较低，并且比较费空间，使用StringBuilder类，即可变长字符序列，可以避免这种问题的产生。
-
-append（）：字符串连接
-toString... - SaltFish - SaltFish的博客">
+  <title>线程中的异常处理 - SaltFish的博客</title>
+  <meta name="keywords" content="java,java c++">
+  <meta desc name="description" content="java中包含两种异常 - SaltFish - SaltFish的博客">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="StringBuilder类 &amp; final用法">
-<meta property="og:url" content="http://example.com/2022/03/24/StringBuilder%E7%B1%BB/index.html">
+<meta property="og:title" content="线程中的异常处理">
+<meta property="og:url" content="http://example.com/2022/06/15/%E7%BA%BF%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="StringBuilder类程序开发过程中，经常碰到字符串需要连接的情况，常用的方法是使用 + 号，但是这种方法每加一次就新创建了一个String对象，而且连接效率比较低，并且比较费空间，使用StringBuilder类，即可变长字符序列，可以避免这种问题的产生。  append（）：字符串连接 toString（）：返回一个与构建器或缓冲器内容相同的字符串">
+<meta property="og:description" content="java中包含两种异常">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-03-24T04:36:37.000Z">
-<meta property="article:modified_time" content="2022-05-29T11:52:50.796Z">
+<meta property="article:published_time" content="2022-06-15T02:37:13.000Z">
+<meta property="article:modified_time" content="2022-06-15T04:33:51.022Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="learning notes">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2503,7 +2500,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/24/StringBuilder%E7%B1%BB/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/15/%E7%BA%BF%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2524,7 +2521,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        StringBuilder类 & final用法
+        线程中的异常处理
       </h1>
       <div class='new-meta-box'>
         
@@ -2545,10 +2542,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-03-24T12:36:37+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-06-15T10:37:13+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年3月24日</p>
+    <p>发布于：2022年6月15日</p>
   </a>
 </div>
 
@@ -2569,21 +2566,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <div class="story post-story"><h2 id="StringBuilder类"><a href="#StringBuilder类" class="headerlink" title="StringBuilder类"></a>StringBuilder类</h2><p>程序开发过程中，经常碰到字符串需要连接的情况，常用的方法是使用 + 号，但是这种方法每加一次就新创建了一个String对象，而且连接效率比较低，并且比较费空间，使用StringBuilder类，即可变长字符序列，可以避免这种问题的产生。</p>
-<ul>
-<li>append（）：字符串连接</li>
-<li>toString（）：返回一个与构建器或缓冲器内容相同的字符串<span id="more"></span></li>
-</ul>
-<p>StringBuilder和StringBuffer最大的区别在于StringBuffer是线程安全的，但相应的性能也较之StringBuilder比较低。因此，在单线程情况下推荐使用StringBuilder，多线程情况下使用StringBuffer</p>
-</div><div class="story post-story"><h2 id="final用法"><a href="#final用法" class="headerlink" title="final用法"></a>final用法</h2><ul>
-<li>修饰基本数据类型：表示该数据是个常量，不能被修改</li>
-<li>修饰对象的引用：表示该引用不可被重新赋值，即该引用一直指向该对象，但是对象仍然可以被修改</li>
-<li>修饰类：表示该类不可被继承</li>
-<li>修饰方法：说明当前方法已经满足要求，不允许继承的类来重写此方法进行扩展</li>
-</ul>
+    <p>java中包含两种异常<span id="more"></span>:</p>
+<ol>
+<li>非运行时异常（Checked Exception）：必须在方法声明的throws语句中指定或者在方法体内捕获，如IOException和ClassNotFoundException</li>
+<li>运行时异常（Unchecked Exception）：必须在方法声明中指定或者在方法体内捕获</li>
+</ol>
 <hr>
+<p>run（）方法不支持throws语句，所以当线程对象的</p>
 
-</div>
+
   </div>
   
   
@@ -2601,7 +2592,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/03/24/StringBuilder%E7%B1%BB/>http://example.com/2022/03/24/StringBuilder%E7%B1%BB/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/06/15/%E7%BA%BF%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/>http://example.com/2022/06/15/%E7%BA%BF%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</a></p>
               
             
           </blockquote>
@@ -2618,10 +2609,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-29T19:52:50+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-15T12:33:51+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年5月29日</p>
+    <p>更新于：2022年6月15日</p>
   </a>
 </div>
 
@@ -2630,8 +2621,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/learning-notes/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>learning notes</p></a></div>
-  <span hidden itemprop="keywords">learning notes</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>java</p></a></div>
+  <span hidden itemprop="keywords">java</span>
 
 
         
@@ -2644,10 +2635,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/03/24/StringBuilder%E7%B1%BB/&title=StringBuilder类 & final用法 - SaltFish的博客&summary=StringBuilder类程序开发过程中，经常碰到字符串需要连接的情况，常用的方法是使用 + 号，但是这种方法每加一次就新创建了一个String对象，而且连接效率比较低，并且比较费空间，使用StringBuilder类，即可变长字符序列，可以避免这种问题的产生。
-
-append（）：字符串连接
-toString（）：返回一个与构建器或缓冲器内容相同的字符串"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/06/15/%E7%BA%BF%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/&title=线程中的异常处理 - SaltFish的博客&summary=java中包含两种异常"
           
           >
           
@@ -2659,10 +2647,7 @@ toString（）：返回一个与构建器或缓冲器内容相同的字符串"
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/03/24/StringBuilder%E7%B1%BB/&title=StringBuilder类 & final用法 - SaltFish的博客&summary=StringBuilder类程序开发过程中，经常碰到字符串需要连接的情况，常用的方法是使用 + 号，但是这种方法每加一次就新创建了一个String对象，而且连接效率比较低，并且比较费空间，使用StringBuilder类，即可变长字符序列，可以避免这种问题的产生。
-
-append（）：字符串连接
-toString（）：返回一个与构建器或缓冲器内容相同的字符串"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/06/15/%E7%BA%BF%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/&title=线程中的异常处理 - SaltFish的博客&summary=java中包含两种异常"
           
           >
           
@@ -2674,10 +2659,7 @@ toString（）：返回一个与构建器或缓冲器内容相同的字符串"
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/03/24/StringBuilder%E7%B1%BB/&title=StringBuilder类 & final用法 - SaltFish的博客&summary=StringBuilder类程序开发过程中，经常碰到字符串需要连接的情况，常用的方法是使用 + 号，但是这种方法每加一次就新创建了一个String对象，而且连接效率比较低，并且比较费空间，使用StringBuilder类，即可变长字符序列，可以避免这种问题的产生。
-
-append（）：字符串连接
-toString（）：返回一个与构建器或缓冲器内容相同的字符串"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/06/15/%E7%BA%BF%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/&title=线程中的异常处理 - SaltFish的博客&summary=java中包含两种异常"
           
           >
           
@@ -2710,23 +2692,12 @@ toString（）：返回一个与构建器或缓冲器内容相同的字符串"
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/03/24/array/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>Arary.asList() & 数组和集合的区别 & 加密算法 & spring-security antMathchers匹配原则</p>
-          <p class='content'>Arrays.asList()该方法是将数组转换成list集合的方法，有以下四点需要注意：
-
-该方法适用于对象型的数组，不建议使用基本类型的数组
-该方法将list集合和数组联结起来，一个更新，另...</p>
-        </a>
       
-      
-        <a class='next' href='/2022/03/24/trycatchfinally/'>
-          <p class='title'>使用接口的原因 & try catch finally & spring-boot配置文件中的on和off<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>使用接口的原因
-有利于代码的规范，服务的规范
-有利于后续代码的运行维护修改
-
-try catch finally块中不含return的情况
-try中没有异常：则执行完try中的内容后执行fina...</p>
+        <a class='next' href='/2022/06/15/%E7%BA%BF%E7%A8%8B%E7%9A%84sleep%E6%96%B9%E6%B3%95/'>
+          <p class='title'>线程的sleep方法<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>sleep方法和wait方法的区别
+sleep方法属于Thread类，而wait（）属于Object类
+sleep（）导致程序暂停指定的时间，让出cpu，但它的运行状态依然保持，到了指定时间又会...</p>
         </a>
       
     </div>
@@ -2742,7 +2713,7 @@ try中没有异常：则执行完try中的内容后执行fina...</p>
   
   <article class="post white-box reveal shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/03/24/StringBuilder%E7%B1%BB/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/06/15/%E7%BA%BF%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2765,19 +2736,9 @@ try中没有异常：则执行完try中的内容后执行fina...</p>
 
 
 
-  <section class="widget toc-wrapper shadow floatable blur desktop mobile pjax" id="toc-div" >
-    
-  <header>
-    
-      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#StringBuilder%E7%B1%BB"><span class="toc-text">StringBuilder类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#final%E7%94%A8%E6%B3%95"><span class="toc-text">final用法</span></a></li></ol>
-    </div>
-  </section>
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   
 
@@ -3791,7 +3752,7 @@ try中没有异常：则执行完try中的内容后执行fina...</p>
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/03/24/StringBuilder类/","name":"StringBuilder类 & final用法"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"StringBuilder类 & final用法","description":"StringBuilder类程序开发过程中，经常碰到字符串需要连接的情况，常用的方法是使用 + 号，但是这种方法每加一次就新创建了一个String对象，而且连接效率比较低，并且比较费空间，使用StringBuilder类，即可变长字符序列，可以避免这种问题的产生。\n\nappend（）：字符串连接\ntoString（）：返回一个与构建器或缓冲器内容相同的字符串","datePublished":"2022-03-24T04:36:37.000Z","dateModified":"2022-05-29T11:52:50.796Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/03/24/StringBuilder%E7%B1%BB/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/03/24/StringBuilder%E7%B1%BB/","wordCount":180,"keywords":"learning notes","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/15/线程中的异常处理/","name":"线程中的异常处理"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"线程中的异常处理","description":"java中包含两种异常","datePublished":"2022-06-15T02:37:13.000Z","dateModified":"2022-06-15T04:33:51.022Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/15/%E7%BA%BF%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/15/%E7%BA%BF%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/","wordCount":11,"keywords":"java","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
