@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/05/26/a-a-b和a-b的区别/"/>
+  <link rel="canonical" href="http://example.com/2022/06/18/自旋锁/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,21 +31,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>a=a+b和a+=b的区别 - SaltFish的博客</title>
-  <meta name="keywords" content="java面试,java c++">
-  <meta desc name="description" content="在java语言中，当参与运算的两个数是byte，short或者int时或者它们三者的混合时，它们首先都会被转换成int类型，然后进行运算，当然最后的结果也是int类型的 - SaltFish - SaltFish的博客">
+  <title>自旋锁 - SaltFish的博客</title>
+  <meta name="keywords" content="java,java c++">
+  <meta desc name="description" content="很多synchronized里面的代码只是很简单的操作，执行时间非常短，此时让等待的线程处于阻塞状态是一种浪费效率的做法，因为线程阻塞涉及到用户态和内核态切换的问题 - SaltFish - SaltFish的博客">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="a&#x3D;a+b和a+&#x3D;b的区别">
-<meta property="og:url" content="http://example.com/2022/05/26/a-a-b%E5%92%8Ca-b%E7%9A%84%E5%8C%BA%E5%88%AB/index.html">
+<meta property="og:title" content="自旋锁">
+<meta property="og:url" content="http://example.com/2022/06/18/%E8%87%AA%E6%97%8B%E9%94%81/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="在java语言中，当参与运算的两个数是byte，short或者int时或者它们三者的混合时，它们首先都会被转换成int类型，然后进行运算，当然最后的结果也是int类型的">
+<meta property="og:description" content="很多synchronized里面的代码只是很简单的操作，执行时间非常短，此时让等待的线程处于阻塞状态是一种浪费效率的做法，因为线程阻塞涉及到用户态和内核态切换的问题">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-05-26T01:23:38.000Z">
-<meta property="article:modified_time" content="2022-05-26T01:24:57.767Z">
+<meta property="article:published_time" content="2022-06-18T08:04:13.000Z">
+<meta property="article:modified_time" content="2022-06-18T08:15:24.002Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="java面试">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2500,7 +2500,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/26/a-a-b%E5%92%8Ca-b%E7%9A%84%E5%8C%BA%E5%88%AB/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/18/%E8%87%AA%E6%97%8B%E9%94%81/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2521,7 +2521,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        a=a+b和a+=b的区别
+        自旋锁
       </h1>
       <div class='new-meta-box'>
         
@@ -2542,10 +2542,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-05-26T09:23:38+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-06-18T16:04:13+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年5月26日</p>
+    <p>发布于：2022年6月18日</p>
   </a>
 </div>
 
@@ -2566,17 +2566,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>在java语言中，当参与运算的两个数是byte，short或者int时或者它们三者的混合时，它们首先都会被转换成int类型，然后进行运算，当然最后的结果也是int类型的<span id="more"></span></p>
-<h3 id="a-x3D-a-b和a-x3D-b的区别"><a href="#a-x3D-a-b和a-x3D-b的区别" class="headerlink" title="a&#x3D;a+b和a+&#x3D;b的区别"></a>a&#x3D;a+b和a+&#x3D;b的区别</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">short s1 = 1;</span><br><span class="line">short s2 = 2;</span><br><span class="line">s2 = s1 + s2;</span><br></pre></td></tr></table></figure>
-
-<p>上述代码第三行会报错。因为进行两个short类型的数的计算的时候，会首先将它们转换成int类型，因而计算结果也是int类型的，所以要赋值给short类型的s2这种由上到下的类型转换必须经过强转，即将运算结果强转为short类型上述代码才不会报错</p>
-<p>将上述代码修改一下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">short s1 = 1;</span><br><span class="line">short s2 = 2;</span><br><span class="line">s2 += s1;</span><br></pre></td></tr></table></figure>
-
-<p>上述代码不会报错。原因是 +&#x3D; 运算符会进行强制类型转换，将s1 + s2 int类型的运算结果强制转换为short类型</p>
-<blockquote>
-<p>在java中，由下到上的类型转换可以隐式发生，不用在代码中表现出来，如将两个short类型的数相加赋值给一个int类型数。但是由上到下的类型转换必须在代码中表现出来，即进行强制类型转换</p>
-</blockquote>
+    <p>很多synchronized里面的代码只是很简单的操作，执行时间非常短，此时让等待的线程处于阻塞状态是一种浪费效率的做法，因为线程阻塞涉及到用户态和内核态切换的问题<span id="more"></span></p>
+<h3 id="自旋"><a href="#自旋" class="headerlink" title="自旋"></a>自旋</h3><p>不让等待的线程处于阻塞状态，而让它们在synchronized的边界做忙循环，这就是自旋。如果做了多次忙循环仍然没有获得锁，再阻塞，这是一种更好的策略</p>
+<h3 id="自旋锁的优缺点"><a href="#自旋锁的优缺点" class="headerlink" title="自旋锁的优缺点"></a>自旋锁的优缺点</h3><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><p>自旋锁不会引起调用者休眠，所以自旋锁的效率远高于互斥锁</p>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<li>自旋锁一直占用cpu，在未获得锁的情况下，一直运行，如果不能在很短的时间内获得锁，会使cpu的效率降低</li>
+<li>试图递归的获得自旋锁或引起死锁</li>
+</ul>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>适用于保持锁的时间比较短并且线程之间竞争不是很激烈的时候。</p>
 
 
   </div>
@@ -2596,7 +2593,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/05/26/a-a-b%E5%92%8Ca-b%E7%9A%84%E5%8C%BA%E5%88%AB/>http://example.com/2022/05/26/a-a-b%E5%92%8Ca-b%E7%9A%84%E5%8C%BA%E5%88%AB/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/06/18/%E8%87%AA%E6%97%8B%E9%94%81/>http://example.com/2022/06/18/%E8%87%AA%E6%97%8B%E9%94%81/</a></p>
               
             
           </blockquote>
@@ -2613,10 +2610,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-26T09:24:57+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-18T16:15:24+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年5月26日</p>
+    <p>更新于：2022年6月18日</p>
   </a>
 </div>
 
@@ -2625,8 +2622,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java%E9%9D%A2%E8%AF%95/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>java面试</p></a></div>
-  <span hidden itemprop="keywords">java面试</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>java</p></a></div>
+  <span hidden itemprop="keywords">java</span>
 
 
         
@@ -2639,7 +2636,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/05/26/a-a-b%E5%92%8Ca-b%E7%9A%84%E5%8C%BA%E5%88%AB/&title=a=a+b和a+=b的区别 - SaltFish的博客&summary=在java语言中，当参与运算的两个数是byte，short或者int时或者它们三者的混合时，它们首先都会被转换成int类型，然后进行运算，当然最后的结果也是int类型的"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/06/18/%E8%87%AA%E6%97%8B%E9%94%81/&title=自旋锁 - SaltFish的博客&summary=很多synchronized里面的代码只是很简单的操作，执行时间非常短，此时让等待的线程处于阻塞状态是一种浪费效率的做法，因为线程阻塞涉及到用户态和内核态切换的问题"
           
           >
           
@@ -2651,7 +2648,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/05/26/a-a-b%E5%92%8Ca-b%E7%9A%84%E5%8C%BA%E5%88%AB/&title=a=a+b和a+=b的区别 - SaltFish的博客&summary=在java语言中，当参与运算的两个数是byte，short或者int时或者它们三者的混合时，它们首先都会被转换成int类型，然后进行运算，当然最后的结果也是int类型的"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/06/18/%E8%87%AA%E6%97%8B%E9%94%81/&title=自旋锁 - SaltFish的博客&summary=很多synchronized里面的代码只是很简单的操作，执行时间非常短，此时让等待的线程处于阻塞状态是一种浪费效率的做法，因为线程阻塞涉及到用户态和内核态切换的问题"
           
           >
           
@@ -2663,7 +2660,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/05/26/a-a-b%E5%92%8Ca-b%E7%9A%84%E5%8C%BA%E5%88%AB/&title=a=a+b和a+=b的区别 - SaltFish的博客&summary=在java语言中，当参与运算的两个数是byte，short或者int时或者它们三者的混合时，它们首先都会被转换成int类型，然后进行运算，当然最后的结果也是int类型的"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/06/18/%E8%87%AA%E6%97%8B%E9%94%81/&title=自旋锁 - SaltFish的博客&summary=很多synchronized里面的代码只是很简单的操作，执行时间非常短，此时让等待的线程处于阻塞状态是一种浪费效率的做法，因为线程阻塞涉及到用户态和内核态切换的问题"
           
           >
           
@@ -2696,28 +2693,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/05/26/java%E5%86%85%E9%83%A8%E7%B1%BB/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>java内部类</p>
-          <p class='content'>java内部类的定义和作用是什么呢
-定义将一个类定义在另一个类里或者定义在一个方法里面或者某个作用域里，成为内部类
-作用1.内部类可以无条件访问该类定义所在作用域中的数据，包括被private修...</p>
-        </a>
       
-      
-        <a class='next' href='/2022/05/23/c-c-%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/'>
-          <p class='title'>c/c++编译过程<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>
-
-c&#x2F;c++语言的编译过程分为四个阶段：预处理，编译，汇编和链接
-过程
-
-预处理
-
-进行宏替换，去注释，将#include的头文件加入到源代码里面等操作
-
-编译
-
-首先进行语法检查，...</p>
+        <a class='next' href='/2022/06/17/ThreadLocal/'>
+          <p class='title'>ThreadLocal<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>ThreadLocal叫做线程本地变量，并且这个变量只属于当前线程，对于其他线程来说是隔离的
+当你创建了一个ThreadLocal变量的时候，实则是在访问这个变量的线程中都创建了这个变量的拷贝，...</p>
         </a>
       
     </div>
@@ -2733,7 +2713,7 @@ c&#x2F;c++语言的编译过程分为四个阶段：预处理，编译，汇编�
   
   <article class="post white-box reveal shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/05/26/a-a-b%E5%92%8Ca-b%E7%9A%84%E5%8C%BA%E5%88%AB/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/06/18/%E8%87%AA%E6%97%8B%E9%94%81/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2766,7 +2746,7 @@ c&#x2F;c++语言的编译过程分为四个阶段：预处理，编译，汇编�
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-x3D-a-b%E5%92%8Ca-x3D-b%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">a&#x3D;a+b和a+&#x3D;b的区别</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E6%97%8B"><span class="toc-text">自旋</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E6%97%8B%E9%94%81%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">自旋锁的优缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9%EF%BC%9A"><span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9%EF%BC%9A"><span class="toc-text">缺点：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">应用场景</span></a></li></ol>
     </div>
   </section>
 
@@ -3782,7 +3762,7 @@ c&#x2F;c++语言的编译过程分为四个阶段：预处理，编译，汇编�
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/05/26/a-a-b和a-b的区别/","name":"a=a+b和a+=b的区别"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"a=a+b和a+=b的区别","description":"在java语言中，当参与运算的两个数是byte，short或者int时或者它们三者的混合时，它们首先都会被转换成int类型，然后进行运算，当然最后的结果也是int类型的","datePublished":"2022-05-26T01:23:38.000Z","dateModified":"2022-05-26T01:24:57.767Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/05/26/a-a-b%E5%92%8Ca-b%E7%9A%84%E5%8C%BA%E5%88%AB/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/05/26/a-a-b%E5%92%8Ca-b%E7%9A%84%E5%8C%BA%E5%88%AB/","wordCount":84,"keywords":"java面试","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/18/自旋锁/","name":"自旋锁"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"自旋锁","description":"很多synchronized里面的代码只是很简单的操作，执行时间非常短，此时让等待的线程处于阻塞状态是一种浪费效率的做法，因为线程阻塞涉及到用户态和内核态切换的问题","datePublished":"2022-06-18T08:04:13.000Z","dateModified":"2022-06-18T08:15:24.002Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/18/%E8%87%AA%E6%97%8B%E9%94%81/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/18/%E8%87%AA%E6%97%8B%E9%94%81/","wordCount":82,"keywords":"java","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

@@ -1750,7 +1750,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.8a038721.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1655536710602),
+    lastupdate: new Date(1655556384265),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2505,6 +2505,60 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/24/classforname/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SaltFish的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="SaltFish的博客">
+    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/03/24/classforname/"  itemprop="url">
+        class.forname() & 数据库unique约束 & @Resouce和@Autowired & @RestController & maven父子项目
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      <h2 id="Class-forName"><a href="#Class-forName" class="headerlink" title="Class.forName()"></a>Class.forName()</h2><ul>
+<li>java类加载器负责把java字节码文件读取，然后加载到jvm中，并且转换成一个Class类的实例，每一个java类都有一个对应Class类的实例，这个类负责描述如何创建这个类的实例，比如该类包含哪些成员变量和成员方法等。在第一次使用这个类的时候，类加载器会检查是否加载此类的Class对像，如果没有加载到jvm中，则会把这个Class对象加载到jvm中。</li></ul>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-03-24T13:16:58+08:00">2022-03-24</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/03/24/classforname/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
   <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/24/Bean/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
@@ -2970,7 +3024,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <div class='md article-desc' itemprop="articleBody">
     
-      <h2 id="为什么创建线程池"><a href="#为什么创建线程池" class="headerlink" title="为什么创建线程池"></a>为什么创建线程池</h2><ul>
+      <h3 id="为什么创建线程池"><a href="#为什么创建线程池" class="headerlink" title="为什么创建线程池"></a>为什么创建线程池</h3><ul>
 <li>每次new Thread新建对象的性能差</li>
 <li>线程缺乏统一的管理，可以无限制的创建线程，相互之间竞争，极可能占用过多的资源导致死机</li>
 <li>缺乏更多的功能，如定期执行，定时执行等</li></ul>
@@ -2986,65 +3040,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div>
           <a class='readmore' href='/2022/03/24/threadpool/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/23/spring-security/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/03/23/spring-security/"  itemprop="url">
-        spring security & 为什么前后端分离项目不能使用cookie-session机制
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <meta name="referrer" content="no-referrer">
-
-<h2 id="Spring-Security流程"><a href="#Spring-Security流程" class="headerlink" title="Spring Security流程"></a>Spring Security流程</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>spring security的原理其实就是一个过滤器链，内部包含了提供各种功能的过滤器</p>
-<h3 id="主要过滤器"><a href="#主要过滤器" class="headerlink" title="主要过滤器"></a>主要过滤器</h3><p>主要三个过滤器，他们顺序是：</p>
-<ol>
-<li>UsernamePasswordAutenticationFilter（负责处理登录请求，验证密码和用户）</li>
-<li>ExceptionTranslationFilter（处理过滤器中抛出的任何AccessDeniedException和AuthenticationException）</li></ol>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-03-23T23:23:43+08:00">2022-03-23</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/03/23/spring-security/' itemprop="url">
             阅读全文
           </a>
         </div>

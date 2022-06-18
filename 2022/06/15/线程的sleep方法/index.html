@@ -44,7 +44,7 @@ sleep方法属于Thread类，而wait（）属于Object类 - SaltFish - SaltFish�
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-06-15T02:15:40.000Z">
-<meta property="article:modified_time" content="2022-06-15T02:29:43.089Z">
+<meta property="article:modified_time" content="2022-06-18T07:37:51.436Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -1753,7 +1753,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.8a038721.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1655536710602),
+    lastupdate: new Date(1655556384265),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2571,6 +2571,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>sleep方法属于Thread类，而wait（）属于Object类<span id="more"></span></li>
 <li>sleep（）导致程序暂停指定的时间，让出cpu，但它的运行状态依然保持，到了指定时间又会恢复到运行状态，并且在休眠过程中不会让出对象锁；而wait（）会释放对象锁，进入等待此对象的等待锁定池，只有针对此对象调用notify（）方法后才进入对象锁定池准备，获取对象锁进入运行状态</li>
 </ul>
+<blockquote>
+<p>wait（）和notify（）都属于Object类的方法，即每个对象都可以拥有锁，调用这两个方法时，必须对竞争资源进行加锁，而调用这两个方法的前提也是获得对象的锁。</p>
+<p><strong>注意点：</strong></p>
+<ol>
+<li>wait（）和notify（）的区别在于：前者会立即释放对象监视器，即释放对象锁；而后者则是等待线程执行完同步代码块之后才放弃对象监视器</li>
+<li>wait（）应配合while循环使用，不应使用if，这样线程暂停恢复后都检查wait（）条件，并在实际上并未改变的情况下唤醒通知</li>
+<li>notify（）是对notifyAll（）的一个优化，但它有很精确的应用场景，并且要求正确使用，不然可能导致死锁。但后者却不会导致死锁</li>
+</ol>
+</blockquote>
 <h3 id="与yield（）的区别"><a href="#与yield（）的区别" class="headerlink" title="与yield（）的区别"></a>与yield（）的区别</h3><ul>
 <li>sleep（）给其他线程运行机会时不考虑线程的优先级，yield（）则会给相同优先级或者更高优先级的线程运行机会</li>
 <li>线程执行sleep（）后进入阻塞状态，而执行yield（）方法后转入就绪状态</li>
@@ -2618,10 +2627,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-15T10:29:43+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-18T15:37:51+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年6月15日</p>
+    <p>更新于：2022年6月18日</p>
   </a>
 </div>
 
@@ -3781,7 +3790,7 @@ sleep方法属于Thread类，而wait（）属于Object类"
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/15/线程的sleep方法/","name":"线程的sleep方法"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"线程的sleep方法","description":"sleep方法和wait方法的区别\nsleep方法属于Thread类，而wait（）属于Object类","datePublished":"2022-06-15T02:15:40.000Z","dateModified":"2022-06-15T02:29:43.089Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/15/%E7%BA%BF%E7%A8%8B%E7%9A%84sleep%E6%96%B9%E6%B3%95/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/15/%E7%BA%BF%E7%A8%8B%E7%9A%84sleep%E6%96%B9%E6%B3%95/","wordCount":51,"keywords":"java","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/15/线程的sleep方法/","name":"线程的sleep方法"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"线程的sleep方法","description":"sleep方法和wait方法的区别\nsleep方法属于Thread类，而wait（）属于Object类","datePublished":"2022-06-15T02:15:40.000Z","dateModified":"2022-06-18T07:37:51.436Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/15/%E7%BA%BF%E7%A8%8B%E7%9A%84sleep%E6%96%B9%E6%B3%95/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/15/%E7%BA%BF%E7%A8%8B%E7%9A%84sleep%E6%96%B9%E6%B3%95/","wordCount":51,"keywords":"java","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
