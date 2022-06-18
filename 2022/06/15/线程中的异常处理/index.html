@@ -43,7 +43,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-06-15T02:37:13.000Z">
-<meta property="article:modified_time" content="2022-06-15T04:33:51.022Z">
+<meta property="article:modified_time" content="2022-06-17T03:24:04.048Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -1752,7 +1752,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.8a038721.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1655432728547),
+    lastupdate: new Date(1655535402844),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2572,7 +2572,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>运行时异常（Unchecked Exception）：必须在方法声明中指定或者在方法体内捕获</li>
 </ol>
 <hr>
-<p>run（）方法不支持throws语句，所以当线程对象的</p>
+<h3 id="设置对象未捕获异常处理器"><a href="#设置对象未捕获异常处理器" class="headerlink" title="设置对象未捕获异常处理器"></a>设置对象未捕获异常处理器</h3><p>run（）方法不支持throws语句，所以当线程对象的run（）方法抛出非运行异常时，必须捕获并且处理它们。当运行时异常从run（）方法抛出时，默认行为是在控制台输出堆栈记录并且退出程序</p>
+<p><strong>java提供了一种在线程对象里捕获和处理运行时异常的一种机制，用来实现处理运行时异常的类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">Task</span> <span class="variable">task</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Task</span>();</span><br><span class="line">		<span class="type">Thread</span> <span class="variable">thread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(task);</span><br><span class="line">		thread.setUncaughtExceptionHandler(<span class="keyword">new</span> <span class="title class_">ExceptionHandler</span>());</span><br><span class="line">		thread.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Task</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">numero</span> <span class="operator">=</span> Integer.parseInt(<span class="string">&quot;TTT&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ExceptionHandler</span> <span class="keyword">implements</span> <span class="title class_">UncaughtExceptionHandler</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">uncaughtException</span><span class="params">(Thread t,Throwable e)</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		*t.getId();</span></span><br><span class="line"><span class="comment">		*e.getClass().getName(),e.getMessage();</span></span><br><span class="line"><span class="comment">		*e.printStackTrace(System.out);</span></span><br><span class="line"><span class="comment">		*t.getState();</span></span><br><span class="line"><span class="comment">		*/</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当一个线程抛出了异常并且没有被捕获时，jvm检查这个异常是否被预置了未捕获异常处理器。如果找到，jvm将调用这个线程对象的这个方法，并将线程对象和异常作为参数传入这个函数</p>
+<h3 id="设置Thread类未捕获异常处理器"><a href="#设置Thread类未捕获异常处理器" class="headerlink" title="设置Thread类未捕获异常处理器"></a>设置Thread类未捕获异常处理器</h3><p>通过Thread类的静态方法setDefaultUncaughtExceptionHandler（）可以为所有的线程对象设置默认未捕获异常处理器</p>
+<h4 id="当线程抛出异常时，jvm寻找异常处理器顺序"><a href="#当线程抛出异常时，jvm寻找异常处理器顺序" class="headerlink" title="当线程抛出异常时，jvm寻找异常处理器顺序"></a>当线程抛出异常时，jvm寻找异常处理器顺序</h4><ul>
+<li>首先，查找当前线程对象的未捕获异常处理器</li>
+<li>如果找不到，查找当前线程所在线程组（ThreadGroup)的未捕获异常处理器</li>
+<li>如果还是找不到，jvm将继续寻找Thread类的异常处理器</li>
+<li>如果没有一个处理器存在，jvm将堆栈异常记录打印到控制台，并退出程序</li>
+</ul>
 
 
   </div>
@@ -2609,10 +2620,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-15T12:33:51+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-17T11:24:04+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年6月15日</p>
+    <p>更新于：2022年6月17日</p>
   </a>
 </div>
 
@@ -2692,6 +2703,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
+        <a class='prev' href='/2022/06/17/CAS%E6%9C%BA%E5%88%B6/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>CAS机制</p>
+          <p class='content'>
+
+什么是cas机制呢？
+CAS机制我们都知道因为count ++不是原子操作，那么在多线程环境下执行这条语句的时候，可能会出现count预期值与实际值不相符的情况。解决这种问题的方法有两种：一...</p>
+        </a>
+      
       
         <a class='next' href='/2022/06/15/%E7%BA%BF%E7%A8%8B%E7%9A%84sleep%E6%96%B9%E6%B3%95/'>
           <p class='title'>线程的sleep方法<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
@@ -2736,9 +2755,19 @@ sleep（）导致程序暂停指定的时间，让出cpu，但它的运行状态
 
 
 
-  <div class="pjax">
-    <!-- pjax占位 -->
-  </div>
+  <section class="widget toc-wrapper shadow floatable blur desktop mobile pjax" id="toc-div" >
+    
+  <header>
+    
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%AF%B9%E8%B1%A1%E6%9C%AA%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-text">设置对象未捕获异常处理器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AEThread%E7%B1%BB%E6%9C%AA%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-text">设置Thread类未捕获异常处理器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%93%E7%BA%BF%E7%A8%8B%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%E6%97%B6%EF%BC%8Cjvm%E5%AF%BB%E6%89%BE%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E5%99%A8%E9%A1%BA%E5%BA%8F"><span class="toc-text">当线程抛出异常时，jvm寻找异常处理器顺序</span></a></li></ol></li></ol>
+    </div>
+  </section>
 
   
 
@@ -3752,7 +3781,7 @@ sleep（）导致程序暂停指定的时间，让出cpu，但它的运行状态
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/15/线程中的异常处理/","name":"线程中的异常处理"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"线程中的异常处理","description":"java中包含两种异常","datePublished":"2022-06-15T02:37:13.000Z","dateModified":"2022-06-15T04:33:51.022Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/15/%E7%BA%BF%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/15/%E7%BA%BF%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/","wordCount":11,"keywords":"java","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/15/线程中的异常处理/","name":"线程中的异常处理"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"线程中的异常处理","description":"java中包含两种异常","datePublished":"2022-06-15T02:37:13.000Z","dateModified":"2022-06-17T03:24:04.048Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/15/%E7%BA%BF%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/15/%E7%BA%BF%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/","wordCount":11,"keywords":"java","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
