@@ -4,8 +4,8 @@
   <meta name="generator" content="Hexo 6.1.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="http://example.com/archives/2022/page/2/"/>
+  
+  <link rel="canonical" href="http://example.com/2022/06/19/java中的死锁/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,19 +31,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>归档：2022 - SaltFish的博客</title>
-  <meta name="keywords" content="java c++">
-  <meta desc name="description" content="菜狗一枚，坐标西安电子科技大学 - SaltFish - SaltFish的博客">
+  <title>java中的死锁 - SaltFish的博客</title>
+  <meta name="keywords" content="java,java c++">
+  <meta desc name="description" content="使用多线程，就有可能导致死锁，死锁会导致程序一直卡住，不再往下执行，只有通过终止程序的方法让其重新执行 - SaltFish - SaltFish的博客">
   
-<meta property="og:type" content="website">
-<meta property="og:title" content="SaltFish的博客">
-<meta property="og:url" content="http://example.com/archives/2022/page/2/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java中的死锁">
+<meta property="og:url" content="http://example.com/2022/06/19/java%E4%B8%AD%E7%9A%84%E6%AD%BB%E9%94%81/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="菜狗一枚，坐标西安电子科技大学">
+<meta property="og:description" content="使用多线程，就有可能导致死锁，死锁会导致程序一直卡住，不再往下执行，只有通过终止程序的方法让其重新执行">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2022-06-19T02:19:28.000Z">
+<meta property="article:modified_time" content="2022-06-19T06:24:26.081Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="java c++">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2153,7 +2155,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <!-- Custom Files bodyBegin begin-->
     
     <!-- Custom Files bodyBegin end-->
-    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur " style='opacity: 0' >
+    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -2422,7 +2424,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="half" class='cover-wrapper  dock' style="display: ;">
+      <div id="none" class='cover-wrapper post dock' style="display: none;">
         
   <div class='cover-bg lazyload placeholder' data-bg="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture"></div>
 
@@ -2497,16 +2499,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper">
           
 <div id="l_main" class=''>
-	
-		
-  <section class="post-list">
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/11/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/19/java%E4%B8%AD%E7%9A%84%E6%AD%BB%E9%94%81/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2515,558 +2509,242 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
   </span>
   
-  
+
+
   
     <span hidden>
       <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
     </span>
   
-  
+  <div class="article-meta" id="top">
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/06/11/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/"  itemprop="url">
-        线程安全
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
     
-      <h3 id="何谓线程安全？"><a href="#何谓线程安全？" class="headerlink" title="何谓线程安全？"></a>何谓线程安全？</h3><p>线程安全就是多线程访问同一块代码，不会产生不确定的结果。</p>
+    
+      <h1 class="title" itemprop="name headline">
+        java中的死锁
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/apple-touch-icon.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/apple-touch-icon.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">请设置文章作者</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-06-19T10:19:28+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年6月19日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
     
   </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <p>使用多线程，就有可能导致死锁，死锁会导致程序一直卡住，不再往下执行，只有通过终止程序的方法让其重新执行<span id="more"></span></p>
+<h3 id="死锁的四个必要条件"><a href="#死锁的四个必要条件" class="headerlink" title="死锁的四个必要条件"></a>死锁的四个必要条件</h3><ol>
+<li>互斥条件：指多线程共享的资源互斥使用，一段时间之内只有一个线程能够占用这个资源，其他线程只能处于等待状态</li>
+<li>请求和保持条件：线程已经占有一个资源，但是又提出了新的资源请求，但是它所请求的资源又被其他线程占有，此时它的请求受到阻塞，但是它对它自己所占有的资源又不进行释放</li>
+<li>不剥夺条件：线程已经占有的资源，在未使用完之前，不能被剥夺，只能由自己释放</li>
+<li>环路等待条件：发生死锁时，必然存在一个线程，资源的环形链，即A请求B占有的资源，B请求C占有的资源，C又请求A占有的资源</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">A</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span> <span class="variable">flag</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Object</span> <span class="variable">o1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Object</span>(),o2 = <span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> run</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(flag == <span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">synchronized</span>(o1)</span><br><span class="line">			&#123;</span><br><span class="line">				...</span><br><span class="line">				<span class="keyword">synchronized</span>(o2)</span><br><span class="line">				&#123;</span><br><span class="line">					...</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">else</span></span><br><span class="line">         &#123;</span><br><span class="line">         	<span class="keyword">synchronized</span>(o2)</span><br><span class="line">         	&#123;</span><br><span class="line">         		...</span><br><span class="line">         		<span class="keyword">synchronized</span>(o1)</span><br><span class="line">         		&#123;</span><br><span class="line">         			...</span><br><span class="line">         		&#125;</span><br><span class="line">         	&#125;</span><br><span class="line">         &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">A</span> <span class="variable">a1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">A</span>();</span><br><span class="line">        <span class="type">A</span> <span class="variable">a2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">A</span>();</span><br><span class="line">        a1.flag = <span class="number">1</span>;</span><br><span class="line">        a2.flag = <span class="number">2</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(a1).start();</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(a2).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述程序就有可能发生死锁，即如果线程1首先占有o1资源，然后线程2占有o2资源，此时线程1又请求o2资源，线程2请求o1资源，但它们在未得到自己请求的资源之前，都不会对自己占有的资源进行释放，因而造成了死锁</p>
+<blockquote>
+<p><strong>活锁：</strong></p>
+<p>活锁是指正在执行的线程或者进程没有发生阻塞，由于某些条件没有满足，一直重复执行“重试-失败-重试-失败”的过程</p>
+</blockquote>
+<h3 id="预防死锁"><a href="#预防死锁" class="headerlink" title="预防死锁"></a>预防死锁</h3><p>预防死锁的条件一般是破坏死锁产生的四个必要条件，一般可行的方法是破坏环路条件，即让两个线程请求锁的顺序一致，则就不会发生死锁。针对两个锁对象，可以根据锁对象的hashcode值的大小的顺序，决定所有线程获得锁的顺序，以此消除发生死锁的可能性</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">fromHash</span> <span class="operator">=</span> System.identityHashCode(fromAcct);</span><br><span class="line"><span class="type">int</span> <span class="variable">toHash</span> <span class="operator">=</span> System.identityHashCode(toAcct);</span><br></pre></td></tr></table></figure>
+
+<p>在极少数情况下，如果这两个锁对象的hashcode值相等，则引入加时锁,通过tieLock来决定加锁的顺序</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Object</span> <span class="variable">tieLock</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">synchronized</span>(tieLock)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">synchronized</span>(fromAcct)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">synchronized</span>(toAcct)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+  </div>
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-06-11T15:14:37+08:00">2022-06-11</time>
-        
-      </div>
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2022/06/11/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/' itemprop="url">
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://example.com/2022/06/19/java%E4%B8%AD%E7%9A%84%E6%AD%BB%E9%94%81/>http://example.com/2022/06/19/java%E4%B8%AD%E7%9A%84%E6%AD%BB%E9%94%81/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-19T14:24:26+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年6月19日</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/10/java%E7%BA%BF%E7%A8%8B%E5%88%9B%E5%BB%BA%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>java</p></a></div>
+  <span hidden itemprop="keywords">java</span>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/06/19/java%E4%B8%AD%E7%9A%84%E6%AD%BB%E9%94%81/&title=java中的死锁 - SaltFish的博客&summary=使用多线程，就有可能导致死锁，死锁会导致程序一直卡住，不再往下执行，只有通过终止程序的方法让其重新执行"
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/06/19/java%E4%B8%AD%E7%9A%84%E6%AD%BB%E9%94%81/&title=java中的死锁 - SaltFish的博客&summary=使用多线程，就有可能导致死锁，死锁会导致程序一直卡住，不再往下执行，只有通过终止程序的方法让其重新执行"
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/06/19/java%E4%B8%AD%E7%9A%84%E6%AD%BB%E9%94%81/&title=java中的死锁 - SaltFish的博客&summary=使用多线程，就有可能导致死锁，死锁会导致程序一直卡住，不再往下执行，只有通过终止程序的方法让其重新执行"
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
   
   
+
   
+    <div class="prev-next">
+      
+        <a class='prev' href='/2022/06/19/synchronized%E5%85%B3%E9%94%AE%E5%AD%97/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>synchronized关键字</p>
+          <p class='content'>synchronized关键字的原理属于jvm层面
+底层原理synchronized 同步语句块的情况1234567public void method()&#123;	synchronized...</p>
+        </a>
+      
+      
+        <a class='next' href='/2022/06/18/%E8%87%AA%E6%97%8B%E9%94%81/'>
+          <p class='title'>自旋锁<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>很多synchronized里面的代码只是很简单的操作，执行时间非常短，此时让等待的线程处于阻塞状态是一种浪费效率的做法，因为线程阻塞涉及到用户态和内核态切换的问题
+自旋不让等待的线程处于阻塞状...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+  
+  <article class="post white-box reveal shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+      <meta itemprop="discussionUrl" content="/2022/06/19/java%E4%B8%AD%E7%9A%84%E6%AD%BB%E9%94%81/index.html#comments">
     </span>
-  
-  
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/06/10/java%E7%BA%BF%E7%A8%8B%E5%88%9B%E5%BB%BA%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/"  itemprop="url">
-        java线程创建的几种方式
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
     
-      
-        包括普通方法，使用线程池创建，定时任务等
-1.继承Thread类，作为线程对象存在12345678910111213141516171819202122232425public class A extends Thread&#123;    public A (String name)    &#123;        super(name);    &#125;        @Overr...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-06-10T22:13:01+08:00">2022-06-10</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/06/10/java%E7%BA%BF%E7%A8%8B%E5%88%9B%E5%BB%BA%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
+    <div id="layoutHelper-comments"></div>
 
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/06/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/"  itemprop="url">
-        多线程有什么用
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>到底为何需要多线程呢？</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-06-10T21:16:22+08:00">2022-06-10</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/06/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/08/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/06/08/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"  itemprop="url">
-        垃圾收集器-判定哪些对象可以回收
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>今天的内存动态分配和内存回收技术已经相当成熟，一切看起来已经进入了自动化时代，那为什么我们还要去了解垃圾收集和内存分配？</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-06-08T11:11:20+08:00">2022-06-08</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/06/08/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/06/%E9%81%8D%E5%8E%86arraylist%E6%97%B6%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/06/06/%E9%81%8D%E5%8E%86arraylist%E6%97%B6%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0/"  itemprop="url">
-        遍历arraylist时如何正确删除一个元素
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>在遍历ArrayList集合元素时，如果没有掌握正确的方法，可能会导致漏掉一些元素或者导致错误</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-06-06T08:36:03+08:00">2022-06-06</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/06/06/%E9%81%8D%E5%8E%86arraylist%E6%97%B6%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/06/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"  itemprop="url">
-        正则表达式
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <h3 id="为什么使用正则表达式"><a href="#为什么使用正则表达式" class="headerlink" title="为什么使用正则表达式"></a>为什么使用正则表达式</h3><p>典型的搜索和替换操作要求提供与预期的搜索结果匹配的确切文本。虽然这种技术对于静态文本执行简单的搜索和替换已经足够了，但是缺乏灵活性，若采用这种方式搜索动态文本，即使不是不可能，至少也会变得非常困难</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-06-02T23:10:59+08:00">2022-06-02</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/06/02/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/02/java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/06/02/java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/"  itemprop="url">
-        java内存区域
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <meta name="referrer" content="no-referrer">
-
-<p>对于java程序员来说，虚拟机自动内存管理帮助他们不需要为每一个new操作写delete&#x2F;free代码，不容易出现内存泄漏和内存溢出问题。但是一旦出现问题，如果不明白java虚拟机是如何使用内存的，那么排查错误，修正问题将会非常艰难</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-06-02T09:38:50+08:00">2022-06-02</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/06/02/java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/31/%E5%90%8C%E6%AD%A5%E9%9B%86%E5%90%88%E5%92%8C%E5%B9%B6%E5%8F%91%E9%9B%86%E5%90%88/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/05/31/%E5%90%8C%E6%AD%A5%E9%9B%86%E5%90%88%E5%92%8C%E5%B9%B6%E5%8F%91%E9%9B%86%E5%90%88/"  itemprop="url">
-        同步集合和并发集合
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>java中的同步集合和并发集合有什么区别？</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-05-31T20:34:15+08:00">2022-05-31</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/05/31/%E5%90%8C%E6%AD%A5%E9%9B%86%E5%90%88%E5%92%8C%E5%B9%B6%E5%8F%91%E9%9B%86%E5%90%88/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/31/String%E7%B1%BB%E5%AD%97%E9%9D%A2%E5%B8%B8%E9%87%8F%E7%9B%B8%E5%85%B3/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/05/31/String%E7%B1%BB%E5%AD%97%E9%9D%A2%E5%B8%B8%E9%87%8F%E7%9B%B8%E5%85%B3/"  itemprop="url">
-        String类字面常量相关
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>了解与字符串字面常量相关的东西</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-05-31T19:55:51+08:00">2022-05-31</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/05/31/String%E7%B1%BB%E5%AD%97%E9%9D%A2%E5%B8%B8%E9%87%8F%E7%9B%B8%E5%85%B3/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/28/ConcurrentModificationException%E5%BC%82%E5%B8%B8/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/05/28/ConcurrentModificationException%E5%BC%82%E5%B8%B8/"  itemprop="url">
-        ConcurrentModificationException异常
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>中文名叫做并发修改异常，它出现的原因和解决办法是什么呢？</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-05-28T23:16:07+08:00">2022-05-28</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/05/28/ConcurrentModificationException%E5%BC%82%E5%B8%B8/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-          <a class="prev" rel="prev" href="/archives/2022/">
-            <section class="post prev white-box shadow floatable blur" >
-              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
-            </section>
-          </a>
-        
-        <p class="current">
-          2 / 7
-        </p>
-        
-          <a class="next" rel="next" href="/archives/2022/page/3/">
-            <section class="post next white-box shadow floatable blur">
-              &nbsp;下一页&nbsp;<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
-    
+  </article>
   
 
 
-	
+
+
+
 </div>
 <aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
   
@@ -3074,103 +2752,34 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow floatable blur desktop mobile pjax">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">SaltFish的博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fa-solid fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fa-solid fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fa-solid fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow floatable blur desktop mobile pjax">
+  <section class="widget toc-wrapper shadow floatable blur desktop mobile pjax" id="toc-div" >
     
   <header>
     
-      <a href='/blog/tags/'><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <a href="/tags/c-c/" style="font-size: 14px; color: #999">c/c++</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/java%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 20px; color: #707070">java虚拟机</a> <a href="/tags/java%E9%9D%A2%E8%AF%95/" style="font-size: 18px; color: #7e7e7e">java面试</a> <a href="/tags/learning-notes/" style="font-size: 22px; color: #636363">learning notes</a> <a href="/tags/leetcode/" style="font-size: 14px; color: #999">leetcode</a> <a href="/tags/mybatis-plus/" style="font-size: 18px; color: #7e7e7e">mybatis-plus</a> <a href="/tags/mysql/" style="font-size: 18px; color: #7e7e7e">mysql</a> <a href="/tags/sharing/" style="font-size: 18px; color: #7e7e7e">sharing</a> <a href="/tags/spring-boot/" style="font-size: 14px; color: #999">spring-boot</a> <a href="/tags/spring-security/" style="font-size: 16px; color: #8b8b8b">spring-security</a> <a href="/tags/thinking/" style="font-size: 14px; color: #999">thinking</a> <a href="/tags/web/" style="font-size: 14px; color: #999">web</a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E5%9B%9B%E4%B8%AA%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="toc-text">死锁的四个必要条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E9%98%B2%E6%AD%BB%E9%94%81"><span class="toc-text">预防死锁</span></a></li></ol>
     </div>
   </section>
-
-
-  
 
   
 
 
 <!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   <div class="pjax">
     <!-- pjax占位 -->
@@ -3199,13 +2808,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+
           <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <pjax>
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -3214,14 +2824,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     // header
     var l_header=document.getElementById("l_header");
     
-    l_header.classList.remove("show");
+    l_header.classList.add("show");
     
     
       // cover
       var cover_wrapper=document.querySelector('#l_cover .cover-wrapper');
       var scroll_down=document.getElementById('scroll-down');
-      cover_wrapper.id="half";
-      cover_wrapper.style.display="";
+      cover_wrapper.id="none";
+      cover_wrapper.style.display="none";
       scroll_down.style.display="none";
     
   
@@ -4170,7 +3780,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/archives/","name":"Archive"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/archives/2022/","name":"2022年"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SaltFish的博客","url":"http://example.com/","keywords":"java c++","description":"菜狗一枚，坐标西安电子科技大学","author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"菜狗一枚，坐标西安电子科技大学"},"publisher":{"@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/19/java中的死锁/","name":"java中的死锁"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"java中的死锁","description":"使用多线程，就有可能导致死锁，死锁会导致程序一直卡住，不再往下执行，只有通过终止程序的方法让其重新执行","datePublished":"2022-06-19T02:19:28.000Z","dateModified":"2022-06-19T06:24:26.081Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/19/java%E4%B8%AD%E7%9A%84%E6%AD%BB%E9%94%81/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/19/java%E4%B8%AD%E7%9A%84%E6%AD%BB%E9%94%81/","wordCount":51,"keywords":"java","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
