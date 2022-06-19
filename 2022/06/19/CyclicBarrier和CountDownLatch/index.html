@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/04/17/sql中的left-join和right-join/"/>
+  <link rel="canonical" href="http://example.com/2022/06/19/cyclicbarrier和countdownlatch/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,23 +31,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>sql中的left join和right join - SaltFish的博客</title>
-  <meta name="keywords" content="mysql,java c++">
-  <meta desc name="description" content="
-
-sql中的左连接（left join）和右连接（right join）的作用 - SaltFish - SaltFish的博客">
+  <title>CyclicBarrier和CountDownLatch - SaltFish的博客</title>
+  <meta name="keywords" content="java,java c++">
+  <meta desc name="description" content="两个都可以表示程序运行到某个点上，然后在这个点上对其执行一些多线程操作 - SaltFish - SaltFish的博客">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="sql中的left join和right join">
-<meta property="og:url" content="http://example.com/2022/04/17/sql%E4%B8%AD%E7%9A%84left-join%E5%92%8Cright-join/index.html">
+<meta property="og:title" content="CyclicBarrier和CountDownLatch">
+<meta property="og:url" content="http://example.com/2022/06/19/CyclicBarrier%E5%92%8CCountDownLatch/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="sql中的左连接（left join）和右连接（right join）的作用">
+<meta property="og:description" content="两个都可以表示程序运行到某个点上，然后在这个点上对其执行一些多线程操作">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-04-17T05:15:58.000Z">
-<meta property="article:modified_time" content="2022-05-23T02:31:10.570Z">
+<meta property="article:published_time" content="2022-06-19T09:03:27.000Z">
+<meta property="article:modified_time" content="2022-06-19T09:32:53.213Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2502,7 +2500,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/17/sql%E4%B8%AD%E7%9A%84left-join%E5%92%8Cright-join/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/19/CyclicBarrier%E5%92%8CCountDownLatch/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2523,7 +2521,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        sql中的left join和right join
+        CyclicBarrier和CountDownLatch
       </h1>
       <div class='new-meta-box'>
         
@@ -2544,10 +2542,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-04-17T13:15:58+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-06-19T17:03:27+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年4月17日</p>
+    <p>发布于：2022年6月19日</p>
   </a>
 </div>
 
@@ -2568,28 +2566,54 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer">
-
-<p>sql中的左连接（left join）和右连接（right join）的作用<span id="more"></span></p>
-<h3 id="left-join"><a href="#left-join" class="headerlink" title="left join"></a>left join</h3><p>左连接，即把左边的全部查出来，右边有的则匹配，没有的则为null</p>
-<p><img src="https://img-blog.csdnimg.cn/2019021317160671.png" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/2019021317160671.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p>
-<p><img src="https://img-blog.csdnimg.cn/20190213171845573.png" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/20190213171845573.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p>
-<p><img src="https://img-blog.csdnimg.cn/20190213171724249.png" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/20190213171724249.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p>
-<p>以上三张表分别为temp1、temp2和temp3</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from temp1 t1 left join temp2 t2 on t1.aid=t2.bid ;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/20190213172311894.png" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/20190213172311894.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from temp2 t2 left join temp1 t1 on t2.bid=t1.aid ;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/20190213172338928.png" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/20190213172338928.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p>
-<p>通过三张表，通过两个left join来连接，则把前面两张表先left join之后当做一张表，然后再与第三张表left join，同理，多张表的left join以此类推</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from temp1 t1 left join temp2 t2 on t1.aid=t2.bid left join temp3 t3 on t2.bid=t3.cid ;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/20190213172515143.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3doZXJlZGF0YQ==,size_16,color_FFFFFF,t_70" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/20190213172515143.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3doZXJlZGF0YQ==,size_16,color_FFFFFF,t_70" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from temp3 t3 left join temp1 t1 on t3.cid=t1.aid left join temp2 t2 on t3.cid=t2.bid;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/20190213172635946.png" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/20190213172635946.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p>
-<h3 id="right-join"><a href="#right-join" class="headerlink" title="right join"></a>right join</h3><p>与left join相对应，会将右边的数据全部查出来</p>
+    <p>两个都可以表示程序运行到某个点上，然后在这个点上对其执行一些多线程操作<span id="more"></span></p>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ul>
+<li><p>CyclicBarrier的某个线程运行到某个点上之后，则该线程停止运行，直到所有的线程到运行到了这个点，，所有的线程才重新运行；CountDownLatch则不是，某线程运行到某个点之后，只是给某个数值自减，该线程继续运行</p>
+</li>
+<li><p>CyclicBarrier只能唤起一个任务，CountDownLatch可以唤起多个任务</p>
+</li>
+<li><p>CyclicBarrier可重用，而后者不可重用，计数值为0时该CountDownLatch就不可再用了</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>区别</th>
+<th>CountDownLatch</th>
+<th>CyclicBarrier</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>计数方式</td>
+<td>递减计数</td>
+<td>加法计数</td>
+</tr>
+<tr>
+<td>可重复利用性</td>
+<td>不可</td>
+<td>可以</td>
+</tr>
+<tr>
+<td>初始值</td>
+<td>初始值为N,N&gt;0</td>
+<td>N为0</td>
+</tr>
+<tr>
+<td>技术方式</td>
+<td>调用countDown，N-1</td>
+<td>调用await，N+1</td>
+</tr>
+<tr>
+<td>阻塞条件</td>
+<td>N&gt;0,调用await一直阻塞</td>
+<td>N小于指定值</td>
+</tr>
+<tr>
+<td>何时释放等待线程</td>
+<td>计数为0时</td>
+<td>计数达到指定值N</td>
+</tr>
+</tbody></table>
 
 
   </div>
@@ -2609,7 +2633,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/04/17/sql%E4%B8%AD%E7%9A%84left-join%E5%92%8Cright-join/>http://example.com/2022/04/17/sql%E4%B8%AD%E7%9A%84left-join%E5%92%8Cright-join/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/06/19/CyclicBarrier%E5%92%8CCountDownLatch/>http://example.com/2022/06/19/CyclicBarrier%E5%92%8CCountDownLatch/</a></p>
               
             
           </blockquote>
@@ -2626,10 +2650,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-23T10:31:10+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-19T17:32:53+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年5月23日</p>
+    <p>更新于：2022年6月19日</p>
   </a>
 </div>
 
@@ -2638,8 +2662,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/mysql/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>mysql</p></a></div>
-  <span hidden itemprop="keywords">mysql</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>java</p></a></div>
+  <span hidden itemprop="keywords">java</span>
 
 
         
@@ -2652,9 +2676,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/04/17/sql%E4%B8%AD%E7%9A%84left-join%E5%92%8Cright-join/&title=sql中的left join和right join - SaltFish的博客&summary=
-
-sql中的左连接（left join）和右连接（right join）的作用"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/06/19/CyclicBarrier%E5%92%8CCountDownLatch/&title=CyclicBarrier和CountDownLatch - SaltFish的博客&summary=两个都可以表示程序运行到某个点上，然后在这个点上对其执行一些多线程操作"
           
           >
           
@@ -2666,9 +2688,7 @@ sql中的左连接（left join）和右连接（right join）的作用"
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/04/17/sql%E4%B8%AD%E7%9A%84left-join%E5%92%8Cright-join/&title=sql中的left join和right join - SaltFish的博客&summary=
-
-sql中的左连接（left join）和右连接（right join）的作用"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/06/19/CyclicBarrier%E5%92%8CCountDownLatch/&title=CyclicBarrier和CountDownLatch - SaltFish的博客&summary=两个都可以表示程序运行到某个点上，然后在这个点上对其执行一些多线程操作"
           
           >
           
@@ -2680,9 +2700,7 @@ sql中的左连接（left join）和右连接（right join）的作用"
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/04/17/sql%E4%B8%AD%E7%9A%84left-join%E5%92%8Cright-join/&title=sql中的left join和right join - SaltFish的博客&summary=
-
-sql中的左连接（left join）和右连接（right join）的作用"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/06/19/CyclicBarrier%E5%92%8CCountDownLatch/&title=CyclicBarrier和CountDownLatch - SaltFish的博客&summary=两个都可以表示程序运行到某个点上，然后在这个点上对其执行一些多线程操作"
           
           >
           
@@ -2715,20 +2733,11 @@ sql中的左连接（left join）和右连接（right join）的作用"
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/04/18/%E2%80%9Csql%E8%AF%AD%E5%8F%A5%E4%B9%8Border-by%E2%80%9D/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>sql语句之order_by</p>
-          <p class='content'>
-
-order by：即对sql查询的结果集进行排序，可以根据数字，日期，字符等对结果进行排序
-使用方法1select * from student order by age;#按照age升序排...</p>
-        </a>
       
-      
-        <a class='next' href='/2022/04/15/mybatis-plus%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95%E9%85%8D%E7%BD%AE/'>
-          <p class='title'>mybatis-plus中使用自定义方法配置<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>使用mybatis-plus框架，对于一些简单的curd操作，使用其提供的方法即可，但是对于一些复杂操作，还是需要自己写sql语句，那么使用自定义方法时如何进行配置呢？
-配置过程
-建立Mappe...</p>
+        <a class='next' href='/2022/06/19/synchronized%E5%85%B3%E9%94%AE%E5%AD%97/'>
+          <p class='title'>synchronized关键字<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>synchronized关键字的原理属于jvm层面
+底层原理synchronized 同步语句块的情况1234567public void method()&#123;	synchronized...</p>
         </a>
       
     </div>
@@ -2744,7 +2753,7 @@ order by：即对sql查询的结果集进行排序，可以根据数字，日期
   
   <article class="post white-box reveal shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/04/17/sql%E4%B8%AD%E7%9A%84left-join%E5%92%8Cright-join/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/06/19/CyclicBarrier%E5%92%8CCountDownLatch/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2777,7 +2786,7 @@ order by：即对sql查询的结果集进行排序，可以根据数字，日期
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#left-join"><span class="toc-text">left join</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#right-join"><span class="toc-text">right join</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BA%E5%88%AB"><span class="toc-text">区别</span></a></li></ol>
     </div>
   </section>
 
@@ -3793,7 +3802,7 @@ order by：即对sql查询的结果集进行排序，可以根据数字，日期
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/04/17/sql中的left-join和right-join/","name":"sql中的left join和right join"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"sql中的left join和right join","description":"\n\nsql中的左连接（left join）和右连接（right join）的作用","datePublished":"2022-04-17T05:15:58.000Z","dateModified":"2022-05-23T02:31:10.570Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/04/17/sql%E4%B8%AD%E7%9A%84left-join%E5%92%8Cright-join/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/04/17/sql%E4%B8%AD%E7%9A%84left-join%E5%92%8Cright-join/","wordCount":40,"keywords":"mysql","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/19/CyclicBarrier和CountDownLatch/","name":"CyclicBarrier和CountDownLatch"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"CyclicBarrier和CountDownLatch","description":"两个都可以表示程序运行到某个点上，然后在这个点上对其执行一些多线程操作","datePublished":"2022-06-19T09:03:27.000Z","dateModified":"2022-06-19T09:32:53.213Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/19/CyclicBarrier%E5%92%8CCountDownLatch/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/19/CyclicBarrier%E5%92%8CCountDownLatch/","wordCount":35,"keywords":"java","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
