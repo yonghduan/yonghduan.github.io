@@ -43,7 +43,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-06-19T12:36:56.000Z">
-<meta property="article:modified_time" content="2022-06-19T15:00:32.559Z">
+<meta property="article:modified_time" content="2022-06-23T15:18:23.508Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
@@ -1752,7 +1752,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.8a038721.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1655816646281),
+    lastupdate: new Date(1655997596566),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2567,17 +2567,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
     <p>leetcode刷题过程中关于链表的题目<span id="more"></span></p>
-<h3 id="题目统计"><a href="#题目统计" class="headerlink" title="题目统计"></a>题目统计</h3><ol start="2">
-<li></li>
-</ol>
+<h3 id="题目统计"><a href="#题目统计" class="headerlink" title="题目统计"></a>题目统计</h3><p>2. </p>
 <hr>
-<ol start="19">
-<li></li>
-</ol>
+<p>19. </p>
 <hr>
-<ol start="21">
-<li></li>
-</ol>
+<p>21. </p>
 <hr>
 <p>23.合并K个升序链表</p>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/merge-k-sorted-lists/">https://leetcode.cn/problems/merge-k-sorted-lists/</a></p>
@@ -2601,6 +2595,38 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 <p>维护k个链表没有被合并的最前面的一个元素，每次从这些元素里面选取一个最小的元素合并到最终的链表中。在选取最小元素是时候，我们可以使用优先队列来优化这个过程</p>
 <hr>
+<ol start="25">
+<li>K个一组翻转链表</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-nodes-in-k-group/">https://leetcode.cn/problems/reverse-nodes-in-k-group/</a></p>
+<p>实现思路是清晰的：首先是判断是否足够k个节点，如果足够则反转。实现思想非常简单，但是实现过程中如果不使用一些技巧并进行巧妙的设计，容易写出非常冗长的代码，即判断语句会非常多。我自己实现的代码就是比较冗长，所以总结了答案代码一些巧妙的设计以减少判断语句</p>
+<ul>
+<li>因为第一部分和后面部分的操作不同，第一部分需要记录头结点，而其他部分都是将前置节点next域设为反转部分的头结点即可。因此我们虚构出一个头结点，使第一部分的操作与其他部分的操作相同，这样就省略了对是否是第一部分的判断</li>
+<li>判断节点数量是否足够k个时，循环结束指针应该指向第k个节点，而不应该指向第k个节点的下一个节点。因为如果指向下一个节点，针对总结点数为k个的链表，则后续需要追加其他操作</li>
+</ul>
+<hr>
+<hr>
+<ol start="206">
+<li>反转链表</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-linked-list/">https://leetcode.cn/problems/reverse-linked-list/</a></p>
+<p>因为链表天然带有实现递归的条件，所以可以使用递归。也可以使用迭代法。</p>
+<p>注意点：将首个需要交换的节点设为空指针节点，这样能够省去很多判断条件</p>
+<hr>
+<hr>
+<ol start="61">
+<li>旋转链表</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/rotate-list/">https://leetcode.cn/problems/rotate-list/</a></p>
+<p>一个链表，每个节点需要向右移动k个位置</p>
+<p>实质：将链表围成一个圈，从哪里断开的问题</p>
+<hr>
+<hr>
+<ol start="82">
+<li>删除排序链表中的重复元素II</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/">https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/</a></p>
+<p>注意点：注意何时才能连接这个元素</p>
 
 
   </div>
@@ -2637,10 +2663,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-19T23:00:32+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-23T23:18:23+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年6月19日</p>
+    <p>更新于：2022年6月23日</p>
   </a>
 </div>
 
@@ -3803,7 +3829,7 @@ CyclicBarrier的某个线程运行到某个点上之后，则该线程停止运�
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/19/算法专题：链表/","name":"算法专题：链表"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"算法专题：链表","description":"leetcode刷题过程中关于链表的题目","datePublished":"2022-06-19T12:36:56.000Z","dateModified":"2022-06-19T15:00:32.559Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/19/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E9%93%BE%E8%A1%A8/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/19/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E9%93%BE%E8%A1%A8/","wordCount":20,"keywords":"leetcode","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/19/算法专题：链表/","name":"算法专题：链表"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"算法专题：链表","description":"leetcode刷题过程中关于链表的题目","datePublished":"2022-06-19T12:36:56.000Z","dateModified":"2022-06-23T15:18:23.508Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/19/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E9%93%BE%E8%A1%A8/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/19/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E9%93%BE%E8%A1%A8/","wordCount":20,"keywords":"leetcode","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
