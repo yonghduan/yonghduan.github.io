@@ -44,7 +44,7 @@ Serial - SaltFish - SaltFish的博客">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-06-22T11:19:17.000Z">
-<meta property="article:modified_time" content="2022-06-22T14:42:04.908Z">
+<meta property="article:modified_time" content="2022-06-25T07:07:34.742Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="java虚拟机">
 <meta name="twitter:card" content="summary">
@@ -1753,7 +1753,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.8a038721.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1655997596566),
+    lastupdate: new Date(1656164503279),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2600,13 +2600,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>G1</li>
 </ol>
 <p>同优秀的cms收集器一样，G1也是关注最小时延的垃圾回收器，也同样适合大尺寸堆内存的垃圾收集，官方也推荐使用G1来代替cms。G1最大的特点是引入分区的思路，弱化分代的概念，合理利用垃圾收集各个周期的资源，解决了其他收集器甚至cms的众多缺陷。</p>
-<p>因为每个区都有E、S、O代，在G1中，不需要对整个Eden代进行回收，而是寻找可回收对象比较多的区，然后进行回收（虽然需要STW操作，但是花费的时间是很少的），保证高效率</p>
+<p>G1的设计理念是支持在一个指定长度为M毫秒的时间片段内，消耗在垃圾收集上的时间大概率不超过N毫秒这样的目标。</p>
+<p>因为每个区都有E、S、O代，在G1中，不需要对整个Eden代进行回收，而是寻找可回收对象比较多的区，然后进行回收（虽然需要STW操作，但是花费的时间是很少的），保证高效率。</p>
 <p><strong>新生代收集：</strong></p>
 <p>新生代如果存活超过某个阈值，就会被转移到S&#x2F;O区。新生代内存由一组不连续的heap区组成，这种方法可以动态调整各代区域的大小</p>
 <p><strong>老年代收集：</strong></p>
 <ul>
-<li>初始标记：</li>
+<li>初始标记：标记GC Roots能直接关联到的对象，这个阶段需要停顿线程，但耗时很短</li>
+<li>并发标记：从GC Roots开始对堆中的对象进行可达性分析，递归扫描整个堆里的对象图，找出需要回收的对象，这个阶段耗时比较长，但是可以与用户线程并发执行。当对象图扫描完成以后，还需要重新处理SATB记录下的在并发情况下引用有变动的对象</li>
+<li>最终标记：对用户线程做另一个短暂的暂停，用于处理并发阶段结束时仍然遗留下来的那少量的SATB记录</li>
+<li>筛选回收：负责更新Region的统计数据，对各个Region的回收价值和成本进行排序，根据用户期望的停顿时间来制定回收计划，可以自由地选择任意多个Region构成回收集，然后把决定回收的那一部分Region的存活对象复制到空的Region中，在清理掉整个旧Region的全部空间。这里的操作涉及对象的移动，是必须暂停用户线程，由多条收集器线程并行完成的</li>
 </ul>
+<blockquote>
+<p>SATB: cms收集器采用增量更新算法实现并发标记阶段收集线程和用户线程互不干扰运行。而G1收集器则是使用原始快照（SATB）算法来实现的</p>
+</blockquote>
 <h3 id="分代垃圾回收过程"><a href="#分代垃圾回收过程" class="headerlink" title="分代垃圾回收过程"></a>分代垃圾回收过程</h3><p>分代回收器有两个分区：老年代和新生代，新生代默认的空间占比是1&#x2F;3，其余为老生代。</p>
 <p>新生代使用的算法是复制算法，新生代有3个分区：Eden、To Survivor、From Survivor，它们占比默认是8：1:1 。当Eden区满的时候，就会触发新生代的GC（Minor GC）它的执行流程如下：</p>
 <ol>
@@ -2649,10 +2656,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-22T22:42:04+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-25T15:07:34+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年6月22日</p>
+    <p>更新于：2022年6月25日</p>
   </a>
 </div>
 
@@ -2734,6 +2741,13 @@ Serial"
 
   
     <div class="prev-next">
+      
+        <a class='prev' href='/2022/06/25/jvm%E8%B0%83%E4%BC%98/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>jvm调优</p>
+          <p class='content'>调优命令Sun jdk监控和故障处理命令有jps jstat jmap jhat jstack jinfo
+
+jps: jvm process status tool,显示指定系统内的所有hot...</p>
+        </a>
       
       
         <a class='next' href='/2022/06/21/jvm%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B/'>
@@ -3811,7 +3825,7 @@ Serial"
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/22/几款典型垃圾收集器/","name":"几款典型垃圾收集器"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"几款典型垃圾收集器","description":"典型垃圾回收器\nSerial","datePublished":"2022-06-22T11:19:17.000Z","dateModified":"2022-06-22T14:42:04.908Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/22/%E5%87%A0%E6%AC%BE%E5%85%B8%E5%9E%8B%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/22/%E5%87%A0%E6%AC%BE%E5%85%B8%E5%9E%8B%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/","wordCount":14,"keywords":"java虚拟机","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/22/几款典型垃圾收集器/","name":"几款典型垃圾收集器"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"几款典型垃圾收集器","description":"典型垃圾回收器\nSerial","datePublished":"2022-06-22T11:19:17.000Z","dateModified":"2022-06-25T07:07:34.742Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/22/%E5%87%A0%E6%AC%BE%E5%85%B8%E5%9E%8B%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/22/%E5%87%A0%E6%AC%BE%E5%85%B8%E5%9E%8B%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/","wordCount":14,"keywords":"java虚拟机","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
