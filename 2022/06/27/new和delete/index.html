@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/05/21/虚拟机类加载/"/>
+  <link rel="canonical" href="http://example.com/2022/06/27/new和delete/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,21 +31,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>虚拟机类加载 - SaltFish的博客</title>
-  <meta name="keywords" content="java虚拟机,java c++">
-  <meta desc name="description" content="字节码（Class）文件中描述了各类的信息，这些class文件最终都需要加载到虚拟机中才能被运行和使用，虚拟机如何加载这些class文件，我们知道class文件具有特定的结构，那么class文件载入虚拟机之后会发生什么变化呢？ - SaltFish - SaltFish的博客">
+  <title>new和delete - SaltFish的博客</title>
+  <meta name="keywords" content="c/c++,java c++">
+  <meta desc name="description" content="c++中的动态内存管理 - SaltFish - SaltFish的博客">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="虚拟机类加载">
-<meta property="og:url" content="http://example.com/2022/05/21/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD/index.html">
+<meta property="og:title" content="new和delete">
+<meta property="og:url" content="http://example.com/2022/06/27/new%E5%92%8Cdelete/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="字节码（Class）文件中描述了各类的信息，这些class文件最终都需要加载到虚拟机中才能被运行和使用，虚拟机如何加载这些class文件，我们知道class文件具有特定的结构，那么class文件载入虚拟机之后会发生什么变化呢？">
+<meta property="og:description" content="c++中的动态内存管理">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-05-21T12:32:31.000Z">
-<meta property="article:modified_time" content="2022-05-23T02:21:57.019Z">
+<meta property="article:published_time" content="2022-06-27T15:30:52.000Z">
+<meta property="article:modified_time" content="2022-06-28T03:51:28.848Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="java虚拟机">
+<meta property="article:tag" content="c&#x2F;c++">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2500,7 +2500,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/21/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/27/new%E5%92%8Cdelete/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2521,7 +2521,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        虚拟机类加载
+        new和delete
       </h1>
       <div class='new-meta-box'>
         
@@ -2542,10 +2542,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-05-21T20:32:31+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-06-27T23:30:52+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年5月21日</p>
+    <p>发布于：2022年6月27日</p>
   </a>
 </div>
 
@@ -2566,65 +2566,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>字节码（Class）文件中描述了各类的信息，这些class文件最终都需要加载到虚拟机中才能被运行和使用，虚拟机如何加载这些class文件，我们知道class文件具有特定的结构，那么class文件载入虚拟机之后会发生什么变化呢？<span id="more"></span></p>
-<h3 id="类加载机制"><a href="#类加载机制" class="headerlink" title="类加载机制"></a>类加载机制</h3><p>java虚拟机把描述类的数据从class文件加载到内存，并对数据进行校验，转换解析和初始化，最终形成可以被虚拟机直接使用的java类型，这个过程可以称作虚拟机的类加载机制</p>
-<p><strong>与那些在编译时需要连接的语言不同，java语言类型的加载，连接和初始化都是在程序运行期间完成的，这种策略让程序运行期间会增加一些额外的性能开销，但是却为java应用提供了极高的扩展性和灵活性。java天生可以动态扩展的语言特点就是依赖程序运行期间动态加载和动态连接这个特点实现的</strong></p>
-<h4 id="类加载时机"><a href="#类加载时机" class="headerlink" title="类加载时机"></a>类加载时机</h4><p>类加载过程：加载，验证，准备，解析，初始化，使用，卸载七个阶段</p>
-<p>在什么情况下开始类加载第一过程的加载阶段，并没有强制性约束，但是对于初始化阶段，《Java虚拟机规范》却有严格的规定，有且只有六中情况必须立即对类进行初始化</p>
-<ol>
-<li>使用new关键字；读取或设置一个类型的静态字段（被final修饰，已在编译器把结果放在常量池的静态字段除外）；调用一个类型的静态方法的时候</li>
-<li>使用java.lang.reflect包方法对类型进行反射调用的时候，如果类型没有初始化，则需要先触发其初始化</li>
-<li>当初始化类的时候，如果发现其父类还没有进行初始化，则需要先触发器父类的初始化</li>
-<li>当虚拟机启动时，用户需要指定一个要执行的主类，虚拟机会先初始化这个类</li>
-<li>当使用了jdk7新加入的动态语言支持时。。。</li>
-<li>当一个接口中定义了jdk8中新加入的默认方法时，如果这个接口的实现类发生了初始化，那该接口要在其之前被初始化</li>
-</ol>
-<blockquote>
-<p>可以使用反射的方法手动加载类，主要有Class.forName()和xxx.class 这两个接口，两者区别是前者会加载类并初始化类，但是后者只会加载而不会进行初始化</p>
-</blockquote>
-<h4 id="类加载的过程"><a href="#类加载的过程" class="headerlink" title="类加载的过程"></a>类加载的过程</h4><ol>
-<li>加载</li>
-</ol>
-<p>第一阶段，它需要完成以下三件事情</p>
-<ul>
-<li>通过一个类的全限定名来获取定义此类的二进制字节流</li>
-<li>将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构</li>
-<li>在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口</li>
-</ul>
-<blockquote>
-<p>规范中并没有指明二进制字节流从某个class文件中获取，虚拟机是使用者可以在加载阶段构建出一个广阔的舞台，如:</p>
-<ul>
-<li>从zip压缩包中获取，如jar，ear，war包等格式</li>
-<li>从网络中获取</li>
-<li>运行时计算生成，这种场景使用最多的就是动态代理技术，在java.lang.reflect.Proxy中，就是用了ProxyGenerator.generateProxyClass（）来为特定接口生成形式为“$Proxy”的代理类的二进制字节流</li>
-<li>。。。</li>
-</ul>
-</blockquote>
-<ol start="2">
-<li>验证</li>
-</ol>
-<p>验证是连接阶段的第一步，这一阶段的目的是确保class文件的字节流包含的信息符合规范中的全部约束要求，保证这些信息被当做代码运行后不会危害虚拟机的安全</p>
-<p>java是相对安全的语言。使用源码编译出的class文件是安全的，如果出现了非法操作，编译时会抛出异常。但是class文件并不一定是由源码编译这种途径唯一生成，如果不检查输入的字节流，对其完全信任的话，很可能因为载入了错误或者有恶意的字节码流而使这个系统崩溃或收到攻击，所以验证字节码流是java虚拟机保护自身的一项必要措施</p>
-<ol start="3">
-<li>准备</li>
-</ol>
-<p>准备阶段是正式为类中定义的变量（即静态变量）分配内存并设置变量初始值的阶段。jdk8之后，类变量会随着class对象一起存放在java堆中</p>
-<p><strong>这时候为类进行内存分配的仅仅包括类变量，而不包括实例变量。实例变量会随着对象实例化时随着对象一起分配在堆中</strong></p>
-<ol start="4">
-<li>解析</li>
-</ol>
-<p>解析阶段是虚拟机将常量池内的符号引用替换为直接引用的过程。</p>
-<blockquote>
-<ul>
-<li>符号引用：可以用一组符号来表示所引用的目标，符号可以是任何形式的字面量，只有使用时无歧义的定位到目标即可</li>
-<li>直接引用：可以直接指向目标的指针，相对偏移量或者是一个能间接定位到目标的句柄</li>
-</ul>
-</blockquote>
-<p>解析动作主要针对类或接口，字段，类方法，接口方法，方法类型，方法句柄和调用点限定符这7类符号引用进行</p>
-<ol start="5">
-<li>初始化</li>
-</ol>
-<p>类的初始化是类加载过程中的最后一个步骤。在进行准备阶段时，变量已赋值过一次系统要求的初始零值，而在初始化阶段，则会根据程序员通过程序代码去初始化类变量和其他资源，即执行一遍程序定义的静态变量的赋值和执行类中静态代码块</p>
+    <p>c++中的动态内存管理<span id="more"></span></p>
+<h3 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h3><p>我们都知道，c++中new和delete必须成对出现，即在堆中申请了一部分空间，用完之后就必须手动释放它，否则就会造成内存泄漏。相应地new[] 对应delete[] 。</p>
+<p>那为什么会产生析构函数这个东西呢？其实，析构函数正是为了保证对象的内存得到正确的释放，它在对象的生命周期结束之前会被调用。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="type">int</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main1</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	A a1;</span><br><span class="line">    </span><br><span class="line">    A * a2 = <span class="keyword">new</span> <span class="built_in">A</span>();</span><br><span class="line">    <span class="keyword">delete</span> a2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于上述类A而言，它使用了两张初始化方法，前者是在栈上初始化A的一个对象a1 。它的生命周期结束于main1函数结束的时候，因为这个对象其实是存储于栈上，结束之前会调用它的析构函数。对于a2而言，这个对象它其实是存储于堆上，而a2这个指针变量是存储于栈上，因此指针变量的生命周期结束于main1函数结束之时，但是a2这个对象却不会随着函数结束而结束，如果不手动释放，则造成了内存泄漏。因为指向它的引用已经过期了，它无法再被使用了，但是它却还存在于堆中。</p>
+<p>对于类A而言，其实有没有析构函数都无关紧要，因为不使用析构函数，它的内存也都能得到正确的释放，而对于有的类而言，却不是这样。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">string</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="type">char</span> * str;</span><br><span class="line">	</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">string</span>(<span class="type">int</span> n)</span><br><span class="line">    &#123;</span><br><span class="line">        str = <span class="keyword">new</span> <span class="type">char</span>[n];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">	~<span class="built_in">string</span>()</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">delete</span>[] str;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>比如对于类string而言，如果没有析构函数，那么它的内存便不能得到正确的释放。无论是在栈上还是堆上初始化string对象，它内部str指针都会指向一片堆中的字符数组。在它生命周期结束之时没有析构函数只会释放这个对象的成员变量str，却不会释放它指向的堆空间，造成内存泄漏。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">fun</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	string s;</span><br><span class="line">	</span><br><span class="line">	string * s1 = <span class="keyword">new</span> <span class="built_in">string</span>();</span><br><span class="line">	<span class="keyword">delete</span> s1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于s，会在函数结束之时调用析构函数。对于s1，会在使用delete s1之时首先调用析构函数释放str指向的堆空间，然后释放它自己所占用的堆空间。</p>
+<p><strong>所以，析构函数的本质其实就是保证内存得到正确的释放，即时有时候并不需要它内存也能得到正确的释放</strong></p>
 
 
   </div>
@@ -2644,7 +2599,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/05/21/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD/>http://example.com/2022/05/21/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/06/27/new%E5%92%8Cdelete/>http://example.com/2022/06/27/new%E5%92%8Cdelete/</a></p>
               
             
           </blockquote>
@@ -2661,10 +2616,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-23T10:21:57+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-28T11:51:28+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年5月23日</p>
+    <p>更新于：2022年6月28日</p>
   </a>
 </div>
 
@@ -2673,8 +2628,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>java虚拟机</p></a></div>
-  <span hidden itemprop="keywords">java虚拟机</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/c-c/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>c/c++</p></a></div>
+  <span hidden itemprop="keywords">c/c++</span>
 
 
         
@@ -2687,7 +2642,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/05/21/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD/&title=虚拟机类加载 - SaltFish的博客&summary=字节码（Class）文件中描述了各类的信息，这些class文件最终都需要加载到虚拟机中才能被运行和使用，虚拟机如何加载这些class文件，我们知道class文件具有特定的结构，那么class文件载入虚拟机之后会发生什么变化呢？"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/06/27/new%E5%92%8Cdelete/&title=new和delete - SaltFish的博客&summary=c++中的动态内存管理"
           
           >
           
@@ -2699,7 +2654,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/05/21/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD/&title=虚拟机类加载 - SaltFish的博客&summary=字节码（Class）文件中描述了各类的信息，这些class文件最终都需要加载到虚拟机中才能被运行和使用，虚拟机如何加载这些class文件，我们知道class文件具有特定的结构，那么class文件载入虚拟机之后会发生什么变化呢？"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/06/27/new%E5%92%8Cdelete/&title=new和delete - SaltFish的博客&summary=c++中的动态内存管理"
           
           >
           
@@ -2711,7 +2666,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/05/21/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD/&title=虚拟机类加载 - SaltFish的博客&summary=字节码（Class）文件中描述了各类的信息，这些class文件最终都需要加载到虚拟机中才能被运行和使用，虚拟机如何加载这些class文件，我们知道class文件具有特定的结构，那么class文件载入虚拟机之后会发生什么变化呢？"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/06/27/new%E5%92%8Cdelete/&title=new和delete - SaltFish的博客&summary=c++中的动态内存管理"
           
           >
           
@@ -2744,24 +2699,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/05/22/new%E5%92%8CnewInstance%EF%BC%88%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>new和newInstance（）的区别</p>
-          <p class='content'>java中new关键字和newInstance（）方法都可以创建对象实例，它们的区别是什么呢？
-区别
-对类有没有加载的要求不同
-
-使用newInstance（）方法时，必须确保这个类已经加载并且...</p>
+        <a class='prev' href='/2022/06/28/TCP-IP/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>TCP/IP</p>
+          <p class='content'>网络分层传输层：建立了主机端到端的链接，传输层的作用是为上层协议提供端到端的可靠和透明的数据传输服务，包括处理差错控制和流量控制等问题。该层向高层屏蔽了下层数据通信的细节，使高层用户看到的只是在...</p>
         </a>
       
       
-        <a class='next' href='/2022/05/20/java%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91/'>
-          <p class='title'>java程序编译<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>在java技术上谈编译期而没有具体的上下文环境，是一个很含糊的表达
-三类编译器
-前端编译器：它是指将源码（java）文件转变成字节码（class）文件的过程，比如jdk的javac编译器
-
-
-程...</p>
+        <a class='next' href='/2022/06/27/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/'>
+          <p class='title'>右值引用<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>左值引用和右值引用分别是什么呢？
+右值引用左值引用左值是一个表达数据的表达式，程序可以获取其地址。左值出现在赋值语句的左边
+123456int n;int * pt = new int;cons...</p>
         </a>
       
     </div>
@@ -2777,7 +2725,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <article class="post white-box reveal shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/05/21/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/06/27/new%E5%92%8Cdelete/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2810,7 +2758,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="toc-text">类加载机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%97%B6%E6%9C%BA"><span class="toc-text">类加载时机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text">类加载的过程</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0"><span class="toc-text">析构函数</span></a></li></ol>
     </div>
   </section>
 
@@ -3826,7 +3774,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/05/21/虚拟机类加载/","name":"虚拟机类加载"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"虚拟机类加载","description":"字节码（Class）文件中描述了各类的信息，这些class文件最终都需要加载到虚拟机中才能被运行和使用，虚拟机如何加载这些class文件，我们知道class文件具有特定的结构，那么class文件载入虚拟机之后会发生什么变化呢？","datePublished":"2022-05-21T12:32:31.000Z","dateModified":"2022-05-23T02:21:57.019Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/05/21/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/05/21/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD/","wordCount":113,"keywords":"java虚拟机","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/27/new和delete/","name":"new和delete"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"new和delete","description":"c++中的动态内存管理","datePublished":"2022-06-27T15:30:52.000Z","dateModified":"2022-06-28T03:51:28.848Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/27/new%E5%92%8Cdelete/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/27/new%E5%92%8Cdelete/","wordCount":11,"keywords":"c/c++","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
