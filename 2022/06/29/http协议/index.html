@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/06/21/jvm中对象的创建过程/"/>
+  <link rel="canonical" href="http://example.com/2022/06/29/http协议/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,21 +31,24 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>jvm中对象的创建过程 - SaltFish的博客</title>
-  <meta name="keywords" content="java虚拟机,java c++">
-  <meta desc name="description" content="jvm中对象的创建过程 - SaltFish - SaltFish的博客">
+  <title>http协议 - SaltFish的博客</title>
+  <meta name="keywords" content="web,java c++">
+  <meta desc name="description" content="
+
+什么是http协议
+http协议属于应用层，及用户访问的第一层就是http - SaltFish - SaltFish的博客">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="jvm中对象的创建过程">
-<meta property="og:url" content="http://example.com/2022/06/21/jvm%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B/index.html">
+<meta property="og:title" content="http协议">
+<meta property="og:url" content="http://example.com/2022/06/29/http%E5%8D%8F%E8%AE%AE/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="jvm中对象的创建过程">
+<meta property="og:description" content="什么是http协议 http协议属于应用层，及用户访问的第一层就是http">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-06-21T12:18:13.000Z">
-<meta property="article:modified_time" content="2022-06-21T12:42:35.230Z">
+<meta property="article:published_time" content="2022-06-29T12:47:29.000Z">
+<meta property="article:modified_time" content="2022-06-29T15:08:36.028Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="java虚拟机">
+<meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2500,7 +2503,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/21/jvm%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/29/http%E5%8D%8F%E8%AE%AE/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2521,7 +2524,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        jvm中对象的创建过程
+        http协议
       </h1>
       <div class='new-meta-box'>
         
@@ -2542,10 +2545,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-06-21T20:18:13+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-06-29T20:47:29+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年6月21日</p>
+    <p>发布于：2022年6月29日</p>
   </a>
 </div>
 
@@ -2566,54 +2569,29 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>jvm中对象的创建过程<span id="more"></span></p>
-<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ol>
-<li>拿到内存创建指令</li>
-</ol>
-<p>当虚拟机遇到内存创建指令的时候（new类名），来到了方法区，根据new的参数在常量池中定位一个类的符号引用</p>
-<ol start="2">
-<li>检查符号引用</li>
-</ol>
-<p>检查该符号引用有没有被加载、解析和初始化过，如果没有则执行类加载过程，否则直接准备为新的对象分配内存</p>
-<ol start="3">
-<li>分配内存</li>
-</ol>
-<p>vm为对象分配内存（堆）有两种方式：指针碰撞和空闲列表；分配内存还要保证并发安全</p>
-<blockquote>
-<ul>
-<li>指针碰撞</li>
+    <meta name="referrer" content="no-referrer">
+
+<h3 id="什么是http协议"><a href="#什么是http协议" class="headerlink" title="什么是http协议"></a>什么是http协议</h3><ul>
+<li>http协议属于应用层，及用户访问的第一层就是http<span id="more"></span></li>
+<li>http协议是对客户端和服务端之间数据实现可靠性的传输文字，图片，音频，视屏等超文本数据的规范，简称为超文本传输协议</li>
 </ul>
-<p>所有的存储空间分为两部分，一部分是空闲，一部分是占用，需要分配的时候，只需要计算指针的移动长度即可</p>
+<h3 id="与https的区别"><a href="#与https的区别" class="headerlink" title="与https的区别"></a>与https的区别</h3><p>http协议运行在tcp之上，明文传输，客户端和服务端都无法验证对方的身份；https是身披SSL（Secure Socket Layer）外壳的http，运行与ssl上，ssl运行于tcp之上，是添加了加密和认证机制的http。二者之间存在如下不同：</p>
 <ul>
-<li>空闲列表</li>
+<li>端口不同：http和https使用不同的连接方式，使用的端口也不一样，前者是80，后者是443；</li>
+<li>资源消耗：和http通信相比，https通信会由于加密处理消耗更多的cpu和内存资源</li>
+<li>开销：https通信需要证书，而证书一般需要向认证机构购买</li>
 </ul>
-<p>vm维护了一个空闲列表，需要分配空间的时候去查该空闲列表进行分配并对空闲列表进行更新。可以看出，内存分配方式是由java堆是否规整决定的，java堆的规整由垃圾回收机制来决定</p>
-<hr>
-<p><strong>安全性问题</strong></p>
-<p>假如分配内存策略是指针碰撞，如果在高并发情况下，多个对象需要分配内存，如果不做处理，肯定会出现线程安全问题，导致一些对象分配不到空间等</p>
-<p>解决方案：</p>
-<ul>
-<li>每个线程都进行同步，防止出现线程安全问题</li>
-<li>本地线程分配缓冲</li>
-</ul>
-<p>也称TLAB（Thread Local Allocation Buffer），在堆中为每一个线程分配一小块独立的内存，这样一来就不存在并发问题了，java层面与之对应的是ThreadLocal类的实现</p>
+<p>https的加密机制是一种共享密匙加密和公开密匙加密并用的混合加密机制</p>
+<h3 id="http请求详细内容"><a href="#http请求详细内容" class="headerlink" title="http请求详细内容"></a>http请求详细内容</h3><p>http请求由：请求行，请求头，请求数据组成的，get请求没有请求体</p>
+<p><img src="http://dl.iteye.com/upload/attachment/0069/3451/412b4451-2738-3ebc-b1f6-a0cc13b9697b.jpg" class="lazyload" data-srcset="http://dl.iteye.com/upload/attachment/0069/3451/412b4451-2738-3ebc-b1f6-a0cc13b9697b.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p>
+<h4 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h4><p>包含三部分：状态行，响应首部字段，响应内容实体</p>
+<p><img src="http://dl.iteye.com/upload/attachment/0069/3492/bddb00b6-a3e1-3112-a4f4-4b3cb8687c70.jpg" class="lazyload" data-srcset="http://dl.iteye.com/upload/attachment/0069/3492/bddb00b6-a3e1-3112-a4f4-4b3cb8687c70.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p>
+<h3 id="https工作原理"><a href="#https工作原理" class="headerlink" title="https工作原理"></a>https工作原理</h3><blockquote>
+<p>非对称加密算法（RSA）是内容加密的一种算法，他有两个密匙：公匙和私匙。公匙是公开的钥匙，所有人都可以知道，私匙是保密的，只有持有者知道。通过公匙加密的内容，只能通过私匙解开。非对称加密算法的安全性很高，但是因为计算量庞大，比较消耗性能。</p>
 </blockquote>
-<ol start="4">
-<li>初始化</li>
-</ol>
-<ul>
-<li>分配完内存后要对对象的头进行初始化，这信息包括：该对象对应类的元数据，该对象的GC代，对象的哈希吗</li>
-<li>抽象数据类型默认初始化为null，基本数据类型为0，布尔为false</li>
-</ul>
-<ol start="5">
-<li>调用对象的初始化方法</li>
-</ol>
-<p>也就是执行构造方法</p>
-<h3 id="java对象的结构"><a href="#java对象的结构" class="headerlink" title="java对象的结构"></a>java对象的结构</h3><p>java对象由三个部分组成：对象头，实例数据，对齐填充</p>
 <ol>
-<li>对象头由两部分组成，第一部分存储对象自身的运行时数据：哈希吗，GC分代年龄，锁标识状态，线程持有的锁，偏向线程ID。第二部分是指针类型，指向对象的类元数据类型（即对象代表哪个类）。如果是数组对象，则对象头中还有一部分用来记录数组长度</li>
-<li>实例数据用来存储对象真正的有效信息（包括父类继承下来的和自己定义的）</li>
-<li>对齐填充：jvm要求对象的起始地址必须是8字节的整数倍（8字节对齐）</li>
+<li>首先http请求服务端生成证书，客户端对证书的有效期，合法性，域名是否和请求的域名一致，证书的公匙（RSA加密）等进行校验</li>
+<li>客户端如果校验通过后，就根据证书的公匙的有效期，生成随机数，随机数使用公匙进行加密</li>
 </ol>
 
 
@@ -2634,7 +2612,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/06/21/jvm%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B/>http://example.com/2022/06/21/jvm%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/06/29/http%E5%8D%8F%E8%AE%AE/>http://example.com/2022/06/29/http%E5%8D%8F%E8%AE%AE/</a></p>
               
             
           </blockquote>
@@ -2651,10 +2629,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-21T20:42:35+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-29T23:08:36+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年6月21日</p>
+    <p>更新于：2022年6月29日</p>
   </a>
 </div>
 
@@ -2663,8 +2641,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>java虚拟机</p></a></div>
-  <span hidden itemprop="keywords">java虚拟机</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/web/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>web</p></a></div>
+  <span hidden itemprop="keywords">web</span>
 
 
         
@@ -2677,7 +2655,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/06/21/jvm%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B/&title=jvm中对象的创建过程 - SaltFish的博客&summary=jvm中对象的创建过程"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/06/29/http%E5%8D%8F%E8%AE%AE/&title=http协议 - SaltFish的博客&summary=
+
+什么是http协议
+http协议属于应用层，及用户访问的第一层就是http"
           
           >
           
@@ -2689,7 +2670,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/06/21/jvm%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B/&title=jvm中对象的创建过程 - SaltFish的博客&summary=jvm中对象的创建过程"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/06/29/http%E5%8D%8F%E8%AE%AE/&title=http协议 - SaltFish的博客&summary=
+
+什么是http协议
+http协议属于应用层，及用户访问的第一层就是http"
           
           >
           
@@ -2701,7 +2685,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/06/21/jvm%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B/&title=jvm中对象的创建过程 - SaltFish的博客&summary=jvm中对象的创建过程"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/06/29/http%E5%8D%8F%E8%AE%AE/&title=http协议 - SaltFish的博客&summary=
+
+什么是http协议
+http协议属于应用层，及用户访问的第一层就是http"
           
           >
           
@@ -2734,27 +2721,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/06/22/%E5%87%A0%E6%AC%BE%E5%85%B8%E5%9E%8B%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>几款典型垃圾收集器</p>
-          <p class='content'>典型垃圾回收器
-Serial
-
-Serial收集器是Hotspot运行在client模式下的默认新生代收集器，它在进行垃圾收集时，会暂停所有的工作进程，用一个线程完成GC工作
-新生代采用复制算法...</p>
-        </a>
       
-      
-        <a class='next' href='/2022/06/19/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E9%93%BE%E8%A1%A8/'>
-          <p class='title'>算法专题：链表<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>leetcode刷题过程中关于链表的题目
-题目统计2. 
+        <a class='next' href='/2022/06/28/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E6%A0%91/'>
+          <p class='title'>算法专题：树<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>关于树的题
+题目统计
+中序遍历
 
-19. 
 
-21. 
 
-23.合并K个升序链表
-https://leetcode.cn/problems/merge-k-sorted...</p>
+
+不同的二叉搜索树II
+
+https://leetcode.cn/problems/unique-binary-search-trees-ii/
+解法：回溯...</p>
         </a>
       
     </div>
@@ -2770,7 +2750,7 @@ https://leetcode.cn/problems/merge-k-sorted...</p>
   
   <article class="post white-box reveal shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/06/21/jvm%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/06/29/http%E5%8D%8F%E8%AE%AE/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2803,7 +2783,7 @@ https://leetcode.cn/problems/merge-k-sorted...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E7%A8%8B"><span class="toc-text">过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-text">java对象的结构</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFhttp%E5%8D%8F%E8%AE%AE"><span class="toc-text">什么是http协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8Ehttps%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">与https的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http%E8%AF%B7%E6%B1%82%E8%AF%A6%E7%BB%86%E5%86%85%E5%AE%B9"><span class="toc-text">http请求详细内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87"><span class="toc-text">响应报文</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#https%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">https工作原理</span></a></li></ol>
     </div>
   </section>
 
@@ -3819,7 +3799,7 @@ https://leetcode.cn/problems/merge-k-sorted...</p>
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/21/jvm中对象的创建过程/","name":"jvm中对象的创建过程"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"jvm中对象的创建过程","description":"jvm中对象的创建过程","datePublished":"2022-06-21T12:18:13.000Z","dateModified":"2022-06-21T12:42:35.230Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/21/jvm%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/21/jvm%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B/","wordCount":11,"keywords":"java虚拟机","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/29/http协议/","name":"http协议"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"http协议","description":"\n\n什么是http协议\nhttp协议属于应用层，及用户访问的第一层就是http","datePublished":"2022-06-29T12:47:29.000Z","dateModified":"2022-06-29T15:08:36.028Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/29/http%E5%8D%8F%E8%AE%AE/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/29/http%E5%8D%8F%E8%AE%AE/","wordCount":39,"keywords":"web","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
