@@ -46,7 +46,7 @@ http协议属于应用层，及用户访问的第一层就是http - SaltFish - S
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-06-29T12:47:29.000Z">
-<meta property="article:modified_time" content="2022-06-29T15:08:36.028Z">
+<meta property="article:modified_time" content="2022-06-30T13:31:35.253Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
@@ -1755,7 +1755,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.8a038721.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1656515337750),
+    lastupdate: new Date(1656603033464),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2589,10 +2589,36 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h3 id="https工作原理"><a href="#https工作原理" class="headerlink" title="https工作原理"></a>https工作原理</h3><blockquote>
 <p>非对称加密算法（RSA）是内容加密的一种算法，他有两个密匙：公匙和私匙。公匙是公开的钥匙，所有人都可以知道，私匙是保密的，只有持有者知道。通过公匙加密的内容，只能通过私匙解开。非对称加密算法的安全性很高，但是因为计算量庞大，比较消耗性能。</p>
 </blockquote>
+<blockquote>
+<p>密匙：它是 一种参数，它是在将明文转换为密文或者将密文转换为明文时的算法中输入的参数</p>
+<p>公匙和私匙是成对的，私匙加密的东西只有公匙能解开，公匙加密的东西只有私匙能解开</p>
+</blockquote>
+<blockquote>
+<p><strong>证书中心（CA）</strong></p>
+<p>为什么要有这个东西呢？因为用户明文向朋友发放公匙的时候，有可能被截获，因此为了避免这个问题，就产生了ca这个东西</p>
+<p>用户去向CA做认证，证书中心用自己的私匙对用户的公匙和其他信息做了一次加密处理，然后将加密后的数字证书传送给他的朋友，他的朋友收到后，首先使用ca给的公匙解密证书，然后就可以安全的获取用户的给他的公匙了</p>
+</blockquote>
+<h4 id="https通信过程"><a href="#https通信过程" class="headerlink" title="https通信过程"></a>https通信过程</h4><p>https协议由http协议和ssl&#x2F;tls协议组成。ssl等协议就是负责加密和解密等安全处理的模块，所以https的核心在ssl模块上</p>
 <ol>
-<li>首先http请求服务端生成证书，客户端对证书的有效期，合法性，域名是否和请求的域名一致，证书的公匙（RSA加密）等进行校验</li>
-<li>客户端如果校验通过后，就根据证书的公匙的有效期，生成随机数，随机数使用公匙进行加密</li>
+<li>浏览器向服务器的443端口发起请求，请求携带了浏览器支持的加密算法和哈希算法</li>
+<li>服务器受到请求，选择浏览器支持的加密算法和哈希算法</li>
+<li>服务器将数字证书返回给浏览器，这里的数字证书可以是向某个机构申请的，也可以是自制的</li>
+<li>浏览器进入数字证书认证环节，这一部分是由浏览器内置的tls完成的</li>
 </ol>
+<ul>
+<li>首先浏览器会从内置的证书列表里索引，找打服务器下发证书对应的机构，如果没有找到，此时就会提示用户该证书不是由权威机构颁发，是不可信任的。如果找到了对应的机构，则取出该机构颁发的公匙</li>
+<li>公机构颁发的公匙解密证书的内容和证书签名，内容包括网站的网址，网站的公匙，证书的有效期等。浏览器会先验证数字签名的合法性。签名通过后，浏览器验证证书记录的网址是否和当前网址是一致的，不一致会提示用户。如果网址一致会检查有效期，证书过期了也会提示用户。这些都通过认证时，浏览器就可以安全使用证书中的网站公匙了</li>
+</ul>
+<ol start="5">
+<li>浏览器生成一个随机数R，并使用网站公匙对R进行加密</li>
+<li>浏览器将加密的R传送给服务器</li>
+<li>服务器用自己的私匙解密得到R</li>
+<li>服务器以R为密匙使用了对称加密算法加密网页内容传输给浏览器</li>
+<li>浏览器以R为密匙使用之前约定好的解密算法获取网页内容</li>
+</ol>
+<blockquote>
+<p>ssl&#x2F;tls是https安全性的核心模块，tls的前身是ssl。ssl&#x2F;tls是建立在tcp协议之上，因而也是应用层级的协议。</p>
+</blockquote>
 
 
   </div>
@@ -2629,10 +2655,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-29T23:08:36+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-30T21:31:35+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年6月29日</p>
+    <p>更新于：2022年6月30日</p>
   </a>
 </div>
 
@@ -2721,6 +2747,17 @@ http协议属于应用层，及用户访问的第一层就是http"
   
     <div class="prev-next">
       
+        <a class='prev' href='/2022/06/30/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>三次握手和四次挥手</p>
+          <p class='content'>tcp建立连接和断开连接的确认细节
+三次握手三次握手的目的是建立可靠的通信信道，主要目的是双方确认自己与对方的发送和接受都正常
+
+第一次握手：客户端向服务端发送连接请求，等待服务端回复。
+
+
+客...</p>
+        </a>
+      
       
         <a class='next' href='/2022/06/28/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E6%A0%91/'>
           <p class='title'>算法专题：树<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
@@ -2783,7 +2820,7 @@ https://leetcode.cn/problems/unique-binary-search-trees-ii/
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFhttp%E5%8D%8F%E8%AE%AE"><span class="toc-text">什么是http协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8Ehttps%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">与https的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http%E8%AF%B7%E6%B1%82%E8%AF%A6%E7%BB%86%E5%86%85%E5%AE%B9"><span class="toc-text">http请求详细内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87"><span class="toc-text">响应报文</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#https%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">https工作原理</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFhttp%E5%8D%8F%E8%AE%AE"><span class="toc-text">什么是http协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8Ehttps%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">与https的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http%E8%AF%B7%E6%B1%82%E8%AF%A6%E7%BB%86%E5%86%85%E5%AE%B9"><span class="toc-text">http请求详细内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87"><span class="toc-text">响应报文</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#https%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">https工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#https%E9%80%9A%E4%BF%A1%E8%BF%87%E7%A8%8B"><span class="toc-text">https通信过程</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -3799,7 +3836,7 @@ https://leetcode.cn/problems/unique-binary-search-trees-ii/
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/29/http协议/","name":"http协议"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"http协议","description":"\n\n什么是http协议\nhttp协议属于应用层，及用户访问的第一层就是http","datePublished":"2022-06-29T12:47:29.000Z","dateModified":"2022-06-29T15:08:36.028Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/29/http%E5%8D%8F%E8%AE%AE/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/29/http%E5%8D%8F%E8%AE%AE/","wordCount":39,"keywords":"web","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/29/http协议/","name":"http协议"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"http协议","description":"\n\n什么是http协议\nhttp协议属于应用层，及用户访问的第一层就是http","datePublished":"2022-06-29T12:47:29.000Z","dateModified":"2022-06-30T13:31:35.253Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/29/http%E5%8D%8F%E8%AE%AE/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/29/http%E5%8D%8F%E8%AE%AE/","wordCount":39,"keywords":"web","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
