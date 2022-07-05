@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/06/14/垃圾收集算法/"/>
+  <link rel="canonical" href="http://example.com/2022/07/03/sql注入/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,21 +31,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>垃圾收集算法 - SaltFish的博客</title>
-  <meta name="keywords" content="java虚拟机,java c++">
-  <meta desc name="description" content="垃圾收集算法可以分为引用计数式垃圾回收和追踪式垃圾回收，主流java虚拟机中都采用后者 - SaltFish - SaltFish的博客">
+  <title>sql注入 - SaltFish的博客</title>
+  <meta name="keywords" content="web,java c++">
+  <meta desc name="description" content="结构化查询语言（Structured Query Language，SQL）是一种特殊的编程语言，用于数据库中的操作 - SaltFish - SaltFish的博客">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="垃圾收集算法">
-<meta property="og:url" content="http://example.com/2022/06/14/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:title" content="sql注入">
+<meta property="og:url" content="http://example.com/2022/07/03/sql%E6%B3%A8%E5%85%A5/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="垃圾收集算法可以分为引用计数式垃圾回收和追踪式垃圾回收，主流java虚拟机中都采用后者">
+<meta property="og:description" content="结构化查询语言（Structured Query Language，SQL）是一种特殊的编程语言，用于数据库中的操作">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-06-14T01:31:11.000Z">
-<meta property="article:modified_time" content="2022-06-14T12:04:09.573Z">
+<meta property="article:published_time" content="2022-07-03T01:55:03.000Z">
+<meta property="article:modified_time" content="2022-07-05T09:21:24.172Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="java虚拟机">
+<meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2500,7 +2500,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/14/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/03/sql%E6%B3%A8%E5%85%A5/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2521,7 +2521,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        垃圾收集算法
+        sql注入
       </h1>
       <div class='new-meta-box'>
         
@@ -2542,10 +2542,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-06-14T09:31:11+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-07-03T09:55:03+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年6月14日</p>
+    <p>发布于：2022年7月3日</p>
   </a>
 </div>
 
@@ -2566,31 +2566,55 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>垃圾收集算法可以分为引用计数式垃圾回收和追踪式垃圾回收，主流java虚拟机中都采用后者<span id="more"></span></p>
-<h3 id="分代收集理论"><a href="#分代收集理论" class="headerlink" title="分代收集理论"></a>分代收集理论</h3><h4 id="两个假说："><a href="#两个假说：" class="headerlink" title="两个假说："></a>两个假说：</h4><ul>
-<li>弱分代假说：绝大多数对象是朝生夕灭的</li>
-<li>强分代假说：熬过越多次垃圾收集过程的对象就越难以消亡</li>
-</ul>
-<p>这两个分代假说共同奠定了多款垃圾收集器的一致设计原则：收集器应该将java堆划分出不同的区域，然后将回收对象依据其年龄（即对象熬过垃圾回收的次数）分配到不同的区域之中存储。这样做的目的是将容易消亡的对象集中在一起，可以增加对这块内存区域的回收频率，同时这片区域因为大多数对象都要被回收，可以标记不被回收的对象，这样就兼顾了垃圾收集的时间开销和内存空间的有效利用。</p>
-<p>设计者一般会将java堆划分为新生代（Young Generation）和老年代（Old Generation）两个区域</p>
-<h4 id="跨代引用"><a href="#跨代引用" class="headerlink" title="跨代引用"></a>跨代引用</h4><p>新生代对象完全有可能被老年代对象引用，所以在固定GC Roots找出需要保留的对象之外，还需要遍历老年代区域中的对象，再找出需要保留的对象。但是这样做无疑垃圾收集性能会有所下降。为了解决这个问题：</p>
-<ul>
-<li>跨代引用假说：跨代引用相对于同代引用来说仅占少数</li>
-</ul>
-<p>这个假说成立的原因是如果两个对象之间存在引用，那么它们两个在垃圾回收过程中都不会消亡，因此年龄都是同步增长的，都会存在于老年代区域之中</p>
-<p>根据之中假说，解决上述问题的方案是在新生代区域之中建立一个全局数据结构（记忆集，Remeembered Set），这个结构把老年代区域分成若干小块，标记出哪一块内存存在跨代引用就可以了。</p>
-<h3 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h3><p>首先标记出需要回收的对象，然后统一回收掉所有被标记的对象</p>
-<p>缺点：</p>
-<ul>
-<li>执行效率不稳定：堆中包含大量的需要被回收的对象，需要进行大量的标记清除操作，这个过程的效率随着需要被回收对象的数量的增长而下降</li>
-<li>产生大量的内存空间碎片</li>
-</ul>
-<h3 id="标记-复制算法"><a href="#标记-复制算法" class="headerlink" title="标记-复制算法"></a>标记-复制算法</h3><p>将内存分成容量相等的两块，当一块内存用完了的时候，就将还存活着的对象复制到另一块内存上，然后将这一块内存一次性全部清理掉。</p>
-<p>优点：不会产生空间碎片；实现简单，运行高效（要复制的对象占少数的时候）；</p>
-<p>缺点：内存空间减少一半；复制对象占多数的时候运行效率低</p>
-<p>IBM公司曾经有一项研究表明：新生代对象中有98%的对象熬不过第一次垃圾回收，所以对新生代对象采用这种策略是合理并且高效的</p>
-<h3 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h3><p>针对老年代对象，一般不能采用上述复制算法，因为老年代中的对象可能有全部存活的极端情况，并且它的大多数对象的存活率比较高。它所采用的算法是标记-整理算法：对所有存活的对象进行标记，然后全部存活对象向内存空间一端移动，然后清理掉边界以外的内存。</p>
-<p>缺点：存活对象比较多的话，移动对象非常影响性能，并且对象移动时必须暂停用户程序才能进行。但是如果不移动的话，弥散于内存中的空间碎片就需要复杂的内存分配器和内存访问器才能解决，内存访问是程序最频繁的操作之一，这样做无疑也是降低了整个程序执行的性能。无论移动或者不移动，都会影响程序执行效率，但是从这个程序的吞吐量来看，移动对象会更加划算。</p>
+    <p>结构化查询语言（Structured Query Language，SQL）是一种特殊的编程语言，用于数据库中的操作<span id="more"></span></p>
+<p>sql注入是一种常见的web安全漏洞，主要形成原因是在数据交互中，前端的数据传入到后台处理中，没有做严格的判断，导致其传入的数据拼接到sql语句中，被当做sql语句的一部分执行，导致数据库受损（被脱库，被删除，。。。）</p>
+<h3 id="注入分类"><a href="#注入分类" class="headerlink" title="注入分类"></a>注入分类</h3><blockquote>
+<p>and 1 &#x3D; 1 和 and 1 &#x3D; 2</p>
+<p>假设数据库中有id 为1的用户，id类型为int类型，即数值类型</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span> <span class="keyword">and</span> <span class="number">1</span> <span class="operator">=</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>上述语句添加不添加and 1 &#x3D; 1都是相同的，它其实代表的是永远为真的意思，能够查询出结果</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span> <span class="keyword">and</span> <span class="number">1</span> <span class="operator">=</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>这个语句则查询不出结果，即返回的结果为空</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="string">&#x27;1&quot;&#x27;</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="string">&#x27;1 and 1 = 1&#x27;</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="string">&#x27;1 and 1 = 2&#x27;</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="string">&#x27;1abdjkghdlgh&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>上述语句中，在mysql数据库中都能够查询出用户id为1的结果。这是为什么呢？因为mysql数据库查询操作中存在类型转换，当输入的查询id类型不为数值类型时，它会发生自动类型转换，上述类型都会转换为数值类型</p>
+</blockquote>
+<h4 id="数字型注入"><a href="#数字型注入" class="headerlink" title="数字型注入"></a>数字型注入</h4><p>当输入的参数是整型时，如果存在注入漏洞，则可以认为是数字类型注入</p>
+<p>测试步骤：</p>
+<ol>
+<li>加单引号 id &#x3D; 3’</li>
+</ol>
+<p>此时程序会出错，抛出异常</p>
+<ol start="2">
+<li>加and 1 &#x3D;1</li>
+</ol>
+<p>此时语句执行正常，与原始正确页面没有任何差别</p>
+<ol start="3">
+<li>and 1 &#x3D; 2</li>
+</ol>
+<p>此时语句可以正常执行，但是无法查询出结果</p>
+<p>满足以上三点可以认为是存在sql注入</p>
+<h4 id="字符型注入"><a href="#字符型注入" class="headerlink" title="字符型注入"></a>字符型注入</h4><p>字符型和数字型最大的区别一般在于，数字型不需要单引号来闭合，而字符串一般需要单引号来闭合</p>
+<p>字符型的判断方法与上述的思想一样，注意点是字符型通过单引号来实现闭合，而且可以通过–来注释后面的sql语句</p>
+<p>下面是一个实例：比如一个登陆页面，要求输入用户和密码，可以这样实现免账号登陆</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户名：&#x27;or 1 = 1 -- 密码： ...</span><br></pre></td></tr></table></figure>
+
+<p>理论上，后台认证程序中会有如下数据库查询语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String <span class="keyword">sql</span> <span class="operator">=</span> &quot;select * from user where username =&#x27; &quot;<span class="operator">+</span>username<span class="operator">+</span>&quot; &#x27; and password</span><br><span class="line">	=&#x27; &quot;<span class="operator">+</span>pawwrod<span class="operator">+</span>&quot; &#x27;&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>因此，当按照上述的输入进行登录之后，后台的sql语句实际变成：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> username <span class="operator">=</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">or</span> <span class="number">1</span> <span class="operator">=</span> <span class="number">1</span> <span class="comment">-- and password = &#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>加入了or 1 &#x3D; 1可以跳过对用户名的检索，而将后面的密码匹配变成了注释，这样做可以骗过系统</p>
+<h3 id="应对方法"><a href="#应对方法" class="headerlink" title="应对方法"></a>应对方法</h3><ol>
+<li>参数绑定：</li>
+</ol>
+<p>使用预编译手段，绑定参数是最好的防止sql注入的方法。目前许多orm框架即jdbc等都实现了sql预编译和参数绑定功能，攻击者的恶意sql会被当做sql的参数而不是sql命令被执行</p>
+<ol start="2">
+<li>使用正则表达式过滤传入的参数</li>
+</ol>
 
 
   </div>
@@ -2610,7 +2634,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/06/14/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95/>http://example.com/2022/06/14/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/07/03/sql%E6%B3%A8%E5%85%A5/>http://example.com/2022/07/03/sql%E6%B3%A8%E5%85%A5/</a></p>
               
             
           </blockquote>
@@ -2627,10 +2651,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-14T20:04:09+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-07-05T17:21:24+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年6月14日</p>
+    <p>更新于：2022年7月5日</p>
   </a>
 </div>
 
@@ -2639,8 +2663,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>java虚拟机</p></a></div>
-  <span hidden itemprop="keywords">java虚拟机</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/web/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>web</p></a></div>
+  <span hidden itemprop="keywords">web</span>
 
 
         
@@ -2653,7 +2677,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/06/14/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95/&title=垃圾收集算法 - SaltFish的博客&summary=垃圾收集算法可以分为引用计数式垃圾回收和追踪式垃圾回收，主流java虚拟机中都采用后者"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/07/03/sql%E6%B3%A8%E5%85%A5/&title=sql注入 - SaltFish的博客&summary=结构化查询语言（Structured Query Language，SQL）是一种特殊的编程语言，用于数据库中的操作"
           
           >
           
@@ -2665,7 +2689,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/06/14/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95/&title=垃圾收集算法 - SaltFish的博客&summary=垃圾收集算法可以分为引用计数式垃圾回收和追踪式垃圾回收，主流java虚拟机中都采用后者"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/07/03/sql%E6%B3%A8%E5%85%A5/&title=sql注入 - SaltFish的博客&summary=结构化查询语言（Structured Query Language，SQL）是一种特殊的编程语言，用于数据库中的操作"
           
           >
           
@@ -2677,7 +2701,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/06/14/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95/&title=垃圾收集算法 - SaltFish的博客&summary=垃圾收集算法可以分为引用计数式垃圾回收和追踪式垃圾回收，主流java虚拟机中都采用后者"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/07/03/sql%E6%B3%A8%E5%85%A5/&title=sql注入 - SaltFish的博客&summary=结构化查询语言（Structured Query Language，SQL）是一种特殊的编程语言，用于数据库中的操作"
           
           >
           
@@ -2710,17 +2734,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/06/14/volatile%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E4%BD%9C%E7%94%A8/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>volatile关键字的作用</p>
-          <p class='content'>一旦一个共享变量（类的成员变量、类的静态成员变量）被volatile修饰以后，作用是：
-
-保证了不同线程对这个变量进行操作时的可见性，即一个线程修改了某个变量的值，这新值对其他线程来说是立即可见...</p>
+        <a class='prev' href='/2022/07/05/XSS%E6%94%BB%E5%87%BB/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>XSS攻击</p>
+          <p class='content'>XSS攻击是利用网站对用户提交的数据进行转义处理或者过滤不足的特点，进而添加一些脚本代码嵌入到web页面中，使别的用户访问都会执行相应的代码，从而盗窃用户资料，利用用户身份进行某种动作或者对访问...</p>
         </a>
       
       
-        <a class='next' href='/2022/06/11/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B-daemonthread/'>
-          <p class='title'>守护线程-daemonthread<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>什么是daemon - thread守护线程是为了jvm中所有非守护线程的运行提供便利服务：只要当前jvm实例中尚存在任何一个非守护线程没有结束，守护线程就全部工作；只有当最后一个非守护线程结束...</p>
+        <a class='next' href='/2022/07/01/apache-poi/'>
+          <p class='title'>apache-poi<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>Apache POI是用java编写的免费开源的跨平台的java api，Apache POI提供api给java程序对Microsoft Office格式档案读和写的功能。
+123456789...</p>
         </a>
       
     </div>
@@ -2736,7 +2759,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <article class="post white-box reveal shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/06/14/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/07/03/sql%E6%B3%A8%E5%85%A5/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2769,7 +2792,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E7%90%86%E8%AE%BA"><span class="toc-text">分代收集理论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E5%81%87%E8%AF%B4%EF%BC%9A"><span class="toc-text">两个假说：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%A8%E4%BB%A3%E5%BC%95%E7%94%A8"><span class="toc-text">跨代引用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95"><span class="toc-text">标记-清除算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0-%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95"><span class="toc-text">标记-复制算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95"><span class="toc-text">标记-整理算法</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%85%A5%E5%88%86%E7%B1%BB"><span class="toc-text">注入分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E5%9E%8B%E6%B3%A8%E5%85%A5"><span class="toc-text">数字型注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E5%9E%8B%E6%B3%A8%E5%85%A5"><span class="toc-text">字符型注入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E5%AF%B9%E6%96%B9%E6%B3%95"><span class="toc-text">应对方法</span></a></li></ol>
     </div>
   </section>
 
@@ -3785,7 +3808,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/14/垃圾收集算法/","name":"垃圾收集算法"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"垃圾收集算法","description":"垃圾收集算法可以分为引用计数式垃圾回收和追踪式垃圾回收，主流java虚拟机中都采用后者","datePublished":"2022-06-14T01:31:11.000Z","dateModified":"2022-06-14T12:04:09.573Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/14/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/14/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95/","wordCount":43,"keywords":"java虚拟机","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/07/03/sql注入/","name":"sql注入"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"sql注入","description":"结构化查询语言（Structured Query Language，SQL）是一种特殊的编程语言，用于数据库中的操作","datePublished":"2022-07-03T01:55:03.000Z","dateModified":"2022-07-05T09:21:24.172Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/07/03/sql%E6%B3%A8%E5%85%A5/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/07/03/sql%E6%B3%A8%E5%85%A5/","wordCount":58,"keywords":"web","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
