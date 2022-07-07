@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/05/26/java内部类/"/>
+  <link rel="canonical" href="http://example.com/2022/07/07/mysql超大分页处理/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,21 +31,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>java内部类 - SaltFish的博客</title>
-  <meta name="keywords" content="java,java c++">
-  <meta desc name="description" content="java内部类的定义和作用是什么呢 - SaltFish - SaltFish的博客">
+  <title>mysql超大分页处理 - SaltFish的博客</title>
+  <meta name="keywords" content="mysql,java c++">
+  <meta desc name="description" content="在数据库开发中，我们经常会使用分页，核心技术是使用mysql的limit语句 - SaltFish - SaltFish的博客">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="java内部类">
-<meta property="og:url" content="http://example.com/2022/05/26/java%E5%86%85%E9%83%A8%E7%B1%BB/index.html">
+<meta property="og:title" content="mysql超大分页处理">
+<meta property="og:url" content="http://example.com/2022/07/07/mysql%E8%B6%85%E5%A4%A7%E5%88%86%E9%A1%B5%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="java内部类的定义和作用是什么呢">
+<meta property="og:description" content="在数据库开发中，我们经常会使用分页，核心技术是使用mysql的limit语句">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-05-26T01:23:56.000Z">
-<meta property="article:modified_time" content="2022-05-26T01:28:05.761Z">
+<meta property="article:published_time" content="2022-07-07T12:22:04.000Z">
+<meta property="article:modified_time" content="2022-07-07T15:10:05.082Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="java">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2500,7 +2500,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/26/java%E5%86%85%E9%83%A8%E7%B1%BB/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/07/mysql%E8%B6%85%E5%A4%A7%E5%88%86%E9%A1%B5%E5%A4%84%E7%90%86/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2521,7 +2521,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        java内部类
+        mysql超大分页处理
       </h1>
       <div class='new-meta-box'>
         
@@ -2542,10 +2542,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-05-26T09:23:56+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-07-07T20:22:04+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年5月26日</p>
+    <p>发布于：2022年7月7日</p>
   </a>
 </div>
 
@@ -2566,36 +2566,41 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>java内部类的定义和作用是什么呢<span id="more"></span></p>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>将一个类定义在另一个类里或者定义在一个方法里面或者某个作用域里，成为内部类</p>
-<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><h4 id="1-内部类可以无条件访问该类定义所在作用域中的数据，包括被private修饰的私有数据"><a href="#1-内部类可以无条件访问该类定义所在作用域中的数据，包括被private修饰的私有数据" class="headerlink" title="1.内部类可以无条件访问该类定义所在作用域中的数据，包括被private修饰的私有数据"></a>1.内部类可以无条件访问该类定义所在作用域中的数据，包括被private修饰的私有数据</h4><p>内部类虽然和外部类写在同一个文件中，但是编译完成之后，还是各自生成class文件</p>
-<h4 id="2-内部类可以对同一个包中的其他类隐藏起来"><a href="#2-内部类可以对同一个包中的其他类隐藏起来" class="headerlink" title="2.内部类可以对同一个包中的其他类隐藏起来"></a>2.内部类可以对同一个包中的其他类隐藏起来</h4><p>外部类即普通的类不能使用private，protected权限修饰词修饰，但是内部类可以使用这两个关键词修饰，当内部类使用private关键字修饰的时候，可以对其他类实现很好的隐藏</p>
-<p>假如使用内部类实现一个接口，那么当使用外部类的方法返回这个实现的时候，调用者只能看到外部类的一个方法，而内部类由于是private修饰，所以调用者无法知道这是使用了一个内部类实现，并且内部类的名称以及实现细节都无法知道</p>
-<h4 id="3-实现多重继承"><a href="#3-实现多重继承" class="headerlink" title="3.实现多重继承"></a>3.实现多重继承</h4><blockquote>
-<p>我们知道，Java是普通类是无法实现多继承的，多继承即一个类继承多个类，只能实现单继承。虽然通过接口也可以实现多继承的效果，因为一个类可以实现多个接口，但是会有很多不方便的地方。内部类可以实现多继承，它允许继承多个具体类和抽象类</p>
+    <p>在数据库开发中，我们经常会使用分页，核心技术是使用mysql的limit语句<span id="more"></span></p>
+<h3 id="mysql起点越大查询速度越慢"><a href="#mysql起点越大查询速度越慢" class="headerlink" title="mysql起点越大查询速度越慢"></a>mysql起点越大查询速度越慢</h3><p>limit语法：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> product limit <span class="keyword">start</span>, count</span><br></pre></td></tr></table></figure>
+
+<p>表示从第start条记录开始查询，一共选择count条记录</p>
+<p>当起始页较小时，查询性能没有问题：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select * from product limit 10, 20       0.002秒</span><br><span class="line">select * from product limit 1000, 20      0.011秒</span><br><span class="line">select * from product limit 10000, 20     0.027秒</span><br><span class="line">select * from product limit 100000, 20    0.057秒</span><br></pre></td></tr></table></figure>
+
+<p>但是，随着起始记录的增大，性能开始出现严重下降：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from product limit 1000000, 20   0.682秒</span><br><span class="line">select * from product limit 3000000, 20   1.368秒</span><br></pre></td></tr></table></figure>
+
+<p>从上述结果可以看出，limit语句查询速度与起始记录成正比。原因是在查询过程中，先要读取线面的start条记录，然后抛弃它们，读取想要的count条记录，所以start记录越大，性能越差</p>
+<h3 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h3><blockquote>
+<p>覆盖索引：</p>
+<p>利用了索引查询的语句如果只包含了那个索引列，那么这种情况查询会很快。</p>
+<p>因为利用索引查找有优化算法，且数据就在查询索引上面，不同再去找相关地址了，这样就节省了很多时间。另外mysql中也有相关的索引缓存，在并发高的时候利用缓存效果就更好了。</p>
+<p>如下例子，id字段是主键，自然就默认包含了主键索引，</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> product limit <span class="number">866613</span>, <span class="number">20</span>	<span class="number">37.44</span>s	<span class="comment">--查询全部</span></span><br><span class="line"><span class="keyword">select</span> id <span class="keyword">from</span> product limit <span class="number">866613</span>, <span class="number">20</span>	<span class="number">0.2</span>s	<span class="comment">--利用覆盖索引，只包含id</span></span><br></pre></td></tr></table></figure>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class Attribute1 </span><br><span class="line">&#123;</span><br><span class="line">	public String name() &#123;...&#125;</span><br><span class="line">&#125;</span><br><span class="line">public class Attribute2 </span><br><span class="line">&#123;</span><br><span class="line">	public Integer age() &#123;...&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Outer</span><br><span class="line">&#123;</span><br><span class="line">	private class IneerClass1 extends Attribute1 &#123;...&#125;</span><br><span class="line">	private class IneerClass2 extends Attribute2 &#123;...&#125;</span><br><span class="line">	</span><br><span class="line">	public String name()</span><br><span class="line">	&#123;</span><br><span class="line">		return new IneerClass1.name();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public Integer age()</span><br><span class="line">	&#123;</span><br><span class="line">		return new IneerClass2.age();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在使用外部类Outer的时候，我们既可以使用Attribute1里面的方法，也可以使用Attribute2里的方法，这样就间接实现了outer一个类继承两个类，实现了多继承。但是这种多继承依然是建立在extends关键字之后只能有一个类的基础之上</p>
-<h4 id="4-通过匿名内部类来优化简单接口的实现"><a href="#4-通过匿名内部类来优化简单接口的实现" class="headerlink" title="4.通过匿名内部类来优化简单接口的实现"></a>4.通过匿名内部类来优化简单接口的实现</h4><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><h4 id="1-成员内部类"><a href="#1-成员内部类" class="headerlink" title="1.成员内部类"></a>1.成员内部类</h4><p>成员内部类可以无条件的访问外部类所有的属性和方法，不论是静态与否或者是用什么权限修饰词修饰。当内部类的成员名或方法名与外部类重复时，会发生隐藏现象，即默认情况下访问的是内部类成员</p>
-<p>成员内部类的实例化对象创建依赖于外部类实例对象，没有创建外部类实例对象之前，是无法创建内部类对象的</p>
-<h4 id="2-局部内部类"><a href="#2-局部内部类" class="headerlink" title="2.局部内部类"></a>2.局部内部类</h4><p>创建在一个方法内或者是一个作用域里面。它可以访问作用域里面的变量，需要的注意的地方有：</p>
 <ul>
-<li>局部内部类不允许使用权限修饰词修饰</li>
-<li>完全对外隐藏，出了这个作用域再不允许对它进行访问</li>
-<li>它可以访问作用域里面的成员变量，但是该变量必须声明为final的，即不允许局部内部类改变基本类型数据的值和引用类型数据的指向</li>
+<li>方法一：使用id&gt;&#x3D;的形式</li>
 </ul>
-<h4 id="3-匿名内部类"><a href="#3-匿名内部类" class="headerlink" title="3.匿名内部类"></a>3.匿名内部类</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class Button</span><br><span class="line">&#123;</span><br><span class="line">	public void click(final int params)</span><br><span class="line">	&#123;</span><br><span class="line">		new ActionListener()</span><br><span class="line">		&#123;</span><br><span class="line">			public void onAction()</span><br><span class="line">			&#123;</span><br><span class="line">				...</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;.onAction();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public interface ActionListener()</span><br><span class="line">	&#123;</span><br><span class="line">		public void onAction();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		Button button = new Button();</span><br><span class="line">		button.click();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> product <span class="keyword">where</span> id <span class="operator">&gt;=</span> (<span class="keyword">select</span> id <span class="keyword">from</span> product limit <span class="number">866613</span>, <span class="number">1</span>) limit <span class="number">20</span>		</span><br></pre></td></tr></table></figure>
 
-<p>注意点：</p>
-<ul>
-<li>没有权限修饰词</li>
-<li>必须继承一个抽象类或者实现一个接口</li>
-<li>不能存在任何静态方法或成员</li>
-<li>内部没有构造方法，因为它没有类名</li>
-<li>也可以引用局部变量，此变量也必须声明为final</li>
-</ul>
-<h4 id="4-静态内部类"><a href="#4-静态内部类" class="headerlink" title="4.静态内部类"></a>4.静态内部类</h4><p>生命为static的内部类，它不依赖外部类实例。它不能访问外部类的普通成员变量和方法，但可以访问静态成员和方法</p>
+<p>这样做查询时间为0.2s，性能有显著提升</p>
+<p>另外一种写法：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> product a <span class="keyword">join</span> (<span class="keyword">select</span> id <span class="keyword">from</span> product limit <span class="number">866613</span>, <span class="number">20</span>) b <span class="keyword">on</span> a.id <span class="operator">=</span> b.id</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：通配符*在实际查询中应该不使用，应该指明相应的属性，效果更加好</p>
+</blockquote>
+<p>如果知道上次分页的起始地址，也可以直接这样写</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> product <span class="keyword">where</span> id <span class="operator">&gt;=</span> <span class="number">866613</span> limit <span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<p>这三种写法其实是一个原理，只是在形式上写法不同，效率都是大同小异的</p>
 
 
   </div>
@@ -2615,7 +2620,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/05/26/java%E5%86%85%E9%83%A8%E7%B1%BB/>http://example.com/2022/05/26/java%E5%86%85%E9%83%A8%E7%B1%BB/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/07/07/mysql%E8%B6%85%E5%A4%A7%E5%88%86%E9%A1%B5%E5%A4%84%E7%90%86/>http://example.com/2022/07/07/mysql%E8%B6%85%E5%A4%A7%E5%88%86%E9%A1%B5%E5%A4%84%E7%90%86/</a></p>
               
             
           </blockquote>
@@ -2632,10 +2637,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-26T09:28:05+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-07-07T23:10:05+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年5月26日</p>
+    <p>更新于：2022年7月7日</p>
   </a>
 </div>
 
@@ -2644,8 +2649,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>java</p></a></div>
-  <span hidden itemprop="keywords">java</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/mysql/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>mysql</p></a></div>
+  <span hidden itemprop="keywords">mysql</span>
 
 
         
@@ -2658,7 +2663,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/05/26/java%E5%86%85%E9%83%A8%E7%B1%BB/&title=java内部类 - SaltFish的博客&summary=java内部类的定义和作用是什么呢"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/07/07/mysql%E8%B6%85%E5%A4%A7%E5%88%86%E9%A1%B5%E5%A4%84%E7%90%86/&title=mysql超大分页处理 - SaltFish的博客&summary=在数据库开发中，我们经常会使用分页，核心技术是使用mysql的limit语句"
           
           >
           
@@ -2670,7 +2675,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/05/26/java%E5%86%85%E9%83%A8%E7%B1%BB/&title=java内部类 - SaltFish的博客&summary=java内部类的定义和作用是什么呢"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/07/07/mysql%E8%B6%85%E5%A4%A7%E5%88%86%E9%A1%B5%E5%A4%84%E7%90%86/&title=mysql超大分页处理 - SaltFish的博客&summary=在数据库开发中，我们经常会使用分页，核心技术是使用mysql的limit语句"
           
           >
           
@@ -2682,7 +2687,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/05/26/java%E5%86%85%E9%83%A8%E7%B1%BB/&title=java内部类 - SaltFish的博客&summary=java内部类的定义和作用是什么呢"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/07/07/mysql%E8%B6%85%E5%A4%A7%E5%88%86%E9%A1%B5%E5%A4%84%E7%90%86/&title=mysql超大分页处理 - SaltFish的博客&summary=在数据库开发中，我们经常会使用分页，核心技术是使用mysql的limit语句"
           
           >
           
@@ -2715,17 +2720,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/05/27/%E5%85%B3%E4%BA%8E%E6%89%BE%E5%B7%A5%E4%BD%9C%E7%9A%84%E6%84%9F%E6%82%9F/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>关于找工作的感悟</p>
-          <p class='content'>以前以为只要自己读研，不用十分努力，六七分的努力就可以找到大厂工作，但是今天在了解到一些去大厂面试的学长的经历，看了网上一些大厂面试的介绍之后，发现是我过于天真了
-要真正进大厂并不是一件容易的事...</p>
-        </a>
       
-      
-        <a class='next' href='/2022/05/26/a-a-b%E5%92%8Ca-b%E7%9A%84%E5%8C%BA%E5%88%AB/'>
-          <p class='title'>a=a+b和a+=b的区别<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>在java语言中，当参与运算的两个数是byte，short或者int时或者它们三者的混合时，它们首先都会被转换成int类型，然后进行运算，当然最后的结果也是int类型的
-a&#x3D;a+b和a...</p>
+        <a class='next' href='/2022/07/05/Validated%E6%B3%A8%E8%A7%A3/'>
+          <p class='title'>Validated注解<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>spring-boot中可以使用@Validated注解来校验数据，如果数据异常会统一抛出异常，方便异常中心统一处理
+基础使用12345@RestControllerpublic Result&...</p>
         </a>
       
     </div>
@@ -2741,7 +2740,7 @@ a&#x3D;a+b和a...</p>
   
   <article class="post white-box reveal shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/05/26/java%E5%86%85%E9%83%A8%E7%B1%BB/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/07/07/mysql%E8%B6%85%E5%A4%A7%E5%88%86%E9%A1%B5%E5%A4%84%E7%90%86/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2774,7 +2773,7 @@ a&#x3D;a+b和a...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-text">作用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%86%85%E9%83%A8%E7%B1%BB%E5%8F%AF%E4%BB%A5%E6%97%A0%E6%9D%A1%E4%BB%B6%E8%AE%BF%E9%97%AE%E8%AF%A5%E7%B1%BB%E5%AE%9A%E4%B9%89%E6%89%80%E5%9C%A8%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%EF%BC%8C%E5%8C%85%E6%8B%AC%E8%A2%ABprivate%E4%BF%AE%E9%A5%B0%E7%9A%84%E7%A7%81%E6%9C%89%E6%95%B0%E6%8D%AE"><span class="toc-text">1.内部类可以无条件访问该类定义所在作用域中的数据，包括被private修饰的私有数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%86%85%E9%83%A8%E7%B1%BB%E5%8F%AF%E4%BB%A5%E5%AF%B9%E5%90%8C%E4%B8%80%E4%B8%AA%E5%8C%85%E4%B8%AD%E7%9A%84%E5%85%B6%E4%BB%96%E7%B1%BB%E9%9A%90%E8%97%8F%E8%B5%B7%E6%9D%A5"><span class="toc-text">2.内部类可以对同一个包中的其他类隐藏起来</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%AE%9E%E7%8E%B0%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF"><span class="toc-text">3.实现多重继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E9%80%9A%E8%BF%87%E5%8C%BF%E5%90%8D%E5%86%85%E9%83%A8%E7%B1%BB%E6%9D%A5%E4%BC%98%E5%8C%96%E7%AE%80%E5%8D%95%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">4.通过匿名内部类来优化简单接口的实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-text">分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%88%90%E5%91%98%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-text">1.成员内部类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%B1%80%E9%83%A8%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-text">2.局部内部类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%8C%BF%E5%90%8D%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-text">3.匿名内部类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E9%9D%99%E6%80%81%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-text">4.静态内部类</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql%E8%B5%B7%E7%82%B9%E8%B6%8A%E5%A4%A7%E6%9F%A5%E8%AF%A2%E9%80%9F%E5%BA%A6%E8%B6%8A%E6%85%A2"><span class="toc-text">mysql起点越大查询速度越慢</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95"><span class="toc-text">优化方法</span></a></li></ol>
     </div>
   </section>
 
@@ -3790,7 +3789,7 @@ a&#x3D;a+b和a...</p>
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/05/26/java内部类/","name":"java内部类"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"java内部类","description":"java内部类的定义和作用是什么呢","datePublished":"2022-05-26T01:23:56.000Z","dateModified":"2022-05-26T01:28:05.761Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/05/26/java%E5%86%85%E9%83%A8%E7%B1%BB/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/05/26/java%E5%86%85%E9%83%A8%E7%B1%BB/","wordCount":17,"keywords":"java","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/07/07/mysql超大分页处理/","name":"mysql超大分页处理"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"mysql超大分页处理","description":"在数据库开发中，我们经常会使用分页，核心技术是使用mysql的limit语句","datePublished":"2022-07-07T12:22:04.000Z","dateModified":"2022-07-07T15:10:05.082Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/07/07/mysql%E8%B6%85%E5%A4%A7%E5%88%86%E9%A1%B5%E5%A4%84%E7%90%86/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/07/07/mysql%E8%B6%85%E5%A4%A7%E5%88%86%E9%A1%B5%E5%A4%84%E7%90%86/","wordCount":38,"keywords":"mysql","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
