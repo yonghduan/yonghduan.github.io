@@ -43,7 +43,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-06-28T13:28:21.000Z">
-<meta property="article:modified_time" content="2022-07-07T15:28:31.528Z">
+<meta property="article:modified_time" content="2022-07-10T03:07:51.663Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
@@ -1752,7 +1752,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.8a038721.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1657207726260),
+    lastupdate: new Date(1657440156769),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2639,6 +2639,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ol>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/</a></p>
 <p>思想：利用最朴素的思想，从前序遍历获得每个子树的根节点，然后利用根节点将中序遍历分成左子树和右子树</p>
+<ol start="106">
+<li>从中序和后序遍历序列构造二叉树</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/">https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/</a></p>
+<p>与前序与中序构造二叉树正好相反，先遍历右子树，然后遍历左子树，而后序遍历的坐标一直持续递减</p>
+<blockquote>
+<p>通过看答案的代码，又学到了一个知识点：</p>
+<p>当需要多个函数操作一组变量时，一个常规的办法是在主函数中定义这一组变量，然后在局部函数中一直来回传这组变量，那么这样做的问题是函数参数太多了，在调用函数的时候因为来回传参就会消耗很多的性能。另一个比较成熟的方法是利用面向对象的编程思想，将一组公共的变量定义为成员变量，自然可以定义很多的成员函数共同操纵这一组成员变量，而不需要在函数中来回传参。我想这应该就是使用面向对象编程思想较于面向过程思想的一个很显著的优势。</p>
+<p>为什么要使用面向对象编程思想呢？这是我一直思考的问题。我想第一个原因便是对象是实际问题的抽象。编程是为了解决实际问题，因而这种对应关系能够帮助我们简化编程难度。另一个原因便是我上述提到的可以提供一组函数操作一组变量。</p>
+</blockquote>
 <ol start="107">
 <li>二叉树的层序遍历（自底向上）</li>
 </ol>
@@ -2664,6 +2674,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ol>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/balanced-binary-tree/">https://leetcode.cn/problems/balanced-binary-tree/</a></p>
 <p>判断是否平衡，采取递归的方法</p>
+<hr>
+<hr>
+<ol start="112">
+<li>路径总和</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/path-sum/">https://leetcode.cn/problems/path-sum/</a></p>
+<p>采用不常规的递归算法思想，即采用减的方法来计算路径总和</p>
+<p>答案中还有一种利用广度优先算法来计算的方式</p>
 
 
   </div>
@@ -2700,10 +2718,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-07-07T23:28:31+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-07-10T11:07:51+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年7月7日</p>
+    <p>更新于：2022年7月10日</p>
   </a>
 </div>
 
@@ -3860,7 +3878,7 @@ http协议是对客户端和服务端之间数据实现可靠性的传输文字�
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/28/算法专题：树/","name":"算法专题：树"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"算法专题：树","description":"关于树的题","datePublished":"2022-06-28T13:28:21.000Z","dateModified":"2022-07-07T15:28:31.528Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/28/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E6%A0%91/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/28/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E6%A0%91/","wordCount":5,"keywords":"leetcode","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/28/算法专题：树/","name":"算法专题：树"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"算法专题：树","description":"关于树的题","datePublished":"2022-06-28T13:28:21.000Z","dateModified":"2022-07-10T03:07:51.663Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/28/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E6%A0%91/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/28/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E6%A0%91/","wordCount":5,"keywords":"leetcode","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
