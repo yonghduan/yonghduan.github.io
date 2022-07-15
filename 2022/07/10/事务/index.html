@@ -4,8 +4,8 @@
   <meta name="generator" content="Hexo 6.1.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="http://example.com/page/2/"/>
+  
+  <link rel="canonical" href="http://example.com/2022/07/10/事务/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,19 +31,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>SaltFish的博客</title>
-  <meta name="keywords" content="java c++">
-  <meta desc name="description" content="菜狗一枚，坐标西安电子科技大学 - SaltFish - SaltFish的博客">
+  <title>事务 - SaltFish的博客</title>
+  <meta name="keywords" content="mysql,java c++">
+  <meta desc name="description" content="数据库的事务 - SaltFish - SaltFish的博客">
   
-<meta property="og:type" content="website">
-<meta property="og:title" content="SaltFish的博客">
-<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="事务">
+<meta property="og:url" content="http://example.com/2022/07/10/%E4%BA%8B%E5%8A%A1/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="菜狗一枚，坐标西安电子科技大学">
+<meta property="og:description" content="数据库的事务">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2022-07-10T12:58:16.000Z">
+<meta property="article:modified_time" content="2022-07-10T13:35:21.874Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="java c++">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2422,7 +2424,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="none" class='cover-wrapper  dock' style="display: none;">
+      <div id="none" class='cover-wrapper post dock' style="display: none;">
         
   <div class='cover-bg lazyload placeholder' data-bg="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture"></div>
 
@@ -2497,15 +2499,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper">
           
 <div id="l_main" class=''>
-  
-  <section class="post-list">
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/28/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E6%A0%91/">
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/10/%E4%BA%8B%E5%8A%A1/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2514,551 +2509,258 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
   </span>
   
-  
+
+
   
     <span hidden>
       <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
     </span>
   
-  
+  <div class="article-meta" id="top">
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/06/28/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E6%A0%91/"  itemprop="url">
-        算法专题：树
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
     
-      <p>关于树的题</p>
+    
+      <h1 class="title" itemprop="name headline">
+        事务
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/apple-touch-icon.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/apple-touch-icon.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">请设置文章作者</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-07-10T20:58:16+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年7月10日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
     
   </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <p>数据库的事务<span id="more"></span></p>
+<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p>事务是逻辑上的一组操作，即由几个sql命令组成的合集，要么都执行，要么都不执行，它们要符合ACID操作</p>
+<ul>
+<li>A：Atomicity，原子性，要么全部成功，要么全部失败，不可能只执行一部分操作</li>
+<li>C：Consisitency，一致性，数据库总是从一个一致性的状态转移到另一个一致性的状态，不存在中间状态</li>
+<li>I：Isolation，隔离性，通常来说，一个事务在完全提交以前，对其他事务是不可见的，即事务在正确提交之前，不允许把该事务的任何改变提供给其他事务。当然也有例外情况</li>
+<li>D：Durability，持久性，一旦事务提交，那么将会永远保持这个结果，哪怕系统奔溃也改变不了这个结果</li>
+</ul>
+<blockquote>
+<p>事务回滚：指对已完成的数据库的更新操作撤销，如果事务有操作失败，则执行事务回滚操作</p>
+</blockquote>
+<h3 id="并发事务"><a href="#并发事务" class="headerlink" title="并发事务"></a>并发事务</h3><h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><ul>
+<li>脏读：当一个事务对正在访问的数据库进行了修改，但是这种修改还没有提交到数据库中，这时另外一个事务访问了这个数据，然后使用了这个数据。因为这个数据还是没有提交的数据，即如果这个事务失败的话对这个数据修改还有回滚，因此另一个事务读到的这个数据其实是个脏数据，所做的操作可能是不正确的</li>
+<li>丢失修改：指一个事务读取到一个数据，另外一个事务也访问了这个数据，那么在第一个事务中修改了这个数据之后，第二个事务也修改了这个数据，这样一个事务对其所做的修改丢失，称为丢失修改。例如，两个事务要对数据20都做自减操作，但是因为它们并发读取到的都是20，因此最终的结果是19，丢失了一个事务对其的修改</li>
+<li>不可重复读：指在一个事务内多次读取同一数据。在一个事务还没有结束的时候，另外一个事务也访问这个数据，可能造成的结果是在一个事务之内两次读到的数据结果是不同的，因此称为不可重复读</li>
+<li>幻读：一个事务读取了几行数据，接着另外一个事务插入了一些数据。在随后的查询中，第一个事务就会发现多了一些原本不存在的记录，就好像发生幻觉一样，所以称为幻读</li>
+</ul>
+<h4 id="解决方案：事务隔离"><a href="#解决方案：事务隔离" class="headerlink" title="解决方案：事务隔离"></a>解决方案：事务隔离</h4><p>mysql的四种隔离级别如下：</p>
+<ul>
+<li>未提交读</li>
+</ul>
+<p>在这个隔离级别下，其他事务可以看到本事务没有提交的部分的修改，因此会造成脏读问题。这个级别的性能没有足够大的优势，但是又有很多问题，因此很少使用</p>
+<ul>
+<li>已提交读</li>
+</ul>
+<p>其他事务可以读取到本事务已经提交的部分。这个隔离级别有不可重复读的问题，在同一个事务中两次读取到的数据不一致</p>
+<ul>
+<li>可重复读</li>
+</ul>
+<p>可重复读隔离级别解决了上面不可重复读的问题，但是有幻读的问题</p>
+<ul>
+<li>可串行化</li>
+</ul>
+<p>这是最高的隔离级别，可以解决上面所有的问题，因为它将强制所有操作串行执行，这会导致并发性能急速下降，因此不是很常用</p>
+<blockquote>
+<p>InnoDB使用了可重复读隔离级别</p>
+</blockquote>
+
+
+  </div>
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-06-28T21:28:21+08:00">2022-06-28</time>
-        
-      </div>
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2022/06/28/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E6%A0%91/' itemprop="url">
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://example.com/2022/07/10/%E4%BA%8B%E5%8A%A1/>http://example.com/2022/07/10/%E4%BA%8B%E5%8A%A1/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-07-10T21:35:21+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年7月10日</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/28/TCP-IP/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/mysql/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>mysql</p></a></div>
+  <span hidden itemprop="keywords">mysql</span>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/07/10/%E4%BA%8B%E5%8A%A1/&title=事务 - SaltFish的博客&summary=数据库的事务"
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/07/10/%E4%BA%8B%E5%8A%A1/&title=事务 - SaltFish的博客&summary=数据库的事务"
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/07/10/%E4%BA%8B%E5%8A%A1/&title=事务 - SaltFish的博客&summary=数据库的事务"
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
   
   
+
   
+    <div class="prev-next">
+      
+        <a class='prev' href='/2022/07/10/B%E6%A0%91%E4%B8%8E%E7%B4%A2%E5%BC%95/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>B树与索引</p>
+          <p class='content'>索引是一种数据结构，可以帮助我们快速进行数据的查找
+索引索引的数据结构和具体存储引擎的实现有关，在mysql中使用较多的索引有Hash索引，B+树索引等，而我们经常使用的InnoDB存储引擎的默...</p>
+        </a>
+      
+      
+        <a class='next' href='/2022/07/07/mysql%E8%B6%85%E5%A4%A7%E5%88%86%E9%A1%B5%E5%A4%84%E7%90%86/'>
+          <p class='title'>mysql超大分页处理<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>在数据库开发中，我们经常会使用分页，核心技术是使用mysql的limit语句
+mysql起点越大查询速度越慢limit语法：
+1select * product limit start, cou...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+  
+  <article class="post white-box reveal shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+      <meta itemprop="discussionUrl" content="/2022/07/10/%E4%BA%8B%E5%8A%A1/index.html#comments">
     </span>
-  
-  
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/06/28/TCP-IP/"  itemprop="url">
-        TCP/IP
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
     
-      <h3 id="网络分层"><a href="#网络分层" class="headerlink" title="网络分层"></a>网络分层</h3>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-06-28T21:08:14+08:00">2022-06-28</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/06/28/TCP-IP/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
+    <div id="layoutHelper-comments"></div>
+
+  </article>
   
 
-</div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/27/new%E5%92%8Cdelete/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/06/27/new%E5%92%8Cdelete/"  itemprop="url">
-        new和delete
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>c++中的动态内存管理</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-06-27T23:30:52+08:00">2022-06-27</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/06/27/new%E5%92%8Cdelete/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
 
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/27/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/06/27/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/"  itemprop="url">
-        右值引用
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>左值引用和右值引用分别是什么呢？</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-06-27T20:44:53+08:00">2022-06-27</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/06/27/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/27/push-back%E5%92%8Cemplace-back/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/06/27/push-back%E5%92%8Cemplace-back/"  itemprop="url">
-        push_back和emplace_back
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>在vector中有一个push_back（）方法，作用是往容器尾部插入一个元素，后来在c++11中，又加入了一个emplace_back（）的方法，作用和前者一样。既然两者功能一样，那么之间有什么区别，使用的时候如何选择呢？</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-06-27T19:19:18+08:00">2022-06-27</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/06/27/push-back%E5%92%8Cemplace-back/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/26/%E7%A7%BB%E5%8A%A8%E8%AF%AD%E4%B9%89/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/06/26/%E7%A7%BB%E5%8A%A8%E8%AF%AD%E4%B9%89/"  itemprop="url">
-        移动语义
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>什么是移动语义？为什么需要移动语义</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-06-26T21:37:18+08:00">2022-06-26</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/06/26/%E7%A7%BB%E5%8A%A8%E8%AF%AD%E4%B9%89/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/26/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/06/26/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/"  itemprop="url">
-        lambda表达式
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>c++11引入了lambda表达式，用于定义并创建匿名函数对象，主要用于方便编程，避免全局变量的定义，并且变量安全</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-06-26T20:05:31+08:00">2022-06-26</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/06/26/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/25/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E6%A0%88/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/06/25/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E6%A0%88/"  itemprop="url">
-        算法专题：栈
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>刷题过程中关于栈的题目</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-06-25T20:17:43+08:00">2022-06-25</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/06/25/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E6%A0%88/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/25/jvm%E8%B0%83%E4%BC%98/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/06/25/jvm%E8%B0%83%E4%BC%98/"  itemprop="url">
-        jvm调优
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <h3 id="调优命令"><a href="#调优命令" class="headerlink" title="调优命令"></a>调优命令</h3><p>Sun jdk监控和故障处理命令有jps jstat jmap jhat jstack jinfo</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-06-25T16:05:52+08:00">2022-06-25</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/06/25/jvm%E8%B0%83%E4%BC%98/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/22/%E5%87%A0%E6%AC%BE%E5%85%B8%E5%9E%8B%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/06/22/%E5%87%A0%E6%AC%BE%E5%85%B8%E5%9E%8B%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"  itemprop="url">
-        几款典型垃圾收集器
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <h3 id="典型垃圾回收器"><a href="#典型垃圾回收器" class="headerlink" title="典型垃圾回收器"></a>典型垃圾回收器</h3><ol>
-<li>Serial</li></ol>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-06-22T19:19:17+08:00">2022-06-22</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/06/22/%E5%87%A0%E6%AC%BE%E5%85%B8%E5%9E%8B%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-          <a class="prev" rel="prev" href="/">
-            <section class="post prev white-box shadow floatable blur" >
-              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
-            </section>
-          </a>
-        
-        <p class="current">
-          2 / 9
-        </p>
-        
-          <a class="next" rel="next" href="/page/3/">
-            <section class="post next white-box shadow floatable blur">
-              &nbsp;下一页&nbsp;<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
-    
-  
 
 
 </div>
@@ -3068,103 +2770,34 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow floatable blur desktop mobile pjax">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">SaltFish的博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fa-solid fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fa-solid fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fa-solid fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow floatable blur desktop mobile pjax">
+  <section class="widget toc-wrapper shadow floatable blur desktop mobile pjax" id="toc-div" >
     
   <header>
     
-      <a href='/blog/tags/'><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <a href="/tags/c-c/" style="font-size: 19px; color: #777">c/c++</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/java%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 21.5px; color: #666">java虚拟机</a> <a href="/tags/java%E9%9D%A2%E8%AF%95/" style="font-size: 16.5px; color: #888">java面试</a> <a href="/tags/learning-notes/" style="font-size: 22.75px; color: #5e5e5e">learning notes</a> <a href="/tags/leetcode/" style="font-size: 17.75px; color: #808080">leetcode</a> <a href="/tags/mybatis-plus/" style="font-size: 16.5px; color: #888">mybatis-plus</a> <a href="/tags/mysql/" style="font-size: 19px; color: #777">mysql</a> <a href="/tags/sharing/" style="font-size: 16.5px; color: #888">sharing</a> <a href="/tags/spring-boot/" style="font-size: 15.25px; color: #919191">spring-boot</a> <a href="/tags/spring-security/" style="font-size: 15.25px; color: #919191">spring-security</a> <a href="/tags/thinking/" style="font-size: 14px; color: #999">thinking</a> <a href="/tags/web/" style="font-size: 20.25px; color: #6f6f6f">web</a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1"><span class="toc-text">事务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E4%BA%8B%E5%8A%A1"><span class="toc-text">并发事务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB"><span class="toc-text">解决方案：事务隔离</span></a></li></ol></li></ol>
     </div>
   </section>
-
-
-  
 
   
 
 
 <!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   <div class="pjax">
     <!-- pjax占位 -->
@@ -3200,7 +2833,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <pjax>
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -4165,7 +3798,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"SaltFish的博客","url":"http://example.com/","keywords":"java c++","description":"菜狗一枚，坐标西安电子科技大学","author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"菜狗一枚，坐标西安电子科技大学"},"publisher":{"@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/07/10/事务/","name":"事务"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"事务","description":"数据库的事务","datePublished":"2022-07-10T12:58:16.000Z","dateModified":"2022-07-10T13:35:21.874Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/07/10/%E4%BA%8B%E5%8A%A1/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/07/10/%E4%BA%8B%E5%8A%A1/","wordCount":6,"keywords":"mysql","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

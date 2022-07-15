@@ -43,7 +43,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-06-28T13:28:21.000Z">
-<meta property="article:modified_time" content="2022-07-10T03:07:51.663Z">
+<meta property="article:modified_time" content="2022-07-15T11:44:42.922Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
@@ -1752,7 +1752,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.8a038721.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1657440156769),
+    lastupdate: new Date(1657897167015),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2622,6 +2622,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 <hr>
 <hr>
+<ol start="100">
+<li>相同的树</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/same-tree/">https://leetcode.cn/problems/same-tree/</a></p>
+<p>利用树天生具有递归的性质，首先比较 节点存在性，然后比较值是否相等</p>
+<hr>
+<hr>
+<ol start="101">
+<li>对称二叉树</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/symmetric-tree/">https://leetcode.cn/problems/symmetric-tree/</a></p>
+<p>还是利用递归的思想， </p>
 <ol start="102">
 <li>二叉树的层序遍历</li>
 </ol>
@@ -2632,6 +2644,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>二叉树的锯齿形层序遍历</li>
 </ol>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/">https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/</a></p>
+<hr>
+<hr>
+<ol start="104">
+<li>二叉树的最大深度</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-depth-of-binary-tree/">https://leetcode.cn/problems/maximum-depth-of-binary-tree/</a></p>
+<p>利用深度优先遍历的思想也可以解，突然悟到一点就是：递归实则是一个从树的底层向上调用的过程，树的底层就是递归出口，所以是树的叶子节点处的函数首先结束，然后逐层结束，最后计算出最上层函数的值</p>
 <hr>
 <hr>
 <ol start="105">
@@ -2682,6 +2701,62 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/path-sum/">https://leetcode.cn/problems/path-sum/</a></p>
 <p>采用不常规的递归算法思想，即采用减的方法来计算路径总和</p>
 <p>答案中还有一种利用广度优先算法来计算的方式</p>
+<hr>
+<hr>
+<ol start="113">
+<li>路径总和II</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/path-sum-ii/">https://leetcode.cn/problems/path-sum-ii/</a></p>
+<p>使用深度优先遍历的思想，在每一层结束的时候，弹出本层元素</p>
+<hr>
+<hr>
+<ol start="114">
+<li>二叉树展开为链表</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/">https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/</a></p>
+<ul>
+<li><p>自己思路：将右指针设为下一节点地址，然后使用栈记录右侧节点</p>
+</li>
+<li><p>答案思路：栈数据结构天生具有先序遍历树的优势</p>
+</li>
+</ul>
+<hr>
+<hr>
+<ol start="116">
+<li>填充每个节点的下一个右侧节点指针</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/">https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/</a></p>
+<p>使用层序遍历的思想，即借用队列数据结构</p>
+<hr>
+<hr>
+<ol start="129">
+<li>求根节点到叶节点数字之和</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/sum-root-to-leaf-numbers/">https://leetcode.cn/problems/sum-root-to-leaf-numbers/</a></p>
+<p>其实还是使用深度遍历的思想，找到叶子节点之后将其加与总和之中</p>
+<hr>
+<hr>
+<ol start="173">
+<li>二叉搜索树迭代器</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/binary-search-tree-iterator/">https://leetcode.cn/problems/binary-search-tree-iterator/</a></p>
+<p>实则是写一个树的中序遍历迭代器</p>
+<ul>
+<li>自己思想：一直将左子树节点入栈，如此循环往复下去，便是中序遍历</li>
+<li>答案中还有一种做法：便是首先中序遍历将其维护在一个数组之中，然后就可以迭代取值</li>
+</ul>
+<hr>
+<hr>
+<ol start="199">
+<li>二叉树的右视图</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/binary-tree-right-side-view/">https://leetcode.cn/problems/binary-tree-right-side-view/</a></p>
+<p>一颗二叉树，从右边看到的树的节点，并非全部是右节点，因为如果右节点为空，左节点不为空,则此时看到的节点为左节点而非右节点。因此，我自己的解决思路是它本质上其实是一个层序遍历的问题，只要让一层中最右侧的节点加入到结果集中就可以</p>
+<ul>
+<li>答案中有一个利用深度优先遍历思想解决的方案，以后有时间再看</li>
+</ul>
+<hr>
+<hr>
 
 
   </div>
@@ -2718,10 +2793,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-07-10T11:07:51+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-07-15T19:44:42+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年7月10日</p>
+    <p>更新于：2022年7月15日</p>
   </a>
 </div>
 
@@ -3878,7 +3953,7 @@ http协议是对客户端和服务端之间数据实现可靠性的传输文字�
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/28/算法专题：树/","name":"算法专题：树"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"算法专题：树","description":"关于树的题","datePublished":"2022-06-28T13:28:21.000Z","dateModified":"2022-07-10T03:07:51.663Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/28/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E6%A0%91/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/28/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E6%A0%91/","wordCount":5,"keywords":"leetcode","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/28/算法专题：树/","name":"算法专题：树"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"算法专题：树","description":"关于树的题","datePublished":"2022-06-28T13:28:21.000Z","dateModified":"2022-07-15T11:44:42.922Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/28/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E6%A0%91/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/28/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E6%A0%91/","wordCount":5,"keywords":"leetcode","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
