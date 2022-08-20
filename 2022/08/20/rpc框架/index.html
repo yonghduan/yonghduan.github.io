@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/06/27/new和delete/"/>
+  <link rel="canonical" href="http://example.com/2022/08/20/rpc框架/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,21 +31,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>new和delete - SaltFish的博客</title>
-  <meta name="keywords" content="c/c++,java c++">
-  <meta desc name="description" content="c++中的动态内存管理 - SaltFish - SaltFish的博客">
+  <title>rpc框架 - SaltFish的博客</title>
+  <meta name="keywords" content="web,java c++">
+  <meta desc name="description" content="菜狗一枚，坐标西安电子科技大学 - SaltFish - SaltFish的博客">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="new和delete">
-<meta property="og:url" content="http://example.com/2022/06/27/new%E5%92%8Cdelete/index.html">
+<meta property="og:title" content="rpc框架">
+<meta property="og:url" content="http://example.com/2022/08/20/rpc%E6%A1%86%E6%9E%B6/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="c++中的动态内存管理">
+<meta property="og:description" content="什么是rpc框架rpc（Remote Procedure Call） 假设有一个Calculator，以及它的实现类CalculatorImpl，那么单体应用时，要调用Calculator的add方法来执行一个加运算，你可以在方法中直接使用，因为在同一个地址空间，或者说在同一块内存，这个称为本地函数调用  现在，将系统改为分布式应用，接口调用和实现在两个子系统内： 服务A里头并没有Calc">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-06-27T15:30:52.000Z">
-<meta property="article:modified_time" content="2022-06-28T03:51:28.848Z">
+<meta property="article:published_time" content="2022-08-20T12:39:38.000Z">
+<meta property="article:modified_time" content="2022-08-20T13:04:04.289Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="c&#x2F;c++">
+<meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2500,7 +2500,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/27/new%E5%92%8Cdelete/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/20/rpc%E6%A1%86%E6%9E%B6/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2521,7 +2521,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        new和delete
+        rpc框架
       </h1>
       <div class='new-meta-box'>
         
@@ -2542,10 +2542,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-06-27T23:30:52+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-08-20T20:39:38+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年6月27日</p>
+    <p>发布于：2022年8月20日</p>
   </a>
 </div>
 
@@ -2566,20 +2566,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>c++中的动态内存管理<span id="more"></span></p>
-<h3 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h3><p>我们都知道，c++中new和delete必须成对出现，即在堆中申请了一部分空间，用完之后就必须手动释放它，否则就会造成内存泄漏。相应地new[] 对应delete[] 。</p>
-<p>那为什么会产生析构函数这个东西呢？其实，析构函数正是为了保证对象的内存得到正确的释放，它在对象的生命周期结束之前会被调用。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="type">int</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main1</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	A a1;</span><br><span class="line">    </span><br><span class="line">    A * a2 = <span class="keyword">new</span> <span class="built_in">A</span>();</span><br><span class="line">    <span class="keyword">delete</span> a2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <span id="more"></span>
 
-<p>对于上述类A而言，它使用了两张初始化方法，前者是在栈上初始化A的一个对象a1 。它的生命周期结束于main1函数结束的时候，因为这个对象其实是存储于栈上，结束之前会调用它的析构函数。对于a2而言，这个对象它其实是存储于堆上，而a2这个指针变量是存储于栈上，因此指针变量的生命周期结束于main1函数结束之时，但是a2这个对象却不会随着函数结束而结束，如果不手动释放，则造成了内存泄漏。因为指向它的引用已经过期了，它无法再被使用了，但是它却还存在于堆中。</p>
-<p>对于类A而言，其实有没有析构函数都无关紧要，因为不使用析构函数，它的内存也都能得到正确的释放，而对于有的类而言，却不是这样。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">string</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="type">char</span> * str;</span><br><span class="line">	</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">string</span>(<span class="type">int</span> n)</span><br><span class="line">    &#123;</span><br><span class="line">        str = <span class="keyword">new</span> <span class="type">char</span>[n];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">	~<span class="built_in">string</span>()</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">delete</span>[] str;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<meta name="referrer" content="no-referrer">
 
-<p>比如对于类string而言，如果没有析构函数，那么它的内存便不能得到正确的释放。无论是在栈上还是堆上初始化string对象，它内部str指针都会指向一片堆中的字符数组。在它生命周期结束之时没有析构函数只会释放这个对象的成员变量str，却不会释放它指向的堆空间，造成内存泄漏。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">fun</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	string s;</span><br><span class="line">	</span><br><span class="line">	string * s1 = <span class="keyword">new</span> <span class="built_in">string</span>();</span><br><span class="line">	<span class="keyword">delete</span> s1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>对于s，会在函数结束之时调用析构函数。对于s1，会在使用delete s1之时首先调用析构函数释放str指向的堆空间，然后释放它自己所占用的堆空间。</p>
-<p><strong>所以，析构函数的本质其实就是保证内存得到正确的释放，即时有时候并不需要它内存也能得到正确的释放</strong></p>
+<h3 id="什么是rpc框架"><a href="#什么是rpc框架" class="headerlink" title="什么是rpc框架"></a>什么是rpc框架</h3><p>rpc（Remote Procedure Call）</p>
+<p>假设有一个Calculator，以及它的实现类CalculatorImpl，那么单体应用时，要调用Calculator的add方法来执行一个加运算，你可以在方法中直接使用，因为在同一个地址空间，或者说在同一块内存，这个称为本地函数调用</p>
+<p><img src="https://img-blog.csdnimg.cn/1a32586ea5e0400f83969e56853a526d.png" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/1a32586ea5e0400f83969e56853a526d.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p>
+<p>现在，将系统改为分布式应用，接口调用和实现在两个子系统内：</p>
+<p>服务A里头并没有CalculatorImpl这个类，它如何调用服务B里的这个类的add（）方法呢？可以模仿B&#x2F;S架构的调用方式，在B服务端暴露一个Restful接口，然后A服务通过调用这个Restful接口来间接调用CalculatorImpl的add方法</p>
+<p><img src="https://img-blog.csdnimg.cn/95653e1494bf4d349b7189604a8b440d.png" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/95653e1494bf4d349b7189604a8b440d.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p>
+<p>每次调用时，都需要进行http请求来调用这个接口，如果使用代理模式，生成一个代理对象，而这个代理对象内部，就是通过http请求来调用这个接口，这样就屏蔽了具体的调用过程，像使用本地方法一样使用远程服务的方法，这就是很多rpc框架的解决远程服务调用的思路。rpc框架实则就是让你像使用本地方法一样使用远程方法</p>
+<h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><p>最大的优势是能够解耦服务</p>
 
 
   </div>
@@ -2599,7 +2597,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/06/27/new%E5%92%8Cdelete/>http://example.com/2022/06/27/new%E5%92%8Cdelete/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/08/20/rpc%E6%A1%86%E6%9E%B6/>http://example.com/2022/08/20/rpc%E6%A1%86%E6%9E%B6/</a></p>
               
             
           </blockquote>
@@ -2616,10 +2614,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-28T11:51:28+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-08-20T21:04:04+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年6月28日</p>
+    <p>更新于：2022年8月20日</p>
   </a>
 </div>
 
@@ -2628,8 +2626,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/c-c/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>c/c++</p></a></div>
-  <span hidden itemprop="keywords">c/c++</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/web/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>web</p></a></div>
+  <span hidden itemprop="keywords">web</span>
 
 
         
@@ -2642,7 +2640,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/06/27/new%E5%92%8Cdelete/&title=new和delete - SaltFish的博客&summary=c++中的动态内存管理"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/08/20/rpc%E6%A1%86%E6%9E%B6/&title=rpc框架 - SaltFish的博客&summary="
           
           >
           
@@ -2654,7 +2652,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/06/27/new%E5%92%8Cdelete/&title=new和delete - SaltFish的博客&summary=c++中的动态内存管理"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/08/20/rpc%E6%A1%86%E6%9E%B6/&title=rpc框架 - SaltFish的博客&summary="
           
           >
           
@@ -2666,7 +2664,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/06/27/new%E5%92%8Cdelete/&title=new和delete - SaltFish的博客&summary=c++中的动态内存管理"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/08/20/rpc%E6%A1%86%E6%9E%B6/&title=rpc框架 - SaltFish的博客&summary="
           
           >
           
@@ -2699,17 +2697,25 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/06/28/TCP-IP/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>TCP/IP</p>
-          <p class='content'>网络分层传输层：建立了主机端到端的链接，传输层的作用是为上层协议提供端到端的可靠和透明的数据传输服务，包括处理差错控制和流量控制等问题。该层向高层屏蔽了下层数据通信的细节，使高层用户看到的只是在...</p>
-        </a>
       
-      
-        <a class='next' href='/2022/06/27/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/'>
-          <p class='title'>右值引用<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>左值引用和右值引用分别是什么呢？
-右值引用左值引用左值是一个表达数据的表达式，程序可以获取其地址。左值出现在赋值语句的左边
-123456int n;int * pt = new int;cons...</p>
+        <a class='next' href='/2022/08/01/ubuntu%E5%A5%BD%E7%94%A8%E5%B7%A5%E5%85%B7/'>
+          <p class='title'>ubuntu好用工具<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>
+
+
+guake terminal
+
+
+
+
+gnome-system-monitor
+
+
+
+
+ubuntu微信
+
+1wget -O ~/weixin.deb http://archive.ubu...</p>
         </a>
       
     </div>
@@ -2725,7 +2731,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <article class="post white-box reveal shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/06/27/new%E5%92%8Cdelete/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/08/20/rpc%E6%A1%86%E6%9E%B6/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2758,7 +2764,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0"><span class="toc-text">析构函数</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFrpc%E6%A1%86%E6%9E%B6"><span class="toc-text">什么是rpc框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%8A%BF"><span class="toc-text">优势</span></a></li></ol>
     </div>
   </section>
 
@@ -3774,7 +3780,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/27/new和delete/","name":"new和delete"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"new和delete","description":"c++中的动态内存管理","datePublished":"2022-06-27T15:30:52.000Z","dateModified":"2022-06-28T03:51:28.848Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/27/new%E5%92%8Cdelete/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/27/new%E5%92%8Cdelete/","wordCount":11,"keywords":"c/c++","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/08/20/rpc框架/","name":"rpc框架"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"rpc框架","description":"","datePublished":"2022-08-20T12:39:38.000Z","dateModified":"2022-08-20T13:04:04.289Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/08/20/rpc%E6%A1%86%E6%9E%B6/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/08/20/rpc%E6%A1%86%E6%9E%B6/","wordCount":0,"keywords":"web","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
