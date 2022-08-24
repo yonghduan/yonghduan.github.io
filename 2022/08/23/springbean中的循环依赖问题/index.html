@@ -32,18 +32,20 @@
   <!-- 页面元数据 -->
   <pjax>
   <title>springbean中的循环依赖问题 - SaltFish的博客</title>
-  <meta name="keywords" content="java c++">
+  <meta name="keywords" content="spring,java c++">
   <meta desc name="description" content="菜狗一枚，坐标西安电子科技大学 - SaltFish - SaltFish的博客">
-  <meta property="og:type" content="article">
+  
+<meta property="og:type" content="article">
 <meta property="og:title" content="springbean中的循环依赖问题">
 <meta property="og:url" content="http://example.com/2022/08/23/springbean%E4%B8%AD%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
+<meta property="og:description" content="什么是Bean的循环依赖两个或两个以上的对象互相依赖对方，最终形成闭环。  产生的效果是对象创建过程会产生死循环，因为在A的创建过程中需要B，然后就去创建B对象，但是创建B对象的过程中需要A，但此时A是个半成品，无法使用，因此又去创建A，循环往复成为死循环 spring中循环依赖场景 构造器的循环依赖（两个类中的构造器变量循环依赖，spring没有办法解决） field属性的循环依赖  s">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-08-23T14:46:10.000Z">
-<meta property="article:modified_time" content="2022-08-23T14:46:10.406Z">
+<meta property="article:modified_time" content="2022-08-24T16:03:28.720Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="java c++">
+<meta property="article:tag" content="spring">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -1750,7 +1752,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.8a038721.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1661346352622),
+    lastupdate: new Date(1661357024512),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2564,7 +2566,26 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    
+    <span id="more"></span>
+
+<meta name="referrer" content="no-referrer">
+
+<h3 id="什么是Bean的循环依赖"><a href="#什么是Bean的循环依赖" class="headerlink" title="什么是Bean的循环依赖"></a>什么是Bean的循环依赖</h3><p>两个或两个以上的对象互相依赖对方，最终形成闭环。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210302103016670.png" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/20210302103016670.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p>
+<p>产生的效果是对象创建过程会产生死循环，因为在A的创建过程中需要B，然后就去创建B对象，但是创建B对象的过程中需要A，但此时A是个半成品，无法使用，因此又去创建A，循环往复成为死循环</p>
+<h4 id="spring中循环依赖场景"><a href="#spring中循环依赖场景" class="headerlink" title="spring中循环依赖场景"></a>spring中循环依赖场景</h4><ol>
+<li>构造器的循环依赖（两个类中的构造器变量循环依赖，spring没有办法解决）</li>
+<li>field属性的循环依赖</li>
+</ol>
+<h3 id="spring解决方法"><a href="#spring解决方法" class="headerlink" title="spring解决方法"></a>spring解决方法</h3><p>spring的循环依赖的理论依据其实是基于java的引用传递，当我们获取到对象的引用传递时，对象的field是可以延后设置的，但是构造器必须在获取引用之前</p>
+<p>spring的单例对象的初始化主要分为三步：</p>
+<ul>
+<li>createBeanInstance：实例化，其实也是调用对象的构造方法来实例化对象</li>
+<li>populateBean：填充属性，多bean的依赖属性填充</li>
+<li>initialzeBean：调用spring xml中的init方法</li>
+</ul>
+<p>对于单例bean来说，在spring容器中的整个生命周期内，有且只有一个对象，所以它应该存放在cache中，spring为了解决循环依赖问题，使用了三级缓存</p>
+
 
   </div>
   
@@ -2600,10 +2621,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-08-23T22:46:10+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-08-25T00:03:28+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年8月23日</p>
+    <p>更新于：2022年8月25日</p>
   </a>
 </div>
 
@@ -2611,6 +2632,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         
           
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/spring/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>spring</p></a></div>
+  <span hidden itemprop="keywords">spring</span>
+
 
         
       
@@ -2727,9 +2752,19 @@ spring bean的实例化时机
 
 
 
-  <div class="pjax">
-    <!-- pjax占位 -->
-  </div>
+  <section class="widget toc-wrapper shadow floatable blur desktop mobile pjax" id="toc-div" >
+    
+  <header>
+    
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFBean%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96"><span class="toc-text">什么是Bean的循环依赖</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#spring%E4%B8%AD%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E5%9C%BA%E6%99%AF"><span class="toc-text">spring中循环依赖场景</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spring%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-text">spring解决方法</span></a></li></ol>
+    </div>
+  </section>
 
   
 
@@ -3743,7 +3778,7 @@ spring bean的实例化时机
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/08/23/springbean中的循环依赖问题/","name":"springbean中的循环依赖问题"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"springbean中的循环依赖问题","description":"","datePublished":"2022-08-23T14:46:10.000Z","dateModified":"2022-08-23T14:46:10.406Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/08/23/springbean%E4%B8%AD%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/08/23/springbean%E4%B8%AD%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/","wordCount":0,"image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/08/23/springbean中的循环依赖问题/","name":"springbean中的循环依赖问题"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"springbean中的循环依赖问题","description":"","datePublished":"2022-08-23T14:46:10.000Z","dateModified":"2022-08-24T16:03:28.720Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/08/23/springbean%E4%B8%AD%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/08/23/springbean%E4%B8%AD%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/","wordCount":0,"keywords":"spring","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
