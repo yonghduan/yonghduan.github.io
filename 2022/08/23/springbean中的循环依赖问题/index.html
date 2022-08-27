@@ -43,7 +43,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-08-23T14:46:10.000Z">
-<meta property="article:modified_time" content="2022-08-24T16:03:28.720Z">
+<meta property="article:modified_time" content="2022-08-25T15:47:25.068Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="spring">
 <meta name="twitter:card" content="summary">
@@ -1752,7 +1752,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.8a038721.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1661431536089),
+    lastupdate: new Date(1661585993343),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2584,7 +2584,27 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>populateBean：填充属性，多bean的依赖属性填充</li>
 <li>initialzeBean：调用spring xml中的init方法</li>
 </ul>
-<p>对于单例bean来说，在spring容器中的整个生命周期内，有且只有一个对象，所以它应该存放在cache中，spring为了解决循环依赖问题，使用了三级缓存</p>
+<p>对于单例bean来说，在spring容器中的整个生命周期内，有且只有一个对象，所以它应该存放在cache中，spring为了解决循环依赖问题，使用了三级缓存：</p>
+<ul>
+<li>singletonFactories：单例对象工厂的cache</li>
+<li>earlySingletonObjects：提前曝光的单例对象的Cache</li>
+<li>singletonObjects：单例对象的cache</li>
+</ul>
+<hr>
+<hr>
+<p>创建bean的时候，首先是从缓存singletonObjects中获取bean</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> Object <span class="title function_">getSingleton</span><span class="params">(String beanName, <span class="type">boolean</span> allowEarlyReference)</span> &#123;</span><br><span class="line">    <span class="type">Object</span> <span class="variable">singletonObject</span> <span class="operator">=</span> <span class="built_in">this</span>.singletonObjects.get(beanName);</span><br><span class="line">    <span class="keyword">if</span> (singletonObject == <span class="literal">null</span> &amp;&amp; isSingletonCurrentlyInCreation(beanName)) &#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (<span class="built_in">this</span>.singletonObjects) &#123;</span><br><span class="line">            singletonObject = <span class="built_in">this</span>.earlySingletonObjects.get(beanName);</span><br><span class="line">            <span class="keyword">if</span> (singletonObject == <span class="literal">null</span> &amp;&amp; allowEarlyReference) &#123;</span><br><span class="line">                ObjectFactory&lt;?&gt; singletonFactory = <span class="built_in">this</span>.singletonFactories.get(beanName);</span><br><span class="line">                <span class="keyword">if</span> (singletonFactory != <span class="literal">null</span>) &#123;</span><br><span class="line">                    singletonObject = singletonFactory.getObject();</span><br><span class="line">                    <span class="built_in">this</span>.earlySingletonObjects.put(beanName, singletonObject);</span><br><span class="line">                    <span class="built_in">this</span>.singletonFactories.remove(beanName);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (singletonObject != NULL_OBJECT ? singletonObject : <span class="literal">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>isSingletonCurrerntlyInCreation()判断当前单例bean是否正在创建中，也就是初始化没有完成（例如A依赖了B对象，所以A在创建过程中需要先去创建B对象，所以此时A就是处于半成品状态，属于正在创建中的状态）</p>
+<p>三级cache    singletonFactories的类型是ObjectFactory，定义时：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ObjectFactory</span>&lt;T&gt; &#123;</span><br><span class="line">    T <span class="title function_">getObject</span><span class="params">()</span> <span class="keyword">throws</span> BeansException;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个接口在下面被引用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">addSingletonFactory</span><span class="params">(String beanName, ObjectFactory&lt;?&gt; singletonFactory)</span> &#123;</span><br><span class="line">    Assert.notNull(singletonFactory, <span class="string">&quot;Singleton factory must not be null&quot;</span>);</span><br><span class="line">    <span class="keyword">synchronized</span> (<span class="built_in">this</span>.singletonObjects) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">this</span>.singletonObjects.containsKey(beanName)) &#123;</span><br><span class="line">            <span class="built_in">this</span>.singletonFactories.put(beanName, singletonFactory);</span><br><span class="line">            <span class="built_in">this</span>.earlySingletonObjects.remove(beanName);</span><br><span class="line">            <span class="built_in">this</span>.registeredSingletons.add(beanName);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里就是解决循环依赖的关键，这段代码发生在createBeanInstance之后，也就是此时单例对象已经被创建出来（调用了构造器），但是还不完美，但是已经可以能够使用引用定位到此对象，所以spring提前将这个对象曝光出来让大家使用</p>
+<h4 id="为什么是三级？二级不可以吗？"><a href="#为什么是三级？二级不可以吗？" class="headerlink" title="为什么是三级？二级不可以吗？"></a>为什么是三级？二级不可以吗？</h4><p>如果不存在aop，则二级缓存就够，只要将半成品对象提前暴露出来就可以解决循环依赖问题。但是如果存在动态代理，三级缓存工厂的作用就是判断这个对象是否需要代理，如果否则直接返回，如果是则返回代理对象。</p>
+<p>singleFactory.getObject()返回的是代理对象，那么注入的也是代理对象。存在aop的情况下，不可能每次该方法都产生一个新的代理对象，所以需要借助一个缓存来保存代理对象，总之一句话，使用三级缓存的目的就是保证代理对象也是单例的</p>
 
 
   </div>
@@ -2621,7 +2641,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-08-25T00:03:28+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-08-25T23:47:25+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2022年8月25日</p>
@@ -2762,7 +2782,7 @@ spring bean的实例化时机
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFBean%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96"><span class="toc-text">什么是Bean的循环依赖</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#spring%E4%B8%AD%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E5%9C%BA%E6%99%AF"><span class="toc-text">spring中循环依赖场景</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spring%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-text">spring解决方法</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFBean%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96"><span class="toc-text">什么是Bean的循环依赖</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#spring%E4%B8%AD%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E5%9C%BA%E6%99%AF"><span class="toc-text">spring中循环依赖场景</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spring%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-text">spring解决方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%89%E7%BA%A7%EF%BC%9F%E4%BA%8C%E7%BA%A7%E4%B8%8D%E5%8F%AF%E4%BB%A5%E5%90%97%EF%BC%9F"><span class="toc-text">为什么是三级？二级不可以吗？</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -3778,7 +3798,7 @@ spring bean的实例化时机
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/08/23/springbean中的循环依赖问题/","name":"springbean中的循环依赖问题"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"springbean中的循环依赖问题","description":"","datePublished":"2022-08-23T14:46:10.000Z","dateModified":"2022-08-24T16:03:28.720Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/08/23/springbean%E4%B8%AD%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/08/23/springbean%E4%B8%AD%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/","wordCount":0,"keywords":"spring","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/08/23/springbean中的循环依赖问题/","name":"springbean中的循环依赖问题"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"springbean中的循环依赖问题","description":"","datePublished":"2022-08-23T14:46:10.000Z","dateModified":"2022-08-25T15:47:25.068Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/08/23/springbean%E4%B8%AD%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/08/23/springbean%E4%B8%AD%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/","wordCount":0,"keywords":"spring","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
