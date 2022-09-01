@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/06/27/push-back和emplace-back/"/>
+  <link rel="canonical" href="http://example.com/2022/09/01/mybatis的一二级缓存/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,21 +31,19 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>push_back和emplace_back - SaltFish的博客</title>
-  <meta name="keywords" content="c/c++,java c++">
-  <meta desc name="description" content="在vector中有一个push_back（）方法，作用是往容器尾部插入一个元素，后来在c++11中，又加入了一个emplace_back（）的方法，作用和前者一样。既然两者功能一样，那么之间有什么区别，使用的时候如何选择呢？ - SaltFish - SaltFish的博客">
-  
-<meta property="og:type" content="article">
-<meta property="og:title" content="push_back和emplace_back">
-<meta property="og:url" content="http://example.com/2022/06/27/push-back%E5%92%8Cemplace-back/index.html">
+  <title>mybatis的一二级缓存 - SaltFish的博客</title>
+  <meta name="keywords" content="java c++">
+  <meta desc name="description" content="菜狗一枚，坐标西安电子科技大学 - SaltFish - SaltFish的博客">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="mybatis的一二级缓存">
+<meta property="og:url" content="http://example.com/2022/09/01/mybatis%E7%9A%84%E4%B8%80%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="在vector中有一个push_back（）方法，作用是往容器尾部插入一个元素，后来在c++11中，又加入了一个emplace_back（）的方法，作用和前者一样。既然两者功能一样，那么之间有什么区别，使用的时候如何选择呢？">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-06-27T11:19:18.000Z">
-<meta property="article:modified_time" content="2022-06-27T13:59:13.070Z">
+<meta property="article:published_time" content="2022-09-01T15:17:19.000Z">
+<meta property="article:modified_time" content="2022-09-01T15:17:19.912Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="c&#x2F;c++">
+<meta property="article:tag" content="java c++">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2500,7 +2498,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/27/push-back%E5%92%8Cemplace-back/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/01/mybatis%E7%9A%84%E4%B8%80%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2521,7 +2519,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        push_back和emplace_back
+        mybatis的一二级缓存
       </h1>
       <div class='new-meta-box'>
         
@@ -2542,10 +2540,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-06-27T19:19:18+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-09-01T23:17:19+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年6月27日</p>
+    <p>发布于：2022年9月1日</p>
   </a>
 </div>
 
@@ -2566,23 +2564,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>在vector中有一个push_back（）方法，作用是往容器尾部插入一个元素，后来在c++11中，又加入了一个emplace_back（）的方法，作用和前者一样。既然两者功能一样，那么之间有什么区别，使用的时候如何选择呢？<span id="more"></span></p>
-<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyTest</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="type">int</span> id;</span><br><span class="line">	<span class="type">int</span> age;</span><br><span class="line">	</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//普通构造</span></span><br><span class="line">	<span class="built_in">MyTest</span>(<span class="type">int</span> id,<span class="type">int</span> age) : <span class="built_in">id</span>(id),<span class="built_in">age</span>(age)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;create MyTest class...&quot;</span> &lt;&lt; <span class="keyword">this</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//拷贝构造</span></span><br><span class="line">	<span class="built_in">MyTest</span>(<span class="type">const</span> MyTest &amp; t) : <span class="built_in">id</span>(t.id),<span class="built_in">age</span>(t.age)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;copy constructor called&quot;</span> &lt;&lt; <span class="keyword">this</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//移动构造</span></span><br><span class="line">	<span class="built_in">MyTest</span>(<span class="type">const</span> MyTest &amp;&amp; t)</span><br><span class="line">	&#123;</span><br><span class="line">		id = std::<span class="built_in">move</span>(t.id);</span><br><span class="line">		age = std::<span class="built_in">move</span>(t.age);</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;move constructor called&quot;</span> &lt;&lt; <span class="keyword">this</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//析构</span></span><br><span class="line">	~<span class="built_in">MyTest</span>()</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;destroy MyTest class...&quot;</span> &lt;&lt; <span class="keyword">this</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span> * argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	vector&lt;MyTest&gt; vec;</span><br><span class="line">	vec.<span class="built_in">reserve</span>(<span class="number">2</span>); <span class="comment">//预先分配内存，可以提高性能</span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;----------push_back()------------&quot;</span> &lt;&lt; endl;</span><br><span class="line">	vec.<span class="built_in">push_back</span>(<span class="built_in">MyTest</span>(<span class="number">1</span>,<span class="number">20</span>));</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;----------emplace_back()-------------&quot;</span> &lt;&lt; endl;</span><br><span class="line">	vec.<span class="built_in">emplace_back</span>(<span class="number">1</span>,<span class="number">20</span>);</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;-------------finish-------------------&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行上述程序，结果如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">----------------------<span class="built_in">push_back</span>()-------------------</span><br><span class="line">create MyTest <span class="keyword">class</span>...</span><br><span class="line">move constructor called</span><br><span class="line">destroy MyTest <span class="keyword">class</span>...</span><br><span class="line"></span><br><span class="line">----------------------emplace_back------------------</span><br><span class="line">create MyTest <span class="keyword">class</span>...</span><br><span class="line"></span><br><span class="line">-----------------------finish-------------------------</span><br><span class="line">destroy MyTest <span class="keyword">class</span>...</span><br><span class="line">destroy MyTest <span class="keyword">class</span>...</span><br></pre></td></tr></table></figure>
-
-<p>从结果看出，两者的过程是不一样的：</p>
-<ul>
-<li>push_back()：</li>
-</ul>
-<p>构造一个临时对象，调用移动构造函数把临时对象的副本拷贝到容器末尾增加的元素中，然后调用析构函数释放对象</p>
-<ul>
-<li>emplace_back():</li>
-</ul>
-<p>调用构造函数在容器末尾增加一个元素</p>
-<p>从上述说明中可以看出，emplace_back（）的效率是比较高的，根据测试，后者大概比前者快20%</p>
-
+    
 
   </div>
   
@@ -2601,7 +2583,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/06/27/push-back%E5%92%8Cemplace-back/>http://example.com/2022/06/27/push-back%E5%92%8Cemplace-back/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/09/01/mybatis%E7%9A%84%E4%B8%80%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98/>http://example.com/2022/09/01/mybatis%E7%9A%84%E4%B8%80%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98/</a></p>
               
             
           </blockquote>
@@ -2618,10 +2600,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-27T21:59:13+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-09-01T23:17:19+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年6月27日</p>
+    <p>更新于：2022年9月1日</p>
   </a>
 </div>
 
@@ -2629,10 +2611,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         
           
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/c-c/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>c/c++</p></a></div>
-  <span hidden itemprop="keywords">c/c++</span>
-
 
         
       
@@ -2644,7 +2622,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/06/27/push-back%E5%92%8Cemplace-back/&title=push_back和emplace_back - SaltFish的博客&summary=在vector中有一个push_back（）方法，作用是往容器尾部插入一个元素，后来在c++11中，又加入了一个emplace_back（）的方法，作用和前者一样。既然两者功能一样，那么之间有什么区别，使用的时候如何选择呢？"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/09/01/mybatis%E7%9A%84%E4%B8%80%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98/&title=mybatis的一二级缓存 - SaltFish的博客&summary="
           
           >
           
@@ -2656,7 +2634,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/06/27/push-back%E5%92%8Cemplace-back/&title=push_back和emplace_back - SaltFish的博客&summary=在vector中有一个push_back（）方法，作用是往容器尾部插入一个元素，后来在c++11中，又加入了一个emplace_back（）的方法，作用和前者一样。既然两者功能一样，那么之间有什么区别，使用的时候如何选择呢？"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/09/01/mybatis%E7%9A%84%E4%B8%80%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98/&title=mybatis的一二级缓存 - SaltFish的博客&summary="
           
           >
           
@@ -2668,7 +2646,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/06/27/push-back%E5%92%8Cemplace-back/&title=push_back和emplace_back - SaltFish的博客&summary=在vector中有一个push_back（）方法，作用是往容器尾部插入一个元素，后来在c++11中，又加入了一个emplace_back（）的方法，作用和前者一样。既然两者功能一样，那么之间有什么区别，使用的时候如何选择呢？"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/09/01/mybatis%E7%9A%84%E4%B8%80%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98/&title=mybatis的一二级缓存 - SaltFish的博客&summary="
           
           >
           
@@ -2701,19 +2679,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/06/27/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>右值引用</p>
-          <p class='content'>左值引用和右值引用分别是什么呢？
-右值引用左值引用左值是一个表达数据的表达式，程序可以获取其地址。左值出现在赋值语句的左边
-123456int n;int * pt = new int;cons...</p>
-        </a>
       
-      
-        <a class='next' href='/2022/06/26/%E7%A7%BB%E5%8A%A8%E8%AF%AD%E4%B9%89/'>
-          <p class='title'>移动语义<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>什么是移动语义？为什么需要移动语义
-为什么需要移动语义？c++11之前的复制过程
-123vector&lt;string&gt; vstr;	//build up a vector of 20,...</p>
+        <a class='next' href='/2022/09/01/%E5%8A%A8%E6%80%81sql/'>
+          <p class='title'>动态sql<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>
+
+动态sql动态sql可以在xml映射文件内，以标签的形式编写动态sql，作用是根据表达式的值，完成逻辑判断并动态拼接sql的功能。动态sql的实现，使用的是mybatis提供的标签
+myba...</p>
         </a>
       
     </div>
@@ -2729,7 +2701,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <article class="post white-box reveal shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/06/27/push-back%E5%92%8Cemplace-back/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/09/01/mybatis%E7%9A%84%E4%B8%80%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2752,19 +2724,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <section class="widget toc-wrapper shadow floatable blur desktop mobile pjax" id="toc-div" >
-    
-  <header>
-    
-      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BA%E5%88%AB"><span class="toc-text">区别</span></a></li></ol>
-    </div>
-  </section>
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   
 
@@ -3778,7 +3740,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/27/push-back和emplace-back/","name":"push_back和emplace_back"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"push_back和emplace_back","description":"在vector中有一个push_back（）方法，作用是往容器尾部插入一个元素，后来在c++11中，又加入了一个emplace_back（）的方法，作用和前者一样。既然两者功能一样，那么之间有什么区别，使用的时候如何选择呢？","datePublished":"2022-06-27T11:19:18.000Z","dateModified":"2022-06-27T13:59:13.070Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/27/push-back%E5%92%8Cemplace-back/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/27/push-back%E5%92%8Cemplace-back/","wordCount":112,"keywords":"c/c++","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/09/01/mybatis的一二级缓存/","name":"mybatis的一二级缓存"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"mybatis的一二级缓存","description":"","datePublished":"2022-09-01T15:17:19.000Z","dateModified":"2022-09-01T15:17:19.912Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/09/01/mybatis%E7%9A%84%E4%B8%80%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/09/01/mybatis%E7%9A%84%E4%B8%80%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98/","wordCount":0,"image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
