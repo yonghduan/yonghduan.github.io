@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/03/24/java函数传参详细分析/"/>
+  <link rel="canonical" href="http://example.com/2022/09/15/rocketmq/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,23 +31,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>java函数传参详细分析 - SaltFish的博客</title>
-  <meta name="keywords" content="java,java c++">
-  <meta desc name="description" content="
-
-由于java没有指针，那么java在函数传参的过程中，到底传递的是一个值呢还是对象的地址呢？ - SaltFish - SaltFish的博客">
+  <title>rocketmq - SaltFish的博客</title>
+  <meta name="keywords" content="java面试,java c++">
+  <meta desc name="description" content="菜狗一枚，坐标西安电子科技大学 - SaltFish - SaltFish的博客">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="java函数传参详细分析">
-<meta property="og:url" content="http://example.com/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/index.html">
+<meta property="og:title" content="rocketmq">
+<meta property="og:url" content="http://example.com/2022/09/15/rocketmq/index.html">
 <meta property="og:site_name" content="SaltFish的博客">
-<meta property="og:description" content="由于java没有指针，那么java在函数传参的过程中，到底传递的是一个值呢还是对象的地址呢？">
+<meta property="og:description" content="特点 吞吐量高：单机吞吐量可达十万级 可用性高：分布式架构 消息可靠性高：经过参数优化配置，消息可以做到0丢失 功能支持完善 支持10亿级别的消息堆积，不会因为消息堆积而性能下降 源码是java 可靠性高， 稳定性高  介绍 组成 **Name Server:**名称服务，充当路由消息的提供者。他有两个功能：  接收broker请求，注册broker的路由信息 接收producer和con">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-03-24T15:22:10.000Z">
-<meta property="article:modified_time" content="2022-05-23T02:27:15.258Z">
+<meta property="article:published_time" content="2022-09-15T15:14:46.000Z">
+<meta property="article:modified_time" content="2022-09-15T15:55:32.432Z">
 <meta property="article:author" content="SaltFish">
-<meta property="article:tag" content="java">
+<meta property="article:tag" content="java面试">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2502,7 +2500,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/15/rocketmq/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
   </span>
@@ -2523,7 +2521,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        java函数传参详细分析
+        rocketmq
       </h1>
       <div class='new-meta-box'>
         
@@ -2544,10 +2542,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-03-24T23:22:10+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-09-15T23:14:46+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年3月24日</p>
+    <p>发布于：2022年9月15日</p>
   </a>
 </div>
 
@@ -2568,15 +2566,35 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer">
+    <span id="more"></span>
 
-<p>由于java没有指针，那么java在函数传参的过程中，到底传递的是一个值呢还是对象的地址呢？<span id="more"></span></p>
-<h3 id="基本类型参数"><a href="#基本类型参数" class="headerlink" title="基本类型参数"></a>基本类型参数</h3><p>对于基本类型数据来说，函数传参传递的仅仅是个值而已，即传递过去，就赋值给函数局部变量，与原始值再没关系了</p>
-<h3 id="引用类型数据参数"><a href="#引用类型数据参数" class="headerlink" title="引用类型数据参数"></a>引用类型数据参数</h3><p>对于引用类型来说，函数传参传递的实则是对象地址的传递，在传参的过程中将对象的地址赋值给函数局部变量，因此这个函数局部变量也是指向这个对象的</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Person person  = new Person;</span><br><span class="line">change(person);</span><br><span class="line"></span><br><span class="line">void change(Person p)&#123;...&#125;</span><br></pre></td></tr></table></figure>
+<meta name="referrer" content="no-referrer">
 
-<p>在这个过程中，函数执行栈中有个引用变量person首先指向新建的Person对象，此Person对象在堆内存中，当调用change函数时，实则又是在栈中建立了个变量p，把person的值，即Person对象的堆内存地址赋值给它，所以他们指向的是同一个对象</p>
-<p><img src="https://images2018.cnblogs.com/blog/1206608/201802/1206608-20180228152155115-2207416.png" class="lazyload" data-srcset="https://images2018.cnblogs.com/blog/1206608/201802/1206608-20180228152155115-2207416.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220324233417181"></p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>吞吐量高：单机吞吐量可达十万级</li>
+<li>可用性高：分布式架构</li>
+<li>消息可靠性高：经过参数优化配置，消息可以做到0丢失</li>
+<li>功能支持完善</li>
+<li>支持10亿级别的消息堆积，不会因为消息堆积而性能下降</li>
+<li>源码是java</li>
+<li>可靠性高，</li>
+<li>稳定性高</li>
+</ul>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p><img src="https://img2018.cnblogs.com/blog/285763/201908/285763-20190821175219196-1211062486.png" class="lazyload" data-srcset="https://img2018.cnblogs.com/blog/285763/201908/285763-20190821175219196-1211062486.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p>
+<h4 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h4><blockquote>
+<p>**Name Server:**名称服务，充当路由消息的提供者。他有两个功能：</p>
+<ul>
+<li>接收broker请求，注册broker的路由信息</li>
+<li>接收producer和consumer的请求，根据某个topic获取到其broker的路由信息</li>
+</ul>
+<p><strong>Broker：</strong>负责存储消息，转发消息，是消息队列服务器，提供了消息的接收，存储，拉取和转发服务</p>
+<p>每个broker与name server集群中的所有节点建立长连接，定时注册topic消息到所有的name server。broker启动后要完成一次将自己注册到name server操作，随后每隔30s定期向name server上报topic路由消息</p>
+</blockquote>
+<h4 id="topic-queue-tags"><a href="#topic-queue-tags" class="headerlink" title="topic queue tags"></a>topic queue tags</h4><p>topic代表普通的消息队列，而queue是组成topic的更小的单元</p>
+<ul>
+<li>topic：表示消息的第一级类型，一条消息必须有一个topic</li>
+<li>queue：topic被划分为一个或多个子topic，称为message queues。</li>
+</ul>
 
 
   </div>
@@ -2596,7 +2614,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/>http://example.com/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/09/15/rocketmq/>http://example.com/2022/09/15/rocketmq/</a></p>
               
             
           </blockquote>
@@ -2613,10 +2631,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-23T10:27:15+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-09-15T23:55:32+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年5月23日</p>
+    <p>更新于：2022年9月15日</p>
   </a>
 </div>
 
@@ -2625,8 +2643,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>java</p></a></div>
-  <span hidden itemprop="keywords">java</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java%E9%9D%A2%E8%AF%95/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>java面试</p></a></div>
+  <span hidden itemprop="keywords">java面试</span>
 
 
         
@@ -2639,9 +2657,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/&title=java函数传参详细分析 - SaltFish的博客&summary=
-
-由于java没有指针，那么java在函数传参的过程中，到底传递的是一个值呢还是对象的地址呢？"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/09/15/rocketmq/&title=rocketmq - SaltFish的博客&summary="
           
           >
           
@@ -2653,9 +2669,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/&title=java函数传参详细分析 - SaltFish的博客&summary=
-
-由于java没有指针，那么java在函数传参的过程中，到底传递的是一个值呢还是对象的地址呢？"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/09/15/rocketmq/&title=rocketmq - SaltFish的博客&summary="
           
           >
           
@@ -2667,9 +2681,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/&title=java函数传参详细分析 - SaltFish的博客&summary=
-
-由于java没有指针，那么java在函数传参的过程中，到底传递的是一个值呢还是对象的地址呢？"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/09/15/rocketmq/&title=rocketmq - SaltFish的博客&summary="
           
           >
           
@@ -2702,20 +2714,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/03/25/Serializable%E6%8E%A5%E5%8F%A3/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>Serializable接口</p>
+      
+        <a class='next' href='/2022/09/15/rabbitmq/'>
+          <p class='title'>rabbitmq<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
           <p class='content'>
 
-要缓存的对象必须先实现Serializable接口，因为Spring会将对象先序列化再存入redis，所以到底什么是序列化？又为什么要序列化呢？
-什么是序列化，它的作用是什么？Seriali...</p>
-        </a>
-      
-      
-        <a class='next' href='/2022/03/24/jwt/'>
-          <p class='title'>JWT<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>
 
-jwt本质是一个字符串，它可以将用户信息保存到一个json格式字符串中，然后加上头部以及secret key编码后得到jwt token，并且这个token带有签名信息，可以验证信息是否被篡...</p>
+
+介绍rabgbitmq是一个实现了amqp（advanced message queuing protocol）高级消息队列协议的消息队列服务，用Erlang语言实现，是面向消息的中间件...</p>
         </a>
       
     </div>
@@ -2731,7 +2737,7 @@ jwt本质是一个字符串，它可以将用户信息保存到一个json格式�
   
   <article class="post white-box reveal shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/09/15/rocketmq/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2764,7 +2770,7 @@ jwt本质是一个字符串，它可以将用户信息保存到一个json格式�
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0"><span class="toc-text">基本类型参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%8F%82%E6%95%B0"><span class="toc-text">引用类型数据参数</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E6%88%90"><span class="toc-text">组成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#topic-queue-tags"><span class="toc-text">topic queue tags</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -3780,7 +3786,7 @@ jwt本质是一个字符串，它可以将用户信息保存到一个json格式�
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/03/24/java函数传参详细分析/","name":"java函数传参详细分析"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"java函数传参详细分析","description":"\n\n由于java没有指针，那么java在函数传参的过程中，到底传递的是一个值呢还是对象的地址呢？","datePublished":"2022-03-24T15:22:10.000Z","dateModified":"2022-05-23T02:27:15.258Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/03/24/java%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/","wordCount":48,"keywords":"java","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/09/15/rocketmq/","name":"rocketmq"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"rocketmq","description":"","datePublished":"2022-09-15T15:14:46.000Z","dateModified":"2022-09-15T15:55:32.432Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/09/15/rocketmq/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/09/15/rocketmq/","wordCount":0,"keywords":"java面试","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
