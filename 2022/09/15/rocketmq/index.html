@@ -43,7 +43,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-09-15T15:14:46.000Z">
-<meta property="article:modified_time" content="2022-09-15T15:55:32.432Z">
+<meta property="article:modified_time" content="2022-09-19T13:53:13.475Z">
 <meta property="article:author" content="SaltFish">
 <meta property="article:tag" content="java面试">
 <meta name="twitter:card" content="summary">
@@ -1752,7 +1752,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.8a038721.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1663257418361),
+    lastupdate: new Date(1663683078874),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2593,8 +2593,41 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h4 id="topic-queue-tags"><a href="#topic-queue-tags" class="headerlink" title="topic queue tags"></a>topic queue tags</h4><p>topic代表普通的消息队列，而queue是组成topic的更小的单元</p>
 <ul>
 <li>topic：表示消息的第一级类型，一条消息必须有一个topic</li>
-<li>queue：topic被划分为一个或多个子topic，称为message queues。</li>
+<li>queue：一个主题下的消息被存储在队列上，队列可能分布在不同的broker上</li>
 </ul>
+<h3 id="rocketmq如何保证高可靠性"><a href="#rocketmq如何保证高可靠性" class="headerlink" title="rocketmq如何保证高可靠性"></a>rocketmq如何保证高可靠性</h3><p><strong>1.集群化部署NameServer</strong></p>
+<p>broker集群会将所有的broker基本信息，topic信息以及两者之间的映射关系轮询存储在每个NameServer中，每个server存储的信息完全一样。因此，不会因为其中一两台服务器挂掉，而影响整个系统消息的发送和接受</p>
+<p><strong>2.集群化部署broker</strong></p>
+<p>producer发送消息到broker的master，若当前的master挂掉，则会自动切换到其他的master</p>
+<p>consumer默认会访问broker的master节点获取消息，但是master节点挂了之后，它就会自动切换到同一个broker组的slave节点进行消费</p>
+<p>这样就出现了一个问题，如何master节点在挂掉之前没有来得及将信息同步到slave节点，那么consumer直接消费slave就获取不到相应的消息了，这样就引出了下一个措施，来保证消息的高可用性</p>
+<p><strong>3.设置同步复制</strong></p>
+<p>master节点需要将消息复制到salve节点上，rocketmq提供两种复制方式：同步复制和异步复制</p>
+<p>同步复制，就是等master和slave都写入内存之后，才会向客户端返回成功</p>
+<p>要保证高可用性，就需要将复制方式设置为同步复制，这样能够保证即使master节点挂了，slave节点也有对应的消息</p>
+<h3 id="保证负载均衡"><a href="#保证负载均衡" class="headerlink" title="保证负载均衡"></a>保证负载均衡</h3><ol>
+<li>producer发送消息的负载均衡：默认会轮询向topic的所有queue发送消息，以达到消息平均落到不同的queue上；（queue可以在不同的broker上）</li>
+<li>consumer消费消息负载均衡：假设有5个队列，两个消费者，则第一个消费者消费3个队列，第二个消费2个队列，以达到平均消费的效果。需要注意的是：当消费者数量大于队列数量时，多出来的队列不回去消费数据，因此建议consumer的数量小于队列数量，避免造成不必要的浪费</li>
+</ol>
+<h3 id="存储机制"><a href="#存储机制" class="headerlink" title="存储机制"></a>存储机制</h3><p>采用文件系统进行消息的存储，相对于activemq采用关系型数据库进行存储的方式性能更加高了</p>
+<p>rocketmq和kafka在写消息和发送消息上，沿用了kafka的两个方面，顺序写和零拷贝</p>
+<h4 id="顺序写"><a href="#顺序写" class="headerlink" title="顺序写"></a>顺序写</h4><p>操作系统每次从磁盘读写数据的时候，寻址耗费的时间会比较长。数据存储在内存上，少了寻址过程，性能会高很多；但是kafka数据存储在磁盘上，性能依然很好，这是为什么呢？</p>
+<p>因为kafka采用的顺序写，直接追加数据到末尾。实际上，磁盘顺序写的效率极高，这一机制，保证了kafka的性能</p>
+<h4 id="零拷贝"><a href="#零拷贝" class="headerlink" title="零拷贝"></a>零拷贝</h4><p>比如：读取文件，再用socket发出去这一过程：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">buffer = File.read</span><br><span class="line">Socket.send(buffer)</span><br></pre></td></tr></table></figure>
+
+<p>传统方式实现，先读取，再发送，实则是会经过四次复制</p>
+<ol>
+<li>将磁盘文件，读取到操作系统内核缓冲区Read Buffer</li>
+<li>将内核缓冲区的数据，复制到应用程序缓冲区Application Buffer</li>
+<li>将Application Buffer中的数据，复制到socket网络发送缓冲区</li>
+<li>将socket buffer数据复制到网卡进行网络传输</li>
+</ol>
+<p>重新思考传统IO方式，在读取到磁盘文件后，直接由Read Buffer将数据复制到网卡发送出去，会减少读取的开销，是rocketmq性能有一个质的提升</p>
+<p>零拷贝技术采用了MappedByteBuffer内存映射技术，采用这个技术有一个限制，就是传输的文件不能超过2g，这也就是为什么存储消息的文件commitlog的大小规定为1G的原因</p>
+<h3 id="rocketmq的消息存储结构"><a href="#rocketmq的消息存储结构" class="headerlink" title="rocketmq的消息存储结构"></a>rocketmq的消息存储结构</h3><p>CommitLog：存储所有消息的元数据，包括topic，queueId以及message</p>
+<p>ConsumerQueue：消费逻辑队列，存储消息在CommitLog的offset</p>
+<p>IndexFile：索引文件，存储消息的key和时间戳等信息，使得rocketmq可以采用key和时间来查询消息</p>
 
 
   </div>
@@ -2631,10 +2664,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-09-15T23:55:32+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-09-19T21:53:13+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年9月15日</p>
+    <p>更新于：2022年9月19日</p>
   </a>
 </div>
 
@@ -2714,6 +2747,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
+        <a class='prev' href='/2022/09/17/%E4%BD%BF%E7%94%A8https/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>使用https</p>
+          <p class='content'>
+</p>
+        </a>
+      
       
         <a class='next' href='/2022/09/15/rabbitmq/'>
           <p class='title'>rabbitmq<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
@@ -2770,7 +2809,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E6%88%90"><span class="toc-text">组成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#topic-queue-tags"><span class="toc-text">topic queue tags</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E6%88%90"><span class="toc-text">组成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#topic-queue-tags"><span class="toc-text">topic queue tags</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rocketmq%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E9%AB%98%E5%8F%AF%E9%9D%A0%E6%80%A7"><span class="toc-text">rocketmq如何保证高可靠性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E8%AF%81%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-text">保证负载均衡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E6%9C%BA%E5%88%B6"><span class="toc-text">存储机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E5%86%99"><span class="toc-text">顺序写</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%B6%E6%8B%B7%E8%B4%9D"><span class="toc-text">零拷贝</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rocketmq%E7%9A%84%E6%B6%88%E6%81%AF%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-text">rocketmq的消息存储结构</span></a></li></ol>
     </div>
   </section>
 
@@ -3786,7 +3825,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/09/15/rocketmq/","name":"rocketmq"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"rocketmq","description":"","datePublished":"2022-09-15T15:14:46.000Z","dateModified":"2022-09-15T15:55:32.432Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/09/15/rocketmq/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/09/15/rocketmq/","wordCount":0,"keywords":"java面试","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"SaltFish的博客","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"菜狗一枚，坐标西安电子科技大学"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"SaltFish的博客"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/09/15/rocketmq/","name":"rocketmq"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"rocketmq","description":"","datePublished":"2022-09-15T15:14:46.000Z","dateModified":"2022-09-19T13:53:13.475Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/09/15/rocketmq/"},"author":{"@type":"Person","name":"SaltFish","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"SaltFish的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/09/15/rocketmq/","wordCount":0,"keywords":"java面试","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
