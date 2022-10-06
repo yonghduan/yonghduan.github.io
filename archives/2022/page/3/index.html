@@ -1750,7 +1750,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.8a038721.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1663858992755),
+    lastupdate: new Date(1665062065993),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2506,6 +2506,132 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/22/springBean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SaltFish的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="SaltFish的博客">
+    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/08/22/springBean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"  itemprop="url">
+        springBean的生命周期
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        
+
+
+
+spring bean的实例化时机
+如果使用BeanFactory作为Spring Bean的工厂类，则所有的bean都是在第一次使用该Bean的时候被实例化
+如果使用的是ApplicationContext，分为：
+
+
+bean的scope是singleton的，并且lazy-init为false，则启动的时候就加载实例化bean,
+如果为singleton并且lazy-init为...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-08-22T23:05:24+08:00">2022-08-22</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/08/22/springBean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/21/springIOC%E7%90%86%E8%A7%A3/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SaltFish的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="SaltFish的博客">
+    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/08/21/springIOC%E7%90%86%E8%A7%A3/"  itemprop="url">
+        springIOC理解
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        
+
+IOC:控制反转，即将对象的管理权交给spring容器，目的的是解耦，到底解耦有什么用呢？
+强耦合12Person zhagnsan = new ZhangSan();//ZhangSan是Person接口的一个实现
+
+这是强耦合的写法，即实现和引用是一对一的。这样做的坏处是什么呢？就是耦合太强。。。。。
+为什么这么说呢？我们知道程序不是一个一完俱完的过程，它是一个长久的过程，因为一个程...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-08-21T23:08:28+08:00">2022-08-21</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/08/21/springIOC%E7%90%86%E8%A7%A3/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
   <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/21/spring%E4%BA%8B%E5%8A%A1/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="SaltFish的博客">
@@ -2995,119 +3121,6 @@ RDBRedis DataBase：在不同的时间点将redis的数据生成的快照同步�
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/23/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E5%92%8C%E9%9B%AA%E5%B4%A9/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/07/23/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E5%92%8C%E9%9B%AA%E5%B4%A9/"  itemprop="url">
-        缓存穿透和雪崩
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        
-
-缓存穿透一般的缓存系统，都是按照key去缓存查询，如果不存在对应的value，就去后端系统查询。一些恶意的请求会故意查询不存在的key，请求量很大，对后端系统造成很大的压力，这就叫缓存穿透
-如何避免？
-对一定不存在的key进行过滤。可以把所有的可能存在的key都放到一个大的bitmap中，查询时通过该bitmap过滤
-对查询结果为空的情况也进行缓存，缓存时间设置短一点，或者该key对应的...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-07-23T10:29:47+08:00">2022-07-23</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/07/23/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E5%92%8C%E9%9B%AA%E5%B4%A9/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/16/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SaltFish的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="SaltFish的博客">
-    <meta itemprop="description" content="菜狗一枚，坐标西安电子科技大学">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/07/16/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2/"  itemprop="url">
-        算法专题：二分搜索
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>关于二分搜索的题目</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-07-16T21:37:31+08:00">2022-07-16</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/07/16/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98%EF%BC%9A%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
     
   </section>
   
@@ -3230,7 +3243,7 @@ RDBRedis DataBase：在不同的时间点将redis的数据生成的快照同步�
 
 
     <div class='content'>
-      <a href="/tags/c-c/" style="font-size: 18.44px; color: #7b7b7b">c/c++</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/java%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 21.78px; color: #646464">java虚拟机</a> <a href="/tags/java%E9%9D%A2%E8%AF%95/" style="font-size: 20.67px; color: #6c6c6c">java面试</a> <a href="/tags/learning-notes/" style="font-size: 22.89px; color: #5d5d5d">learning notes</a> <a href="/tags/leetcode/" style="font-size: 18.44px; color: #7b7b7b">leetcode</a> <a href="/tags/mybatis-plus/" style="font-size: 19.56px; color: #737373">mybatis-plus</a> <a href="/tags/mysql/" style="font-size: 18.44px; color: #7b7b7b">mysql</a> <a href="/tags/redis/" style="font-size: 15.11px; color: #919191">redis</a> <a href="/tags/sharing/" style="font-size: 16.22px; color: #8a8a8a">sharing</a> <a href="/tags/spring/" style="font-size: 17.33px; color: #828282">spring</a> <a href="/tags/spring-boot/" style="font-size: 15.11px; color: #919191">spring-boot</a> <a href="/tags/spring-security/" style="font-size: 15.11px; color: #919191">spring-security</a> <a href="/tags/thinking/" style="font-size: 14px; color: #999">thinking</a> <a href="/tags/web/" style="font-size: 21.78px; color: #646464">web</a>
+      <a href="/tags/c-c/" style="font-size: 19px; color: #777">c/c++</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/java%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 21.5px; color: #666">java虚拟机</a> <a href="/tags/java%E9%9D%A2%E8%AF%95/" style="font-size: 21.5px; color: #666">java面试</a> <a href="/tags/learning-notes/" style="font-size: 22.75px; color: #5e5e5e">learning notes</a> <a href="/tags/leetcode/" style="font-size: 19px; color: #777">leetcode</a> <a href="/tags/mybatis-plus/" style="font-size: 20.25px; color: #6f6f6f">mybatis-plus</a> <a href="/tags/mysql/" style="font-size: 19px; color: #777">mysql</a> <a href="/tags/redis/" style="font-size: 15.25px; color: #919191">redis</a> <a href="/tags/sharing/" style="font-size: 16.5px; color: #888">sharing</a> <a href="/tags/spring/" style="font-size: 17.75px; color: #808080">spring</a> <a href="/tags/spring-boot/" style="font-size: 15.25px; color: #919191">spring-boot</a> <a href="/tags/spring-security/" style="font-size: 15.25px; color: #919191">spring-security</a> <a href="/tags/thinking/" style="font-size: 14px; color: #999">thinking</a> <a href="/tags/web/" style="font-size: 21.5px; color: #666">web</a>
     </div>
   </section>
 
